@@ -1,0 +1,3765 @@
+<Gearlist>
+    <Version>1.0</Version>
+    <Main_Activities>
+        <name>Biking</name>
+        <name>Water</name>
+    </Main_Activities>
+    <Equipment>
+        <main_activity>
+            <name>Biking</name>
+            <sub_activities>
+                <name>Mountain</name>
+                <name>Casual</name>
+                <name>Road</name>
+            </sub_activities>
+            <Temperature>
+                <name>Hot</name>
+                <name>Warm</name>
+                <name>Cool</name>
+                <name>Cold</name>
+            </Temperature>
+            <Duration>
+                <name>1 Day</name>
+                <name>2 Days</name>
+                <name>3+ Days</name>
+            </Duration>
+            <Equipment_List>
+                <Sub_Activity>
+                    <name>Mountain</name>
+                    <Duration>
+                        <day>1 Day</day>
+                        <temperature>
+                            <name>Hot</name>
+                            <list>
+                                <equipment>
+                                    <name>Mountain Bike</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Helmet</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Riding Shoes</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Pads</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Riding Gloves</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Riding Pack</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Water</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Energy Food</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Riding Socks</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Riding Jersey</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Riding Shorts</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Casual Clothes</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Casual Footwear</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Hat</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Bug and Tick Spray</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Sunblock</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Eyewear</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Trail Maps</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Camelbak Pack</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Chain Lube</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Multi Tool</name>
+                                </equipment>
+                                <equipment>
+                                    <name>A Spare Tube</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Patch Kit</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Pump</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Camera</name>
+                                </equipment>
+                            </list>
+                        </temperature>
+                        <temperature>
+                            <name>Warm</name>
+                            <list>
+                                <equipment>
+                                    <name>Mountain Bike</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Helmet</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Riding Shoes</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Pads</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Riding Gloves</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Riding Pack</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Water</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Energy Food</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Riding Socks</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Riding Jersey</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Riding Shorts</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Casual Clothes</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Casual Footwear</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Hat</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Bug and Tick Spray</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Sunblock</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Eyewear</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Trail Maps</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Camelbak Pack</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Chain Lube</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Multi Tool</name>
+                                </equipment>
+                                <equipment>
+                                    <name>A Spare Tube</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Patch Kit</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Pump</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Camera</name>
+                                </equipment>
+                            </list>
+                        </temperature>
+                        <temperature>
+                            <name>Cool</name>
+                            <list>
+                                <equipment>
+                                    <name>Mountain Bike</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Helmet</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Riding Shoes</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Pads</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Riding Gloves</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Riding Pack</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Water</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Energy Food</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Riding Socks</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Riding Jersey</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Riding Shorts</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Light Hat</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Light Jacket</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Warm Casual Clothes</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Casual Footwear</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Hat</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Bug and Tick Spray</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Sunblock</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Eyewear</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Trail Maps</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Camelbak Pack</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Chain Lube</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Multi Tool</name>
+                                </equipment>
+                                <equipment>
+                                    <name>A Spare Tube</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Patch Kit</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Pump</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Camera</name>
+                                </equipment>
+                            </list>
+                        </temperature>
+                        <temperature>
+                            <name>Cold</name>
+                            <list>
+                                <equipment>
+                                    <name>Mountain Bike</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Helmet</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Riding Shoes</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Shoe Covers</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Pads</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Warm Riding Gloves</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Riding Pack</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Water</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Energy Food</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Riding Socks</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Riding Jersey</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Riding Shorts</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Warm Hat</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Warm Jacket</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Warm Casual Clothes</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Casual Footwear</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Hat</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Bug and Tick Spray</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Sunblock</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Eyewear</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Trail Maps</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Camelbak Pack</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Hand Warmers</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Chain Lube</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Multi Tool</name>
+                                </equipment>
+                                <equipment>
+                                    <name>A Spare Tube</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Patch Kit</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Pump</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Camera</name>
+                                </equipment>
+                            </list>
+                        </temperature>
+                    </Duration>
+                    <Duration>
+                        <day>2 Days</day>
+                        <temperature>
+                            <name>Hot</name>
+                            <list>
+                                <equipment>
+                                    <name>Mountain Bike</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Helmet</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Riding Shoes</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Pads</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Riding Gloves</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Riding Pack</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Water</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Energy Food</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Riding Socks</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Riding Jersey</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Riding Shorts</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Casual Clothes</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Casual Footwear</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Hat</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Swimsuit</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Bug &amp; Tick Spray</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Sunblock</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Eyewear</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Trail Maps</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Camelbak Pack</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Chain Lube</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Multi Tool</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Spare Tubes</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Patch Kit</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Pump</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Spare Parts</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Toolbox</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Bike Stand</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Camera &amp; Charger</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Headlight &amp; Charger</name>
+                                </equipment>
+                                <equipment>
+                                    <name>GPS</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Overnight Clothes</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Towel</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Toiletries / Eye Care</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Sleeping Items</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Meals / Snacks</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Phone Charger</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Videos &amp; Magazines</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Mug</name>
+                                </equipment>
+                            </list>
+                        </temperature>
+                        <temperature>
+                            <name>Warm</name>
+                            <list>
+                                <equipment>
+                                    <name>Mountain Bike</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Helmet</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Riding Shoes</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Pads</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Riding Gloves</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Riding Pack</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Water</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Energy Food</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Riding Socks</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Riding Jersey</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Riding Shorts</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Casual Clothes</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Casual Footwear</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Hat</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Swimsuit</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Bug &amp; Tick Spray</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Sunblock</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Eyewear</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Trail Maps</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Camelbak Pack</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Chain Lube</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Multi Tool</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Spare Tubes</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Patch Kit</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Pump</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Spare Parts</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Toolbox</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Bike Stand</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Camera &amp; Charger</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Headlight &amp; Charger</name>
+                                </equipment>
+                                <equipment>
+                                    <name>GPS</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Overnight Clothes</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Towel</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Toiletries / Eye Care</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Sleeping Items</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Meals</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Phone Charger</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Videos &amp; Magazines</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Mug</name>
+                                </equipment>
+                            </list>
+                        </temperature>
+                        <temperature>
+                            <name>Cool</name>
+                            <list>
+                                <equipment>
+                                    <name>Mountain Bike</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Helmet</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Riding Shoes</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Pads</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Riding Gloves</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Riding Pack</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Water</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Energy Food</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Riding Socks</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Riding Jersey</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Riding Shorts</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Light Hat</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Light Jacket</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Warm Casual Clothes</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Casual Footwear</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Hat</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Swimsuit</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Bug &amp; Tick Spray</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Sunblock</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Eyewear</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Trail Maps</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Camelbak Pack</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Chain Lube</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Multi Tool</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Spare Tubes</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Patch Kit</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Pump</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Spare Parts</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Toolbox</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Bike Stand</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Camera &amp; Charger</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Headlight &amp; Charger</name>
+                                </equipment>
+                                <equipment>
+                                    <name>GPS</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Warm Overnight Clothes</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Towel</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Toiletries / Eye Care</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Sleeping Items</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Meals</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Phone Charger</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Videos &amp; Magazines</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Mug</name>
+                                </equipment>
+                            </list>
+                        </temperature>
+                        <temperature>
+                            <name>Cold</name>
+                            <list>
+                                <equipment>
+                                    <name>Mountain Bike</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Helmet</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Riding Shoes</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Shoe Covers</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Pads</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Warm Riding Gloves</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Riding Pack</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Water</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Energy Food</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Riding Socks</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Riding Jersey</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Riding Shorts/Pants</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Warm Hat</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Warm Jacket</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Warm Casual Clothes</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Casual Footwear</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Hat</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Swimsuit</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Bug &amp; Tick Spray</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Sunblock</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Eyewear</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Trail Maps</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Camelbak Pack</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Hand Warmers</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Chain Lube</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Multi Tool</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Spare Tubes</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Patch Kit</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Pump</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Spare Parts</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Toolbox</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Bike Stand</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Camera &amp; Charger</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Headlight &amp; Charger</name>
+                                </equipment>
+                                <equipment>
+                                    <name>GPS</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Warm Overnight Clothes</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Towel</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Toiletries / Eye Care</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Sleeping Items</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Meals</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Phone Charger</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Videos &amp; Magazines</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Mug</name>
+                                </equipment>
+                            </list>
+                        </temperature>
+                    </Duration>
+                    <Duration>
+                        <day>3+ Days</day>
+                        <temperature>
+                            <name>Hot</name>
+                            <list>
+                                <equipment>
+                                    <name>Mountain Bike</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Helmet</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Riding Shoes</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Pads</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Riding Gloves</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Riding Pack</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Water</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Energy Food</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Riding Socks</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Riding Jersey</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Riding Shorts</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Casual Clothes</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Casual Footwear</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Hat</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Swimsuit</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Bug &amp; Tick Spray</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Sunblock</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Eyewear</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Trail Maps</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Camelbak Pack</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Chain Lube</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Multi Tool</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Spare Tubes</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Patch Kit</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Pump</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Spare Parts</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Toolbox</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Bike Stand</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Camera &amp; Charger</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Headlight &amp; Charger</name>
+                                </equipment>
+                                <equipment>
+                                    <name>GPS</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Overnight Clothes</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Towels</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Toiletries / Eye Care</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Sleeping Items</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Meals / Snacks</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Phone Charger</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Videos &amp; Magazines</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Mug</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Laundry Detergent</name>
+                                </equipment>
+                            </list>
+                        </temperature>
+                        <temperature>
+                            <name>Warm</name>
+                            <list>
+                                <equipment>
+                                    <name>Mountain Bike</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Helmet</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Riding Shoes</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Pads</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Riding Gloves</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Riding Pack</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Water</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Energy Food</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Riding Socks</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Riding Jersey</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Riding Shorts</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Casual Clothes</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Casual Footwear</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Hat</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Swimsuit</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Bug &amp; Tick Spray</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Sunblock</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Eyewear</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Trail Maps</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Camelbak Pack</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Chain Lube</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Multi Tool</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Spare Tubes</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Patch Kit</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Pump</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Spare Parts</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Toolbox</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Bike Stand</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Camera &amp; Charger</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Headlight &amp; Charger</name>
+                                </equipment>
+                                <equipment>
+                                    <name>GPS</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Overnight Clothes</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Towel</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Toiletries / Eye Care</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Sleeping Items</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Meals</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Phone Charger</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Videos &amp; Magazines</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Mug</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Laundry Detergent</name>
+                                </equipment>
+                            </list>
+                        </temperature>
+                        <temperature>
+                            <name>Cool</name>
+                            <list>
+                                <equipment>
+                                    <name>Mountain Bike</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Helmet</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Riding Shoes</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Pads</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Riding Gloves</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Riding Pack</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Water</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Energy Food</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Riding Socks</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Riding Jersey</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Riding Shorts</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Light Hat</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Light Jacket</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Warm Casual Clothes</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Casual Footwear</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Hat</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Bug &amp; Tick Spray</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Sunblock</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Eyewear</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Trail Maps</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Camelbak Pack</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Chain Lube</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Multi Tool</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Spare Tubes</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Patch Kit</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Pump</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Spare Parts</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Toolbox</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Bike Stand</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Camera &amp; Charger</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Headlight &amp; Charger</name>
+                                </equipment>
+                                <equipment>
+                                    <name>GPS</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Warm Overnight Clothes</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Towel</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Toiletries / Eye Care</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Sleeping Items</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Meals</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Phone Charger</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Videos &amp; Magazines</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Mug</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Laundry Detergent</name>
+                                </equipment>
+                            </list>
+                        </temperature>
+                        <temperature>
+                            <name>Cold</name>
+                            <list>
+                                <equipment>
+                                    <name>Mountain Bike</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Helmet</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Riding Shoes</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Shoe Covers</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Pads</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Warm Riding Gloves</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Riding Pack</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Water</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Energy Food</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Riding Socks</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Riding Jersey</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Riding Shorts/Pants</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Warm Hat</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Warm Jacket</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Warm Casual Clothes</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Casual Footwear</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Hat</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Bug &amp; Tick Spray</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Sunblock</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Eyewear</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Trail Maps</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Camelbak Pack</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Hand Warmers</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Chain Lube</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Multi Tool</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Spare Tubes</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Patch Kit</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Pump</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Spare Parts</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Toolbox</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Bike Stand</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Camera &amp; Charger</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Headlight &amp; Charger</name>
+                                </equipment>
+                                <equipment>
+                                    <name>GPS</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Warm Overnight Clothes</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Towel</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Toiletries / Eye Care</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Sleeping Items</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Meals</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Phone Charger</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Videos &amp; Magazines</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Mug</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Laundry Detergent</name>
+                                </equipment>
+                            </list>
+                        </temperature>
+                    </Duration>
+                </Sub_Activity>
+                <Sub_Activity>
+                    <name>Casual</name>
+                    <Duration>
+                        <day>1 Day</day>
+                        <temperature>
+                            <name>Hot</name>
+                            <list>
+                                <equipment>
+                                    <name>Bike</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Helmet</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Water Bottle</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Water</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Snack</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Breathable Shirt</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Cycling Shorts</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Hat</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Sunblock</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Sunglasses</name>
+                                </equipment>
+                                <equipment>
+                                    <name>A Spare Tube</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Patch Kit</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Pumpr</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Small Multi-Tool</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Camera</name>
+                                </equipment>
+                            </list>
+                        </temperature>
+                        <temperature>
+                            <name>Warm</name>
+                            <list>
+                                <equipment>
+                                    <name>Bike</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Helmet</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Water Bottle</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Water</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Snack</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Breathable Shirt</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Cycling Shorts</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Hat</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Sunblock</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Sunglasses</name>
+                                </equipment>
+                                <equipment>
+                                    <name>A Spare Tube</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Patch Kit</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Pumpr</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Small Multi-Tool</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Camera</name>
+                                </equipment>
+                            </list>
+                        </temperature>
+                        <temperature>
+                            <name>Cool</name>
+                            <list>
+                                <equipment>
+                                    <name>Bike</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Helmet</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Water Bottle</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Water</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Snack</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Light Jacket</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Breathable Shirt</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Cycling Shorts</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Hat</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Sunblock</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Sunglasses</name>
+                                </equipment>
+                                <equipment>
+                                    <name>A Spare Tube</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Patch Kit</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Pumpr</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Small Multi-Tool</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Camera</name>
+                                </equipment>
+                            </list>
+                        </temperature>
+                        <temperature>
+                            <name>Cold</name>
+                            <list>
+                                <equipment>
+                                    <name>Bike</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Helmet</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Water Bottle</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Water</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Snack</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Warm Jacket</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Breathable Shirt</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Cycling Shorts/Pants</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Warm Gloves</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Warm Hat</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Sunblock</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Sunglasses</name>
+                                </equipment>
+                                <equipment>
+                                    <name>A Spare Tube</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Patch Kit</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Pumpr</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Small Multi-Tool</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Camera</name>
+                                </equipment>
+                            </list>
+                        </temperature>
+                    </Duration>
+                    <Duration>
+                        <day>2 Days</day>
+                        <temperature>
+                            <name>Hot</name>
+                            <list>
+                                <equipment>
+                                    <name>Bike</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Helmet</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Water Bottle</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Water</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Snack</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Breathable Shirt</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Cycling Shorts</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Casual Clothes</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Casual Footwear</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Swimsuit</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Hat</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Sunblock</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Sunglasses</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Spare Tubes</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Patch Kit</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Pump</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Small Multi-Tool</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Camera &amp; Charger</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Overnight Clothes</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Towel</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Toiletries / Eye Care</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Sleeping Items</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Meals</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Phone Charger</name>
+                                </equipment>
+                            </list>
+                        </temperature>
+                        <temperature>
+                            <name>Warm</name>
+                            <list>
+                                <equipment>
+                                    <name>Bike</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Helmet</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Water Bottle</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Water</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Snack</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Breathable Shirt</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Cycling Shorts</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Casual Clothes</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Casual Footwear</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Swimsuit</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Hat</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Sunblock</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Sunglasses</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Spare Tubes</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Patch Kit</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Pump</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Small Multi-Tool</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Camera &amp; Charger</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Overnight Clothes</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Towel</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Toiletries / Eye Care</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Sleeping Items</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Meals</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Phone Charger</name>
+                                </equipment>
+                            </list>
+                        </temperature>
+                        <temperature>
+                            <name>Cool</name>
+                            <list>
+                                <equipment>
+                                    <name>Bike</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Helmet</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Water Bottle</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Water</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Snack</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Light Jacket</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Breathable Shirt</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Cycling Shorts/Pants</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Casual Clothes</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Casual Footwear</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Hat</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Sunblock</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Sunglasses</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Spare Tubes</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Patch Kit</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Pump</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Small Multi-Tool</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Camera &amp; Charger</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Warm Overnight Clothes</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Towel</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Toiletries / Eye Care</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Sleeping Items</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Meals</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Phone Charger</name>
+                                </equipment>
+                            </list>
+                        </temperature>
+                        <temperature>
+                            <name>Cold</name>
+                            <list>
+                                <equipment>
+                                    <name>Bike</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Helmet</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Water Bottle</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Water</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Snack</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Warm Jacket</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Breathable Shirt</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Cycling Shorts/Pants</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Warm Gloves</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Warm Casual Clothes</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Casual Footwear</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Warm Hat</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Sunblock</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Sunglasses</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Spare Tubes</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Patch Kit</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Pump</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Small Multi-Tool</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Camera &amp; Charger</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Warm Overnight Clothes</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Towel</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Toiletries / Eye Care</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Sleeping Items</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Meals</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Phone Charger</name>
+                                </equipment>
+                            </list>
+                        </temperature>
+                    </Duration>
+                    <Duration>
+                        <day>3+ Days</day>
+                        <temperature>
+                            <name>Hot</name>
+                            <list>
+                                <equipment>
+                                    <name>Bike</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Helmet</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Water Bottle</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Water</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Snack</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Breathable Shirt</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Cycling Shorts</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Casual Clothes</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Casual Footwear</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Swimsuit</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Hat</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Sunblock</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Sunglasses</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Spare Tubes</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Patch Kit</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Pump</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Small Multi-Tool</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Camera &amp; Charger</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Overnight Clothes</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Towel</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Toiletries / Eye Care</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Sleeping Items</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Meals</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Phone Charger</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Laundry Detergent</name>
+                                </equipment>
+                            </list>
+                        </temperature>
+                        <temperature>
+                            <name>Warm</name>
+                            <list>
+                                <equipment>
+                                    <name>Bike</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Helmet</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Water Bottle</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Water</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Snack</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Breathable Shirt</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Cycling Shorts</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Casual Clothes</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Casual Footwear</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Swimsuit</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Hat</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Sunblock</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Sunglasses</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Spare Tubes</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Patch Kit</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Pump</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Small Multi-Tool</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Camera &amp; Charger</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Overnight Clothes</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Towel</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Toiletries / Eye Care</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Sleeping Items</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Meals</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Phone Charger</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Laundry Detergent</name>
+                                </equipment>
+                            </list>
+                        </temperature>
+                        <temperature>
+                            <name>Cool</name>
+                            <list>
+                                <equipment>
+                                    <name>Bike</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Helmet</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Water Bottle</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Water</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Snack</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Light Jacket</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Breathable Shirt</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Cycling Shorts/Pants</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Casual Clothes</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Casual Footwear</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Hat</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Sunblock</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Sunglasses</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Spare Tubes</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Patch Kit</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Pump</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Small Multi-Tool</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Camera &amp; Charger</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Warm Overnight Clothes</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Towel</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Toiletries / Eye Care</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Sleeping Items</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Meals</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Phone Charger</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Laundry Detergent</name>
+                                </equipment>
+                            </list>
+                        </temperature>
+                        <temperature>
+                            <name>Cold</name>
+                            <list>
+                                <equipment>
+                                    <name>Bike</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Helmet</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Water Bottle</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Water</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Snack</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Warm Jacket</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Breathable Shirt</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Cycling Shorts/Pants</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Warm Gloves</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Warm Casual Clothes</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Casual Footwear</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Warm Hat</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Sunblock</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Sunglasses</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Spare Tubes</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Patch Kit</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Pump</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Small Multi-Tool</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Camera &amp; Charger</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Warm Overnight Clothes</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Towel</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Toiletries / Eye Care</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Sleeping Items</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Meals</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Phone Charger</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Laundry Detergent</name>
+                                </equipment>
+                            </list>
+                        </temperature>
+                    </Duration>
+                </Sub_Activity>
+            </Equipment_List>
+        </main_activity>
+        <main_activity>
+            <name>Water</name>
+            <sub_activities>
+                <name>Casual Kayaking</name>
+                <name>Whitewater Kayaking</name>
+                <name>Canoeing</name>
+            </sub_activities>
+            <Temperature>
+                <name>Hot</name>
+                <name>Warm</name>
+                <name>Cool</name>
+                <name>Cold</name>
+            </Temperature>
+            <Duration>
+                <name>1 Day</name>
+                <name>2 Days</name>
+                <name>3+ Days</name>
+            </Duration>
+            <Equipment_List>
+                <Sub_Activity>
+                    <name>Casual Kayaking</name>
+                    <Duration>
+                        <day>1 Day</day>
+                        <temperature>
+                            <name>Hot</name>
+                            <list>
+                                <equipment>
+                                    <name>Kayak</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Paddle</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Spray Skirt</name>
+                                </equipment>
+                                <equipment>
+                                    <name>PDF (Floatation Device)</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Water</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Snacks</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Breathable Top</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Paddling Shorts</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Sun Hat</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Water Shoes</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Swimsuit</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Dry Clothes</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Dry Footwear</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Dry Bag</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Waterproof Sunblock</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Towel</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Polarized Sunglasses</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Sunglasses Strap</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Waterproof Camera</name>
+                                </equipment>
+                            </list>
+                        </temperature>
+                        <temperature>
+                            <name>Warm</name>
+                            <list>
+                                <equipment>
+                                    <name>Kayak</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Paddle</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Spray Skirt</name>
+                                </equipment>
+                                <equipment>
+                                    <name>PDF (Floatation Device)</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Water</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Snacks</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Breathable Top</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Paddling Shorts</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Sun Hat</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Water Shoes</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Swimsuit</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Dry Clothes</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Dry Footwear</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Dry Bag</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Waterproof Sunblock</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Towel</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Polarized Sunglasses</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Sunglasses Strap</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Waterproof Camera</name>
+                                </equipment>
+                            </list>
+                        </temperature>
+                        <temperature>
+                            <name>Cool</name>
+                            <list>
+                                <equipment>
+                                    <name>Kayak</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Paddle</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Spray Skirt</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Water</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Snacks</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Waterproof Shell</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Breathable Top</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Paddling Shorts</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Sun Hat</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Water Shoes</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Swimsuit</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Warm Dry Clothes</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Dry Footwear</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Warm Jacket</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Dry Bag</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Waterproof Sunblock</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Towel</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Polarized Sunglasses</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Sunglasses Strap</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Waterproof Camera</name>
+                                </equipment>
+                            </list>
+                        </temperature>
+                    </Duration>
+                    <Duration>
+                        <day>2 Days</day>
+                        <temperature>
+                            <name>Hot</name>
+                            <list>
+                                <equipment>
+                                    <name>Kayak</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Paddle</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Spray Skirt</name>
+                                </equipment>
+                                <equipment>
+                                    <name>PDF (Floatation Device)</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Water</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Snacks</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Breathable Top</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Paddling Shorts</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Sun Hat</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Water Shoes</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Swimsuit</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Dry Clothes</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Dry Footwear</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Dry Bag</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Waterproof Sunblock</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Towel</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Polarized Sunglasses</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Sunglasses Strap</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Waterproof Camera</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Overnight Clothes</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Towel</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Toiletries / Eye Care</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Sleeping Items</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Meals</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Phone Charger</name>
+                                </equipment>
+                            </list>
+                        </temperature>
+                        <temperature>
+                            <name>Warm</name>
+                            <list>
+                                <equipment>
+                                    <name>Kayak</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Paddle</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Spray Skirt</name>
+                                </equipment>
+                                <equipment>
+                                    <name>PDF (Floatation Device)</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Water</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Snacks</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Breathable Top</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Paddling Shorts</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Sun Hat</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Water Shoes</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Swimsuit</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Dry Clothes</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Dry Footwear</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Dry Bag</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Waterproof Sunblock</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Towel</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Polarized Sunglasses</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Sunglasses Strap</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Waterproof Camera</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Overnight Clothes</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Towel</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Toiletries / Eye Care</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Sleeping Items</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Meals</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Phone Charger</name>
+                                </equipment>
+                            </list>
+                        </temperature>
+                        <temperature>
+                            <name>Cool</name>
+                            <list>
+                                <equipment>
+                                    <name>Kayak</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Paddle</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Spray Skirt</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Water</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Snacks</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Waterproof Shell</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Breathable Top</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Paddling Shorts</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Sun Hat</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Water Shoes</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Swimsuit</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Warm Dry Clothes</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Dry Footwear</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Warm Jacket</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Dry Bag</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Waterproof Sunblock</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Towel</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Polarized Sunglasses</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Sunglasses Strap</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Waterproof Camera</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Overnight Clothes</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Towel</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Toiletries / Eye Care</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Sleeping Items</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Meals</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Phone Charger</name>
+                                </equipment>
+                            </list>
+                        </temperature>
+                    </Duration>
+                    <Duration>
+                        <day>3+ Days</day>
+                        <temperature>
+                            <name>Hot</name>
+                            <list>
+                                <equipment>
+                                    <name>Kayak</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Paddle</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Spray Skirt</name>
+                                </equipment>
+                                <equipment>
+                                    <name>PDF (Floatation Device)</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Water</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Snacks</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Breathable Top</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Paddling Shorts</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Sun Hat</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Water Shoes</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Swimsuit</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Dry Clothes</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Dry Footwear</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Dry Bag</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Waterproof Sunblock</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Towel</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Polarized Sunglasses</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Sunglasses Strap</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Waterproof Camera</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Overnight Clothes</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Towel</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Toiletries / Eye Care</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Sleeping Items</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Meals</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Phone Charger</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Laundry Detergent</name>
+                                </equipment>
+                            </list>
+                        </temperature>
+                        <temperature>
+                            <name>Warm</name>
+                            <list>
+                                <equipment>
+                                    <name>Kayak</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Paddle</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Spray Skirt</name>
+                                </equipment>
+                                <equipment>
+                                    <name>PDF (Floatation Device)</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Water</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Snacks</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Breathable Top</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Paddling Shorts</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Sun Hat</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Water Shoes</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Swimsuit</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Dry Clothes</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Dry Footwear</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Dry Bag</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Waterproof Sunblock</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Towel</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Polarized Sunglasses</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Sunglasses Strap</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Waterproof Camera</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Overnight Clothes</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Towel</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Toiletries / Eye Care</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Sleeping Items</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Meals</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Phone Charger</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Laundry Detergent</name>
+                                </equipment>
+                            </list>
+                        </temperature>
+                        <temperature>
+                            <name>Cool</name>
+                            <list>
+                                <equipment>
+                                    <name>Kayak</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Paddle</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Spray Skirt</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Water</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Snacks</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Waterproof Shell</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Breathable Top</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Paddling Shorts</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Sun Hat</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Water Shoes</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Swimsuit</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Warm Dry Clothes</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Dry Footwear</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Warm Jacket</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Dry Bag</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Waterproof Sunblock</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Towel</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Polarized Sunglasses</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Sunglasses Strap</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Waterproof Camera</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Overnight Clothes</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Towel</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Toiletries / Eye Care</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Sleeping Items</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Meals</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Phone Charger</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Laundry Detergent</name>
+                                </equipment>
+                            </list>
+                        </temperature>
+                    </Duration>
+                </Sub_Activity>
+                <Sub_Activity>
+                    <name>Whitewater Kayaking</name>
+                    <Duration>
+                        <day>1 Day</day>
+                        <temperature>
+                            <name>Hot</name>
+                            <list>
+                                <equipment>
+                                    <name>Kayak</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Paddle</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Spray Skirt</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Helmet</name>
+                                </equipment>
+                                <equipment>
+                                    <name>PDF (Floatation Device)</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Rope Bag</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Float Bag</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Water</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Energy Food</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Breathable Top</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Paddling Shorts</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Sun Hat</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Water Shoes</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Swimsuit</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Dry Clothes</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Dry Footwear</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Dry Bag</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Waterproof Sunblock</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Towel</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Polarized Sunglasses</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Sunglasses Strap</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Waterproof Camera</name>
+                                </equipment>
+                            </list>
+                        </temperature>
+                        <temperature>
+                            <name>Warm</name>
+                            <list>
+                                <equipment>
+                                    <name>Kayak</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Paddle</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Spray Skirt</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Helmet</name>
+                                </equipment>
+                                <equipment>
+                                    <name>PDF (Floatation Device)</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Rope Bag</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Float Bag</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Water</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Energy Food</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Wet/Dry Top</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Breathable Top</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Paddling Shorts</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Sun Hat</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Water Shoes</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Swimsuit</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Dry Clothes</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Dry Footwear</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Dry Bag</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Waterproof Sunblock</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Towel</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Polarized Sunglasses</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Sunglasses Strap</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Waterproof Camera</name>
+                                </equipment>
+                            </list>
+                        </temperature>
+                        <temperature>
+                            <name>Cool</name>
+                            <list>
+                                <equipment>
+                                    <name>Kayak</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Paddle</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Spray Skirt</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Helmet</name>
+                                </equipment>
+                                <equipment>
+                                    <name>PDF (Floatation Device)</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Rope Bag</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Float Bag</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Water</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Energy Food</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Paddle Jacket</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Wet/Dry Top</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Paddling Shorts</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Hat</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Water Shoes</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Swimsuit</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Warm Dry Clothes</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Dry Footwear</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Warm Jacket</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Dry Bag</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Waterproof Sunblock</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Towel</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Polarized Sunglasses</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Sunglasses Strap</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Waterproof Camera</name>
+                                </equipment>
+                            </list>
+                        </temperature>
+                    </Duration>
+                    <Duration>
+                        <day>2 Days</day>
+                        <temperature>
+                            <name>Hot</name>
+                            <list>
+                                <equipment>
+                                    <name>Kayak</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Paddle</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Spray Skirt</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Helmet</name>
+                                </equipment>
+                                <equipment>
+                                    <name>PDF (Floatation Device)</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Rope Bag</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Float Bag</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Water</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Energy Food</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Breathable Top</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Paddling Shorts</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Sun Hat</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Water Shoes</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Swimsuit</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Dry Clothes</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Dry Footwear</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Dry Bag</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Waterproof Sunblock</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Towel</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Polarized Sunglasses</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Sunglasses Strap</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Waterproof Camera</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Overnight Clothes</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Towel</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Toiletries / Eye Care</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Sleeping Items</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Meals</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Phone Charger</name>
+                                </equipment>
+                            </list>
+                        </temperature>
+                        <temperature>
+                            <name>Warm</name>
+                            <list>
+                                <equipment>
+                                    <name>Kayak</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Paddle</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Spray Skirt</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Helmet</name>
+                                </equipment>
+                                <equipment>
+                                    <name>PDF (Floatation Device)</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Rope Bag</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Float Bag</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Water</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Energy Food</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Wet/Dry Top</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Breathable Top</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Paddling Shorts</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Sun Hat</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Water Shoes</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Swimsuit</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Dry Clothes</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Dry Footwear</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Dry Bag</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Waterproof Sunblock</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Towel</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Polarized Sunglasses</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Sunglasses Strap</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Waterproof Camera</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Overnight Clothes</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Towel</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Toiletries / Eye Care</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Sleeping Items</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Meals</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Phone Charger</name>
+                                </equipment>
+                            </list>
+                        </temperature>
+                        <temperature>
+                            <name>Cool</name>
+                            <list>
+                                <equipment>
+                                    <name>Kayak</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Paddle</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Spray Skirt</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Helmet</name>
+                                </equipment>
+                                <equipment>
+                                    <name>PDF (Floatation Device)</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Rope Bag</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Float Bag</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Water</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Energy Food</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Paddle Jacket</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Wet/Dry Top</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Paddling Shorts</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Hat</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Water Shoes</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Swimsuit</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Warm Dry Clothes</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Dry Footwear</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Warm Jacket</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Dry Bag</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Waterproof Sunblock</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Towel</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Polarized Sunglasses</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Sunglasses Strap</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Waterproof Camera</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Overnight Clothes</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Towel</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Toiletries / Eye Care</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Sleeping Items</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Meals</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Phone Charger</name>
+                                </equipment>
+                            </list>
+                        </temperature>
+                    </Duration>
+                    <Duration>
+                        <day>3+ Days</day>
+                        <temperature>
+                            <name>Hot</name>
+                            <list>
+                                <equipment>
+                                    <name>Kayak</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Paddle</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Spray Skirt</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Helmet</name>
+                                </equipment>
+                                <equipment>
+                                    <name>PDF (Floatation Device)</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Rope Bag</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Float Bag</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Water</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Energy Food</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Breathable Top</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Paddling Shorts</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Sun Hat</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Water Shoes</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Swimsuit</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Dry Clothes</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Dry Footwear</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Dry Bag</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Waterproof Sunblock</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Towel</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Polarized Sunglasses</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Sunglasses Strap</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Waterproof Camera</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Overnight Clothes</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Towel</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Toiletries / Eye Care</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Sleeping Items</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Meals</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Phone Charger</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Laundry Detergent</name>
+                                </equipment>
+                            </list>
+                        </temperature>
+                        <temperature>
+                            <name>Warm</name>
+                            <list>
+                                <equipment>
+                                    <name>Kayak</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Paddle</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Spray Skirt</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Helmet</name>
+                                </equipment>
+                                <equipment>
+                                    <name>PDF (Floatation Device)</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Rope Bag</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Float Bag</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Water</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Energy Food</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Wet/Dry Top</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Breathable Top</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Paddling Shorts</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Sun Hat</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Water Shoes</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Swimsuit</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Dry Clothes</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Dry Footwear</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Dry Bag</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Waterproof Sunblock</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Towel</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Polarized Sunglasses</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Sunglasses Strap</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Waterproof Camera</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Overnight Clothes</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Towel</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Toiletries / Eye Care</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Sleeping Items</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Meals</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Phone Charger</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Laundry Detergent</name>
+                                </equipment>
+                            </list>
+                        </temperature>
+                        <temperature>
+                            <name>Cool</name>
+                            <list>
+                                <equipment>
+                                    <name>Kayak</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Paddle</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Spray Skirt</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Helmet</name>
+                                </equipment>
+                                <equipment>
+                                    <name>PDF (Floatation Device)</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Rope Bag</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Float Bag</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Water</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Energy Food</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Paddle Jacket</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Wet/Dry Top</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Paddling Shorts</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Hat</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Water Shoes</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Swimsuit</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Warm Dry Clothes</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Dry Footwear</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Warm Jacket</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Dry Bag</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Waterproof Sunblock</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Towel</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Polarized Sunglasses</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Sunglasses Strap</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Waterproof Camera</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Overnight Clothes</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Towel</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Toiletries / Eye Care</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Sleeping Items</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Meals</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Phone Charger</name>
+                                </equipment>
+                                <equipment>
+                                    <name>Laundry Detergent</name>
+                                </equipment>
+                            </list>
+                        </temperature>
+                    </Duration>
+                </Sub_Activity>
+            </Equipment_List>
+        </main_activity>
+    </Equipment>
+</Gearlist>

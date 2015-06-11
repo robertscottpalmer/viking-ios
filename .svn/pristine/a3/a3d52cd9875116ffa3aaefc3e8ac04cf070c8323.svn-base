@@ -1,0 +1,26 @@
+//
+//  ListCell.h
+//  Viking
+//
+//  Created by macmini08 on 30/01/15.
+//  Copyright (c) 2015 Space O Technology. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+#define RootCell_ID     @"RootCellID"
+#define RootCell_XIB    @"ListCell"
+#define RootCell_SIZE   CGSizeMake(78, 86)
+
+@interface ListCell : UICollectionViewCell
+
+@property (nonatomic, weak) IBOutlet UILabel *titleLabel;
+@property (nonatomic, weak) IBOutlet UIImageView *hexImege;
+
+// Cell nib
++ (UINib *)cellNib;
+
+// Configuration
+- (void)configureWithInt:(NSInteger)anInteger;
+
+@end

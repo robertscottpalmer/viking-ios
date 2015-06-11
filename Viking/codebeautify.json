@@ -1,0 +1,205 @@
+{
+    "GearList": {
+        "MainActivity": {
+            "name": "Biking",
+            "SubActivity": {
+                "name": "Mountain Biking",
+                "equipment_list": [
+                    {
+                        "day": "1 Day",
+                        "temperature": "Hot",
+                        "list": {
+                            "equipment": [
+                                {
+                                    "name": "Mountain Bike"
+                                },
+                                {
+                                    "name": "Helmet"
+                                },
+                                {
+                                    "name": "Riding Shoes"
+                                },
+                                {
+                                    "name": "Pads"
+                                },
+                                {
+                                    "name": "Water"
+                                },
+                                {
+                                    "name": "Energy Food"
+                                },
+                                {
+                                    "name": "Riding Socks"
+                                },
+                                {
+                                    "name": "Riding Jersey"
+                                },
+                                {
+                                    "name": "Riding Shorts"
+                                },
+                                {
+                                    "name": "Casual Clothes"
+                                },
+                                {
+                                    "name": "Casual Footwear"
+                                },
+                                {
+                                    "name": "Hat"
+                                },
+                                {
+                                    "name": "Bug and Tick Spray"
+                                },
+                                {
+                                    "name": "Sunblock"
+                                },
+                                {
+                                    "name": "Eyewear"
+                                },
+                                {
+                                    "name": "Trail Maps"
+                                },
+                                {
+                                    "name": "Camelbak Pack"
+                                },
+                                {
+                                    "name": "Chain Lube"
+                                },
+                                {
+                                    "name": "Multi Tool"
+                                },
+                                {
+                                    "name": "A Spare Tube"
+                                },
+                                {
+                                    "name": "Patch Kit"
+                                },
+                                {
+                                    "name": "Pump"
+                                },
+                                {
+                                    "name": "Camera"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "day": "2 Days",
+                        "temperature": "Hot",
+                        "list": {
+                            "equipment": [
+                                {
+                                    "name": "Mountain Bike"
+                                },
+                                {
+                                    "name": "Helmet"
+                                },
+                                {
+                                    "name": "Riding Shoes"
+                                },
+                                {
+                                    "name": "Pads"
+                                },
+                                {
+                                    "name": "Water"
+                                },
+                                {
+                                    "name": "Energy Food"
+                                },
+                                {
+                                    "name": "Riding Socks"
+                                },
+                                {
+                                    "name": "Riding Jersey"
+                                },
+                                {
+                                    "name": "Riding Shorts"
+                                },
+                                {
+                                    "name": "Casual Clothes"
+                                },
+                                {
+                                    "name": "Casual Footwear"
+                                },
+                                {
+                                    "name": "Hat"
+                                },
+                                {
+                                    "name": "Swimsuit"
+                                },
+                                {
+                                    "name": "Bug and Tick Spray"
+                                },
+                                {
+                                    "name": "Sunblock"
+                                },
+                                {
+                                    "name": "Eyewear"
+                                },
+                                {
+                                    "name": "Trail Maps"
+                                },
+                                {
+                                    "name": "Camelbak Pack"
+                                },
+                                {
+                                    "name": "Chain Lube"
+                                },
+                                {
+                                    "name": "Multi Tool"
+                                },
+                                {
+                                    "name": "A Spare Tube"
+                                },
+                                {
+                                    "name": "Patch Kit"
+                                },
+                                {
+                                    "name": "Pump"
+                                },
+                                {
+                                    "name": "Spare Parts"
+                                },
+                                {
+                                    "name": "Toolbox"
+                                },
+                                {
+                                    "name": "Bike Stand"
+                                },
+                                {
+                                    "name": "Camera"
+                                },
+                                {
+                                    "name": "Headlight and Charger"
+                                },
+                                {
+                                    "name": "GPS"
+                                },
+                                {
+                                    "name": "Overnight Clothes"
+                                },
+                                {
+                                    "name": "Towel"
+                                },
+                                {
+                                    "name": "Toiletries / Eye Care"
+                                },
+                                {
+                                    "name": "Sleeping Items"
+                                },
+                                {
+                                    "name": "Meals / Snacks"
+                                },
+                                {
+                                    "name": "Phone Charger"
+                                },
+                                {
+                                    "name": ""
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        }
+    }
+}

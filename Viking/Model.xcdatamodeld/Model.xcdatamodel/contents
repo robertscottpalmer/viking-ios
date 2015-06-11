@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6254" systemVersion="13F34" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Duration" syncable="YES">
+        <attribute name="duration" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="main_activity" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sub_activity" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Gearlist" syncable="YES"/>
+    <entity name="MainActivities" syncable="YES">
+        <attribute name="main_activity" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="MyActivityEquipmentList" syncable="YES">
+        <attribute name="activityList_Name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="duration" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="equipment" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="image" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="main_Activity" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sub_activity" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="temperature" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="MyActivityList" syncable="YES">
+        <attribute name="activityList_Name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="duration" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="main_Activity" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sub_activity" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="temperature" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="SubActivities" syncable="YES">
+        <attribute name="main_activity" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sub_activity" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Temprature" syncable="YES">
+        <attribute name="main_activity" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sub_activity" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="temp" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Duration" positionX="-18" positionY="27" width="128" height="88"/>
+        <element name="Gearlist" positionX="-63" positionY="-18" width="128" height="45"/>
+        <element name="MainActivities" positionX="-54" positionY="-9" width="128" height="58"/>
+        <element name="SubActivities" positionX="-36" positionY="9" width="128" height="73"/>
+        <element name="Temprature" positionX="0" positionY="45" width="128" height="90"/>
+        <element name="MyActivityList" positionX="-27" positionY="36" width="128" height="118"/>
+        <element name="MyActivityEquipmentList" positionX="-18" positionY="54" width="128" height="148"/>
+    </elements>
+</model>
