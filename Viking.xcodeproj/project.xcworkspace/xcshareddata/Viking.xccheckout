@@ -7,16 +7,20 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>9743E79E-73FE-454B-A5CD-164A8437944F</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>Viking</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
+		<key>52192E03731393F31784C6AB5313CE13C96744D5</key>
+		<string>https://github.com/prim1013/viking-ios.git</string>
 		<key>918bc79e-0490-43d2-8e0d-c12ba3b21194++505</key>
 		<string>http://192.168.1.254/svn/viking_ios/trunk</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>Viking.xcodeproj/project.xcworkspace</string>
+	<string>Viking.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
+		<key>52192E03731393F31784C6AB5313CE13C96744D5</key>
+		<string>../..</string>
 		<key>918bc79e-0490-43d2-8e0d-c12ba3b21194++505</key>
 		<string>../..</string>
 	</dict>
@@ -26,13 +30,21 @@
 		<string>http://192.168.1.254/svn/viking_ios</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>http://192.168.1.254/svn/viking_ios/trunk/Viking.xcodeproj/project.xcworkspace</string>
+	<string>https://github.com/prim1013/viking-ios.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>918bc79e-0490-43d2-8e0d-c12ba3b21194++505</string>
+	<string>52192E03731393F31784C6AB5313CE13C96744D5</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>52192E03731393F31784C6AB5313CE13C96744D5</string>
+			<key>IDESourceControlWCCName</key>
+			<string>viking_ios</string>
+		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.subversion</string>

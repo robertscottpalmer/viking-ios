@@ -362,6 +362,7 @@
 				TargetAttributes = {
 					57391BB01A774B7E004963F4 = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = 69PDR93UGJ;
 					};
 				};
 			};
@@ -558,8 +559,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-1";
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Richard Petrucelli (69PDR93UGJ)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Richard Petrucelli (69PDR93UGJ)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Richard Petrucelli (PCTA77UKV9)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Richard Petrucelli (PCTA77UKV9)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/macmini08/Documents/FacebookSDK,
@@ -569,7 +570,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "4f81cd5d-362e-49ec-a54e-39b553022e26";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -578,8 +579,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-1";
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Richard Petrucelli (69PDR93UGJ)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Richard Petrucelli (69PDR93UGJ)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Richard Petrucelli (PCTA77UKV9)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Richard Petrucelli (PCTA77UKV9)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/macmini08/Documents/FacebookSDK,
@@ -589,7 +590,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "4f81cd5d-362e-49ec-a54e-39b553022e26";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
