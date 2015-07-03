@@ -226,7 +226,7 @@
 
 -(void)downloadXMLFile
 {
-    NSURL *yourURL = [NSURL URLWithString:@"http://thevikingapp.com/List%20Database_6-11-2015.xml"];
+    NSURL *yourURL = [NSURL URLWithString:@"http://thevikingapp.com/viking_list.xml"];
     //NSURL *yourURL = [NSURL URLWithString:@"http://main.spaceotechnologies.com/project/xml_read/viking_list.xml"];
     // turn it into a request and use NSData to load its content
     NSURLRequest *request = [NSURLRequest requestWithURL:yourURL];

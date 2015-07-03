@@ -12,9 +12,9 @@
     <main_activity>
       <name>Biking</name>
       <sub_activities>
-        <name>Mountain</name>
-        <name>Road</name>
-        <name>Casual</name>
+        <name>Mountain Biking</name>
+        <name>Road Biking</name>
+        <name>Casual Biking</name>
       </sub_activities>
       <Temperature>
         <name>Hot</name>
