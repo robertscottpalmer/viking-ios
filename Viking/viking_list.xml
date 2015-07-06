@@ -29,7 +29,7 @@
       </Duration>
       <Equipment_List>
         <Sub_Activity>
-          <name>Mountain</name>
+          <name>Mountain Biking</name>
           <Duration>
             <day>1 Day</day>
             <temperature>
@@ -1397,7 +1397,7 @@
           </Duration>
         </Sub_Activity>
         <Sub_Activity>
-          <name>Road</name>
+          <name>Road Biking</name>
           <Duration>
             <day>1 Day</day>
             <temperature>
@@ -2642,7 +2642,7 @@
           </Duration>
         </Sub_Activity>
         <Sub_Activity>
-          <name>Casual</name>
+          <name>Casual Biking</name>
           <Duration>
             <day>1 Day</day>
             <temperature>
@@ -3511,7 +3511,7 @@
         <name>Wakeboarding</name>
         <name>Surfing</name>
         <name>Windsurfing</name>
-        <name>Kite boarding</name>
+        <name>Kiteboarding</name>
         <name>Ocean Swimming (casual)</name>
         <name>Ocean Swimming (fitness)</name>
         <name>Snorkeling</name>
@@ -17083,7 +17083,7 @@
           </Duration>
         </Sub_Activity>
         <Sub_Activity>
-          <name>Kite boarding</name>
+          <name>Kiteboarding</name>
           <Duration>
             <day>1 Day</day>
             <temperature>
