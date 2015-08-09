@@ -26,13 +26,21 @@
 		<string>http://192.168.1.254/svn/viking_ios</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>http://192.168.1.254/svn/viking_ios/trunk/Viking.xcodeproj/project.xcworkspace</string>
+	<string>https://github.com/prim1013/viking-ios.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
 	<string>918bc79e-0490-43d2-8e0d-c12ba3b21194++505</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>918bc79e-0490-43d2-8e0d-c12ba3b21194++505</string>
+			<key>IDESourceControlWCCName</key>
+			<string>viking_ios</string>
+		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.subversion</string>
