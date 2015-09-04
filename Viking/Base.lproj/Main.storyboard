@@ -1367,11 +1367,11 @@
         <image name="btn_edit_list" width="141" height="32"/>
         <image name="btn_generate_list" width="274" height="50"/>
         <image name="btn_mytrips" width="123" height="130"/>
-        <image name="btn_new_trip" width="123" height="130"/>
+        <image name="btn_new_trip" width="123" height="131"/>
         <image name="btn_save" width="141" height="32"/>
-        <image name="download_list" width="123" height="130"/>
+        <image name="download_list" width="123" height="131"/>
         <image name="edit" width="27" height="27"/>
-        <image name="feature_list" width="123" height="130"/>
+        <image name="feature_list" width="123" height="131"/>
         <image name="go_back_icon" width="10" height="22"/>
         <image name="half_hexa" width="23" height="89"/>
         <image name="header_bg" width="311" height="292"/>

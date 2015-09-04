@@ -711,10 +711,12 @@
     NSManagedObject *obj = listArray[indexPath.row];
     
     cell.titleLabel.text = [[obj valueForKey:@"equipment"] uppercaseString];
+    cell.titleLabel.font = [UIFont fontWithName:@"ProximaNova-Semibold" size:10.0];
+    
     if(IS_IPHONE_6P)
-        cell.titleLabel.font = [UIFont fontWithName:@"ProximaNova-Semibold" size:15.0];
+        cell.titleLabel.font = [UIFont fontWithName:@"ProximaNova-Semibold" size:13.0];
     else if (IS_IPHONE_5 || IS_IPHONE_6)
-        cell.titleLabel.font = [UIFont fontWithName:@"ProximaNova-Semibold" size:12.0];
+        cell.titleLabel.font = [UIFont fontWithName:@"ProximaNova-Semibold" size:10.0];
     
     cell.hexImege.image = [UIImage imageNamed:[obj valueForKey:@"image"]];
     
