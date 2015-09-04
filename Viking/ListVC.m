@@ -15,7 +15,7 @@
 
 
 @interface ListVC () <MFMailComposeViewControllerDelegate, UIGestureRecognizerDelegate>
-{
+{gi
     AppDelegate *appDel;
     NSMutableArray *indexArray;
     
