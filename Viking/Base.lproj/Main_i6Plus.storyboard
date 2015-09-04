@@ -1211,7 +1211,7 @@
         <image name="btn_edit_list" width="141" height="32"/>
         <image name="btn_generate_list" width="274" height="50"/>
         <image name="btn_mytrips_6p" width="160" height="170"/>
-        <image name="btn_new_trips_6p" width="159" height="169"/>
+        <image name="btn_new_trips_6p" width="160" height="170"/>
         <image name="btn_save" width="141" height="32"/>
         <image name="download_list_6p" width="160" height="170"/>
         <image name="edit" width="27" height="27"/>
