@@ -1,8 +1,9 @@
 # Created by .ignore support plugin (hsz.mobi)
 
-*.idea
 *.plist
-*.xcuserstate
 *.xcbkptlist
 
 .DS_Store
+
+.idea
+Viking.xcodeproj/project.xcworkspace
