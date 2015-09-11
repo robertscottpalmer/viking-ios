@@ -100,7 +100,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="beta-feedback" translatesAutoresizingMaskIntoConstraints="NO" id="BK8-6h-A8n">
                                 <rect key="frame" x="334" y="30" width="25" height="25"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="BETA" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IE1-se-lhh">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IE1-se-lhh">
                                 <rect key="frame" x="157" y="518" width="60" height="29"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1208,7 +1208,7 @@
         <image name="arrow_right" width="26" height="26"/>
         <image name="background" width="320" height="568"/>
         <image name="beta-feedback" width="24" height="24"/>
-        <image name="black_bg" width="320" height="100"/>
+        <image name="black_bg" width="320" height="81"/>
         <image name="blur_bg" width="320" height="251"/>
         <image name="btn_edit_list" width="141" height="32"/>
         <image name="btn_generate_list" width="274" height="50"/>

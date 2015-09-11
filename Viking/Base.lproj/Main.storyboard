@@ -104,7 +104,7 @@
                                     <action selector="sendEmailClicked:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="o8K-PE-1BS"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BETA" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xOU-pB-6Yo">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xOU-pB-6Yo">
                                 <rect key="frame" x="128" y="424" width="64" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
@@ -1292,7 +1292,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Trip" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="G1r-I1-8ZV">
-                                        <rect key="frame" x="126" y="36" width="68" height="21"/>
+                                        <rect key="frame" x="126" y="35.999999936137883" width="68" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1362,7 +1362,7 @@
         <image name="arrow_right" width="26" height="26"/>
         <image name="background" width="320" height="568"/>
         <image name="beta-feedback" width="24" height="24"/>
-        <image name="black_bg" width="320" height="100"/>
+        <image name="black_bg" width="320" height="81"/>
         <image name="blur_bg" width="320" height="251"/>
         <image name="btn_edit_list" width="141" height="32"/>
         <image name="btn_generate_list" width="274" height="50"/>
