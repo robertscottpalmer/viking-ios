@@ -2,21 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-<key>NSAppTransportSecurity</key>
-<dict>
-  <key>NSExceptionDomains</key>
-  <dict>
-    <key>thevikingapp.com</key>
-    <dict>
-      <!--Include to allow subdomains-->
-      <key>NSIncludesSubdomains</key>
-      <true/>
-      <!--Include to allow HTTP requests-->
-      <key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
-      <true/>
-    </dict>
-  </dict>
-</dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleExecutable</key>
@@ -43,13 +28,26 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>1.0.9</string>
+	<string>1.0.10</string>
 	<key>FacebookAppID</key>
 	<string>1589311797992966</string>
 	<key>FacebookDisplayName</key>
 	<string>TheViking</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSExceptionDomains</key>
+		<dict>
+			<key>thevikingapp.com</key>
+			<dict>
+				<key>NSIncludesSubdomains</key>
+				<true/>
+				<key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+			</dict>
+		</dict>
+	</dict>
 	<key>UIAppFonts</key>
 	<array>
 		<string>ProximaNova-Black.otf</string>
