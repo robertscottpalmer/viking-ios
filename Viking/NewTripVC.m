@@ -92,9 +92,11 @@
 //    cell.activityImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"menu_%d", indexPath.row]];
     NSString *imageStr = activityArr[indexPath.row];
     //cell.activityImage.image = [UIImage imageNamed:imageStr];
-    //cell.activityImage.image = [self loadRemoteImage:imageStr];
-    NSString *imageRelativePath = @"http://robertscottpalmer.com/viking/images/Water@2x.png";
-    cell.activityImage.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:imageRelativePath]]];
+    cell.activityImage.image = [self loadRemoteImage:imageStr];
+    //NSString *imageRelativePath = @"http://robertscottpalmer.com/viking/images/Water@2x.png";
+    //cell.activityImage.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:imageRelativePath]]];
+//    [cell.activityImage setImageWithURL:[NSURL URLWithString:@"http://robertscottpalmer.com/viking/images/Water@2x.png"]
+//                   placeholderImage:[UIImage imageNamed:@"ImageUnavailable"]];
     //[cell.activityImage.image sd_setImageWithURL:[NSURL URLWithString:@"http://www.domain.com/path/to/image.jpg"]];
     return cell;
 }
