@@ -12,6 +12,8 @@
 #import "AppConstant.h"
 #import "XMLDictionary.h"
 #import "CreateTripVC.h"
+#import <SDWebImage-3.3/UIImageView+WebCache.h>
+
 
 @interface NewTripVC ()<MFMailComposeViewControllerDelegate>
 {
@@ -73,13 +75,27 @@
         
 }
 
+-(UIImage *)loadRemoteImage:(NSString *)imageName {
+    NSLog(@"just entered loadRemoteImage with imageName : %@",imageName);
+    //return [UIImage imageNamed:imageName];
+    NSString *imageRelativePath = [NSString stringWithFormat:@"http://robertscottpalmer.com/viking/Images.xcassets/%@.imageset/%@@3x.png", imageName,imageName];
+    imageRelativePath = @"http://robertscottpalmer.com/viking/images/Water@2x.png";
+    NSLog(@"Before call url for: %@",imageRelativePath);
+    UIImage *intenetActivityImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:imageRelativePath]]];
+    NSLog(@"after call url");
+    return intenetActivityImage;
+}
+
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     ActivityCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
 //    cell.activityImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"menu_%d", indexPath.row]];
     NSString *imageStr = activityArr[indexPath.row];
-    cell.activityImage.image = [UIImage imageNamed:imageStr];
-    
+    //cell.activityImage.image = [UIImage imageNamed:imageStr];
+    //cell.activityImage.image = [self loadRemoteImage:imageStr];
+    NSString *imageRelativePath = @"http://robertscottpalmer.com/viking/images/Water@2x.png";
+    cell.activityImage.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:imageRelativePath]]];
+    //[cell.activityImage.image sd_setImageWithURL:[NSURL URLWithString:@"http://www.domain.com/path/to/image.jpg"]];
     return cell;
 }
 
