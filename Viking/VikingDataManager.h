@@ -6,12 +6,19 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+
+#ifndef ImageManager_h
+#define ImageManager_h
+
 @interface VikingDataManager : NSObject {
-    NSString *someProperty;
 }
 
 @property (nonatomic, retain) NSString *someProperty;
 
+-(UIImage *)findMainActivityImage:(NSString *)imageName;
 + (id)sharedManager;
 
 @end
+
+#endif /* ImageManager_h */

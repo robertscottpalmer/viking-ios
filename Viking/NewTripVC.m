@@ -29,6 +29,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    vikingDataManager = [VikingDataManager sharedManager];
     self.mainHeaderLbl.font = [UIFont fontWithName:@"ProximaNova-Light" size:18.0];
     self.headerLbl.font = [UIFont fontWithName:@"ProximaNova-Light" size:15.0];
     // Do any additional setup after loading the view.
@@ -78,20 +79,6 @@
 }
 
 -(UIImage *)loadRemoteImage:(NSString *)imageName {
-    //SDWebImageManager *manager = [SDWebImageManager sharedManager];
-//    [manager downloadWithURL:<#(NSURL *)#> options:<#(SDWebImageOptions)#> progress:<#^(NSUInteger receivedSize, long long expectedSize)progressBlock#> completed:<#^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished)completedBlock#>]
-//    
-//    [manager downloadImageWithURL:imageURL
-//                          options:0
-//                         progress:^(NSInteger receivedSize, NSInteger expectedSize) {
-//                             // progression tracking code
-//                         }
-//                        completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
-//                            if (image) {
-//                                // do something with image
-//                            }
-//                        }];
-    
     NSLog(@"just entered loadRemoteImage with imageName : %@",imageName);
     //return [UIImage imageNamed:imageName];
     NSString *imageRelativePath = [NSString stringWithFormat:@"http://robertscottpalmer.com/viking/Images.xcassets/%@.imageset/%@@3x.png", imageName,imageName];
@@ -105,17 +92,16 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     ActivityCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
-//    cell.activityImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"menu_%d", indexPath.row]];
     NSString *imageStr = activityArr[indexPath.row];
     cell.activityImage.image = [UIImage imageNamed:@"ImageUnavailable"];
-    
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0ul);
     dispatch_async(queue, ^{
         // Perform async operation
         // Call your method/function here
         // Example:
         // NSString *result = [anObject calculateSomething];
-        UIImage *intenetActivityImage = [self loadRemoteImage:imageStr];
+        UIImage *intenetActivityImage = [vikingDataManager findMainActivityImage:imageStr];
+        //[self loadRemoteImage:imageStr];
         dispatch_sync(dispatch_get_main_queue(), ^{
             // Update UI
             // Example:
@@ -123,15 +109,6 @@
             cell.activityImage.image = intenetActivityImage;
         });
     });
-    
-    
-    //cell.activityImage.image = [self loadRemoteImage:imageStr];
-    //NSString *imageRelativePath = @"http://robertscottpalmer.com/viking/images/Water@2x.png";
-    //cell.activityImage.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:imageRelativePath]]];
-//    [cell.activityImage setImageWithURL:[NSURL URLWithString:@"http://robertscottpalmer.com/viking/images/Water@2x.png"]];
-//    [cell.activityImage setImageWithURL:[NSURL URLWithString:@"http://robertscottpalmer.com/viking/images/Water@2x.png"]
-//                   placeholderImage:[UIImage imageNamed:@"ImageUnavailable"]];
-    //[cell.activityImage.image sd_setImageWithURL:[NSURL URLWithString:@"http://www.domain.com/path/to/image.jpg"]];
     return cell;
 }
 
