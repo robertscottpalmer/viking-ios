@@ -398,8 +398,8 @@
     {
         firstString = [arr objectAtIndex:0];
         secondString = [arr objectAtIndex:1];
-        NSLog(@"First String %@",firstString);
-        NSLog(@"Second String %@",secondString);
+        //NSLog(@"First String %@",firstString);
+        //NSLog(@"Second String %@",secondString);
     }
     if(installed)
     {

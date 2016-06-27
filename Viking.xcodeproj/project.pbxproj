@@ -57,7 +57,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4E632B581D1F679C00BBE023 /* SDWebImage-3.3.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = "SDWebImage-3.3.framework"; sourceTree = "<group>"; };
 		4E632B5A1D1F68BB00BBE023 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		5677ECC71AC44D3B00134BE7 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		57391BB11A774B7E004963F4 /* Viking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Viking.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -151,7 +150,6 @@
 			isa = PBXGroup;
 			children = (
 				4E632B5A1D1F68BB00BBE023 /* ImageIO.framework */,
-				4E632B581D1F679C00BBE023 /* SDWebImage-3.3.framework */,
 				578999BD1ADBC71D00B6CB5D /* UIKit.framework */,
 				5677ECC71AC44D3B00134BE7 /* FacebookSDK.framework */,
 				574A3E1E1A7D0C08000B3A77 /* MessageUI.framework */,

@@ -12,7 +12,6 @@
 #import "AppConstant.h"
 #import "XMLDictionary.h"
 #import "CreateTripVC.h"
-#import <SDWebImage-3.3/UIImageView+WebCache.h>
 
 
 @interface NewTripVC ()<MFMailComposeViewControllerDelegate>
@@ -32,11 +31,11 @@
     // Do any additional setup after loading the view.
     
 //    NSString *filepath = [[NSBundle mainBundle] pathForResource:@"viking_list" ofType:@"xml"];
-    NSURL *documentsURL = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
-    documentsURL = [documentsURL URLByAppendingPathComponent:@"viking_list.xml"];
+//    NSURL *documentsURL = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+//    documentsURL = [documentsURL URLByAppendingPathComponent:@"viking_list.xml"];
 
-    
-    allActivityDict = [NSDictionary dictionaryWithXMLFile:[documentsURL path]];
+    allActivityDict = [NSDictionary dictionaryWithXMLData:[NSData dataWithContentsOfURL: [NSURL URLWithString:@"http://thevikingapp.local/main_activities.php"]]];
+    //allActivityDict = [NSDictionary dictionaryWithXMLFile:[documentsURL path]];
 
 //    NSLog(@"dictionary: %@", xmlDoc1);
     
@@ -76,6 +75,20 @@
 }
 
 -(UIImage *)loadRemoteImage:(NSString *)imageName {
+    //SDWebImageManager *manager = [SDWebImageManager sharedManager];
+//    [manager downloadWithURL:<#(NSURL *)#> options:<#(SDWebImageOptions)#> progress:<#^(NSUInteger receivedSize, long long expectedSize)progressBlock#> completed:<#^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished)completedBlock#>]
+//    
+//    [manager downloadImageWithURL:imageURL
+//                          options:0
+//                         progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+//                             // progression tracking code
+//                         }
+//                        completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
+//                            if (image) {
+//                                // do something with image
+//                            }
+//                        }];
+    
     NSLog(@"just entered loadRemoteImage with imageName : %@",imageName);
     //return [UIImage imageNamed:imageName];
     NSString *imageRelativePath = [NSString stringWithFormat:@"http://robertscottpalmer.com/viking/Images.xcassets/%@.imageset/%@@3x.png", imageName,imageName];
@@ -95,6 +108,7 @@
     cell.activityImage.image = [self loadRemoteImage:imageStr];
     //NSString *imageRelativePath = @"http://robertscottpalmer.com/viking/images/Water@2x.png";
     //cell.activityImage.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:imageRelativePath]]];
+//    [cell.activityImage setImageWithURL:[NSURL URLWithString:@"http://robertscottpalmer.com/viking/images/Water@2x.png"]];
 //    [cell.activityImage setImageWithURL:[NSURL URLWithString:@"http://robertscottpalmer.com/viking/images/Water@2x.png"]
 //                   placeholderImage:[UIImage imageNamed:@"ImageUnavailable"]];
     //[cell.activityImage.image sd_setImageWithURL:[NSURL URLWithString:@"http://www.domain.com/path/to/image.jpg"]];
@@ -226,6 +240,7 @@
         selectedActivity = activityArr[indexPath.row];
         
         NSLog(@"activity - %@", selectedActivity);
+        NSLog(@"We need to get the array from cache or internet here for - %@",selectedActivity);
         
         CreateTripVC *vc = segue.destinationViewController;
         vc.subActivityArr = allActivityDict[@"Equipment"][@"main_activity"];
