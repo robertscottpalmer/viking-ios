@@ -74,38 +74,22 @@
        return CGSizeMake(153, 154); //Vikita
     else
         return CGSizeMake(200, 200);
-        
-        
-}
-
--(UIImage *)loadRemoteImage:(NSString *)imageName {
-    NSLog(@"just entered loadRemoteImage with imageName : %@",imageName);
-    //return [UIImage imageNamed:imageName];
-    NSString *imageRelativePath = [NSString stringWithFormat:@"http://robertscottpalmer.com/viking/Images.xcassets/%@.imageset/%@@3x.png", imageName,imageName];
-    imageRelativePath = @"http://robertscottpalmer.com/viking/images/Water@2x.png";
-    NSLog(@"Before call url for: %@",imageRelativePath);
-    UIImage *intenetActivityImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:imageRelativePath]]];
-    NSLog(@"after call url");
-    return intenetActivityImage;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     ActivityCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
     NSString *imageStr = activityArr[indexPath.row];
+    imageStr = @"1";
     cell.activityImage.image = [UIImage imageNamed:@"ImageUnavailable"];
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0ul);
     dispatch_async(queue, ^{
         // Perform async operation
         // Call your method/function here
-        // Example:
-        // NSString *result = [anObject calculateSomething];
         UIImage *intenetActivityImage = [vikingDataManager findMainActivityImage:imageStr];
         //[self loadRemoteImage:imageStr];
         dispatch_sync(dispatch_get_main_queue(), ^{
             // Update UI
-            // Example:
-            // self.myLabel.text = result;
             cell.activityImage.image = intenetActivityImage;
         });
     });

@@ -14,7 +14,7 @@
 @interface VikingDataManager : NSObject {
 }
 
-@property (nonatomic, retain) NSString *someProperty;
+@property (nonatomic, retain) NSString *apiServer;
 
 -(UIImage *)findMainActivityImage:(NSString *)imageName;
 + (id)sharedManager;
