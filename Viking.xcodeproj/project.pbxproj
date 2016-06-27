@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E3FBF661D21E60E00E03C61 /* VikingDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E3FBF651D21E60E00E03C61 /* VikingDataManager.m */; };
 		4E632B5B1D1F68BB00BBE023 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E632B5A1D1F68BB00BBE023 /* ImageIO.framework */; };
 		5677ECC81AC44D3B00134BE7 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5677ECC71AC44D3B00134BE7 /* FacebookSDK.framework */; };
 		57391BB71A774B7E004963F4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 57391BB61A774B7E004963F4 /* main.m */; };
@@ -57,6 +58,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4E3FBF641D21E5D300E03C61 /* VikingDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VikingDataManager.h; sourceTree = "<group>"; };
+		4E3FBF651D21E60E00E03C61 /* VikingDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VikingDataManager.m; sourceTree = "<group>"; };
 		4E632B5A1D1F68BB00BBE023 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		5677ECC71AC44D3B00134BE7 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		57391BB11A774B7E004963F4 /* Viking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Viking.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -184,6 +187,8 @@
 				576D60E51ACD19A500704509 /* Main_i6Plus.storyboard */,
 				57391BC11A774B7E004963F4 /* Images.xcassets */,
 				57391BB41A774B7E004963F4 /* Supporting Files */,
+				4E3FBF641D21E5D300E03C61 /* VikingDataManager.h */,
+				4E3FBF651D21E60E00E03C61 /* VikingDataManager.m */,
 			);
 			path = Viking;
 			sourceTree = "<group>";
@@ -427,6 +432,7 @@
 				575AD7AD1A7B854600C216CF /* ListVC.m in Sources */,
 				575AD79D1A7B43C300C216CF /* TempTableCell.m in Sources */,
 				57391BBA1A774B7E004963F4 /* AppDelegate.m in Sources */,
+				4E3FBF661D21E60E00E03C61 /* VikingDataManager.m in Sources */,
 				575AD7B91A7B88F500C216CF /* ListCell.m in Sources */,
 				574A3E171A7CA0AD000B3A77 /* LDProgressView.m in Sources */,
 				574818C51AC16AFC00E4EC09 /* aaaTableViewController.m in Sources */,

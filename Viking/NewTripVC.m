@@ -12,6 +12,8 @@
 #import "AppConstant.h"
 #import "XMLDictionary.h"
 #import "CreateTripVC.h"
+#import "VikingDataManager.h"
+
 
 
 @interface NewTripVC ()<MFMailComposeViewControllerDelegate>
@@ -19,6 +21,7 @@
     NSMutableArray *activityArr;
     NSDictionary *allActivityDict;
     NSString *selectedActivity;
+    VikingDataManager *vikingDataManager;
 }
 @end
 
@@ -104,8 +107,25 @@
     ActivityCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
 //    cell.activityImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"menu_%d", indexPath.row]];
     NSString *imageStr = activityArr[indexPath.row];
-    //cell.activityImage.image = [UIImage imageNamed:imageStr];
-    cell.activityImage.image = [self loadRemoteImage:imageStr];
+    cell.activityImage.image = [UIImage imageNamed:@"ImageUnavailable"];
+    
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0ul);
+    dispatch_async(queue, ^{
+        // Perform async operation
+        // Call your method/function here
+        // Example:
+        // NSString *result = [anObject calculateSomething];
+        UIImage *intenetActivityImage = [self loadRemoteImage:imageStr];
+        dispatch_sync(dispatch_get_main_queue(), ^{
+            // Update UI
+            // Example:
+            // self.myLabel.text = result;
+            cell.activityImage.image = intenetActivityImage;
+        });
+    });
+    
+    
+    //cell.activityImage.image = [self loadRemoteImage:imageStr];
     //NSString *imageRelativePath = @"http://robertscottpalmer.com/viking/images/Water@2x.png";
     //cell.activityImage.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:imageRelativePath]]];
 //    [cell.activityImage setImageWithURL:[NSURL URLWithString:@"http://robertscottpalmer.com/viking/images/Water@2x.png"]];
