@@ -37,8 +37,7 @@
     //return [UIImage imageNamed:imageName];
     //http://thevikingapp.local/media/activity/1/backgroundImage3.png
     //http://thevikingapp.local/media/activitytype/1/bannerImage.png
-    NSString *imagePath = [NSString stringWithFormat:@"%@/%@/%@/bannerImage.png", apiServer, @"media/activityType", activityId];
-    
+    NSString *imagePath = [NSString stringWithFormat:@"%@/%@%@", apiServer, @"fetchpng.php?activityName=", activityId];
     //imagePath = @"http://robertscottpalmer.com/viking/images/Water@2x.png";
     NSLog(@"Before call url for: %@",imagePath);
     UIImage *intenetActivityImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:imagePath]]];

@@ -39,10 +39,8 @@
 //    documentsURL = [documentsURL URLByAppendingPathComponent:@"viking_list.xml"];
 
     allActivityDict = [NSDictionary dictionaryWithXMLData:[NSData dataWithContentsOfURL: [NSURL URLWithString:@"http://thevikingapp.local/main_activities.php"]]];
+    NSLog(@"All keys of dictionary: %@", [allActivityDict allKeys]);
     //allActivityDict = [NSDictionary dictionaryWithXMLFile:[documentsURL path]];
-
-//    NSLog(@"dictionary: %@", xmlDoc1);
-    
     activityArr = allActivityDict[@"Main_Activities"][@"name"];
     NSLog(@"activity arr - %@", activityArr);
 }
