@@ -9,6 +9,7 @@
 @implementation VikingDataManager
 
 @synthesize apiServer;
+@synthesize activityCategories;
 
 #pragma mark Singleton Methods
 
@@ -24,6 +25,9 @@
 - (id)init {
     if (self = [super init]) {
         apiServer = @"http://thevikingapp.local";
+        NSString *activityTypeApiCall = [NSString stringWithFormat:@"%@/%@", apiServer, @"main_activities.php"];
+        NSDictionary *allActivityDict = [NSDictionary dictionaryWithXMLData:[NSData dataWithContentsOfURL: [NSURL URLWithString: activityTypeApiCall]]];
+        activityCategories = allActivityDict[@"Main_Activities"][@"name"];
     }
     return self;
 }

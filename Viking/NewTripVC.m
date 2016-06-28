@@ -18,7 +18,7 @@
 
 @interface NewTripVC ()<MFMailComposeViewControllerDelegate>
 {
-    NSMutableArray *activityArr;
+    //NSMutableArray *activityArr;
     NSDictionary *allActivityDict;
     NSString *selectedActivity;
     VikingDataManager *vikingDataManager;
@@ -41,8 +41,6 @@
     allActivityDict = [NSDictionary dictionaryWithXMLData:[NSData dataWithContentsOfURL: [NSURL URLWithString:@"http://thevikingapp.local/main_activities.php"]]];
     NSLog(@"All keys of dictionary: %@", [allActivityDict allKeys]);
     //allActivityDict = [NSDictionary dictionaryWithXMLFile:[documentsURL path]];
-    activityArr = allActivityDict[@"Main_Activities"][@"name"];
-    NSLog(@"activity arr - %@", activityArr);
 }
 
 - (void)didReceiveMemoryWarning {
@@ -57,7 +55,7 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return [activityArr count];
+    return [vikingDataManager.activityCategories count];
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -77,7 +75,7 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     ActivityCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
-    NSString *imageStr = activityArr[indexPath.row];
+    NSString *imageStr = vikingDataManager.activityCategories[indexPath.row];//activityArr[indexPath.row];
     imageStr = @"1";
     cell.activityImage.image = [UIImage imageNamed:@"ImageUnavailable"];
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0ul);
@@ -192,7 +190,7 @@
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
 {
     NSIndexPath * indexPath = [self.activityCollectionView indexPathForCell:sender];
-    selectedActivity = activityArr[indexPath.row];
+    selectedActivity = vikingDataManager.activityCategories[indexPath.row];
     
     if([sender isKindOfClass:[ActivityCell class]]) {
         
@@ -216,7 +214,7 @@
     
     if([sender isKindOfClass:[ActivityCell class]]) {
         NSIndexPath * indexPath = [self.activityCollectionView indexPathForCell:sender];
-        selectedActivity = activityArr[indexPath.row];
+        selectedActivity = vikingDataManager.activityCategories[indexPath.row];
         
         NSLog(@"activity - %@", selectedActivity);
         NSLog(@"We need to get the array from cache or internet here for - %@",selectedActivity);

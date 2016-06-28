@@ -7,6 +7,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "XMLDictionary.h"
 
 #ifndef ImageManager_h
 #define ImageManager_h
@@ -15,6 +16,7 @@
 }
 
 @property (nonatomic, retain) NSString *apiServer;
+@property (nonatomic, retain) NSArray *activityCategories;
 
 -(UIImage *)findMainActivityImage:(NSString *)imageName;
 + (id)sharedManager;
