@@ -74,6 +74,8 @@
     
      [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardFrameDidChange:) name:UIKeyboardWillChangeFrameNotification object:nil];
     
+    NSLog(@"Make sure we get to here!!!!");
+    NSLog(@"We SHOULD fail after here!");
     
      for(NSDictionary *dict in subActivityArr)
      {
