@@ -8,6 +8,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import "XMLDictionary.h"
+#import "ActivityType.h"
 
 #ifndef ImageManager_h
 #define ImageManager_h
@@ -16,9 +17,11 @@
 }
 
 @property (nonatomic, retain) NSString *apiServer;
-@property (nonatomic, retain) NSArray *activityCategories;
 
 -(UIImage *)findMainActivityImage:(NSString *)imageName;
+/*Will return an array of dictionaries in the form ({id:"",name:""},{id:"",name:""})*/
+-(NSArray *)getActivityTypes;
+-(NSArray *)getActivitiesOfType:(NSInteger)activityTypeId;
 + (id)sharedManager;
 
 @end

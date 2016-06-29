@@ -128,7 +128,7 @@
     // Append the new data to the instance variable you declared
     [_responseData appendData:data];
     NSString *responseStr = [[NSString alloc] initWithData:_responseData encoding:NSUTF8StringEncoding];
-    NSLog(@"resposne - %@", responseStr);
+    //NSLog(@"resposne - %@", responseStr);
     
     NSString *access_token;
     NSRange access_token_range = [responseStr rangeOfString:@"access_token="];
@@ -136,7 +136,7 @@
         int from_index = access_token_range.location + access_token_range.length;
         access_token = [responseStr substringFromIndex:from_index];
         
-        NSLog(@"access_token:  %@", access_token);
+        //NSLog(@"access_token:  %@", access_token);
     }
     
     [self getFacebookPosts:access_token];
@@ -246,7 +246,7 @@
                                               ) {
                               /* handle the result */
                               postsArray = result[@"data"];
-                              NSLog(@"arr - %@", postsArray);
+                              //NSLog(@"arr - %@", postsArray);
                              
                               [self getAppID:accessToken];
                           }];
@@ -272,7 +272,7 @@
                               /* handle the result */
                               strAppID = result[@"id"];
                               strAppURL = result[@"link"];
-                              NSLog(@"arr - %@", postsArray);
+                              //NSLog(@"arr - %@", postsArray);
                               
                               [self setUpScrollView];
                               [self.fbIndication stopAnimating];
@@ -316,7 +316,7 @@
     UILabel *postLabel = [viewControllers objectAtIndex:page];
     if((NSNull *)postLabel == [NSNull null])
     {
-        NSLog(@"page - %d", page);
+       // NSLog(@"page - %d", page);
         
         postLabel = [[UILabel alloc] init];
         postLabel.numberOfLines = 0.0;
@@ -408,9 +408,9 @@
     }
     else
     {
-        NSLog(@"%@",[NSString stringWithFormat:@"%@/posts/%@", strAppURL, secondString]);
+        //NSLog(@"%@",[NSString stringWithFormat:@"%@/posts/%@", strAppURL, secondString]);
         NSURL *fbURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/posts/%@", strAppURL, secondString]];
-        NSLog(@"fburl - %@", fbURL);
+        //NSLog(@"fburl - %@", fbURL);
         [[UIApplication sharedApplication] openURL:fbURL];
     }
 }

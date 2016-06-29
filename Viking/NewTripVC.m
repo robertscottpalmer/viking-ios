@@ -18,9 +18,7 @@
 
 @interface NewTripVC ()<MFMailComposeViewControllerDelegate>
 {
-    //NSMutableArray *activityArr;
-    NSDictionary *allActivityDict;
-    NSString *selectedActivity;
+    NSArray *activityArr;
     VikingDataManager *vikingDataManager;
 }
 @end
@@ -33,14 +31,7 @@
     self.mainHeaderLbl.font = [UIFont fontWithName:@"ProximaNova-Light" size:18.0];
     self.headerLbl.font = [UIFont fontWithName:@"ProximaNova-Light" size:15.0];
     // Do any additional setup after loading the view.
-    
-//    NSString *filepath = [[NSBundle mainBundle] pathForResource:@"viking_list" ofType:@"xml"];
-//    NSURL *documentsURL = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
-//    documentsURL = [documentsURL URLByAppendingPathComponent:@"viking_list.xml"];
-
-    allActivityDict = [NSDictionary dictionaryWithXMLData:[NSData dataWithContentsOfURL: [NSURL URLWithString:@"http://thevikingapp.local/main_activities.php"]]];
-    NSLog(@"All keys of dictionary: %@", [allActivityDict allKeys]);
-    //allActivityDict = [NSDictionary dictionaryWithXMLFile:[documentsURL path]];
+    self->activityArr = [vikingDataManager getActivityTypes];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -55,7 +46,7 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return [vikingDataManager.activityCategories count];
+    return [self->activityArr count];
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -75,15 +66,13 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     ActivityCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
-    NSString *imageStr = vikingDataManager.activityCategories[indexPath.row];//activityArr[indexPath.row];
-    imageStr = @"1";
+    NSString *imageStr = self->activityArr[indexPath.row][@"id"];
     cell.activityImage.image = [UIImage imageNamed:@"ImageUnavailable"];
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0ul);
     dispatch_async(queue, ^{
         // Perform async operation
         // Call your method/function here
         UIImage *intenetActivityImage = [vikingDataManager findMainActivityImage:imageStr];
-        //[self loadRemoteImage:imageStr];
         dispatch_sync(dispatch_get_main_queue(), ^{
             // Update UI
             cell.activityImage.image = intenetActivityImage;
@@ -186,27 +175,6 @@
 
 
 #pragma mark - Navigation
-
-- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
-{
-    NSIndexPath * indexPath = [self.activityCollectionView indexPathForCell:sender];
-    selectedActivity = vikingDataManager.activityCategories[indexPath.row];
-    
-    if([sender isKindOfClass:[ActivityCell class]]) {
-        
-        if([selectedActivity isEqualToString:@"Motorsports"])
-        {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"This feature is not available yet. Check back soon." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-            [alert show];
-            return NO;
-        }
-        else
-            return YES;
-    }
-    else
-        return YES;
-}
-
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
@@ -214,13 +182,13 @@
     
     if([sender isKindOfClass:[ActivityCell class]]) {
         NSIndexPath * indexPath = [self.activityCollectionView indexPathForCell:sender];
-        selectedActivity = vikingDataManager.activityCategories[indexPath.row];
+        NSString *selectedActivity = self->activityArr[indexPath.row][@"name"];
         
         NSLog(@"activity - %@", selectedActivity);
         NSLog(@"We need to get the array from cache or internet here for - %@",selectedActivity);
         
         CreateTripVC *vc = segue.destinationViewController;
-        vc.subActivityArr = allActivityDict[@"Equipment"][@"main_activity"];
+        vc.subActivityArr = [vikingDataManager getActivitiesOfType:1];
         vc.selectedActivity = selectedActivity;
     }    
 }

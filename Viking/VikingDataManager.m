@@ -9,7 +9,6 @@
 @implementation VikingDataManager
 
 @synthesize apiServer;
-@synthesize activityCategories;
 
 #pragma mark Singleton Methods
 
@@ -25,9 +24,8 @@
 - (id)init {
     if (self = [super init]) {
         apiServer = @"http://thevikingapp.local";
-        NSString *activityTypeApiCall = [NSString stringWithFormat:@"%@/%@", apiServer, @"main_activities.php"];
-        NSDictionary *allActivityDict = [NSDictionary dictionaryWithXMLData:[NSData dataWithContentsOfURL: [NSURL URLWithString: activityTypeApiCall]]];
-        activityCategories = allActivityDict[@"Main_Activities"][@"name"];
+//        NSDictionary *allActivityDict = [NSDictionary dictionaryWithXMLData:[NSData dataWithContentsOfURL: [NSURL URLWithString: activityTypeApiCall]]];
+//        //activityCategories = allActivityDict[@"Main_Activities"][@"name"];
     }
     return self;
 }
@@ -47,6 +45,23 @@
     UIImage *intenetActivityImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:imagePath]]];
     NSLog(@"after call url");
     return intenetActivityImage;
+}
+
+-(NSArray *)getActivityTypes{
+    NSLog(@"Here!!!");
+    NSString *activityTypeApiCall = [NSString stringWithFormat:@"%@/%@", apiServer, @"main_activities.php"];
+    NSDictionary *allActivityDict = [NSDictionary dictionaryWithXMLData:[NSData dataWithContentsOfURL: [NSURL URLWithString:activityTypeApiCall]]];
+    NSArray *activityTypes = allActivityDict[@"ActivityType"];
+    return activityTypes;
+}
+
+-(NSArray *)getActivitiesOfType:(NSInteger)activityTypeId{
+    NSMutableArray *dummyArray = [NSMutableArray array];
+    for (int i = 0; i < activityTypeId; i++) {
+        [dummyArray addObject:[[NSString alloc] init]];
+    }
+    NSArray *activitiesOfType = [NSArray arrayWithArray:dummyArray]; // if you want immutable array
+    return activitiesOfType;
 }
 
 @end
