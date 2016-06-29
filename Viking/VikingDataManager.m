@@ -34,6 +34,7 @@
     // Should never be called, but just here for clarity really.
 }
 
+
 -(UIImage *)findMainActivityImage:(NSString *)activityId {
     //NSLog(@"just entered loadRemoteImage with imageName : %@",imageName);
     //return [UIImage imageNamed:imageName];
@@ -48,7 +49,6 @@
 }
 
 -(NSArray *)getActivityTypes{
-    NSLog(@"Here!!!");
     NSString *activityTypeApiCall = [NSString stringWithFormat:@"%@/%@", apiServer, @"main_activities.php"];
     NSDictionary *allActivityDict = [NSDictionary dictionaryWithXMLData:[NSData dataWithContentsOfURL: [NSURL URLWithString:activityTypeApiCall]]];
     NSArray *activityTypes = allActivityDict[@"ActivityType"];
@@ -56,12 +56,11 @@
 }
 
 -(NSArray *)getActivitiesOfType:(NSInteger)activityTypeId{
-    NSMutableArray *dummyArray = [NSMutableArray array];
-    for (int i = 0; i < activityTypeId; i++) {
-        [dummyArray addObject:[[NSString alloc] init]];
-    }
-    NSArray *activitiesOfType = [NSArray arrayWithArray:dummyArray]; // if you want immutable array
-    return activitiesOfType;
+    //http://thevikingapp.local/activities_of_type.php?activityTypeId=3
+    NSString *activityTypeApiCall = [NSString stringWithFormat:@"%@/%@?activityTypeId=%ld", apiServer, @"activities_of_type.php",(long)activityTypeId];
+    NSDictionary *allActivityDict = [NSDictionary dictionaryWithXMLData:[NSData dataWithContentsOfURL: [NSURL URLWithString:activityTypeApiCall]]];
+    NSArray *activities = allActivityDict[@"Activity"];
+    return activities;
 }
 
 @end

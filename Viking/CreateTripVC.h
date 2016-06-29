@@ -43,6 +43,6 @@
 @property (nonatomic, weak) IBOutlet UILabel *createHeaderLbl;
 
 @property (nonatomic, strong) NSArray *subActivityArr;
-@property (nonatomic, strong) NSString *selectedActivity;
+@property (nonatomic) NSString *selectedActivityId;
 
 @end

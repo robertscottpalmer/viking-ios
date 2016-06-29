@@ -182,14 +182,14 @@
     
     if([sender isKindOfClass:[ActivityCell class]]) {
         NSIndexPath * indexPath = [self.activityCollectionView indexPathForCell:sender];
-        NSString *selectedActivity = self->activityArr[indexPath.row][@"name"];
+        NSString *selectedActivity = self->activityArr[indexPath.row][@"id"];
         
         NSLog(@"activity - %@", selectedActivity);
         NSLog(@"We need to get the array from cache or internet here for - %@",selectedActivity);
         
         CreateTripVC *vc = segue.destinationViewController;
-        vc.subActivityArr = [vikingDataManager getActivitiesOfType:1];
-        vc.selectedActivity = selectedActivity;
+        vc.subActivityArr = [vikingDataManager getActivitiesOfType:[selectedActivity integerValue]];
+        vc.selectedActivityId = selectedActivity;
     }    
 }
 

@@ -15,15 +15,18 @@
 #import <MessageUI/MessageUI.h>
 #import "AppConstant.h"
 #import "MyTripVC.h"
+#import "VikingDataManager.h"
 
 @interface CreateTripVC () <MFMailComposeViewControllerDelegate>
 {
     AppDelegate *appDel;
     NSDictionary *subActDict;
-    NSArray *subActivitiesArr;
+    //NSArray *subActivitiesArr;
     NSArray *durationArr;
     NSArray *temperatureArr;
     NSManagedObjectContext *context;
+    
+    VikingDataManager *vikingDataManager;
 }
 
 @property (nonatomic, strong) NSMutableDictionary *activityDict;
@@ -34,10 +37,11 @@
 
 @implementation CreateTripVC
 
-@synthesize subActivityArr, selectedActivity;
+@synthesize subActivityArr, selectedActivityId;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    vikingDataManager = [VikingDataManager sharedManager];
     
     [AppDelegate hideGlobalHUD];
     
@@ -47,7 +51,7 @@
     self.tempHeaderLbl.font = [UIFont fontWithName:@"ProximaNova-Bold" size:15.0];
     self.createHeaderLbl.font = [UIFont fontWithName:@"ProximaNova-Bold" size:15.0];
 
-    self.headerBGIcon.image = [UIImage imageNamed:[NSString stringWithFormat:@"icon_%@", selectedActivity]];
+    self.headerBGIcon.image = [UIImage imageNamed:[NSString stringWithFormat:@"icon_%@", selectedActivityId]];
     
     context = [self managedObjectContext];
     
@@ -75,17 +79,17 @@
      [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardFrameDidChange:) name:UIKeyboardWillChangeFrameNotification object:nil];
     
     NSLog(@"Make sure we get to here!!!!");
-    NSLog(@"We SHOULD fail after here!");
     
      for(NSDictionary *dict in subActivityArr)
      {
-         if([dict[@"name"] isEqualToString:selectedActivity])
-         {
-             subActDict = dict;
-         }
+         NSLog(@"dict : %@",dict);
+//         if([dict[@"name"] isEqualToString:selectedActivity])
+//         {
+//             subActDict = dict;
+//         }
      }
     
-    subActivitiesArr = subActDict[@"sub_activities"][@"name"];
+    //subActivitiesArr = subActDict[@"sub_activities"][@"name"];
     durationArr = subActDict[@"Duration"][@"name"];
     temperatureArr = subActDict[@"Temperature"][@"name"];
     
@@ -96,10 +100,10 @@
 
 -(void)setHeaderBackground
 {
-    self.headerBGView.image = [UIImage imageNamed:[NSString stringWithFormat:@"BG-%@",selectedActivity]];
-    self.durationHeaderBGView.image = [UIImage imageNamed:[NSString stringWithFormat:@"BG-%@",selectedActivity]];
-    self.tempHeaderBGView.image = [UIImage imageNamed:[NSString stringWithFormat:@"BG-%@",selectedActivity]];
-    self.generateHeaderBGView.image = [UIImage imageNamed:[NSString stringWithFormat:@"BG-%@",selectedActivity]];
+    self.headerBGView.image = [UIImage imageNamed:[NSString stringWithFormat:@"BG-%@",selectedActivityId]];
+    self.durationHeaderBGView.image = [UIImage imageNamed:[NSString stringWithFormat:@"BG-%@",selectedActivityId]];
+    self.tempHeaderBGView.image = [UIImage imageNamed:[NSString stringWithFormat:@"BG-%@",selectedActivityId]];
+    self.generateHeaderBGView.image = [UIImage imageNamed:[NSString stringWithFormat:@"BG-%@",selectedActivityId]];
 }
 
 - (void)keyboardFrameDidChange:(NSNotification *)notification
@@ -324,7 +328,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if(tableView == self.activityTable)
-        return [subActivitiesArr count];
+        return [subActivityArr count];
     else if (tableView == self.durationTable)
         return [durationArr count];
     else
@@ -342,8 +346,20 @@
         cell.layoutMargins = UIEdgeInsetsZero;
         cell.preservesSuperviewLayoutMargins = NO;
         
-        cell.activityLbl.text = [NSString stringWithFormat:@"%@", subActivitiesArr[indexPath.row]];
-        cell.activityImg.image = [UIImage imageNamed:[NSString stringWithFormat:@"icon-%@-%@", subActDict[@"name"], subActivitiesArr[indexPath.row]]];
+        cell.activityLbl.text = [NSString stringWithFormat:@"%@", subActivityArr[indexPath.row][@"name"]];
+        cell.activityImg.image = [UIImage imageNamed:@"ImageUnavailable"];
+        dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0ul);
+        dispatch_async(queue, ^{
+            // Perform async operation
+            // Call your method/function here
+            UIImage *intenetActivityImage = [vikingDataManager findMainActivityImage:@"1"]; //TODO: don't hardcode!!!
+            dispatch_sync(dispatch_get_main_queue(), ^{
+                // Update UI
+                cell.activityImg.image = intenetActivityImage;
+            });
+        });
+        
+        //[UIImage imageNamed:[NSString stringWithFormat:@"icon-%@-%@", subActDict[@"name"], subActivityArr[indexPath.row]]];
         
         return cell;
     }
@@ -437,7 +453,7 @@
         self.nameView.hidden = YES;
         
         [self.activityDict setObject:cell.activityImg.image forKey:@"image"];
-        [self.activityDict setObject:subActivitiesArr[indexPath.row] forKey:@"title"];
+        [self.activityDict setObject:subActivityArr[indexPath.row] forKey:@"title"];
         
         [self.durationTable reloadData];
         
@@ -624,7 +640,7 @@
     NSManagedObject *newActivity = [NSEntityDescription insertNewObjectForEntityForName:@"MyActivityList" inManagedObjectContext:context];
     [newActivity setValue:activityName forKey:@"activityList_Name"];
     [newActivity setValue:self.durationDict[@"title"] forKey:@"duration"];
-    [newActivity setValue:selectedActivity forKey:@"main_Activity"];
+//    [newActivity setValue:selectedActivityId forKey:@"main_Activity"];
     [newActivity setValue:self.activityDict[@"title"] forKey:@"sub_activity"];
     [newActivity setValue:self.tempDict[@"title"] forKey:@"temperature"];
     
@@ -640,7 +656,7 @@
          NSManagedObject *newActivityList = [NSEntityDescription insertNewObjectForEntityForName:@"MyActivityEquipmentList" inManagedObjectContext:context];
         [newActivityList setValue:activityName forKey:@"activityList_Name"];
         [newActivityList setValue:self.durationDict[@"title"] forKey:@"duration"];
-        [newActivityList setValue:selectedActivity forKey:@"main_Activity"];
+//        [newActivityList setValue:selectedActivity forKey:@"main_Activity"];
         [newActivityList setValue:self.activityDict[@"title"] forKey:@"sub_activity"];
         [newActivityList setValue:self.tempDict[@"title"] forKey:@"temperature"];
         [newActivityList setValue:equipmentDict[@"name"] forKey:@"equipment"];
@@ -663,7 +679,7 @@
     [dict setValue:self.tempDict[@"image"] forKey:@"TempImage"];
     [dict setValue:self.tempDict[@"title"] forKey:@"TempTitle"];
     [dict setValue:self.activityNameTxt.text forKey:@"activityListname"];
-    [dict setValue:selectedActivity forKey:@"main_Activity"];
+//    [dict setValue:selectedActivity forKey:@"main_Activity"];
     
     ListVC *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"ListView"];
     vc.headerStr = self.activityNameTxt.text;
