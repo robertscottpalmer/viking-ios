@@ -120,7 +120,7 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)createSelectionView:(UIImage *)activityImage durationImg:(UIImage *)durationImage tempImg:(UIImage *)tempImage activityName:(NSString *)activityStr durationName:(NSString *)durationStr tempName:(NSString *)tempStr inView:(UIView *)view
+-(void)createSelectionView:(UIImage *)activityImage durationImg:(UIImage *)durationImage tempImg:(UIImage *)tempImage activityName:(NSDictionary *)activityStr durationName:(NSString *)durationStr tempName:(NSString *)tempStr inView:(UIView *)view
 {
     if(self.selectionView)
     {
@@ -156,6 +156,7 @@
     UILabel *deviderLbl;
     UILabel *deviderLbl2;
     
+    
     if(IS_IPHONE_5)
         activityImg = [[UIImageView alloc] initWithFrame:CGRectMake(8, 10, 20, 20)];
     else if(IS_IPHONE_6P)
@@ -168,7 +169,6 @@
     activityImg.image = activityImage;
     activityImg.contentMode = UIViewContentModeScaleAspectFill;
     [self.selectionView addSubview:activityImg];
-    
     
     if(IS_IPHONE_5)
     {
@@ -191,13 +191,13 @@
         activityLbl = [[UILabel alloc] initWithFrame:CGRectMake(42, 9, 71, 21)];
         activityLbl.font = [UIFont fontWithName:@"ProximaNova-Regular" size:12.0];
     }
-    activityLbl.text = [activityStr uppercaseString];
+    NSLog(@"the current value of activityStr is %@",activityStr);
+    activityLbl.text = [activityStr[@"name"] uppercaseString];
     activityLbl.numberOfLines = 0;
     activityLbl.textColor = [UIColor whiteColor];
     activityLbl.textAlignment = NSTextAlignmentCenter;
     [self.selectionView addSubview:activityLbl];
-    
-    
+    NSLog(@"made it FURTHER!!!");
     
     if(IS_IPHONE_5)
         durImg = [[UIImageView alloc] initWithFrame:CGRectMake(120, 10, 20, 17)];
@@ -210,7 +210,6 @@
     durImg.image = durationImage;
     durImg.contentMode = UIViewContentModeScaleAspectFill;
     [self.selectionView addSubview:durImg];
-    
     
     
     if(IS_IPHONE_5)
@@ -251,7 +250,6 @@
     tempImg.contentMode = UIViewContentModeScaleAspectFill;
     [self.selectionView addSubview:tempImg];
     
-   
     
     if(IS_IPHONE_5)
     {
@@ -475,15 +473,23 @@
         [self.tempDict setObject:cell.tempLbl.text forKey:@"title"];
         
         NSString *durationStr;
-        if([self.durationDict[@"title"] isEqualToString:@"1 Day"])
+        if([self.durationDict[@"title"] isEqualToString:@"1 Day"]){
             durationStr = @"Raid";
-        else if ([self.durationDict[@"title"] isEqualToString:@"2 Days"])
+        }
+        else if ([self.durationDict[@"title"] isEqualToString:@"2 Days"]){
             durationStr = @"Journey";
-        else if ([self.durationDict[@"title"] isEqualToString:@"3+ Days"])
+        }
+        else if ([self.durationDict[@"title"] isEqualToString:@"3+ Days"]){
             durationStr = @"Expedition";
+        }
+        
+        UIImage *dbugActivityImage = self.activityDict[@"image"];
+        UIImage *dbugDurationImage = self.durationDict[@"image"];
+        UIImage *dbugTemperatureImage = cell.tempImg.image;
+        NSString *dbugActivityName = self.activityDict[@"title"];
         
         [self createSelectionView:self.activityDict[@"image"] durationImg:self.durationDict[@"image"] tempImg:cell.tempImg.image activityName:self.activityDict[@"title"] durationName:durationStr tempName:cell.tempLbl.text inView:self.nameView];
-        
+        NSLog(@"About to crash 3");
         [self SwipeRight:self.nameView];
     }
 }

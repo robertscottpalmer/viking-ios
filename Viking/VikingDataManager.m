@@ -34,18 +34,25 @@
     // Should never be called, but just here for clarity really.
 }
 
+-(UIImage *)loadImageViaApi: (NSString *) entityType : (NSString *) entityId : (NSString*) imageType {
+    NSString *imagePath = [NSString stringWithFormat:@"%@/media/%@/%@/%@.png", apiServer, entityType, entityId,imageType];
+    NSLog(@"Before call url for: %@",imagePath);
+    NSLog(@"This is th crux of where a well-designed image serving api could score major points: %@",imagePath);
+    UIImage *intenetActivityImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:imagePath]]];
+    NSLog(@"after call url");
+    return intenetActivityImage;
+}
 
--(UIImage *)findMainActivityImage:(NSString *)activityId {
+-(UIImage *)findMainActivityBanner:(NSString *)activityTypeId{
+    return [self loadImageViaApi:@"activitytype" :activityTypeId : @"bannerImage"];
+}
+
+-(UIImage *)findMainActivityImage:(NSString *)activityTypeId {
     //NSLog(@"just entered loadRemoteImage with imageName : %@",imageName);
     //return [UIImage imageNamed:imageName];
     //http://thevikingapp.local/media/activity/1/backgroundImage3.png
     //http://thevikingapp.local/media/activitytype/1/bannerImage.png
-    NSString *imagePath = [NSString stringWithFormat:@"%@/%@%@", apiServer, @"fetchpng.php?activityName=", activityId];
-    //imagePath = @"http://robertscottpalmer.com/viking/images/Water@2x.png";
-    NSLog(@"Before call url for: %@",imagePath);
-    UIImage *intenetActivityImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:imagePath]]];
-    NSLog(@"after call url");
-    return intenetActivityImage;
+    return [self loadImageViaApi:@"activitytype" :activityTypeId : @"bannerImage"];
 }
 
 -(NSArray *)getActivityTypes{
