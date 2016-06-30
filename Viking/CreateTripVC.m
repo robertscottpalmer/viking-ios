@@ -21,11 +21,9 @@
 {
     AppDelegate *appDel;
     NSDictionary *subActDict;
-    //NSArray *subActivitiesArr;
     NSArray *durationArr;
     NSArray *temperatureArr;
     NSManagedObjectContext *context;
-    
     VikingDataManager *vikingDataManager;
 }
 
@@ -79,19 +77,8 @@
      [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardFrameDidChange:) name:UIKeyboardWillChangeFrameNotification object:nil];
     
     NSLog(@"Make sure we get to here!!!!");
-    
-     for(NSDictionary *dict in subActivityArr)
-     {
-         NSLog(@"dict : %@",dict);
-//         if([dict[@"name"] isEqualToString:selectedActivity])
-//         {
-//             subActDict = dict;
-//         }
-     }
-    
-    //subActivitiesArr = subActDict[@"sub_activities"][@"name"];
-    durationArr = subActDict[@"Duration"][@"name"];
-    temperatureArr = subActDict[@"Temperature"][@"name"];
+    durationArr = [vikingDataManager getDurationArr];
+    temperatureArr = [vikingDataManager getTemperatureArr];
     
     [self setHeaderBackground];
     

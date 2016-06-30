@@ -22,8 +22,10 @@
 /*Will return an array of dictionaries in the form ({id:"",name:""},{id:"",name:""})*/
 -(NSArray *)getActivityTypes;
 -(NSArray *)getActivitiesOfType:(NSInteger)activityTypeId;
+-(NSArray *)getDurationArr;
+-(NSArray *)getTemperatureArr;
 + (id)sharedManager;
 
 @end
 
-#endif /* ImageManager_h */
+#endif /* VikingDataManager_h */

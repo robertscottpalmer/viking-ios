@@ -63,4 +63,17 @@
     return activities;
 }
 
+-(NSArray *)getDurationArr{
+    NSArray *durations = [NSArray arrayWithObjects: @"1 Day",@"2 Days",@"3+ Days", nil];
+    return durations;
+}
+-(NSArray *)getTemperatureArr{
+    NSArray *temperatures = [NSArray arrayWithObjects:
+            @"Hot",
+            @"Warm",
+            @"Cool",
+            @"Cold",nil];
+    return temperatures;
+}
+
 @end
