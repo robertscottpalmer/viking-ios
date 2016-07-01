@@ -35,7 +35,7 @@
 
 @implementation CreateTripVC
 
-@synthesize subActivityArr, selectedActivityId;
+@synthesize subActivityArr, selectedActivityTypeId;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -49,7 +49,7 @@
     self.tempHeaderLbl.font = [UIFont fontWithName:@"ProximaNova-Bold" size:15.0];
     self.createHeaderLbl.font = [UIFont fontWithName:@"ProximaNova-Bold" size:15.0];
 
-    self.headerBGIcon.image = [UIImage imageNamed:[NSString stringWithFormat:@"icon_%@", selectedActivityId]];
+    self.headerBGIcon.image = [UIImage imageNamed:[NSString stringWithFormat:@"icon_%@", selectedActivityTypeId]];
     
     context = [self managedObjectContext];
     
@@ -87,10 +87,10 @@
 
 -(void)setHeaderBackground
 {
-    self.headerBGView.image = [UIImage imageNamed:[NSString stringWithFormat:@"BG-%@",selectedActivityId]];
-    self.durationHeaderBGView.image = [UIImage imageNamed:[NSString stringWithFormat:@"BG-%@",selectedActivityId]];
-    self.tempHeaderBGView.image = [UIImage imageNamed:[NSString stringWithFormat:@"BG-%@",selectedActivityId]];
-    self.generateHeaderBGView.image = [UIImage imageNamed:[NSString stringWithFormat:@"BG-%@",selectedActivityId]];
+    self.headerBGView.image = [UIImage imageNamed:[NSString stringWithFormat:@"BG-%@",selectedActivityTypeId]];
+    self.durationHeaderBGView.image = [UIImage imageNamed:[NSString stringWithFormat:@"BG-%@",selectedActivityTypeId]];
+    self.tempHeaderBGView.image = [UIImage imageNamed:[NSString stringWithFormat:@"BG-%@",selectedActivityTypeId]];
+    self.generateHeaderBGView.image = [UIImage imageNamed:[NSString stringWithFormat:@"BG-%@",selectedActivityTypeId]];
 }
 
 - (void)keyboardFrameDidChange:(NSNotification *)notification
@@ -634,8 +634,9 @@
     NSManagedObject *newActivity = [NSEntityDescription insertNewObjectForEntityForName:@"MyActivityList" inManagedObjectContext:context];
     [newActivity setValue:activityName forKey:@"activityList_Name"];
     [newActivity setValue:self.durationDict[@"title"] forKey:@"duration"];
-//    [newActivity setValue:selectedActivityId forKey:@"main_Activity"];
-    [newActivity setValue:self.activityDict[@"title"] forKey:@"sub_activity"];
+    [newActivity setValue:selectedActivityTypeId forKey:@"main_Activity"];
+    //NOTE: this should not be hard-coded
+    [newActivity setValue:self.activityDict[@"title"][@"1"] forKey:@"sub_activity"];
     [newActivity setValue:self.tempDict[@"title"] forKey:@"temperature"];
     
     NSError *error = nil;
