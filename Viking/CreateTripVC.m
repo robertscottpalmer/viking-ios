@@ -489,7 +489,7 @@
         NSString *dbugActivityName = self.activityDict[@"title"];
         
         [self createSelectionView:self.activityDict[@"image"] durationImg:self.durationDict[@"image"] tempImg:cell.tempImg.image activityName:self.activityDict[@"title"] durationName:durationStr tempName:cell.tempLbl.text inView:self.nameView];
-        NSLog(@"About to crash 3");
+        NSLog(@"About to crash while swiping to nameView %@",self.nameView);
         [self SwipeRight:self.nameView];
     }
 }
@@ -630,6 +630,7 @@
 
 -(void)saveMyActivity:(NSString *)activityName equipmentList:(NSArray *)list
 {
+    NSLog(@"????Is this where we're failing???? listPassed=%@",list);
     NSManagedObject *newActivity = [NSEntityDescription insertNewObjectForEntityForName:@"MyActivityList" inManagedObjectContext:context];
     [newActivity setValue:activityName forKey:@"activityList_Name"];
     [newActivity setValue:self.durationDict[@"title"] forKey:@"duration"];

@@ -203,7 +203,8 @@
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"MyActivityEquipmentList" inManagedObjectContext:context];
     [fetchRequest setEntity:entity];
     NSPredicate *predicate;
-    
+    NSLog(@"Is this where we're failing??");
+    NSLog(@"the object activityDict currently holds : %@",activityDict);
     if(isFromCreateTrip)
     {
         predicate = [NSPredicate predicateWithFormat:@"activityList_Name=%@ AND duration=%@ AND main_Activity=%@ AND sub_activity=%@ AND temperature=%@ AND image=%@", activityDict[@"activityListname"],activityDict[@"DurationTitle"], activityDict[@"main_Activity"], activityDict[@"ActivityTitle"], activityDict[@"TempTitle"],@"hexa_gray"];
