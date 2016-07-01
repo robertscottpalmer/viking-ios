@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		4E3FBF661D21E60E00E03C61 /* VikingDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E3FBF651D21E60E00E03C61 /* VikingDataManager.m */; };
 		4E632B5B1D1F68BB00BBE023 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E632B5A1D1F68BB00BBE023 /* ImageIO.framework */; };
-		5677ECC81AC44D3B00134BE7 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5677ECC71AC44D3B00134BE7 /* FacebookSDK.framework */; };
 		57391BB71A774B7E004963F4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 57391BB61A774B7E004963F4 /* main.m */; };
 		57391BBA1A774B7E004963F4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 57391BB91A774B7E004963F4 /* AppDelegate.m */; };
 		57391BC01A774B7E004963F4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57391BBE1A774B7E004963F4 /* Main.storyboard */; };
@@ -63,7 +62,6 @@
 		4E3FBF681D21F5FD00E03C61 /* ActivityType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityType.h; sourceTree = "<group>"; };
 		4E3FBF6A1D21F63C00E03C61 /* Activity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Activity.h; sourceTree = "<group>"; };
 		4E632B5A1D1F68BB00BBE023 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
-		5677ECC71AC44D3B00134BE7 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		57391BB11A774B7E004963F4 /* Viking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Viking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57391BB51A774B7E004963F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		57391BB61A774B7E004963F4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -143,7 +141,6 @@
 				4E632B5B1D1F68BB00BBE023 /* ImageIO.framework in Frameworks */,
 				578999BE1ADBC71D00B6CB5D /* UIKit.framework in Frameworks */,
 				574A3E1F1A7D0C08000B3A77 /* MessageUI.framework in Frameworks */,
-				5677ECC81AC44D3B00134BE7 /* FacebookSDK.framework in Frameworks */,
 				57391BE41A7766BD004963F4 /* QuartzCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -165,7 +162,6 @@
 			children = (
 				4E632B5A1D1F68BB00BBE023 /* ImageIO.framework */,
 				578999BD1ADBC71D00B6CB5D /* UIKit.framework */,
-				5677ECC71AC44D3B00134BE7 /* FacebookSDK.framework */,
 				574A3E1E1A7D0C08000B3A77 /* MessageUI.framework */,
 				57391BE31A7766BD004963F4 /* QuartzCore.framework */,
 				57391BB31A774B7E004963F4 /* Viking */,

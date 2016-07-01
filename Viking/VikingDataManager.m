@@ -83,4 +83,15 @@
     return temperatures;
 }
 
+-(NSArray *)getMainViewMessages{
+    NSArray *messages = [NSArray arrayWithObjects:
+                             [NSDictionary dictionaryWithObject:@"This is a fun message that did not come from facebook!" forKey:@"message"],
+                             [NSDictionary dictionaryWithObject:@"2This is a fun message that did not come from facebook!" forKey:@"message"],
+                             [NSDictionary dictionaryWithObject:@"3This is a fun message that did not come from facebook!" forKey:@"4message"],
+                             [NSDictionary dictionaryWithObject:@"5This is a fun message that did not come from facebook!" forKey:@"message"],
+                             nil];
+    NSLog(@"messages are %@",messages);
+    return messages;
+}
+
 @end

@@ -9,18 +9,18 @@
 #import "MainVC.h"
 #import <QuartzCore/QuartzCore.h>
 #import <MessageUI/MessageUI.h>
-#import <FacebookSDK/FacebookSDK.h>
 #import "AppConstant.h"
 #import "Reachability.h"
+#import "VikingDataManager.h"
 
 @interface MainVC ()<MFMailComposeViewControllerDelegate>
 {
     NSMutableData *_responseData;
-    NSMutableArray *postsArray;
-    NSString *strAppID;
-    NSString *strAppURL;
+    NSArray *postsArray;
     Reachability *internetReachability;
     UITapGestureRecognizer *tapGR;
+    
+    VikingDataManager *vikingDataManager;
 }
 @end
 
@@ -35,6 +35,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    vikingDataManager = [VikingDataManager sharedManager];
     
     self.bottomLbl.font = [UIFont fontWithName:@"ProximaNova-Light" size:15.0];
     self.betaLbl.font = [UIFont fontWithName:@"ProximaNova-Bold" size:16.0];
@@ -231,56 +232,12 @@
     self.fbIndication.hidden = NO;
     [self.fbIndication startAnimating];
     
-    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
-                            accessToken, @"access_token",
-                            nil
-                            ];
+    postsArray  = [vikingDataManager getMainViewMessages];
     
-    [FBRequestConnection startWithGraphPath:@"/TheVikingApp/posts"
-                                 parameters:params
-                                 HTTPMethod:@"GET"
-                          completionHandler:^(
-                                              FBRequestConnection *connection,
-                                              id result,
-                                              NSError *error
-                                              ) {
-                              /* handle the result */
-                              postsArray = result[@"data"];
-                              //NSLog(@"arr - %@", postsArray);
-                             
-                              [self getAppID:accessToken];
-                          }];
+    [self setUpScrollView];
+    [self.fbIndication stopAnimating];
+     self.fbIndication.hidden = YES;
 }
-
-
--(void)getAppID:(NSString *)accessToken
-{
-    
-    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
-                            accessToken, @"access_token",
-                            nil
-                            ];
-    
-    [FBRequestConnection startWithGraphPath:@"/TheVikingApp"
-                                 parameters:params
-                                 HTTPMethod:@"GET"
-                          completionHandler:^(
-                                              FBRequestConnection *connection,
-                                              id result,
-                                              NSError *error
-                                              ) {
-                              /* handle the result */
-                              strAppID = result[@"id"];
-                              strAppURL = result[@"link"];
-                              //NSLog(@"arr - %@", postsArray);
-                              
-                              [self setUpScrollView];
-                              [self.fbIndication stopAnimating];
-                              self.fbIndication.hidden = YES;
-                              
-                          }];
-}
-
 
 -(void)setUpScrollView
 {
@@ -388,7 +345,7 @@
 
 -(void) labelTapped:(UITapGestureRecognizer *)gestureRecognizer
 {
-    BOOL installed = [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"fb://"]];
+    //BOOL installed = [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"fb://"]];
     
     NSString *idStr = postsArray[self.pageControl.currentPage][@"id"];
     NSArray *arr = [idStr componentsSeparatedByString:@"_"];
@@ -401,18 +358,8 @@
         //NSLog(@"First String %@",firstString);
         //NSLog(@"Second String %@",secondString);
     }
-    if(installed)
-    {
-        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"fb://profile/%@", idStr]];
-        [[UIApplication sharedApplication] openURL:url];
-    }
-    else
-    {
-        //NSLog(@"%@",[NSString stringWithFormat:@"%@/posts/%@", strAppURL, secondString]);
-        NSURL *fbURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/posts/%@", strAppURL, secondString]];
-        //NSLog(@"fburl - %@", fbURL);
-        [[UIApplication sharedApplication] openURL:fbURL];
-    }
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"We should follow a link here???" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    [alert show];
 }
 
 

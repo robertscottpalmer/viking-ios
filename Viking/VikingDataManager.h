@@ -25,6 +25,7 @@
 -(NSArray *)getActivitiesOfType:(NSInteger)activityTypeId;
 -(NSArray *)getDurationArr;
 -(NSArray *)getTemperatureArr;
+-(NSArray *)getMainViewMessages;
 + (id)sharedManager;
 
 @end
