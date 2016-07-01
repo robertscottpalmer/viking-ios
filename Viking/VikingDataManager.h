@@ -8,7 +8,6 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import "XMLDictionary.h"
-#import "ActivityType.h"
 
 #ifndef ImageManager_h
 #define ImageManager_h

@@ -59,8 +59,6 @@
 /* Begin PBXFileReference section */
 		4E3FBF641D21E5D300E03C61 /* VikingDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VikingDataManager.h; sourceTree = "<group>"; };
 		4E3FBF651D21E60E00E03C61 /* VikingDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VikingDataManager.m; sourceTree = "<group>"; };
-		4E3FBF681D21F5FD00E03C61 /* ActivityType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityType.h; sourceTree = "<group>"; };
-		4E3FBF6A1D21F63C00E03C61 /* Activity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Activity.h; sourceTree = "<group>"; };
 		4E632B5A1D1F68BB00BBE023 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		57391BB11A774B7E004963F4 /* Viking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Viking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57391BB51A774B7E004963F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -148,15 +146,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		4E3FBF671D21F5CA00E03C61 /* DataModel */ = {
-			isa = PBXGroup;
-			children = (
-				4E3FBF681D21F5FD00E03C61 /* ActivityType.h */,
-				4E3FBF6A1D21F63C00E03C61 /* Activity.h */,
-			);
-			name = DataModel;
-			sourceTree = "<group>";
-		};
 		57391BA81A774B7E004963F4 = {
 			isa = PBXGroup;
 			children = (
@@ -181,7 +170,6 @@
 		57391BB31A774B7E004963F4 /* Viking */ = {
 			isa = PBXGroup;
 			children = (
-				4E3FBF671D21F5CA00E03C61 /* DataModel */,
 				57391BB81A774B7E004963F4 /* AppDelegate.h */,
 				57391BB91A774B7E004963F4 /* AppDelegate.m */,
 				5762087A1A8234B4000479E9 /* AppConstant.h */,
