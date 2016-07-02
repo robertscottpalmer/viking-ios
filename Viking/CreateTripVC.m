@@ -588,7 +588,7 @@
         [dict setValue:self.tempDict[@"image"] forKey:@"TempImage"];
         [dict setValue:self.tempDict[@"title"] forKey:@"TempTitle"];
         
-        appDel.activityDict = dict;
+        //appDel.activityDict = dict;
         
         NSArray *subActEquipmentArr;
         
@@ -669,7 +669,7 @@
     [dict setValue:self.tempDict[@"image"] forKey:@"TempImage"];
     [dict setValue:self.tempDict[@"title"] forKey:@"TempTitle"];
     
-    appDel.activityDict = dict;
+    //appDel.activityDict = dict;
     
     ListVC *vc = [segue destinationViewController];
     vc.headerStr = self.activityNameTxt.text;

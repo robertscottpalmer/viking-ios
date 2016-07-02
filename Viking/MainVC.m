@@ -42,17 +42,6 @@
     
     tapGR = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(labelTapped:)];
     [self.scrollView addGestureRecognizer: tapGR];
-    
-    
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"codebeautify" ofType:@"json"];
-    NSData* data = [NSData dataWithContentsOfFile:filePath];
-  NSError* error = nil;
-    NSDictionary *result = [NSJSONSerialization JSONObjectWithData:data
-                                                options:kNilOptions error:&error];
-    
-    NSArray *equip = result[@"GearList"][@"MainActivity"][@"SubActivity"][@"equipment_list"];
-    
-//    NSLog(@"list - %@", equip);
    
     self.fbIndication.hidden = YES;
     
@@ -79,21 +68,6 @@
             break;
         }
     }
-    
-    
-//    UIVisualEffect *blurEffect;
-//    blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
-//    
-//    UIVisualEffectView *visualEffectView;
-//    visualEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
-//    
-//    visualEffectView.layer.cornerRadius = 65.0f;
-//    visualEffectView.layer.masksToBounds = YES;
-//    
-//    visualEffectView.frame = self.tripNewImage.frame;
-//    [self.view addSubview:visualEffectView];
-//    
-//    [self.view bringSubviewToFront:self.tripNewImage];
 }
 
 -(void)facebookPostCall

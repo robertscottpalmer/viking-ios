@@ -20,7 +20,6 @@
 		57391BE71A7794C1004963F4 /* CreateTripVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 57391BE61A7794C1004963F4 /* CreateTripVC.m */; };
 		573CBAC11AD2AAA5009B8630 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 573CBAC01AD2AAA5009B8630 /* MBProgressHUD.m */; };
 		573EDF891AD63DEE00732F35 /* ListCell_6P.xib in Resources */ = {isa = PBXBuildFile; fileRef = 573EDF881AD63DEE00732F35 /* ListCell_6P.xib */; };
-		57462E011AB16A0E00D405FE /* codebeautify.json in Resources */ = {isa = PBXBuildFile; fileRef = 57462E001AB16A0E00D405FE /* codebeautify.json */; };
 		574818C51AC16AFC00E4EC09 /* aaaTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 574818C41AC16AFC00E4EC09 /* aaaTableViewController.m */; };
 		574A3E171A7CA0AD000B3A77 /* LDProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 574A3E141A7CA0AD000B3A77 /* LDProgressView.m */; };
 		574A3E181A7CA0AD000B3A77 /* UIColor+RGBValues.m in Sources */ = {isa = PBXBuildFile; fileRef = 574A3E161A7CA0AD000B3A77 /* UIColor+RGBValues.m */; };
@@ -31,7 +30,6 @@
 		574EC60F1AB29C560095B40A /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 574EC60D1AB29C560095B40A /* Model.xcdatamodeld */; };
 		5751873B1ADB97A8005A1507 /* ListCell_6.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5751873A1ADB97A8005A1507 /* ListCell_6.xib */; };
 		5752A0C21ABA8BB7003DA3D6 /* XMLDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 5752A0C11ABA8BB6003DA3D6 /* XMLDictionary.m */; };
-		5752A0C41ABA8CD9003DA3D6 /* viking_list.xml in Resources */ = {isa = PBXBuildFile; fileRef = 5752A0C31ABA8CD9003DA3D6 /* viking_list.xml */; };
 		5752B0531ABFD7EA0070D2EE /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 5752B0521ABFD7EA0070D2EE /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		575AD7971A7B43A100C216CF /* ActivityTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 575AD7961A7B43A100C216CF /* ActivityTableCell.m */; };
 		575AD79A1A7B43AE00C216CF /* DurationTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 575AD7991A7B43AE00C216CF /* DurationTableCell.m */; };
@@ -81,7 +79,6 @@
 		573CBABF1AD2AAA5009B8630 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		573CBAC01AD2AAA5009B8630 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		573EDF881AD63DEE00732F35 /* ListCell_6P.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListCell_6P.xib; sourceTree = "<group>"; };
-		57462E001AB16A0E00D405FE /* codebeautify.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = codebeautify.json; sourceTree = "<group>"; };
 		574818C31AC16AFC00E4EC09 /* aaaTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = aaaTableViewController.h; sourceTree = "<group>"; };
 		574818C41AC16AFC00E4EC09 /* aaaTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = aaaTableViewController.m; sourceTree = "<group>"; };
 		574A3E131A7CA0AD000B3A77 /* LDProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDProgressView.h; sourceTree = "<group>"; };
@@ -98,7 +95,6 @@
 		5751873A1ADB97A8005A1507 /* ListCell_6.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListCell_6.xib; sourceTree = "<group>"; };
 		5752A0C01ABA8BB6003DA3D6 /* XMLDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLDictionary.h; sourceTree = "<group>"; };
 		5752A0C11ABA8BB6003DA3D6 /* XMLDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLDictionary.m; sourceTree = "<group>"; };
-		5752A0C31ABA8CD9003DA3D6 /* viking_list.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = viking_list.xml; sourceTree = "<group>"; };
 		5752B0511ABFD7EA0070D2EE /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		5752B0521ABFD7EA0070D2EE /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		575AD7951A7B43A100C216CF /* ActivityTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityTableCell.h; sourceTree = "<group>"; };
@@ -192,8 +188,6 @@
 		57391BB41A774B7E004963F4 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				5752A0C31ABA8CD9003DA3D6 /* viking_list.xml */,
-				57462E001AB16A0E00D405FE /* codebeautify.json */,
 				57391BB51A774B7E004963F4 /* Info.plist */,
 				57391BB61A774B7E004963F4 /* main.m */,
 				574A3E191A7CA929000B3A77 /* List.plist */,
@@ -401,12 +395,10 @@
 				576D8EA51A8CC04000F8AEBF /* ProximaNova-LightItalic.otf in Resources */,
 				576D8EA31A8CC04000F8AEBF /* ProximaNova-Extrabold.otf in Resources */,
 				57391BC21A774B7E004963F4 /* Images.xcassets in Resources */,
-				57462E011AB16A0E00D405FE /* codebeautify.json in Resources */,
 				576D8EA11A8CC04000F8AEBF /* ProximaNova-Bold.otf in Resources */,
 				576D8EA81A8CC04000F8AEBF /* ProximaNova-RegularItalic.otf in Resources */,
 				576D8EA01A8CC04000F8AEBF /* ProximaNova-Black.otf in Resources */,
 				576D8EA91A8CC04000F8AEBF /* ProximaNova-Semibold.otf in Resources */,
-				5752A0C41ABA8CD9003DA3D6 /* viking_list.xml in Resources */,
 				576D8EA41A8CC04000F8AEBF /* ProximaNova-Light.otf in Resources */,
 				576D8EA21A8CC04000F8AEBF /* ProximaNova-BoldIt.otf in Resources */,
 				574A3E1A1A7CA929000B3A77 /* List.plist in Resources */,

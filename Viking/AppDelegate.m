@@ -19,7 +19,7 @@
 
 @implementation AppDelegate
 
-@synthesize activityDict;
+//@synthesize activityDict;
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
@@ -88,19 +88,7 @@
 
 -(void)checkForFile
 {
-    NSURL *documentsURL = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
-    documentsURL = [documentsURL URLByAppendingPathComponent:@"viking_list.xml"];
-    
-    if ([[NSFileManager defaultManager] fileExistsAtPath:[documentsURL path]])
-    {
-        NSError *error;
-        [[NSFileManager defaultManager] removeItemAtURL:documentsURL error:&error];
-        [self downloadXMLFile];
-    }
-    else
-    {
-        [self downloadXMLFile];
-    }
+    NSLog(@"This is an opportunity to make sure you have all of the files you need where they are needed");
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
@@ -221,32 +209,6 @@
 - (NSURL *)applicationDocumentsDirectory
 {
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
-}
-
-
--(void)downloadXMLFile
-{
-    NSURL *yourURL = [NSURL URLWithString:@"http://thevikingapp.com/viking_list.xml"];
-    //NSURL *yourURL = [NSURL URLWithString:@"http://main.spaceotechnologies.com/project/xml_read/viking_list.xml"];
-    // turn it into a request and use NSData to load its content
-    NSURLRequest *request = [NSURLRequest requestWithURL:yourURL];
-    NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
-    
-    // find Documents directory and append your local filename
-    NSURL *documentsURL = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
-    documentsURL = [documentsURL URLByAppendingPathComponent:@"viking_list.xml"];
-    
-    // and finally save the file
-    [data writeToURL:documentsURL atomically:YES];
-}
-
--(void)getFileContent
-{
-    NSURL *documentsURL = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
-    
-    NSArray *contents = [[NSFileManager defaultManager]contentsOfDirectoryAtURL:documentsURL includingPropertiesForKeys:nil options:NSDirectoryEnumerationSkipsHiddenFiles error:nil];
-    
-    NSLog(@"%@", [contents description]);
 }
 
 #pragma mark - GlobalProgressHUD
