@@ -23,7 +23,6 @@
 		574818C51AC16AFC00E4EC09 /* aaaTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 574818C41AC16AFC00E4EC09 /* aaaTableViewController.m */; };
 		574A3E171A7CA0AD000B3A77 /* LDProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 574A3E141A7CA0AD000B3A77 /* LDProgressView.m */; };
 		574A3E181A7CA0AD000B3A77 /* UIColor+RGBValues.m in Sources */ = {isa = PBXBuildFile; fileRef = 574A3E161A7CA0AD000B3A77 /* UIColor+RGBValues.m */; };
-		574A3E1A1A7CA929000B3A77 /* List.plist in Resources */ = {isa = PBXBuildFile; fileRef = 574A3E191A7CA929000B3A77 /* List.plist */; };
 		574A3E1D1A7D05D5000B3A77 /* MyTripVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 574A3E1C1A7D05D5000B3A77 /* MyTripVC.m */; };
 		574A3E1F1A7D0C08000B3A77 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 574A3E1E1A7D0C08000B3A77 /* MessageUI.framework */; };
 		574D38B41ABC4D9D00FBF8EC /* MyActivityListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 574D38B31ABC4D9D00FBF8EC /* MyActivityListCell.m */; };
@@ -85,7 +84,6 @@
 		574A3E141A7CA0AD000B3A77 /* LDProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDProgressView.m; sourceTree = "<group>"; };
 		574A3E151A7CA0AD000B3A77 /* UIColor+RGBValues.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+RGBValues.h"; sourceTree = "<group>"; };
 		574A3E161A7CA0AD000B3A77 /* UIColor+RGBValues.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+RGBValues.m"; sourceTree = "<group>"; };
-		574A3E191A7CA929000B3A77 /* List.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = List.plist; sourceTree = "<group>"; };
 		574A3E1B1A7D05D5000B3A77 /* MyTripVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyTripVC.h; sourceTree = "<group>"; };
 		574A3E1C1A7D05D5000B3A77 /* MyTripVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyTripVC.m; sourceTree = "<group>"; };
 		574A3E1E1A7D0C08000B3A77 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
@@ -190,7 +188,6 @@
 			children = (
 				57391BB51A774B7E004963F4 /* Info.plist */,
 				57391BB61A774B7E004963F4 /* main.m */,
-				574A3E191A7CA929000B3A77 /* List.plist */,
 				576D8E951A8CC04000F8AEBF /* ProximaNova-Black.otf */,
 				576D8E961A8CC04000F8AEBF /* ProximaNova-Bold.otf */,
 				576D8E971A8CC04000F8AEBF /* ProximaNova-BoldIt.otf */,
@@ -401,7 +398,6 @@
 				576D8EA91A8CC04000F8AEBF /* ProximaNova-Semibold.otf in Resources */,
 				576D8EA41A8CC04000F8AEBF /* ProximaNova-Light.otf in Resources */,
 				576D8EA21A8CC04000F8AEBF /* ProximaNova-BoldIt.otf in Resources */,
-				574A3E1A1A7CA929000B3A77 /* List.plist in Resources */,
 				576D8EAA1A8CC04000F8AEBF /* ProximaNova-SemiboldItalic.otf in Resources */,
 				576D8EA61A8CC04000F8AEBF /* ProximaNova-RegItalic.otf in Resources */,
 				5762083E1A81DA02000479E9 /* Main_i6.storyboard in Resources */,
