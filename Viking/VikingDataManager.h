@@ -6,8 +6,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <Foundation/NSExtensionRequestHandling.h>
 #import <UIKit/UIKit.h>
 #import "XMLDictionary.h"
+@import CoreData;
 
 #ifndef ImageManager_h
 #define ImageManager_h
@@ -16,6 +18,7 @@
 }
 
 @property (nonatomic, retain) NSString *apiServer;
+@property (nonatomic, retain) NSManagedObjectContext *managedContext;
 
 -(UIImage *)findMainActivityImage:(NSString *)activityTypeId;
 -(UIImage *)findMainActivityBackground:(NSString *)activityTypeId;
@@ -25,6 +28,7 @@
 -(NSArray *)getDurationArr;
 -(NSArray *)getTemperatureArr;
 -(NSArray *)getMainViewMessages;
+-(NSString *)createNewTrip: (NSInteger)activityId : (NSString *) durationId : (NSString *) temperatureId;
 + (id)sharedManager;
 
 @end

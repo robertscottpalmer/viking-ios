@@ -23,7 +23,7 @@
     NSDictionary *subActDict;
     NSArray *durationArr;
     NSArray *temperatureArr;
-    NSManagedObjectContext *context;
+    //NSManagedObjectContext *context;
     VikingDataManager *vikingDataManager;
 }
 
@@ -50,8 +50,6 @@
     self.createHeaderLbl.font = [UIFont fontWithName:@"ProximaNova-Bold" size:15.0];
 
     self.headerBGIcon.image = [UIImage imageNamed:[NSString stringWithFormat:@"icon_%@", selectedActivityTypeId]];
-    
-    context = [self managedObjectContext];
     
     self.activityNameTxt.attributedPlaceholder =
     [[NSAttributedString alloc] initWithString:@"Name your trip"
@@ -483,10 +481,10 @@
             durationStr = @"Expedition";
         }
         
-        UIImage *dbugActivityImage = self.activityDict[@"image"];
-        UIImage *dbugDurationImage = self.durationDict[@"image"];
-        UIImage *dbugTemperatureImage = cell.tempImg.image;
-        NSString *dbugActivityName = self.activityDict[@"title"];
+//        UIImage *dbugActivityImage = self.activityDict[@"image"];
+//        UIImage *dbugDurationImage = self.durationDict[@"image"];
+//        UIImage *dbugTemperatureImage = cell.tempImg.image;
+//        NSString *dbugActivityName = self.activityDict[@"title"];
         
         [self createSelectionView:self.activityDict[@"image"] durationImg:self.durationDict[@"image"] tempImg:cell.tempImg.image activityName:self.activityDict[@"title"] durationName:durationStr tempName:cell.tempLbl.text inView:self.nameView];
         NSLog(@"About to crash while swiping to nameView %@",self.nameView);
@@ -622,66 +620,20 @@
             }
             
         }
-        
         [self saveMyActivity:self.activityNameTxt.text equipmentList:equipmentListArr];
     }
-    
 }
 
 -(void)saveMyActivity:(NSString *)activityName equipmentList:(NSArray *)list
 {
-    NSLog(@"????Is this where we're failing???? listPassed=%@",list);
-    NSManagedObject *newActivity = [NSEntityDescription insertNewObjectForEntityForName:@"MyActivityList" inManagedObjectContext:context];
-    [newActivity setValue:activityName forKey:@"activityList_Name"];
-    [newActivity setValue:self.durationDict[@"title"] forKey:@"duration"];
-    [newActivity setValue:selectedActivityTypeId forKey:@"main_Activity"];
-    //NOTE: this should not be hard-coded
-    [newActivity setValue:self.activityDict[@"title"][@"1"] forKey:@"sub_activity"];
-    [newActivity setValue:self.tempDict[@"title"] forKey:@"temperature"];
-    
-    NSError *error = nil;
-    // Save the object to persistent store
-    if (![context save:&error]) {
-//        NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
-    }
-    
-
-    for(NSDictionary *equipmentDict in list)
-    {
-         NSManagedObject *newActivityList = [NSEntityDescription insertNewObjectForEntityForName:@"MyActivityEquipmentList" inManagedObjectContext:context];
-        [newActivityList setValue:activityName forKey:@"activityList_Name"];
-        [newActivityList setValue:self.durationDict[@"title"] forKey:@"duration"];
-//        [newActivityList setValue:selectedActivity forKey:@"main_Activity"];
-        [newActivityList setValue:self.activityDict[@"title"] forKey:@"sub_activity"];
-        [newActivityList setValue:self.tempDict[@"title"] forKey:@"temperature"];
-        [newActivityList setValue:equipmentDict[@"name"] forKey:@"equipment"];
-        [newActivityList setValue:@"hexa_orange" forKey:@"image"];
-        
-        NSError *error1 = nil;
-        // Save the object to persistent store
-        if (![context save:&error1]) {
-            NSLog(@"Can't Save! %@ %@", error1, [error1 localizedDescription]);
-        }
-    }
-    
-//    [self fetchdata];
-    NSMutableDictionary *dict = [NSMutableDictionary new];
-    
-    [dict setValue:self.activityDict[@"image"] forKey:@"ActivityImage"];
-    [dict setValue:self.activityDict[@"title"] forKey:@"ActivityTitle"];
-    [dict setValue:self.durationDict[@"image"] forKey:@"DurationImage"];
-    [dict setValue:self.durationDict[@"title"] forKey:@"DurationTitle"];
-    [dict setValue:self.tempDict[@"image"] forKey:@"TempImage"];
-    [dict setValue:self.tempDict[@"title"] forKey:@"TempTitle"];
-    [dict setValue:self.activityNameTxt.text forKey:@"activityListname"];
-//    [dict setValue:selectedActivity forKey:@"main_Activity"];
+    [vikingDataManager createNewTrip:[selectedActivityTypeId integerValue] : self.durationDict[@"title"] :self.tempDict[@"title"]];
     
     ListVC *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"ListView"];
     vc.headerStr = self.activityNameTxt.text;
-    vc.activityDict = dict;
+    //vc.activityDict = dict;
     vc.isFromCreateTrip = YES;
     vc.myTripObj = nil;
-//    vc.listArray = equipmentListArr;
+    //    vc.listArray = equipmentListArr;
     [self.navigationController pushViewController:vc animated:YES];
 }
 
@@ -690,13 +642,13 @@
     NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"SubActivities"];
     fetchRequest.returnsObjectsAsFaults = NO;
-    NSArray *subAct = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
+//    NSArray *subAct = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
 //    NSLog(@"data - %@", subAct);
     
 //    NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
     NSFetchRequest *fetchRequestList = [[NSFetchRequest alloc] initWithEntityName:@"MyActivityEquipmentList"];
     fetchRequestList.returnsObjectsAsFaults = NO;
-    NSArray *sublist = [[managedObjectContext executeFetchRequest:fetchRequestList error:nil] mutableCopy];
+//    NSArray *sublist = [[managedObjectContext executeFetchRequest:fetchRequestList error:nil] mutableCopy];
 //    NSLog(@"data - %@", sublist);
 
 }

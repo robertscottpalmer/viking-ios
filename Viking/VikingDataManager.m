@@ -8,7 +8,7 @@
 #import "VikingDataManager.h"
 @implementation VikingDataManager
 
-@synthesize apiServer;
+@synthesize apiServer,managedContext;
 
 #pragma mark Singleton Methods
 
@@ -24,8 +24,10 @@
 - (id)init {
     if (self = [super init]) {
         apiServer = @"http://thevikingapp.local";
-//        NSDictionary *allActivityDict = [NSDictionary dictionaryWithXMLData:[NSData dataWithContentsOfURL: [NSURL URLWithString: activityTypeApiCall]]];
-//        //activityCategories = allActivityDict[@"Main_Activities"][@"name"];
+        id delegate = [[UIApplication sharedApplication] delegate];
+        if ([delegate performSelector:@selector(managedObjectContext)]) {
+            managedContext = [delegate managedObjectContext];
+        }
     }
     return self;
 }
@@ -92,6 +94,62 @@
                              nil];
     NSLog(@"messages are %@",messages);
     return messages;
+}
+
+-(NSString *)createNewTrip: (NSInteger)activityId : (NSString *) durationId : (NSString *) temperatureId{
+    
+    NSManagedObject *newActivity = [NSEntityDescription insertNewObjectForEntityForName:@"MyActivityList" inManagedObjectContext:managedContext];
+    
+    NSString *warningMessage = [NSString stringWithFormat:@"Let's put some thought into how we store trips, activityId=%ld,durationId=%@,temperatureId=%@",(long)activityId,durationId,temperatureId];
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:warningMessage delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    [alert show];
+    
+//    [newActivity setValue:activityName forKey:@"activityList_Name"];
+//    [newActivity setValue:self.durationDict[@"title"] forKey:@"duration"];
+//    [newActivity setValue:selectedActivityTypeId forKey:@"main_Activity"];
+//    //NOTE: this should not be hard-coded
+//    [newActivity setValue:self.activityDict[@"title"][@"1"] forKey:@"sub_activity"];
+//    [newActivity setValue:self.tempDict[@"title"] forKey:@"temperature"];
+//    
+//    NSError *error = nil;
+//    // Save the object to persistent store
+//    if (![context save:&error]) {
+//        //        NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
+//    }
+//    
+//    
+//    for(NSDictionary *equipmentDict in list)
+//    {
+//        NSManagedObject *newActivityList = [NSEntityDescription insertNewObjectForEntityForName:@"MyActivityEquipmentList" inManagedObjectContext:context];
+//        [newActivityList setValue:activityName forKey:@"activityList_Name"];
+//        [newActivityList setValue:self.durationDict[@"title"] forKey:@"duration"];
+//        //        [newActivityList setValue:selectedActivity forKey:@"main_Activity"];
+//        [newActivityList setValue:self.activityDict[@"title"] forKey:@"sub_activity"];
+//        [newActivityList setValue:self.tempDict[@"title"] forKey:@"temperature"];
+//        [newActivityList setValue:equipmentDict[@"name"] forKey:@"equipment"];
+//        [newActivityList setValue:@"hexa_orange" forKey:@"image"];
+//        
+//        NSError *error1 = nil;
+//        // Save the object to persistent store
+//        if (![context save:&error1]) {
+//            NSLog(@"Can't Save! %@ %@", error1, [error1 localizedDescription]);
+//        }
+//    }
+//    
+//    //    [self fetchdata];
+//    NSMutableDictionary *dict = [NSMutableDictionary new];
+//    
+//    [dict setValue:self.activityDict[@"image"] forKey:@"ActivityImage"];
+//    [dict setValue:self.activityDict[@"title"] forKey:@"ActivityTitle"];
+//    [dict setValue:self.durationDict[@"image"] forKey:@"DurationImage"];
+//    [dict setValue:self.durationDict[@"title"] forKey:@"DurationTitle"];
+//    [dict setValue:self.tempDict[@"image"] forKey:@"TempImage"];
+//    [dict setValue:self.tempDict[@"title"] forKey:@"TempTitle"];
+//    [dict setValue:self.activityNameTxt.text forKey:@"activityListname"];
+//    //    [dict setValue:selectedActivity forKey:@"main_Activity"];
+    return @"Woot!!";
+    
 }
 
 @end
