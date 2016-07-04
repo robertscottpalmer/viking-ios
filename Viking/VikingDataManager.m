@@ -73,15 +73,18 @@
 }
 
 -(NSArray *)getDurationArr{
-    NSArray *durations = [NSArray arrayWithObjects: @"1 Day",@"2 Days",@"3+ Days", nil];
+    NSArray *durations = [NSArray arrayWithObjects:
+                          [NSDictionary dictionaryWithObjectsAndKeys:@"1 Day",@"description",@"Raid",@"name",@"1",@"id",nil],
+                          [NSDictionary dictionaryWithObjectsAndKeys:@"2 Days",@"description",@"Journey",@"name",@"2", @"id", nil],
+                          [NSDictionary dictionaryWithObjectsAndKeys:@"3+ Days",@"description",@"Expedition",@"name",@"3", @"id", nil], nil];
     return durations;
 }
 -(NSArray *)getTemperatureArr{
     NSArray *temperatures = [NSArray arrayWithObjects:
-            @"Hot",
-            @"Warm",
-            @"Cool",
-            @"Cold",nil];
+                             [NSDictionary dictionaryWithObjectsAndKeys:@"Hot",@"name",@"1",@"id",nil],
+                             [NSDictionary dictionaryWithObjectsAndKeys:@"Warm",@"name",@"2", @"id", nil],
+                             [NSDictionary dictionaryWithObjectsAndKeys:@"Cool",@"name",@"3", @"id", nil],
+                             [NSDictionary dictionaryWithObjectsAndKeys:@"Cold",@"name",@"4", @"id", nil], nil];
     return temperatures;
 }
 

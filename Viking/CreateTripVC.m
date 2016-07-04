@@ -74,7 +74,6 @@
     
      [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardFrameDidChange:) name:UIKeyboardWillChangeFrameNotification object:nil];
     
-    NSLog(@"Make sure we get to here!!!!");
     durationArr = [vikingDataManager getDurationArr];
     temperatureArr = [vikingDataManager getTemperatureArr];
     
@@ -335,7 +334,7 @@
         dispatch_async(queue, ^{
             // Perform async operation
             // Call your method/function here
-            UIImage *intenetActivityImage = [vikingDataManager findMainActivityImage:@"1"]; //TODO: don't hardcode!!!
+            UIImage *intenetActivityImage = [vikingDataManager findMainActivityImage:subActivityArr[indexPath.row][@"id"]];
             dispatch_sync(dispatch_get_main_queue(), ^{
                 // Update UI
                 cell.activityImg.image = intenetActivityImage;
@@ -354,15 +353,9 @@
         cell.layoutMargins = UIEdgeInsetsZero;
         cell.preservesSuperviewLayoutMargins = NO;
         
-        if(indexPath.row == 0)
-            cell.durationLbl.text = [NSString stringWithFormat:@"Raid - %@",durationArr[indexPath.row]];
-        else if (indexPath.row == 1)
-            cell.durationLbl.text = [NSString stringWithFormat:@"Journey - %@",durationArr[indexPath.row]];
-        else if (indexPath.row == 2)
-            cell.durationLbl.text = [NSString stringWithFormat:@"Expedition - %@",durationArr[indexPath.row]];
-        
-        cell.durationImg.image = [UIImage imageNamed:[NSString stringWithFormat:@"icon_%@", durationArr[indexPath.row]]];
-        
+        NSDictionary *currDuration = durationArr[indexPath.row];
+        cell.durationLbl.text = [NSString stringWithFormat:@"%@ - %@",currDuration[@"name"],currDuration[@"description"]];
+        cell.durationImg.image = [UIImage imageNamed:[NSString stringWithFormat:@"icon_%@", currDuration[@"description"]]];
         return cell;
     }
     else
@@ -373,8 +366,8 @@
         cell.layoutMargins = UIEdgeInsetsZero;
         cell.preservesSuperviewLayoutMargins = NO;
         
-        cell.tempLbl.text = temperatureArr[indexPath.row];
-        cell.tempImg.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@", temperatureArr[indexPath.row]]];
+        cell.tempLbl.text = temperatureArr[indexPath.row][@"name"];
+        cell.tempImg.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@", temperatureArr[indexPath.row][@"name"]]];
         
         return cell;
     }
@@ -425,11 +418,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSLog(@"The following row was selected : %ld",(long)indexPath.row);
     if(tableView == self.activityTable)
     {
         ActivityTableCell* cell = (ActivityTableCell *) [tableView cellForRowAtIndexPath:indexPath];
-        
-        
         self.activityView.hidden = YES;
         self.durationView.hidden = NO;
         self.tempView.hidden = YES;
@@ -453,7 +445,7 @@
         self.nameView.hidden = YES;
         
         [self.durationDict setObject:cell.durationImg.image forKey:@"image"];
-        [self.durationDict setObject:durationArr[indexPath.row] forKey:@"title"];
+        [self.durationDict setObject:durationArr[indexPath.row][@"description"] forKey:@"title"];
         [self.tempTable reloadData];
         
         [self SwipeRight:self.tempView];
@@ -469,7 +461,7 @@
         
         [self.tempDict setObject:cell.tempImg.image forKey:@"image"];
         [self.tempDict setObject:cell.tempLbl.text forKey:@"title"];
-        
+        //[self.tempDict setObject]
         NSString *durationStr;
         if([self.durationDict[@"title"] isEqualToString:@"1 Day"]){
             durationStr = @"Raid";
@@ -480,12 +472,6 @@
         else if ([self.durationDict[@"title"] isEqualToString:@"3+ Days"]){
             durationStr = @"Expedition";
         }
-        
-//        UIImage *dbugActivityImage = self.activityDict[@"image"];
-//        UIImage *dbugDurationImage = self.durationDict[@"image"];
-//        UIImage *dbugTemperatureImage = cell.tempImg.image;
-//        NSString *dbugActivityName = self.activityDict[@"title"];
-        
         [self createSelectionView:self.activityDict[@"image"] durationImg:self.durationDict[@"image"] tempImg:cell.tempImg.image activityName:self.activityDict[@"title"] durationName:durationStr tempName:cell.tempLbl.text inView:self.nameView];
         NSLog(@"About to crash while swiping to nameView %@",self.nameView);
         [self SwipeRight:self.nameView];
