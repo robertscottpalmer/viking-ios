@@ -1313,7 +1313,7 @@
 -(IBAction)leftClicked:(id)sender
 {
     self.BtnRight.userInteractionEnabled = YES;
-    if(!currentIndex == 0)
+    if(!(currentIndex == 0))
     {
         currentIndex = currentIndex-1;
         if(currentIndex == 0)
@@ -1405,11 +1405,11 @@
 {
     NSLog(@"tapped");
     self.actView.hidden = YES;
-    for(NSIndexPath *selIndex in indexArray)
-    {
-        ListCell *cell = (ListCell *)[_collectionView cellForItemAtIndexPath:selIndex];
-//        cell.hexImege.image = [UIImage imageNamed:@"orange_hexagon"];
-    }
+//    for(NSIndexPath *selIndex in indexArray)
+//    {
+//        ListCell *cell = (ListCell *)[_collectionView cellForItemAtIndexPath:selIndex];
+////        cell.hexImege.image = [UIImage imageNamed:@"orange_hexagon"];
+//    }
     
     [indexArray removeAllObjects];
 }

@@ -59,27 +59,13 @@
         }
         case ReachableViaWiFi:
         {
-            [self facebookPostCall];
             break;
         }
         case ReachableViaWWAN:
         {
-            [self facebookPostCall];
             break;
         }
     }
-}
-
--(void)facebookPostCall
-{
-    
-    self.facebookPostView.hidden = NO;
-     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://graph.facebook.com/oauth/access_token?client_id=%@&client_secret=%@&grant_type=client_credentials",FB_APP_ID, FB_SECRET_KEY]]];
-    
-    // Create url connection and fire request
-    NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:request delegate:self];
-    // Do any additional setup after loading the view.
-
 }
 
 -(IBAction)featuredListClicked:(id)sender
@@ -108,7 +94,7 @@
     NSString *access_token;
     NSRange access_token_range = [responseStr rangeOfString:@"access_token="];
     if (access_token_range.length > 0) {
-        int from_index = access_token_range.location + access_token_range.length;
+        int from_index = (int)access_token_range.location + (int)access_token_range.length;
         access_token = [responseStr substringFromIndex:from_index];
         
         //NSLog(@"access_token:  %@", access_token);
@@ -302,7 +288,7 @@
 }
 
 - (IBAction)changePage:(id)sender {
-    int page = self.pageControl.currentPage;
+    int page = (int)self.pageControl.currentPage;
     // load the visible page and the page on either side of it (to avoid flashes when the user starts scrolling)
     [self loadScrollViewWithPage:page - 1];
     [self loadScrollViewWithPage:page];

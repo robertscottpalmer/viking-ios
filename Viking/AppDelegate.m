@@ -37,8 +37,6 @@
     
     if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone){
         // The iOS device = iPhone or iPod Touch
-        CGSize iOSDeviceScreenSize = [[UIScreen mainScreen] bounds].size;
-        
         if (IS_IPHONE_5){
             mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         }else if(IS_IPHONE_6){
@@ -49,11 +47,6 @@
         }else{
              mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         }
-        
-//        } else if (iOSDeviceScreenSize.height == 736){
-//            // iPhone 6 Plus 5.5 inch
-//            storyBoard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone6Plus" bundle:nil];
-//        }
         
     }
     

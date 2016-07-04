@@ -21,7 +21,6 @@
 		57391BE71A7794C1004963F4 /* CreateTripVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 57391BE61A7794C1004963F4 /* CreateTripVC.m */; };
 		573CBAC11AD2AAA5009B8630 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 573CBAC01AD2AAA5009B8630 /* MBProgressHUD.m */; };
 		573EDF891AD63DEE00732F35 /* ListCell_6P.xib in Resources */ = {isa = PBXBuildFile; fileRef = 573EDF881AD63DEE00732F35 /* ListCell_6P.xib */; };
-		574818C51AC16AFC00E4EC09 /* aaaTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 574818C41AC16AFC00E4EC09 /* aaaTableViewController.m */; };
 		574A3E171A7CA0AD000B3A77 /* LDProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 574A3E141A7CA0AD000B3A77 /* LDProgressView.m */; };
 		574A3E181A7CA0AD000B3A77 /* UIColor+RGBValues.m in Sources */ = {isa = PBXBuildFile; fileRef = 574A3E161A7CA0AD000B3A77 /* UIColor+RGBValues.m */; };
 		574A3E1D1A7D05D5000B3A77 /* MyTripVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 574A3E1C1A7D05D5000B3A77 /* MyTripVC.m */; };
@@ -81,8 +80,6 @@
 		573CBABF1AD2AAA5009B8630 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		573CBAC01AD2AAA5009B8630 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		573EDF881AD63DEE00732F35 /* ListCell_6P.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListCell_6P.xib; sourceTree = "<group>"; };
-		574818C31AC16AFC00E4EC09 /* aaaTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = aaaTableViewController.h; sourceTree = "<group>"; };
-		574818C41AC16AFC00E4EC09 /* aaaTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = aaaTableViewController.m; sourceTree = "<group>"; };
 		574A3E131A7CA0AD000B3A77 /* LDProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDProgressView.h; sourceTree = "<group>"; };
 		574A3E141A7CA0AD000B3A77 /* LDProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDProgressView.m; sourceTree = "<group>"; };
 		574A3E151A7CA0AD000B3A77 /* UIColor+RGBValues.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+RGBValues.h"; sourceTree = "<group>"; };
@@ -305,8 +302,6 @@
 				575AD7AC1A7B854600C216CF /* ListVC.m */,
 				574A3E1B1A7D05D5000B3A77 /* MyTripVC.h */,
 				574A3E1C1A7D05D5000B3A77 /* MyTripVC.m */,
-				574818C31AC16AFC00E4EC09 /* aaaTableViewController.h */,
-				574818C41AC16AFC00E4EC09 /* aaaTableViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -424,7 +419,6 @@
 				4E3FBF661D21E60E00E03C61 /* VikingDataManager.m in Sources */,
 				575AD7B91A7B88F500C216CF /* ListCell.m in Sources */,
 				574A3E171A7CA0AD000B3A77 /* LDProgressView.m in Sources */,
-				574818C51AC16AFC00E4EC09 /* aaaTableViewController.m in Sources */,
 				57391BDC1A775B78004963F4 /* ActivityCell.m in Sources */,
 				4ED649151D29F48A0011C73C /* CommonTableCell.m in Sources */,
 				575AD7971A7B43A100C216CF /* ActivityTableCell.m in Sources */,

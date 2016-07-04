@@ -557,7 +557,7 @@
 -(IBAction)generateListClicked:(id)sender
 {
     [self.activityNameTxt resignFirstResponder];
-    if(![self.activityNameTxt.text length]>0)
+    if(! ([self.activityNameTxt.text length] > 0) )
     {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Hey now." message:@"Trip name can not be blank." delegate:self cancelButtonTitle:@"OK"otherButtonTitles:nil, nil];
         [alert show];

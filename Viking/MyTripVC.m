@@ -159,7 +159,7 @@
         vc.isFromCreateTrip = NO;
         vc.myTripObj = obj;
         vc.activityListArray = activityListArray;
-        vc.currentIndex = indexPath.row;
+        vc.currentIndex = (int)indexPath.row;
         //    vc.listArray = equipmentListArr;
         [self.navigationController pushViewController:vc animated:YES];
     }
