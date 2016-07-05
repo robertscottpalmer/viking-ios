@@ -99,11 +99,11 @@
     return messages;
 }
 
--(NSString *)createNewTrip: (NSInteger)activityId : (NSString *) durationId : (NSString *) temperatureId{
+-(NSString *)createNewTrip: (NSDictionary *)userSelections{
     
     NSManagedObject *newActivity = [NSEntityDescription insertNewObjectForEntityForName:@"MyActivityList" inManagedObjectContext:managedContext];
     
-    NSString *warningMessage = [NSString stringWithFormat:@"Let's put some thought into how we store trips, activityId=%ld,durationId=%@,temperatureId=%@",(long)activityId,durationId,temperatureId];
+    NSString *warningMessage = [NSString stringWithFormat:@"Let's put some thought into how we store trips, userSelections=%@",userSelections];
     
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:warningMessage delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
     [alert show];

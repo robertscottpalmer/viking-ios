@@ -6,6 +6,20 @@
 
 #define LocalURL       @"http://main.spaceotechnologies.com/point_mom/api/"
 
+/*****
+ * start user selection keys
+ *****/
+#define USER_SELECTED_ACTIVITY_ID =       @"USER_SELECTED_ACTIVITY_ID"
+#define USER_SELECTED_DURATION_ID =       @"USER_SELECTED_DURATION_ID"
+#define USER_SELECTED_TEMPERATURE_ID =    @"USER_SELECTED_TEMPERATURE_ID"
+#define USER_SELECTED_ACTIVITY_IMAGE =    @"USER_SELECTED_ACTIVITY_IMAGE"
+#define USER_SELECTED_DURATION_IMAGE =    @"USER_SELECTED_DURATION_IMAGE"
+#define USER_SELECTED_TEMPERATURE_IMAGE = @"USER_SELECTED_TEMPERATURE_IMAGE"
+
+/*****
+ * end user selection keys
+ *****/
+
 #define AppDel ((AppDelegate *)[UIApplication sharedApplication].delegate)
 
 
@@ -75,7 +89,6 @@
 #else
 #   define DLog(...)
 #endif
-
 
 //////// Database macros ////////
 //

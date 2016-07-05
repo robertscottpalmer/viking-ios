@@ -28,7 +28,8 @@
 -(NSArray *)getDurationArr;
 -(NSArray *)getTemperatureArr;
 -(NSArray *)getMainViewMessages;
--(NSString *)createNewTrip: (NSInteger)activityId : (NSString *) durationId : (NSString *) temperatureId;
+//-(NSString *)createNewTrip: (NSInteger)activityId : (NSString *) durationId : (NSString *) temperatureId;
+-(NSString *)createNewTrip: (NSDictionary *)userSelections;
 + (id)sharedManager;
 
 @end

@@ -27,9 +27,14 @@
     VikingDataManager *vikingDataManager;
 }
 
-@property (nonatomic, strong) NSMutableDictionary *activityDict;
-@property (nonatomic, strong) NSMutableDictionary *durationDict;
-@property (nonatomic, strong) NSMutableDictionary *tempDict;
+@property (nonatomic, strong) NSMutableDictionary *userSelectionDict;
+
+//@property (nonatomic, strong) NSString *selectedDuration;
+//@property (nonatomic,strong) NSString *selectedTemperature;
+
+//@property (nonatomic, strong) NSMutableDictionary *activityDict;
+//@property (nonatomic, strong) NSMutableDictionary *durationDict;
+//@property (nonatomic, strong) NSMutableDictionary *tempDict;
 
 @end
 
@@ -63,9 +68,11 @@
     
     appDel = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     
-    self.activityDict = [[NSMutableDictionary alloc] init];
-    self.durationDict = [[NSMutableDictionary alloc] init];
-    self.tempDict = [[NSMutableDictionary alloc] init];
+    self.userSelectionDict = [[NSMutableDictionary alloc] init];
+    
+//    self.activityDict = [[NSMutableDictionary alloc] init];
+//    self.durationDict = [[NSMutableDictionary alloc] init];
+//    self.tempDict = [[NSMutableDictionary alloc] init];
     
     self.activityView.hidden = NO;
     self.durationView.hidden = YES;
@@ -117,8 +124,13 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)createSelectionView:(UIImage *)activityImage durationImg:(UIImage *)durationImage tempImg:(UIImage *)tempImage activityName:(NSDictionary *)activityStr durationName:(NSString *)durationStr tempName:(NSString *)tempStr inView:(UIView *)view
+-(void)createSelectionView:(NSDictionary *)userSelections inView:(UIView *)view
 {
+    /**
+     original argument view
+     (UIImage *)activityImage durationImg:(UIImage *)durationImage tempImg:(UIImage *)tempImage activityName:(NSDictionary *)activityStr durationName:(NSString *)durationStr tempName:(NSString *)tempStr inView:(UIView *)view
+     */
+    
     if(self.selectionView)
     {
         [self.selectionView removeFromSuperview];
@@ -163,7 +175,7 @@
     else
         activityImg = [[UIImageView alloc] initWithFrame:CGRectMake(14, 10, 20, 20)];
     
-    activityImg.image = activityImage;
+    activityImg.image = userSelections[@"activity_image"];
     activityImg.contentMode = UIViewContentModeScaleAspectFill;
     [self.selectionView addSubview:activityImg];
     
@@ -188,13 +200,11 @@
         activityLbl = [[UILabel alloc] initWithFrame:CGRectMake(42, 9, 71, 21)];
         activityLbl.font = [UIFont fontWithName:@"ProximaNova-Regular" size:12.0];
     }
-    NSLog(@"the current value of activityStr is %@",activityStr);
-    activityLbl.text = [activityStr[@"name"] uppercaseString];
+    activityLbl.text = [userSelections[@"activity"][@"name"] uppercaseString];
     activityLbl.numberOfLines = 0;
     activityLbl.textColor = [UIColor whiteColor];
     activityLbl.textAlignment = NSTextAlignmentCenter;
     [self.selectionView addSubview:activityLbl];
-    NSLog(@"made it FURTHER!!!");
     
     if(IS_IPHONE_5)
         durImg = [[UIImageView alloc] initWithFrame:CGRectMake(120, 10, 20, 17)];
@@ -204,7 +214,7 @@
           durImg = [[UIImageView alloc] initWithFrame:CGRectMake(114,12,15,15)];
     else
         durImg = [[UIImageView alloc] initWithFrame:CGRectMake(136, 10, 20, 17)];
-    durImg.image = durationImage;
+    durImg.image = userSelections[@"duration_image"];
     durImg.contentMode = UIViewContentModeScaleAspectFill;
     [self.selectionView addSubview:durImg];
     
@@ -228,7 +238,7 @@
         durationLbl = [[UILabel alloc] initWithFrame:CGRectMake(165, 9, 73, 21)];
         durationLbl.font = [UIFont fontWithName:@"ProximaNova-Regular" size:12.0];
     }
-    durationLbl.text = [durationStr uppercaseString];
+    durationLbl.text = [userSelections[@"duration"][@"name"] uppercaseString];
     durationLbl.textAlignment = NSTextAlignmentCenter;
     durationLbl.textColor = [UIColor whiteColor];
     [self.selectionView addSubview:durationLbl];
@@ -243,7 +253,7 @@
         tempImg = [[UIImageView alloc] initWithFrame:CGRectMake(224, 10, 10, 15)];
     else
         tempImg = [[UIImageView alloc] initWithFrame:CGRectMake(277, 10, 8, 20)];
-    tempImg.image = tempImage;
+    tempImg.image = userSelections[@"temperature_image"];
     tempImg.contentMode = UIViewContentModeScaleAspectFill;
     [self.selectionView addSubview:tempImg];
     
@@ -267,7 +277,7 @@
         tempLbl.font = [UIFont fontWithName:@"ProximaNova-Regular" size:12.0];
     }
     tempLbl.backgroundColor = [UIColor clearColor];
-    tempLbl.text = [tempStr uppercaseString];
+    tempLbl.text = [userSelections[@"temperature"][@"name"] uppercaseString];
     tempLbl.textAlignment = NSTextAlignmentCenter;
     tempLbl.textColor = [UIColor whiteColor];
     
@@ -427,8 +437,8 @@
         self.tempView.hidden = YES;
         self.nameView.hidden = YES;
         
-        [self.activityDict setObject:cell.activityImg.image forKey:@"image"];
-        [self.activityDict setObject:subActivityArr[indexPath.row] forKey:@"title"];
+        [self.userSelectionDict setObject:cell.activityImg.image forKey:@"activity_image"];
+        [self.userSelectionDict setObject:subActivityArr[indexPath.row] forKey:@"activity"];
         
         [self.durationTable reloadData];
         
@@ -444,8 +454,8 @@
         self.tempView.hidden = NO;
         self.nameView.hidden = YES;
         
-        [self.durationDict setObject:cell.durationImg.image forKey:@"image"];
-        [self.durationDict setObject:durationArr[indexPath.row][@"description"] forKey:@"title"];
+        [self.userSelectionDict setObject:cell.durationImg.image forKey:@"duration_image"];
+        [self.userSelectionDict setObject:durationArr[indexPath.row] forKey:@"duration"];
         [self.tempTable reloadData];
         
         [self SwipeRight:self.tempView];
@@ -459,20 +469,21 @@
         self.tempView.hidden = YES;
         self.nameView.hidden = NO;
         
-        [self.tempDict setObject:cell.tempImg.image forKey:@"image"];
-        [self.tempDict setObject:cell.tempLbl.text forKey:@"title"];
+        [self.userSelectionDict setObject:cell.tempImg.image forKey:@"temperature_image"];
+        [self.userSelectionDict setObject:temperatureArr[indexPath.row] forKey:@"temperature"];
+        //[self.userSelectionDict setObject:cell.tempLbl.text forKey:@"temperature"];
         //[self.tempDict setObject]
-        NSString *durationStr;
-        if([self.durationDict[@"title"] isEqualToString:@"1 Day"]){
-            durationStr = @"Raid";
-        }
-        else if ([self.durationDict[@"title"] isEqualToString:@"2 Days"]){
-            durationStr = @"Journey";
-        }
-        else if ([self.durationDict[@"title"] isEqualToString:@"3+ Days"]){
-            durationStr = @"Expedition";
-        }
-        [self createSelectionView:self.activityDict[@"image"] durationImg:self.durationDict[@"image"] tempImg:cell.tempImg.image activityName:self.activityDict[@"title"] durationName:durationStr tempName:cell.tempLbl.text inView:self.nameView];
+//        NSString *durationStr;
+//        if([self.userSelectionDict[@"duration_title"] isEqualToString:@"1 Day"]){
+//            durationStr = @"Raid";
+//        }
+//        else if ([self.userSelectionDict[@"duration_title"] isEqualToString:@"2 Days"]){
+//            durationStr = @"Journey";
+//        }
+//        else if ([self.userSelectionDict[@"duration_title"] isEqualToString:@"3+ Days"]){
+//            durationStr = @"Expedition";
+//        }
+        [self createSelectionView:self.userSelectionDict inView:self.nameView];
         NSLog(@"About to crash while swiping to nameView %@",self.nameView);
         [self SwipeRight:self.nameView];
     }
@@ -567,12 +578,12 @@
     
         NSMutableDictionary *dict = [NSMutableDictionary new];
         
-        [dict setValue:self.activityDict[@"image"] forKey:@"ActivityImage"];
-        [dict setValue:self.activityDict[@"title"] forKey:@"ActivityTitle"];
-        [dict setValue:self.durationDict[@"image"] forKey:@"DurationImage"];
-        [dict setValue:self.durationDict[@"title"] forKey:@"DurationTitle"];
-        [dict setValue:self.tempDict[@"image"] forKey:@"TempImage"];
-        [dict setValue:self.tempDict[@"title"] forKey:@"TempTitle"];
+//        [dict setValue:self.activityDict[@"image"] forKey:@"ActivityImage"];
+//        [dict setValue:self.activityDict[@"title"] forKey:@"ActivityTitle"];
+//        [dict setValue:self.durationDict[@"image"] forKey:@"DurationImage"];
+//        [dict setValue:self.durationDict[@"title"] forKey:@"DurationTitle"];
+//        [dict setValue:self.tempDict[@"image"] forKey:@"TempImage"];
+//        [dict setValue:self.tempDict[@"title"] forKey:@"TempTitle"];
         
         //appDel.activityDict = dict;
         
@@ -612,7 +623,7 @@
 
 -(void)saveMyActivity:(NSString *)activityName equipmentList:(NSArray *)list
 {
-    [vikingDataManager createNewTrip:[selectedActivityTypeId integerValue] : self.durationDict[@"title"] :self.tempDict[@"title"]];
+    [vikingDataManager createNewTrip:self.userSelectionDict];
     
     ListVC *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"ListView"];
     vc.headerStr = self.activityNameTxt.text;
@@ -648,13 +659,13 @@
     
     NSMutableDictionary *dict = [NSMutableDictionary new];
     
-    [dict setValue:self.activityDict[@"image"] forKey:@"ActivityImage"];
-    [dict setValue:self.activityDict[@"title"] forKey:@"ActivityTitle"];
-    [dict setValue:self.durationDict[@"image"] forKey:@"DurationImage"];
-    [dict setValue:self.durationDict[@"title"] forKey:@"DurationTitle"];
-    [dict setValue:self.tempDict[@"image"] forKey:@"TempImage"];
-    [dict setValue:self.tempDict[@"title"] forKey:@"TempTitle"];
-    
+//    [dict setValue:self.activityDict[@"image"] forKey:@"ActivityImage"];
+//    [dict setValue:self.activityDict[@"title"] forKey:@"ActivityTitle"];
+//    [dict setValue:self.durationDict[@"image"] forKey:@"DurationImage"];
+//    [dict setValue:self.durationDict[@"title"] forKey:@"DurationTitle"];
+//    [dict setValue:self.tempDict[@"image"] forKey:@"TempImage"];
+//    [dict setValue:self.tempDict[@"title"] forKey:@"TempTitle"];
+//    
     //appDel.activityDict = dict;
     
     ListVC *vc = [segue destinationViewController];

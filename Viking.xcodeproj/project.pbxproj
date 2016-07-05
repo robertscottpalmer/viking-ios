@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E36FDB01D2C753400392AEA /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E36FDAF1D2C753400392AEA /* Constants.m */; };
 		4E3FBF661D21E60E00E03C61 /* VikingDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E3FBF651D21E60E00E03C61 /* VikingDataManager.m */; };
 		4E632B5B1D1F68BB00BBE023 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E632B5A1D1F68BB00BBE023 /* ImageIO.framework */; };
 		4ED649151D29F48A0011C73C /* CommonTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED649141D29F48A0011C73C /* CommonTableCell.m */; };
@@ -54,6 +55,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4E36FDAE1D2C751100392AEA /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		4E36FDAF1D2C753400392AEA /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		4E3FBF641D21E5D300E03C61 /* VikingDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VikingDataManager.h; sourceTree = "<group>"; };
 		4E3FBF651D21E60E00E03C61 /* VikingDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VikingDataManager.m; sourceTree = "<group>"; };
 		4E632B5A1D1F68BB00BBE023 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
@@ -179,6 +182,8 @@
 				57391BB41A774B7E004963F4 /* Supporting Files */,
 				4E3FBF641D21E5D300E03C61 /* VikingDataManager.h */,
 				4E3FBF651D21E60E00E03C61 /* VikingDataManager.m */,
+				4E36FDAE1D2C751100392AEA /* Constants.h */,
+				4E36FDAF1D2C753400392AEA /* Constants.m */,
 			);
 			path = Viking;
 			sourceTree = "<group>";
@@ -418,6 +423,7 @@
 				57391BBA1A774B7E004963F4 /* AppDelegate.m in Sources */,
 				4E3FBF661D21E60E00E03C61 /* VikingDataManager.m in Sources */,
 				575AD7B91A7B88F500C216CF /* ListCell.m in Sources */,
+				4E36FDB01D2C753400392AEA /* Constants.m in Sources */,
 				574A3E171A7CA0AD000B3A77 /* LDProgressView.m in Sources */,
 				57391BDC1A775B78004963F4 /* ActivityCell.m in Sources */,
 				4ED649151D29F48A0011C73C /* CommonTableCell.m in Sources */,
