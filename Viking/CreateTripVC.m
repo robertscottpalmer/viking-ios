@@ -437,8 +437,8 @@
         self.tempView.hidden = YES;
         self.nameView.hidden = YES;
         
-        [self.userSelectionDict setObject:cell.activityImg.image forKey:@"activity_image"];
-        [self.userSelectionDict setObject:subActivityArr[indexPath.row] forKey:@"activity"];
+        [self.userSelectionDict setObject:cell.activityImg.image forKey:USER_SELECTED_ACTIVITY_IMAGE];
+        [self.userSelectionDict setObject:subActivityArr[indexPath.row] forKey:USER_SELECTED_ACTIVITY];
         
         [self.durationTable reloadData];
         
@@ -454,8 +454,8 @@
         self.tempView.hidden = NO;
         self.nameView.hidden = YES;
         
-        [self.userSelectionDict setObject:cell.durationImg.image forKey:@"duration_image"];
-        [self.userSelectionDict setObject:durationArr[indexPath.row] forKey:@"duration"];
+        [self.userSelectionDict setObject:cell.durationImg.image forKey:USER_SELECTED_DURATION_IMAGE];
+        [self.userSelectionDict setObject:durationArr[indexPath.row] forKey:USER_SELECTED_DURATION];
         [self.tempTable reloadData];
         
         [self SwipeRight:self.tempView];
@@ -463,26 +463,12 @@
     else
     {
         TempTableCell* cell = (TempTableCell *) [tableView cellForRowAtIndexPath:indexPath];
-        
         self.activityView.hidden = YES;
         self.durationView.hidden = YES;
         self.tempView.hidden = YES;
         self.nameView.hidden = NO;
-        
-        [self.userSelectionDict setObject:cell.tempImg.image forKey:@"temperature_image"];
-        [self.userSelectionDict setObject:temperatureArr[indexPath.row] forKey:@"temperature"];
-        //[self.userSelectionDict setObject:cell.tempLbl.text forKey:@"temperature"];
-        //[self.tempDict setObject]
-//        NSString *durationStr;
-//        if([self.userSelectionDict[@"duration_title"] isEqualToString:@"1 Day"]){
-//            durationStr = @"Raid";
-//        }
-//        else if ([self.userSelectionDict[@"duration_title"] isEqualToString:@"2 Days"]){
-//            durationStr = @"Journey";
-//        }
-//        else if ([self.userSelectionDict[@"duration_title"] isEqualToString:@"3+ Days"]){
-//            durationStr = @"Expedition";
-//        }
+        [self.userSelectionDict setObject:cell.tempImg.image forKey:USER_SELECTED_TEMPERATURE_IMAGE];
+        [self.userSelectionDict setObject:temperatureArr[indexPath.row] forKey:USER_SELECTED_TEMPERATURE];
         [self createSelectionView:self.userSelectionDict inView:self.nameView];
         NSLog(@"About to crash while swiping to nameView %@",self.nameView);
         [self SwipeRight:self.nameView];
