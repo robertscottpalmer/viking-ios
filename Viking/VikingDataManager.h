@@ -22,6 +22,7 @@
 
 -(UIImage *)findMainActivityIcon:(NSString *)activityTypeId;
 -(UIImage *)findMainActivityBackground:(NSString *)activityTypeId;
+-(UIImage *)findMainActivityButton:(NSString *)activityTypeId;
 /*Will return an array of dictionaries in the form ({id:"",name:""},{id:"",name:""})*/
 -(NSArray *)getActivityTypes;
 -(NSArray *)getActivitiesOfType:(NSInteger)activityTypeId;

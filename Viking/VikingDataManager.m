@@ -65,6 +65,10 @@
     return [self loadImageViaApi:@"activitytype" :activityTypeId : @"backgroundImage"];
 }
 
+-(UIImage *)findMainActivityButton:(NSString *)activityTypeId{
+    return [self loadImageViaApi:@"activitytype" :activityTypeId : @"buttonBackground"];
+}
+
 -(NSArray *)getActivityTypes{
     NSString *activityTypeApiCall = [NSString stringWithFormat:@"%@/%@", apiServer, @"main_activities.php"];
     NSDictionary *allActivityDict = [NSDictionary dictionaryWithXMLData:[NSData dataWithContentsOfURL: [NSURL URLWithString:activityTypeApiCall]]];

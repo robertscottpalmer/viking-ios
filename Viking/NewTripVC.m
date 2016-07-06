@@ -70,18 +70,7 @@
     cell.activityImage.image = [UIImage imageNamed:@"ImageUnavailable"];
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0ul);
     dispatch_async(queue, ^{
-        // Perform async operation
-        // Call your method/function here
-        UIImage *intenetActivityImage = [vikingDataManager findMainActivityIcon:imageStr];
-        dispatch_sync(dispatch_get_main_queue(), ^{
-            // Update UI
-            cell.activityImage.image = intenetActivityImage;
-        });
-    });
-    dispatch_async(queue, ^{
-        // Perform async operation
-        // Call your method/function here
-        UIImage *intenetActivityImage = [vikingDataManager findMainActivityBackground:imageStr];
+        UIImage *intenetActivityImage = [vikingDataManager findMainActivityButton:imageStr];
         dispatch_sync(dispatch_get_main_queue(), ^{
             // Update UI
             cell.activityImage.image = intenetActivityImage;
