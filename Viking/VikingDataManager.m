@@ -49,12 +49,20 @@
     return [self loadImageViaApi:@"activitytype" :activityTypeId : @"bannerImage"];
 }
 
--(UIImage *)findMainActivityImage:(NSString *)activityTypeId {
+-(UIImage *)findMainActivityIcon:(NSString *)activityTypeId {
     //NSLog(@"just entered loadRemoteImage with imageName : %@",imageName);
     //return [UIImage imageNamed:imageName];
     //http://thevikingapp.local/media/activity/1/backgroundImage3.png
     //http://thevikingapp.local/media/activitytype/1/bannerImage.png
-    return [self loadImageViaApi:@"activitytype" :activityTypeId : @"bannerImage"];
+    return [self loadImageViaApi:@"activitytype" :activityTypeId : @"buttonIcon"];
+}
+
+-(UIImage *)findMainActivityBackground:(NSString *)activityTypeId {
+    //NSLog(@"just entered loadRemoteImage with imageName : %@",imageName);
+    //return [UIImage imageNamed:imageName];
+    //http://thevikingapp.local/media/activity/1/backgroundImage3.png
+    //http://thevikingapp.local/media/activitytype/1/bannerImage.png
+    return [self loadImageViaApi:@"activitytype" :activityTypeId : @"backgroundImage"];
 }
 
 -(NSArray *)getActivityTypes{
