@@ -370,10 +370,12 @@
         dispatch_async(queue, ^{
             // Perform async operation
             // Call your method/function here
-            UIImage *intenetActivityImage = [vikingDataManager findMainActivityIcon:subActivityArr[indexPath.row][@"id"]];
+            UIImage *intenetActivityImage = [vikingDataManager findSubActivityIcon:subActivityArr[indexPath.row][@"id"]];
             dispatch_sync(dispatch_get_main_queue(), ^{
                 // Update UI
-                cell.activityImg.image = intenetActivityImage;
+                if (intenetActivityImage != nil){
+                 cell.activityImg.image = intenetActivityImage;
+                }
             });
         });
         

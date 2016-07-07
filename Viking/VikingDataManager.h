@@ -19,11 +19,14 @@
 
 @property (nonatomic, retain) NSString *apiServer;
 @property (nonatomic, retain) NSManagedObjectContext *managedContext;
-
+/*Activity Type functions*/
 -(UIImage *)findMainActivityBanner:(NSString *)activityTypeId;
 -(UIImage *)findMainActivityIcon:(NSString *)activityTypeId;
 -(UIImage *)findMainActivityBackground:(NSString *)activityTypeId;
 -(UIImage *)findMainActivityButton:(NSString *)activityTypeId;
+/*Sub activity functions*/
+-(UIImage *)findSubActivityIcon:(NSString *)activityId;
+
 /*Will return an array of dictionaries in the form ({id:"",name:""},{id:"",name:""})*/
 -(NSArray *)getActivityTypes;
 -(NSArray *)getActivitiesOfType:(NSInteger)activityTypeId;
