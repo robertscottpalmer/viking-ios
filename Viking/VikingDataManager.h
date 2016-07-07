@@ -20,6 +20,7 @@
 @property (nonatomic, retain) NSString *apiServer;
 @property (nonatomic, retain) NSManagedObjectContext *managedContext;
 
+-(UIImage *)findMainActivityBanner:(NSString *)activityTypeId;
 -(UIImage *)findMainActivityIcon:(NSString *)activityTypeId;
 -(UIImage *)findMainActivityBackground:(NSString *)activityTypeId;
 -(UIImage *)findMainActivityButton:(NSString *)activityTypeId;

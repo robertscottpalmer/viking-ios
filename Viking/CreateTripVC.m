@@ -54,7 +54,17 @@
     self.tempHeaderLbl.font = [UIFont fontWithName:@"ProximaNova-Bold" size:15.0];
     self.createHeaderLbl.font = [UIFont fontWithName:@"ProximaNova-Bold" size:15.0];
 
-    self.headerBGIcon.image = [UIImage imageNamed:[NSString stringWithFormat:@"icon_%@", selectedActivityTypeId]];
+    self.headerBGIcon.image = [UIImage imageNamed:@"ImageUnavailable"];
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0ul);
+    dispatch_async(queue, ^{
+        UIImage *intenetActivityImage = [vikingDataManager findMainActivityIcon:selectedActivityTypeId];
+        dispatch_sync(dispatch_get_main_queue(), ^{
+            // Update UI
+            self.headerBGIcon.image = intenetActivityImage;
+        });
+    });
+    
+    //[UIImage imageNamed:[NSString stringWithFormat:@"icon_%@", selectedActivityTypeId]];
     
     self.activityNameTxt.attributedPlaceholder =
     [[NSAttributedString alloc] initWithString:@"Name your trip"
@@ -91,10 +101,26 @@
 
 -(void)setHeaderBackground
 {
-    self.headerBGView.image = [UIImage imageNamed:[NSString stringWithFormat:@"BG-%@",selectedActivityTypeId]];
-    self.durationHeaderBGView.image = [UIImage imageNamed:[NSString stringWithFormat:@"BG-%@",selectedActivityTypeId]];
-    self.tempHeaderBGView.image = [UIImage imageNamed:[NSString stringWithFormat:@"BG-%@",selectedActivityTypeId]];
-    self.generateHeaderBGView.image = [UIImage imageNamed:[NSString stringWithFormat:@"BG-%@",selectedActivityTypeId]];
+    
+    self.headerBGView.image = [UIImage imageNamed:@"ImageUnavailable"];
+    self.durationHeaderBGView.image = [UIImage imageNamed:@"ImageUnavailable"];
+    self.tempHeaderBGView.image = [UIImage imageNamed:@"ImageUnavailable"];
+    self.generateHeaderBGView.image = [UIImage imageNamed:@"ImageUnavailable"];
+    
+    //self.headerBGIcon.image = [UIImage imageNamed:@"ImageUnavailable"];
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0ul);
+    dispatch_async(queue, ^{
+        UIImage *intenetActivityImage = [vikingDataManager findMainActivityBanner:selectedActivityTypeId];
+        dispatch_sync(dispatch_get_main_queue(), ^{
+            // Update UI
+            //self.headerBGIcon.image = intenetActivityImage;
+            self.headerBGView.image = intenetActivityImage;
+            self.durationHeaderBGView.image = intenetActivityImage;
+            self.tempHeaderBGView.image = intenetActivityImage;
+            self.generateHeaderBGView.image = intenetActivityImage;
+        });
+    });
+    
 }
 
 - (void)keyboardFrameDidChange:(NSNotification *)notification
