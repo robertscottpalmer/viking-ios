@@ -412,13 +412,13 @@
     NSLog(@"The following row was selected : %ld",(long)indexPath.row);
     if(tableView == self.activityTable)
     {
-        ActivityTableCell* cell = (ActivityTableCell *) [tableView cellForRowAtIndexPath:indexPath];
+        //ActivityTableCell* cell = (ActivityTableCell *) [tableView cellForRowAtIndexPath:indexPath];
         self.activityView.hidden = YES;
         self.durationView.hidden = NO;
         self.tempView.hidden = YES;
         self.nameView.hidden = YES;
         
-        [self.userSelectionDict setObject:cell.activityImg.image forKey:USER_SELECTED_ACTIVITY_IMAGE];
+        //[self.userSelectionDict setObject:cell.activityImg.image forKey:USER_SELECTED_ACTIVITY_IMAGE];
         [self.userSelectionDict setObject:subActivityArr[indexPath.row] forKey:USER_SELECTED_ACTIVITY];
         
         [self.durationTable reloadData];
@@ -428,14 +428,14 @@
     }
     else if(tableView == self.durationTable)
     {
-        DurationTableCell* cell = (DurationTableCell *) [tableView cellForRowAtIndexPath:indexPath];
+        //DurationTableCell* cell = (DurationTableCell *) [tableView cellForRowAtIndexPath:indexPath];
         
         self.activityView.hidden = YES;
         self.durationView.hidden = YES;
         self.tempView.hidden = NO;
         self.nameView.hidden = YES;
         
-        [self.userSelectionDict setObject:cell.durationImg.image forKey:USER_SELECTED_DURATION_IMAGE];
+        //[self.userSelectionDict setObject:cell.durationImg.image forKey:USER_SELECTED_DURATION_IMAGE];
         [self.userSelectionDict setObject:durationArr[indexPath.row] forKey:USER_SELECTED_DURATION];
         [self.tempTable reloadData];
         
@@ -443,12 +443,12 @@
     }
     else
     {
-        TempTableCell* cell = (TempTableCell *) [tableView cellForRowAtIndexPath:indexPath];
+        //TempTableCell* cell = (TempTableCell *) [tableView cellForRowAtIndexPath:indexPath];
         self.activityView.hidden = YES;
         self.durationView.hidden = YES;
         self.tempView.hidden = YES;
         self.nameView.hidden = NO;
-        [self.userSelectionDict setObject:cell.tempImg.image forKey:USER_SELECTED_TEMPERATURE_IMAGE];
+        //[self.userSelectionDict setObject:cell.tempImg.image forKey:USER_SELECTED_TEMPERATURE_IMAGE];
         [self.userSelectionDict setObject:temperatureArr[indexPath.row] forKey:USER_SELECTED_TEMPERATURE];
         [self createSelectionView:self.userSelectionDict inView:self.nameView];
         [self SwipeRight:self.nameView];
@@ -541,24 +541,12 @@
     }
     else
     {
-    
         NSMutableDictionary *dict = [NSMutableDictionary new];
-        
-//        [dict setValue:self.activityDict[@"image"] forKey:@"ActivityImage"];
-//        [dict setValue:self.activityDict[@"title"] forKey:@"ActivityTitle"];
-//        [dict setValue:self.durationDict[@"image"] forKey:@"DurationImage"];
-//        [dict setValue:self.durationDict[@"title"] forKey:@"DurationTitle"];
-//        [dict setValue:self.tempDict[@"image"] forKey:@"TempImage"];
-//        [dict setValue:self.tempDict[@"title"] forKey:@"TempTitle"];
-        
-        //appDel.activityDict = dict;
-        
         NSArray *subActEquipmentArr;
         
         NSArray *subActArray = subActDict[@"Equipment_List"][@"Sub_Activity"];
         for(NSDictionary *subDict in subActArray)
         {
-//            NSLog(@"name - %@", subDict[@"name"]);
             if([subDict[@"name"] isEqualToString:dict[@"ActivityTitle"]])
             {
                 subActEquipmentArr = subDict[@"Duration"];
@@ -590,7 +578,6 @@
 -(void)saveMyActivity:(NSString *)activityName equipmentList:(NSArray *)list
 {
     [vikingDataManager createNewTrip:self.userSelectionDict];
-    
     ListVC *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"ListView"];
     vc.headerStr = self.activityNameTxt.text;
     //vc.activityDict = dict;

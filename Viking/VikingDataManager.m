@@ -81,7 +81,7 @@
 }
 
 -(void)loadTemperatureIcon:(UIImageView *) targetView :(NSString *)activityId{
-    [self loadImageViaApi:targetView :@"temerature" :activityId : @"buttonIcon"];
+    [self loadImageViaApi:targetView :@"temperature" :activityId : @"buttonIcon"];
 }
 
 /**From here down are true data management tasks**/
