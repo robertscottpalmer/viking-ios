@@ -1,10 +1,3 @@
-//
-//  VikingDataManager.m
-//  Viking
-//
-//  Created by Robert Palmer on 6/27/16.
-//  Copyright © 2016 Space O Technology. All rights reserved.
-//
 #import "VikingDataManager.h"
 @implementation VikingDataManager
 
@@ -81,6 +74,14 @@
 
 -(void)loadSubActivityIcon:(UIImageView *) targetView :(NSString *)activityId{
     [self loadImageViaApi:targetView :@"activity" :activityId : @"buttonIcon"];
+}
+
+-(void)loadDurationIcon:(UIImageView *) targetView :(NSString *)activityId{
+    [self loadImageViaApi:targetView :@"duration" :activityId : @"buttonIcon"];
+}
+
+-(void)loadTemperatureIcon:(UIImageView *) targetView :(NSString *)activityId{
+    [self loadImageViaApi:targetView :@"temerature" :activityId : @"buttonIcon"];
 }
 
 /**From here down are true data management tasks**/

@@ -29,13 +29,6 @@
 
 @property (nonatomic, strong) NSMutableDictionary *userSelectionDict;
 
-//@property (nonatomic, strong) NSString *selectedDuration;
-//@property (nonatomic,strong) NSString *selectedTemperature;
-
-//@property (nonatomic, strong) NSMutableDictionary *activityDict;
-//@property (nonatomic, strong) NSMutableDictionary *durationDict;
-//@property (nonatomic, strong) NSMutableDictionary *tempDict;
-
 @end
 
 @implementation CreateTripVC
@@ -55,18 +48,6 @@
     self.createHeaderLbl.font = [UIFont fontWithName:@"ProximaNova-Bold" size:15.0];
     
     [vikingDataManager loadMainActivityIcon:self.headerBGIcon :selectedActivityTypeId];
-
-//    self.headerBGIcon.image = [UIImage imageNamed:@"ImageUnavailable"];
-//    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0ul);
-//    dispatch_async(queue, ^{
-//        UIImage *intenetActivityImage = [vikingDataManager findMainActivityIcon:selectedActivityTypeId];
-//        dispatch_sync(dispatch_get_main_queue(), ^{
-//            // Update UI
-//            self.headerBGIcon.image = intenetActivityImage;
-//        });
-//    });
-    
-    //[UIImage imageNamed:[NSString stringWithFormat:@"icon_%@", selectedActivityTypeId]];
     
     self.activityNameTxt.attributedPlaceholder =
     [[NSAttributedString alloc] initWithString:@"Name your trip"
@@ -81,10 +62,6 @@
     appDel = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     
     self.userSelectionDict = [[NSMutableDictionary alloc] init];
-    
-//    self.activityDict = [[NSMutableDictionary alloc] init];
-//    self.durationDict = [[NSMutableDictionary alloc] init];
-//    self.tempDict = [[NSMutableDictionary alloc] init];
     
     self.activityView.hidden = NO;
     self.durationView.hidden = YES;
@@ -103,32 +80,10 @@
 
 -(void)setHeaderBackground
 {
-    
-//    self.headerBGView.image = [UIImage imageNamed:@"ImageUnavailable"];
-//    self.durationHeaderBGView.image = [UIImage imageNamed:@"ImageUnavailable"];
-//    self.tempHeaderBGView.image = [UIImage imageNamed:@"ImageUnavailable"];
-//    self.generateHeaderBGView.image = [UIImage imageNamed:@"ImageUnavailable"];
-//    
-//    //self.headerBGIcon.image = [UIImage imageNamed:@"ImageUnavailable"];
-    
     [vikingDataManager loadMainActivityBanner:self.headerBGView :selectedActivityTypeId];
     [vikingDataManager loadMainActivityBanner:self.durationHeaderBGView :selectedActivityTypeId];
     [vikingDataManager loadMainActivityBanner:self.tempHeaderBGView :selectedActivityTypeId];
     [vikingDataManager loadMainActivityBanner:self.generateHeaderBGView :selectedActivityTypeId];
-    
-//    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0ul);
-//    dispatch_async(queue, ^{
-//        UIImage *intenetActivityImage = [vikingDataManager findMainActivityBanner:selectedActivityTypeId];
-//        dispatch_sync(dispatch_get_main_queue(), ^{
-//            // Update UI
-//            //self.headerBGIcon.image = intenetActivityImage;
-//            self.headerBGView.image = intenetActivityImage;
-//            self.durationHeaderBGView.image = intenetActivityImage;
-//            self.tempHeaderBGView.image = intenetActivityImage;
-//            self.generateHeaderBGView.image = intenetActivityImage;
-//        });
-//    });
-    
 }
 
 - (void)keyboardFrameDidChange:(NSNotification *)notification
@@ -209,7 +164,8 @@
     else
         activityImg = [[UIImageView alloc] initWithFrame:CGRectMake(14, 10, 20, 20)];
     
-    activityImg.image = userSelections[@"activity_image"];
+    //activityImg.image = userSelections[@"activity_image"];
+    [vikingDataManager loadSubActivityIcon:activityImg :userSelections[USER_SELECTED_ACTIVITY][@"id"]];
     activityImg.contentMode = UIViewContentModeScaleAspectFill;
     [self.selectionView addSubview:activityImg];
     
@@ -234,7 +190,7 @@
         activityLbl = [[UILabel alloc] initWithFrame:CGRectMake(42, 9, 71, 21)];
         activityLbl.font = [UIFont fontWithName:@"ProximaNova-Regular" size:12.0];
     }
-    activityLbl.text = [userSelections[@"activity"][@"name"] uppercaseString];
+    activityLbl.text = [userSelections[USER_SELECTED_ACTIVITY][@"name"] uppercaseString];
     activityLbl.numberOfLines = 0;
     activityLbl.textColor = [UIColor whiteColor];
     activityLbl.textAlignment = NSTextAlignmentCenter;
@@ -248,7 +204,8 @@
           durImg = [[UIImageView alloc] initWithFrame:CGRectMake(114,12,15,15)];
     else
         durImg = [[UIImageView alloc] initWithFrame:CGRectMake(136, 10, 20, 17)];
-    durImg.image = userSelections[@"duration_image"];
+    //durImg.image = userSelections[@"duration_image"];
+    [vikingDataManager loadDurationIcon:durImg :userSelections[USER_SELECTED_DURATION][@"id"]];
     durImg.contentMode = UIViewContentModeScaleAspectFill;
     [self.selectionView addSubview:durImg];
     
@@ -272,7 +229,7 @@
         durationLbl = [[UILabel alloc] initWithFrame:CGRectMake(165, 9, 73, 21)];
         durationLbl.font = [UIFont fontWithName:@"ProximaNova-Regular" size:12.0];
     }
-    durationLbl.text = [userSelections[@"duration"][@"name"] uppercaseString];
+    durationLbl.text = [userSelections[USER_SELECTED_DURATION][@"name"] uppercaseString];
     durationLbl.textAlignment = NSTextAlignmentCenter;
     durationLbl.textColor = [UIColor whiteColor];
     [self.selectionView addSubview:durationLbl];
@@ -287,7 +244,8 @@
         tempImg = [[UIImageView alloc] initWithFrame:CGRectMake(224, 10, 10, 15)];
     else
         tempImg = [[UIImageView alloc] initWithFrame:CGRectMake(277, 10, 8, 20)];
-    tempImg.image = userSelections[@"temperature_image"];
+    //tempImg.image = userSelections[@"temperature_image"];
+    [vikingDataManager loadTemperatureIcon:tempImg :userSelections[USER_SELECTED_TEMPERATURE][@"id"]];
     tempImg.contentMode = UIViewContentModeScaleAspectFill;
     [self.selectionView addSubview:tempImg];
     
@@ -311,7 +269,7 @@
         tempLbl.font = [UIFont fontWithName:@"ProximaNova-Regular" size:12.0];
     }
     tempLbl.backgroundColor = [UIColor clearColor];
-    tempLbl.text = [userSelections[@"temperature"][@"name"] uppercaseString];
+    tempLbl.text = [userSelections[USER_SELECTED_TEMPERATURE][@"name"] uppercaseString];
     tempLbl.textAlignment = NSTextAlignmentCenter;
     tempLbl.textColor = [UIColor whiteColor];
     
@@ -375,22 +333,6 @@
         cell.activityLbl.text = [NSString stringWithFormat:@"%@", subActivityArr[indexPath.row][@"name"]];
         
         [vikingDataManager loadSubActivityIcon:cell.activityImg :subActivityArr[indexPath.row][@"id"]];
-        
-//        cell.activityImg.image = [UIImage imageNamed:@"ImageUnavailable"];
-//        dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0ul);
-//        dispatch_async(queue, ^{
-//            // Perform async operation
-//            // Call your method/function here
-//            UIImage *intenetActivityImage = [vikingDataManager findSubActivityIcon:subActivityArr[indexPath.row][@"id"]];
-//            dispatch_sync(dispatch_get_main_queue(), ^{
-//                // Update UI
-//                if (intenetActivityImage != nil){
-//                 cell.activityImg.image = intenetActivityImage;
-//                }
-//            });
-//        });
-        
-        //[UIImage imageNamed:[NSString stringWithFormat:@"icon-%@-%@", subActDict[@"name"], subActivityArr[indexPath.row]]];
         
         return cell;
     }
@@ -509,7 +451,6 @@
         [self.userSelectionDict setObject:cell.tempImg.image forKey:USER_SELECTED_TEMPERATURE_IMAGE];
         [self.userSelectionDict setObject:temperatureArr[indexPath.row] forKey:USER_SELECTED_TEMPERATURE];
         [self createSelectionView:self.userSelectionDict inView:self.nameView];
-        NSLog(@"About to crash while swiping to nameView %@",self.nameView);
         [self SwipeRight:self.nameView];
     }
 }
