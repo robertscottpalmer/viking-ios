@@ -36,6 +36,11 @@
     // Should never be called, but just here for clarity really.
 }
 
+-(void)setImage: (UIImageView *) targetView : (UIImage *) sourceImage {
+    NSLog(@"trying to overwrite %@ with %@",targetView,sourceImage);
+    targetView.image = sourceImage;
+}
+
 -(UIImage *)loadImageViaApi: (NSString *) entityType : (NSString *) entityId : (NSString*) imageType {
     NSString *imagePath = [NSString stringWithFormat:@"%@/media/%@/%@/%@.png", apiServer, entityType, entityId,imageType];
     NSLog(@"Before call url for: %@",imagePath);

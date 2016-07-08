@@ -19,6 +19,9 @@
 
 @property (nonatomic, retain) NSString *apiServer;
 @property (nonatomic, retain) NSManagedObjectContext *managedContext;
+
+-(void)setImage: (UIImageView *) targetView : (UIImage *) sourceImage;
+
 /*Activity Type functions*/
 -(UIImage *)findMainActivityBanner:(NSString *)activityTypeId;
 -(UIImage *)findMainActivityIcon:(NSString *)activityTypeId;

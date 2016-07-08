@@ -73,7 +73,9 @@
         UIImage *intenetActivityImage = [vikingDataManager findMainActivityButton:imageStr];
         dispatch_sync(dispatch_get_main_queue(), ^{
             // Update UI
-            cell.activityImage.image = intenetActivityImage;
+            //[vikingDataManager setImage targetImage:cell.activityImage.image ];
+            [vikingDataManager setImage:cell.activityImage :intenetActivityImage];
+            //cell.activityImage.image = intenetActivityImage;
         });
     });
     return cell;
