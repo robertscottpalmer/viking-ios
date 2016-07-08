@@ -67,17 +67,18 @@
 {
     ActivityCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
     NSString *imageStr = self->activityArr[indexPath.row][@"id"];
-    cell.activityImage.image = [UIImage imageNamed:@"ImageUnavailable"];
-    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0ul);
-    dispatch_async(queue, ^{
-        UIImage *intenetActivityImage = [vikingDataManager findMainActivityButton:imageStr];
-        dispatch_sync(dispatch_get_main_queue(), ^{
-            // Update UI
-            //[vikingDataManager setImage targetImage:cell.activityImage.image ];
-            [vikingDataManager setImage:cell.activityImage :intenetActivityImage];
-            //cell.activityImage.image = intenetActivityImage;
-        });
-    });
+    [vikingDataManager loadMainActivityButton:cell.activityImage :imageStr];
+//    cell.activityImage.image = [UIImage imageNamed:@"ImageUnavailable"];
+//    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0ul);
+//    dispatch_async(queue, ^{
+//        UIImage *intenetActivityImage = [vikingDataManager findMainActivityButton:imageStr];
+//        dispatch_sync(dispatch_get_main_queue(), ^{
+//            // Update UI
+//            //[vikingDataManager setImage targetImage:cell.activityImage.image ];
+//            [vikingDataManager setImage:cell.activityImage :intenetActivityImage];
+//            //cell.activityImage.image = intenetActivityImage;
+//        });
+//    });
     return cell;
 }
 

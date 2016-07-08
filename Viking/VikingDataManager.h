@@ -23,12 +23,12 @@
 -(void)setImage: (UIImageView *) targetView : (UIImage *) sourceImage;
 
 /*Activity Type functions*/
--(UIImage *)findMainActivityBanner:(NSString *)activityTypeId;
--(UIImage *)findMainActivityIcon:(NSString *)activityTypeId;
--(UIImage *)findMainActivityBackground:(NSString *)activityTypeId;
--(UIImage *)findMainActivityButton:(NSString *)activityTypeId;
+-(void)loadMainActivityBanner:(UIImageView *) targetView :(NSString *)activityTypeId;
+-(void)loadMainActivityIcon:(UIImageView *) targetView :(NSString *)activityTypeId;
+-(void)loadMainActivityBackground:(UIImageView *) targetView :(NSString *)activityTypeId;
+-(void)loadMainActivityButton:(UIImageView *) targetView :(NSString *)activityTypeId;
 /*Sub activity functions*/
--(UIImage *)findSubActivityIcon:(NSString *)activityId;
+-(void)loadSubActivityIcon:(UIImageView *) targetView :(NSString *)activityId;
 
 /*Will return an array of dictionaries in the form ({id:"",name:""},{id:"",name:""})*/
 -(NSArray *)getActivityTypes;

@@ -41,42 +41,49 @@
     targetView.image = sourceImage;
 }
 
--(UIImage *)loadImageViaApi: (NSString *) entityType : (NSString *) entityId : (NSString*) imageType {
-    NSString *imagePath = [NSString stringWithFormat:@"%@/media/%@/%@/%@.png", apiServer, entityType, entityId,imageType];
-    NSLog(@"Before call url for: %@",imagePath);
-    NSLog(@"This is th crux of where a well-designed image serving api could score major points: %@",imagePath);
-    UIImage *intenetActivityImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:imagePath]]];
-    NSLog(@"after call url");
-    return intenetActivityImage;
+-(void)loadImageViaApi: (UIImageView *) targetView : (NSString *) entityType : (NSString *) entityId : (NSString*) imageType {
+    targetView.image = [UIImage imageNamed:@"loading"];
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0ul);
+    dispatch_async(queue, ^{
+        // Perform async operation
+        NSString *imagePath = [NSString stringWithFormat:@"%@/media/%@/%@/%@.png", apiServer, entityType, entityId,imageType];
+        NSLog(@"Before call url for: %@",imagePath);
+        NSLog(@"This is th crux of where a well-designed image serving api could score major points: %@",imagePath);
+        UIImage *internetActivityImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:imagePath]]];
+        NSLog(@"after call url");
+        dispatch_sync(dispatch_get_main_queue(), ^{
+            // Update UI
+            if (internetActivityImage != nil){
+                targetView.image = internetActivityImage;
+            }else{
+                targetView.image = [UIImage imageNamed:@"ImageUnavailable"];
+            }
+        });
+    });
+    
 }
 
--(UIImage *)findMainActivityBanner:(NSString *)activityTypeId{
-    return [self loadImageViaApi:@"activitytype" :activityTypeId : @"bannerImage"];
+-(void)loadMainActivityBanner: (UIImageView *) targetView :(NSString *)activityTypeId{
+    [self loadImageViaApi:targetView:@"activitytype" :activityTypeId : @"bannerImage"];
 }
 
--(UIImage *)findMainActivityIcon:(NSString *)activityTypeId {
-    //NSLog(@"just entered loadRemoteImage with imageName : %@",imageName);
-    //return [UIImage imageNamed:imageName];
-    //http://thevikingapp.local/media/activity/1/backgroundImage3.png
-    //http://thevikingapp.local/media/activitytype/1/bannerImage.png
-    return [self loadImageViaApi:@"activitytype" :activityTypeId : @"buttonIcon"];
+-(void)loadMainActivityIcon: (UIImageView *) targetView :(NSString *)activityTypeId {
+    [self loadImageViaApi:targetView:@"activitytype" :activityTypeId : @"buttonIcon"];
 }
 
--(UIImage *)findMainActivityBackground:(NSString *)activityTypeId {
-    //NSLog(@"just entered loadRemoteImage with imageName : %@",imageName);
-    //return [UIImage imageNamed:imageName];
-    //http://thevikingapp.local/media/activity/1/backgroundImage3.png
-    //http://thevikingapp.local/media/activitytype/1/bannerImage.png
-    return [self loadImageViaApi:@"activitytype" :activityTypeId : @"backgroundImage"];
+-(void)loadMainActivityBackground:(UIImageView *) targetView :(NSString *)activityTypeId {
+    [self loadImageViaApi:targetView:@"activitytype" :activityTypeId : @"backgroundImage"];
 }
 
--(UIImage *)findMainActivityButton:(NSString *)activityTypeId{
-    return [self loadImageViaApi:@"activitytype" :activityTypeId : @"buttonBackground"];
+-(void)loadMainActivityButton:(UIImageView *) targetView :(NSString *)activityTypeId{
+    [self loadImageViaApi:targetView:@"activitytype" :activityTypeId : @"buttonBackground"];
 }
 
--(UIImage *)findSubActivityIcon:(NSString *)activityId{
-    return [self loadImageViaApi:@"activity" :activityId : @"buttonIcon"];
+-(void)loadSubActivityIcon:(UIImageView *) targetView :(NSString *)activityId{
+    [self loadImageViaApi:targetView :@"activity" :activityId : @"buttonIcon"];
 }
+
+/**From here down are true data management tasks**/
 
 -(NSArray *)getActivityTypes{
     NSString *activityTypeApiCall = [NSString stringWithFormat:@"%@/%@", apiServer, @"main_activities.php"];

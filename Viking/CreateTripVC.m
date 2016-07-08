@@ -53,16 +53,18 @@
     self.durationHeaderLbl.font = [UIFont fontWithName:@"ProximaNova-Bold" size:15.0];
     self.tempHeaderLbl.font = [UIFont fontWithName:@"ProximaNova-Bold" size:15.0];
     self.createHeaderLbl.font = [UIFont fontWithName:@"ProximaNova-Bold" size:15.0];
+    
+    [vikingDataManager loadMainActivityIcon:self.headerBGIcon :selectedActivityTypeId];
 
-    self.headerBGIcon.image = [UIImage imageNamed:@"ImageUnavailable"];
-    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0ul);
-    dispatch_async(queue, ^{
-        UIImage *intenetActivityImage = [vikingDataManager findMainActivityIcon:selectedActivityTypeId];
-        dispatch_sync(dispatch_get_main_queue(), ^{
-            // Update UI
-            self.headerBGIcon.image = intenetActivityImage;
-        });
-    });
+//    self.headerBGIcon.image = [UIImage imageNamed:@"ImageUnavailable"];
+//    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0ul);
+//    dispatch_async(queue, ^{
+//        UIImage *intenetActivityImage = [vikingDataManager findMainActivityIcon:selectedActivityTypeId];
+//        dispatch_sync(dispatch_get_main_queue(), ^{
+//            // Update UI
+//            self.headerBGIcon.image = intenetActivityImage;
+//        });
+//    });
     
     //[UIImage imageNamed:[NSString stringWithFormat:@"icon_%@", selectedActivityTypeId]];
     
@@ -102,24 +104,30 @@
 -(void)setHeaderBackground
 {
     
-    self.headerBGView.image = [UIImage imageNamed:@"ImageUnavailable"];
-    self.durationHeaderBGView.image = [UIImage imageNamed:@"ImageUnavailable"];
-    self.tempHeaderBGView.image = [UIImage imageNamed:@"ImageUnavailable"];
-    self.generateHeaderBGView.image = [UIImage imageNamed:@"ImageUnavailable"];
+//    self.headerBGView.image = [UIImage imageNamed:@"ImageUnavailable"];
+//    self.durationHeaderBGView.image = [UIImage imageNamed:@"ImageUnavailable"];
+//    self.tempHeaderBGView.image = [UIImage imageNamed:@"ImageUnavailable"];
+//    self.generateHeaderBGView.image = [UIImage imageNamed:@"ImageUnavailable"];
+//    
+//    //self.headerBGIcon.image = [UIImage imageNamed:@"ImageUnavailable"];
     
-    //self.headerBGIcon.image = [UIImage imageNamed:@"ImageUnavailable"];
-    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0ul);
-    dispatch_async(queue, ^{
-        UIImage *intenetActivityImage = [vikingDataManager findMainActivityBanner:selectedActivityTypeId];
-        dispatch_sync(dispatch_get_main_queue(), ^{
-            // Update UI
-            //self.headerBGIcon.image = intenetActivityImage;
-            self.headerBGView.image = intenetActivityImage;
-            self.durationHeaderBGView.image = intenetActivityImage;
-            self.tempHeaderBGView.image = intenetActivityImage;
-            self.generateHeaderBGView.image = intenetActivityImage;
-        });
-    });
+    [vikingDataManager loadMainActivityBanner:self.headerBGView :selectedActivityTypeId];
+    [vikingDataManager loadMainActivityBanner:self.durationHeaderBGView :selectedActivityTypeId];
+    [vikingDataManager loadMainActivityBanner:self.tempHeaderBGView :selectedActivityTypeId];
+    [vikingDataManager loadMainActivityBanner:self.generateHeaderBGView :selectedActivityTypeId];
+    
+//    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0ul);
+//    dispatch_async(queue, ^{
+//        UIImage *intenetActivityImage = [vikingDataManager findMainActivityBanner:selectedActivityTypeId];
+//        dispatch_sync(dispatch_get_main_queue(), ^{
+//            // Update UI
+//            //self.headerBGIcon.image = intenetActivityImage;
+//            self.headerBGView.image = intenetActivityImage;
+//            self.durationHeaderBGView.image = intenetActivityImage;
+//            self.tempHeaderBGView.image = intenetActivityImage;
+//            self.generateHeaderBGView.image = intenetActivityImage;
+//        });
+//    });
     
 }
 
@@ -365,19 +373,22 @@
         cell.preservesSuperviewLayoutMargins = NO;
         
         cell.activityLbl.text = [NSString stringWithFormat:@"%@", subActivityArr[indexPath.row][@"name"]];
-        cell.activityImg.image = [UIImage imageNamed:@"ImageUnavailable"];
-        dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0ul);
-        dispatch_async(queue, ^{
-            // Perform async operation
-            // Call your method/function here
-            UIImage *intenetActivityImage = [vikingDataManager findSubActivityIcon:subActivityArr[indexPath.row][@"id"]];
-            dispatch_sync(dispatch_get_main_queue(), ^{
-                // Update UI
-                if (intenetActivityImage != nil){
-                 cell.activityImg.image = intenetActivityImage;
-                }
-            });
-        });
+        
+        [vikingDataManager loadSubActivityIcon:cell.activityImg :subActivityArr[indexPath.row][@"id"]];
+        
+//        cell.activityImg.image = [UIImage imageNamed:@"ImageUnavailable"];
+//        dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0ul);
+//        dispatch_async(queue, ^{
+//            // Perform async operation
+//            // Call your method/function here
+//            UIImage *intenetActivityImage = [vikingDataManager findSubActivityIcon:subActivityArr[indexPath.row][@"id"]];
+//            dispatch_sync(dispatch_get_main_queue(), ^{
+//                // Update UI
+//                if (intenetActivityImage != nil){
+//                 cell.activityImg.image = intenetActivityImage;
+//                }
+//            });
+//        });
         
         //[UIImage imageNamed:[NSString stringWithFormat:@"icon-%@-%@", subActDict[@"name"], subActivityArr[indexPath.row]]];
         
