@@ -591,7 +591,7 @@
 
 -(void)fetchdata
 {
-    NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
+    //NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"SubActivities"];
     fetchRequest.returnsObjectsAsFaults = NO;
 //    NSArray *subAct = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
