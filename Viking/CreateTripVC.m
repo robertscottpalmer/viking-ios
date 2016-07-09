@@ -579,7 +579,7 @@
 {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Hey now." message:activityName delegate:self cancelButtonTitle:@"OK"otherButtonTitles:nil, nil];
     [alert show];
-    [vikingDataManager createNewTrip:self.userSelectionDict];
+    [vikingDataManager createNewTrip:activityName : self.userSelectionDict];
     ListVC *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"ListView"];
     vc.headerStr = self.tripNameTxt.text;
     //vc.activityDict = dict;

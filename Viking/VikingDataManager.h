@@ -41,7 +41,7 @@
 -(NSArray *)getTemperatureArr;
 -(NSArray *)getMainViewMessages;
 //-(NSString *)createNewTrip: (NSInteger)activityId : (NSString *) durationId : (NSString *) temperatureId;
--(NSString *)createNewTrip: (NSDictionary *)userSelections;
+-(NSString *)createNewTrip: (NSString *)tripName :(NSDictionary *)userSelections;
 + (id)sharedManager;
 
 @end

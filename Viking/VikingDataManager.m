@@ -128,7 +128,16 @@
     return messages;
 }
 
--(NSString *)createNewTrip: (NSDictionary *)userSelections{
+- (NSManagedObjectContext *)managedObjectContext {
+    NSManagedObjectContext *managedcontext = nil;
+    id delegate = [[UIApplication sharedApplication] delegate];
+    if ([delegate performSelector:@selector(managedObjectContext)]) {
+        managedcontext = [delegate managedObjectContext];
+    }
+    return managedcontext;
+}
+
+-(NSString *)createNewTrip: (NSString *)tripName : (NSDictionary *)userSelections{
     
     /*NSManagedObject *newActivity = [NSEntityDescription insertNewObjectForEntityForName:@"MyActivityList" inManagedObjectContext:managedContext];
     */
@@ -138,28 +147,22 @@
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:warningMessage delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
     [alert show];
     
-//    NSManagedObject *newActivity = [NSEntityDescription insertNewObjectForEntityForName:@"Trip" inManagedObjectContext:managedContext];
-//    
-//    [newActivity setValue:userSelections[USER_SELECTED_ACTIVITY][@"id"] forKey:@"activityId"];
-//    [newActivity setValue:userSelections[USER_SELECTED_DURATION][@"id"] forKey:@"durationId"];
-//    [newActivity setValue:userSelections[USER_SELECTED_TEMPERATURE][@"id"] forKey:@"temperatureId"];
-//    
-//    alert = [[UIAlertView alloc] initWithTitle:@"" message:@"We have build the object to save and it is on the next line" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    NSManagedObject *newActivity = [NSEntityDescription insertNewObjectForEntityForName:@"Trip" inManagedObjectContext:managedContext];
+    NSString *uuid = [[NSUUID UUID] UUIDString];
+    [newActivity setValue:uuid forKey:@"id"];
+    [newActivity setValue:tripName forKey:@"name"];
+    [newActivity setValue:userSelections[USER_SELECTED_ACTIVITY][@"id"] forKey:@"activityId"];
+    [newActivity setValue:userSelections[USER_SELECTED_DURATION][@"id"] forKey:@"durationId"];
+    [newActivity setValue:userSelections[USER_SELECTED_TEMPERATURE][@"id"] forKey:@"temperatureId"];
+//
+    alert = [[UIAlertView alloc] initWithTitle:@"" message:@"We have build the object to save and it is on the next line" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
     
-    
-//    [newActivity setValue:activityName forKey:@"activityList_Name"];
-//    [newActivity setValue:self.durationDict[@"title"] forKey:@"duration"];
-//    [newActivity setValue:selectedActivityTypeId forKey:@"main_Activity"];
-//    //NOTE: this should not be hard-coded
-//    [newActivity setValue:self.activityDict[@"title"][@"1"] forKey:@"sub_activity"];
-//    [newActivity setValue:self.tempDict[@"title"] forKey:@"temperature"];
-//    
-//    NSError *error = nil;
-//    // Save the object to persistent store
-//    if (![context save:&error]) {
-//        //        NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
-//    }
-//    
+    NSError *error = nil;
+    // Save the object to persistent store
+    if (![managedContext save:&error]) {
+                NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
+    }
+//
 //    
 //    for(NSDictionary *equipmentDict in list)
 //    {
