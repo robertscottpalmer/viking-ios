@@ -35,7 +35,7 @@
 @property (nonatomic, weak) IBOutlet UITableView *tempTable;
 
 @property (nonatomic, strong) IBOutlet UIView *selectionView;
-@property (nonatomic, weak) IBOutlet UITextField *activityNameTxt;
+@property (nonatomic, weak) IBOutlet UITextField *tripNameTxt;
 @property (nonatomic, weak) IBOutlet UILabel *mainHeaderLbl;
 @property (nonatomic, weak) IBOutlet UILabel *activityHeaderLbl;
 @property (nonatomic, weak) IBOutlet UILabel *durationHeaderLbl;

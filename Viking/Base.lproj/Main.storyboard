@@ -817,7 +817,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="activityHeaderLbl" destination="nyU-Hy-Wjf" id="eWL-da-1FO"/>
-                        <outlet property="activityNameTxt" destination="t7u-U7-iWz" id="d8K-Vk-M3S"/>
+                        <outlet property="tripNameTxt" destination="t7u-U7-iWz" id="d8K-Vk-M3S"/>
                         <outlet property="activityTable" destination="Wsh-fS-Sh1" id="fL7-6O-zAV"/>
                         <outlet property="activityView" destination="3gF-YU-veZ" id="Gjf-Hn-xff"/>
                         <outlet property="createHeaderLbl" destination="Ob8-Ic-yzM" id="Y8W-ae-N6e"/>

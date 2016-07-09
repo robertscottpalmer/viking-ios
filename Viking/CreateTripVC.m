@@ -49,7 +49,7 @@
     
     [vikingDataManager loadMainActivityIcon:self.headerBGIcon :selectedActivityTypeId];
     
-    self.activityNameTxt.attributedPlaceholder =
+    self.tripNameTxt.attributedPlaceholder =
     [[NSAttributedString alloc] initWithString:@"Name your trip"
                                     attributes:@{
                                                  NSForegroundColorAttributeName: [UIColor colorWithRed:123.0/255.0 green:137.0/255.0 blue:148.0/255.0 alpha:1.0],
@@ -533,8 +533,8 @@
 
 -(IBAction)generateListClicked:(id)sender
 {
-    [self.activityNameTxt resignFirstResponder];
-    if(! ([self.activityNameTxt.text length] > 0) )
+    [self.tripNameTxt resignFirstResponder];
+    if(! ([self.tripNameTxt.text length] > 0) )
     {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Hey now." message:@"Trip name can not be blank." delegate:self cancelButtonTitle:@"OK"otherButtonTitles:nil, nil];
         [alert show];
@@ -562,24 +562,26 @@
             }
         }
         
-        NSArray *equipmentListArr;
-        for(NSDictionary *tempDict in durArr)
-        {
-            if([tempDict[@"name"] isEqualToString:dict[@"TempTitle"]])
-            {
-                equipmentListArr = tempDict[@"list"][@"equipment"];
-            }
-            
-        }
-        [self saveMyActivity:self.activityNameTxt.text equipmentList:equipmentListArr];
+//        NSArray *equipmentListArr;
+//        for(NSDictionary *tempDict in durArr)
+//        {
+//            if([tempDict[@"name"] isEqualToString:dict[@"TempTitle"]])
+//            {
+//                equipmentListArr = tempDict[@"list"][@"equipment"];
+//            }
+//            
+//        }
+        [self saveMyActivity:self.tripNameTxt.text];
     }
 }
 
--(void)saveMyActivity:(NSString *)activityName equipmentList:(NSArray *)list
+-(void)saveMyActivity:(NSString *)activityName
 {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Hey now." message:activityName delegate:self cancelButtonTitle:@"OK"otherButtonTitles:nil, nil];
+    [alert show];
     [vikingDataManager createNewTrip:self.userSelectionDict];
     ListVC *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"ListView"];
-    vc.headerStr = self.activityNameTxt.text;
+    vc.headerStr = self.tripNameTxt.text;
     //vc.activityDict = dict;
     vc.isFromCreateTrip = YES;
     vc.myTripObj = nil;
@@ -622,7 +624,7 @@
     //appDel.activityDict = dict;
     
     ListVC *vc = [segue destinationViewController];
-    vc.headerStr = self.activityNameTxt.text;
+    vc.headerStr = self.tripNameTxt.text;
     vc.activityDict = dict;
 }
 

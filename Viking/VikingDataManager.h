@@ -9,6 +9,7 @@
 #import <Foundation/NSExtensionRequestHandling.h>
 #import <UIKit/UIKit.h>
 #import "XMLDictionary.h"
+#import "AppConstant.h"
 @import CoreData;
 
 #ifndef ImageManager_h

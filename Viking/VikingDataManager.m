@@ -130,12 +130,21 @@
 
 -(NSString *)createNewTrip: (NSDictionary *)userSelections{
     
-    NSManagedObject *newActivity = [NSEntityDescription insertNewObjectForEntityForName:@"MyActivityList" inManagedObjectContext:managedContext];
+    /*NSManagedObject *newActivity = [NSEntityDescription insertNewObjectForEntityForName:@"MyActivityList" inManagedObjectContext:managedContext];
+    */
+    NSManagedObject *newActivity = [NSEntityDescription insertNewObjectForEntityForName:@"Trip" inManagedObjectContext:managedContext];
     
     NSString *warningMessage = [NSString stringWithFormat:@"Let's put some thought into how we store trips, userSelections=%@",userSelections];
     
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:warningMessage delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
     [alert show];
+    
+    [newActivity setValue:userSelections[USER_SELECTED_ACTIVITY][@"id"] forKey:@"activityId"];
+    [newActivity setValue:userSelections[USER_SELECTED_DURATION][@"id"] forKey:@"durationId"];
+    [newActivity setValue:userSelections[USER_SELECTED_TEMPERATURE][@"id"] forKey:@"temperatureId"];
+    
+    alert = [[UIAlertView alloc] initWithTitle:@"" message:@"We have build the object to save and it is on the next line" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    
     
 //    [newActivity setValue:activityName forKey:@"activityList_Name"];
 //    [newActivity setValue:self.durationDict[@"title"] forKey:@"duration"];
