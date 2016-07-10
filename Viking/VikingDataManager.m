@@ -118,14 +118,18 @@
 }
 
 -(NSArray *)getMainViewMessages{
-    NSArray *messages = [NSArray arrayWithObjects:
-                             [NSDictionary dictionaryWithObject:@"This is a fun message that did not come from facebook!" forKey:@"message"],
-                             [NSDictionary dictionaryWithObject:@"2This is a fun message that did not come from facebook!" forKey:@"message"],
-                             [NSDictionary dictionaryWithObject:@"3This is a fun message that did not come from facebook!" forKey:@"4message"],
-                             [NSDictionary dictionaryWithObject:@"5This is a fun message that did not come from facebook!" forKey:@"message"],
-                             nil];
-    NSLog(@"messages are %@",messages);
-    return messages;
+    NSString *announcementsApiCall = [NSString stringWithFormat:@"%@/%@", apiServer, @"announcements.php"];
+    NSDictionary *announcementDict = [NSDictionary dictionaryWithXMLData:[NSData dataWithContentsOfURL: [NSURL URLWithString:announcementsApiCall]]];
+    return announcementDict[@"Announcement"];
+    
+//    NSArray *messages = [NSArray arrayWithObjects:
+//                             [NSDictionary dictionaryWithObject:@"This is a fun message that did not come from facebook!" forKey:@"message"],
+//                             [NSDictionary dictionaryWithObject:@"2This is a fun message that did not come from facebook!" forKey:@"message"],
+//                             [NSDictionary dictionaryWithObject:@"3This is a fun message that did not come from facebook!" forKey:@"4message"],
+//                             [NSDictionary dictionaryWithObject:@"5This is a fun message that did not come from facebook!" forKey:@"message"],
+//                             nil];
+//    NSLog(@"messages are %@",messages);
+//    return messages;
 }
 
 -(NSDictionary *)getSingleApiObject:(NSString*) entityType :(NSString*)id{

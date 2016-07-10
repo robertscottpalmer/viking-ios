@@ -9,7 +9,6 @@
 #import "MainVC.h"
 #import <QuartzCore/QuartzCore.h>
 #import <MessageUI/MessageUI.h>
-//#import <FacebookSDK/FacebookSDK.h>
 #import "AppConstant.h"
 #import "Reachability.h"
 #import "VikingDataManager.h"
@@ -17,11 +16,10 @@
 @interface MainVC ()<MFMailComposeViewControllerDelegate>
 {
     NSMutableData *_responseData;
-    NSMutableArray *postsArray;
-    NSString *strAppID;
-    NSString *strAppURL;
+    NSArray *postsArray;
     Reachability *internetReachability;
     UITapGestureRecognizer *tapGR;
+    
     VikingDataManager *vikingDataManager;
 }
 @end
@@ -44,72 +42,31 @@
     
     tapGR = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(labelTapped:)];
     [self.scrollView addGestureRecognizer: tapGR];
-    
-    
-//    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"codebeautify" ofType:@"json"];
-//    NSData* data = [NSData dataWithContentsOfFile:filePath];
-//    NSError* error = nil;
-//    NSDictionary *result = [NSJSONSerialization JSONObjectWithData:data
-//                                                           options:kNilOptions error:&error];
-    
-    //NSArray *equip = result[@"GearList"][@"MainActivity"][@"SubActivity"][@"equipment_list"];
-    
-    //    NSLog(@"list - %@", equip);
-    
+   
     self.fbIndication.hidden = YES;
     
     self.facebookPostView.hidden = YES;
     internetReachability = [Reachability reachabilityForInternetConnection];
     NetworkStatus internetStatus = [internetReachability currentReachabilityStatus];
-    switch (internetStatus)
-    {
-        case NotReachable:
-        {
-            NSLog(@"The internet is down.");
-            //            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"" message:@"No internet available." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-            //            [alert show];
-            break;
-        }
-        case ReachableViaWiFi:
-        {
-            [self facebookPostCall];
-            break;
-        }
-        case ReachableViaWWAN:
-        {
-            [self facebookPostCall];
-            break;
-        }
-    }
-    
-    
-    //    UIVisualEffect *blurEffect;
-    //    blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
-    //
-    //    UIVisualEffectView *visualEffectView;
-    //    visualEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
-    //
-    //    visualEffectView.layer.cornerRadius = 65.0f;
-    //    visualEffectView.layer.masksToBounds = YES;
-    //
-    //    visualEffectView.frame = self.tripNewImage.frame;
-    //    [self.view addSubview:visualEffectView];
-    //
-    //    [self.view bringSubviewToFront:self.tripNewImage];
-}
-
--(void)facebookPostCall
-{
-    
-    self.facebookPostView.hidden = NO;
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://graph.facebook.com/oauth/access_token?client_id=%@&client_secret=%@&grant_type=client_credentials",FB_APP_ID, FB_SECRET_KEY]]];
-    
-    // Create url connection and fire request
-    NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:request delegate:self];
-    [self getFacebookPosts];
-    // Do any additional setup after loading the view.
-    
-    
+    [self getFacebookPosts:@"dummy"];
+//    switch (internetStatus)
+//    {
+//        case NotReachable:
+//        {
+//            NSLog(@"The internet is down.");
+//            //            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"" message:@"No internet available." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+//            //            [alert show];
+//            break;
+//        }
+//        case ReachableViaWiFi:
+//        {
+//            break;
+//        }
+//        case ReachableViaWWAN:
+//        {
+//            break;
+//        }
+//    }
 }
 
 -(IBAction)featuredListClicked:(id)sender
@@ -121,47 +78,48 @@
 
 #pragma mark NSURLConnection Delegate Methods
 
-- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
-    // A response has been received, this is where we initialize the instance var you created
-    // so that we can append data to it in the didReceiveData method
-    // Furthermore, this method is called each time there is a redirect so reinitializing it
-    // also serves to clear it
-    _responseData = [[NSMutableData alloc] init];
-}
-
-- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
-    // Append the new data to the instance variable you declared
-    [_responseData appendData:data];
-    NSString *responseStr = [[NSString alloc] initWithData:_responseData encoding:NSUTF8StringEncoding];
-    NSLog(@"resposne - %@", responseStr);
-    
-    NSString *access_token;
-    NSRange access_token_range = [responseStr rangeOfString:@"access_token="];
-    if (access_token_range.length > 0) {
-        int from_index = access_token_range.location + access_token_range.length;
-        access_token = [responseStr substringFromIndex:from_index];
-        
-        NSLog(@"access_token:  %@", access_token);
-    }
-    [self getFacebookPosts];
-}
-
-- (NSCachedURLResponse *)connection:(NSURLConnection *)connection
-                  willCacheResponse:(NSCachedURLResponse*)cachedResponse {
-    // Return nil to indicate not necessary to store a cached response for this connection
-    return nil;
-}
-
-- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
-    // The request is complete and data has been received
-    // You can parse the stuff in your instance variable now
-    
-}
-
-- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
-    // The request has failed for some reason!
-    // Check the error var
-}
+//- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
+//    // A response has been received, this is where we initialize the instance var you created
+//    // so that we can append data to it in the didReceiveData method
+//    // Furthermore, this method is called each time there is a redirect so reinitializing it
+//    // also serves to clear it
+//    _responseData = [[NSMutableData alloc] init];
+//}
+//
+//- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
+//    // Append the new data to the instance variable you declared
+//    [_responseData appendData:data];
+//    NSString *responseStr = [[NSString alloc] initWithData:_responseData encoding:NSUTF8StringEncoding];
+//    //NSLog(@"resposne - %@", responseStr);
+//    
+//    NSString *access_token;
+//    NSRange access_token_range = [responseStr rangeOfString:@"access_token="];
+//    if (access_token_range.length > 0) {
+//        int from_index = (int)access_token_range.location + (int)access_token_range.length;
+//        access_token = [responseStr substringFromIndex:from_index];
+//        
+//        //NSLog(@"access_token:  %@", access_token);
+//    }
+//    
+//    [self getFacebookPosts:access_token];
+//}
+//
+//- (NSCachedURLResponse *)connection:(NSURLConnection *)connection
+//                  willCacheResponse:(NSCachedURLResponse*)cachedResponse {
+//    // Return nil to indicate not necessary to store a cached response for this connection
+//    return nil;
+//}
+//
+//- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
+//    // The request is complete and data has been received
+//    // You can parse the stuff in your instance variable now
+//    
+//}
+//
+//- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
+//    // The request has failed for some reason!
+//    // Check the error var
+//}
 
 
 
@@ -230,22 +188,16 @@
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
--(void)getFacebookPosts
+-(void)getFacebookPosts:(NSString *)accessToken
 {
     self.fbIndication.hidden = NO;
     [self.fbIndication startAnimating];
     
-//    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
-//                            @"dummy", @"access_token",
-//                            nil
-//                            ];
-    ;
-    NSArray *somePosts = [vikingDataManager getMainViewMessages];
-    postsArray = [[NSMutableArray alloc] init];
-    [postsArray addObjectsFromArray:somePosts];
+    postsArray  = [vikingDataManager getMainViewMessages];
+    
     [self setUpScrollView];
     [self.fbIndication stopAnimating];
-    self.fbIndication.hidden = YES;
+     self.fbIndication.hidden = YES;
 }
 
 -(void)setUpScrollView
@@ -282,7 +234,7 @@
     UILabel *postLabel = [viewControllers objectAtIndex:page];
     if((NSNull *)postLabel == [NSNull null])
     {
-        NSLog(@"page - %d", page);
+       // NSLog(@"page - %d", page);
         
         postLabel = [[UILabel alloc] init];
         postLabel.numberOfLines = 0.0;
@@ -291,8 +243,8 @@
         postLabel.font = [UIFont fontWithName:@"ProximaNova-Light" size:15.0];
         postLabel.text = [NSString stringWithFormat:@"@TheVikingApp \n %@", postsArray[page][@"announcement_txt"]];
         postLabel.backgroundColor = [UIColor clearColor];
-        //        [postLabel addGestureRecognizer:tapGR];
-        
+//        [postLabel addGestureRecognizer:tapGR];
+       
         [viewControllers replaceObjectAtIndex:page withObject:postLabel];
     }
     
@@ -305,7 +257,7 @@
         frame.size.width = self.scrollView.frame.size.width - 2*X_OFFSET;
         frame.size.height = self.scrollView.frame.size.height - 2*Y_OFFSET;
         postLabel.frame = frame;
-        //         postLabel.frame = CGRectMake(self.scrollView.frame.origin.x + X_OFFSET, self.scrollView.frame.origin.x + Y_OFFSET, self.scrollView.frame.size.width - 2*X_OFFSET, self.scrollView.frame.size.height - 2*Y_OFFSET);
+//         postLabel.frame = CGRectMake(self.scrollView.frame.origin.x + X_OFFSET, self.scrollView.frame.origin.x + Y_OFFSET, self.scrollView.frame.size.width - 2*X_OFFSET, self.scrollView.frame.size.height - 2*Y_OFFSET);
         [self.scrollView addSubview:postLabel];
     }
 }
@@ -337,7 +289,7 @@
 }
 
 - (IBAction)changePage:(id)sender {
-    int page = self.pageControl.currentPage;
+    int page = (int)self.pageControl.currentPage;
     // load the visible page and the page on either side of it (to avoid flashes when the user starts scrolling)
     [self loadScrollViewWithPage:page - 1];
     [self loadScrollViewWithPage:page];
@@ -354,7 +306,7 @@
 
 -(void) labelTapped:(UITapGestureRecognizer *)gestureRecognizer
 {
-    BOOL installed = [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"fb://"]];
+    //BOOL installed = [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"fb://"]];
     
     NSString *idStr = postsArray[self.pageControl.currentPage][@"id"];
     NSArray *arr = [idStr componentsSeparatedByString:@"_"];
@@ -364,33 +316,22 @@
     {
         firstString = [arr objectAtIndex:0];
         secondString = [arr objectAtIndex:1];
-        NSLog(@"First String %@",firstString);
-        NSLog(@"Second String %@",secondString);
+        //NSLog(@"First String %@",firstString);
+        //NSLog(@"Second String %@",secondString);
     }
-    if(installed)
-    {
-        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"fb://profile/%@", idStr]];
-        [[UIApplication sharedApplication] openURL:url];
-    }
-    else
-    {
-        NSLog(@"%@",[NSString stringWithFormat:@"%@/posts/%@", strAppURL, secondString]);
-        NSURL *fbURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/posts/%@", strAppURL, secondString]];
-        NSLog(@"fburl - %@", fbURL);
-        [[UIApplication sharedApplication] openURL:fbURL];
-    }
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"We should follow a link here???" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    [alert show];
 }
 
 
 
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+    NSLog(@"Here is where we should kick off a background load.");
+}
 
 @end
