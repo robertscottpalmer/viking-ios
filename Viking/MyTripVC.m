@@ -11,10 +11,12 @@
 #import "NewTripVC.h"
 #import "MyActivityListCell.h"
 #import "ListVC.h"
+#import "VikingDataManager.h"
 
 @interface MyTripVC () <MFMailComposeViewControllerDelegate>
 {
     NSArray *activityListArray;
+    VikingDataManager *vikingDataManager;
 }
 
 @end
@@ -23,6 +25,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    vikingDataManager = [VikingDataManager sharedManager];
     self.mainHeaderLbl.font = [UIFont fontWithName:@"ProximaNova-Light" size:18.0];
     self.headerLbl.font = [UIFont fontWithName:@"ProximaNova-Light" size:15.0];
     // Do any additional setup after loading the view.
@@ -47,35 +50,38 @@
 #pragma mark - Core Data
 
 
-- (NSManagedObjectContext *)managedObjectContext {
-    NSManagedObjectContext *managedcontext = nil;
-    id delegate = [[UIApplication sharedApplication] delegate];
-    if ([delegate performSelector:@selector(managedObjectContext)]) {
-        managedcontext = [delegate managedObjectContext];
-    }
-    return managedcontext;
-}
+//- (NSManagedObjectContext *)managedObjectContext {
+//    NSManagedObjectContext *managedcontext = nil;
+//    id delegate = [[UIApplication sharedApplication] delegate];
+//    if ([delegate performSelector:@selector(managedObjectContext)]) {
+//        managedcontext = [delegate managedObjectContext];
+//    }
+//    return managedcontext;
+//}
 
 -(void)fetchMyActivityList
 {
-    NSManagedObjectContext *context = [self managedObjectContext];
+//    NSManagedObjectContext *context = [self managedObjectContext];
+//    
+//    if (context == nil) {
+//        NSLog(@"Nil");
+//    }
+//    else {
+//        NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+//        fetchRequest.returnsObjectsAsFaults = NO;
+//        NSEntityDescription *entity = [NSEntityDescription entityForName:@"MyActivityList" inManagedObjectContext:context];
+//        [fetchRequest setEntity:entity];
+//        
+//        NSError *error;
+//        NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
+//        
+//        NSLog(@"array - %@", fetchedObjects);
+//        activityListArray = fetchedObjects;
+//        activityListArray = [[activityListArray reverseObjectEnumerator] allObjects];
+//    }
     
-    if (context == nil) {
-        NSLog(@"Nil");
-    }
-    else {
-        NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-        fetchRequest.returnsObjectsAsFaults = NO;
-        NSEntityDescription *entity = [NSEntityDescription entityForName:@"MyActivityList" inManagedObjectContext:context];
-        [fetchRequest setEntity:entity];
-        
-        NSError *error;
-        NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
-        
-        NSLog(@"array - %@", fetchedObjects);
-        activityListArray = fetchedObjects;
-        activityListArray = [[activityListArray reverseObjectEnumerator] allObjects];
-    }
+    activityListArray = [vikingDataManager getMyTrips];
+    activityListArray = [[activityListArray reverseObjectEnumerator] allObjects];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -134,15 +140,17 @@
         NSManagedObject *obj = activityListArray[indexPath.row];
         cell.layoutMargins = UIEdgeInsetsZero;
         cell.preservesSuperviewLayoutMargins = NO;
-//        cell.subActivityLbl.text = [[NSString stringWithFormat:@"%@ %@", [obj valueForKey:@"sub_activity"],[obj valueForKey:@"main_Activity"]] uppercaseString];
-         cell.subActivityLbl.text = [NSString stringWithFormat:@"%@", [obj valueForKey:@"sub_activity"]];
-        cell.activityNameLbl.text = [[obj valueForKey:@"activityList_Name"] capitalizedString];
-        cell.bgImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@_%@", [obj valueForKey:@"main_Activity"],[obj valueForKey:@"sub_activity"]]];
-        NSLog(@"image name - %@", [NSString stringWithFormat:@"%@_%@", [obj valueForKey:@"main_Activity"],[obj valueForKey:@"sub_activity"]]);
-//        cell.bgImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"BG-%@", [obj valueForKey:@"main_Activity"]]];
-//        cell.layoutMargins = UIEdgeInsetsZero;
-//        cell.preservesSuperviewLayoutMargins = NO;
-    
+        
+        cell.activityNameLbl.text = @"I should call out to get name";
+        
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Hey now." message:@"You should call out to the newly built api functions to get the needed values about to be displayed below" delegate:self cancelButtonTitle:@"OK"otherButtonTitles:nil, nil];
+        [alert show];
+
+        //cell.subActivityLbl.text = [NSString stringWithFormat:@"%@", [obj valueForKey:@"sub_activity"]];
+        //cell.activityNameLbl.text = [[obj valueForKey:@"activityList_Name"] capitalizedString];
+        //cell.bgImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@_%@", [obj valueForKey:@"main_Activity"],[obj valueForKey:@"sub_activity"]]];
+        //NSLog(@"image name - %@", [NSString stringWithFormat:@"%@_%@", [obj valueForKey:@"main_Activity"],[obj valueForKey:@"sub_activity"]]);
         return cell;
     }
 }

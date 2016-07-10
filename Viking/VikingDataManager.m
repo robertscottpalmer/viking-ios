@@ -128,25 +128,37 @@
     return messages;
 }
 
-- (NSManagedObjectContext *)managedObjectContext {
-    NSManagedObjectContext *managedcontext = nil;
-    id delegate = [[UIApplication sharedApplication] delegate];
-    if ([delegate performSelector:@selector(managedObjectContext)]) {
-        managedcontext = [delegate managedObjectContext];
-    }
-    return managedcontext;
+-(NSDictionary *)getSingleApiObject:(NSString*) entityType :(NSString*)id{
+    ///entityById.php?entityType=activity&entityId=1
+    //http://thevikingapp.local/activities_of_type.php?activityTypeId=3
+    NSString *activityTypeApiCall = [NSString stringWithFormat:@"%@/%@?entityType=%@&entityId=%ld", apiServer, @"entityById.php",entityType,(long)id];
+    NSDictionary *objectDict = [NSDictionary dictionaryWithXMLData:[NSData dataWithContentsOfURL: [NSURL URLWithString:activityTypeApiCall]]];
+    return objectDict;
 }
 
+-(NSDictionary *)getActivityType:(NSString*)id{
+    return [self getSingleApiObject:@"activityType" :id];
+}
+-(NSDictionary *)getActivity:(NSString*)id{
+    return [self getSingleApiObject:@"activity" :id];
+}
+-(NSDictionary *)getDuration:(NSString*)id{
+    return [self getSingleApiObject:@"duration" :id];
+}
+-(NSDictionary *)getTemperature:(NSString*)id{
+    return [self getSingleApiObject:@"temperature" :id];
+}
+
+//- (NSManagedObjectContext *)managedObjectContext {
+//    NSManagedObjectContext *managedcontext = nil;
+//    id delegate = [[UIApplication sharedApplication] delegate];
+//    if ([delegate performSelector:@selector(managedObjectContext)]) {
+//        managedcontext = [delegate managedObjectContext];
+//    }
+//    return managedcontext;
+//}
+
 -(NSString *)createNewTrip: (NSString *)tripName : (NSDictionary *)userSelections{
-    
-    /*NSManagedObject *newActivity = [NSEntityDescription insertNewObjectForEntityForName:@"MyActivityList" inManagedObjectContext:managedContext];
-    */
-    
-    NSString *warningMessage = [NSString stringWithFormat:@"Let's put some thought into how we store trips, userSelections=%@",userSelections];
-    
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:warningMessage delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-    [alert show];
-    
     NSManagedObject *newActivity = [NSEntityDescription insertNewObjectForEntityForName:@"Trip" inManagedObjectContext:managedContext];
     NSString *uuid = [[NSUUID UUID] UUIDString];
     [newActivity setValue:uuid forKey:@"id"];
@@ -154,8 +166,6 @@
     [newActivity setValue:userSelections[USER_SELECTED_ACTIVITY][@"id"] forKey:@"activityId"];
     [newActivity setValue:userSelections[USER_SELECTED_DURATION][@"id"] forKey:@"durationId"];
     [newActivity setValue:userSelections[USER_SELECTED_TEMPERATURE][@"id"] forKey:@"temperatureId"];
-//
-    alert = [[UIAlertView alloc] initWithTitle:@"" message:@"We have build the object to save and it is on the next line" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
     
     NSError *error = nil;
     // Save the object to persistent store
@@ -195,6 +205,21 @@
 //    //    [dict setValue:selectedActivity forKey:@"main_Activity"];
     return @"Woot!!";
     
+}
+
+-(NSArray *)getMyTrips{
+        NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+        fetchRequest.returnsObjectsAsFaults = NO;
+        NSEntityDescription *entity = [NSEntityDescription entityForName:@"Trip" inManagedObjectContext:managedContext];
+        [fetchRequest setEntity:entity];
+        
+        NSError *error;
+        NSArray *fetchedObjects = [managedContext executeFetchRequest:fetchRequest error:&error];
+        
+        NSLog(@"array - %@", fetchedObjects);
+//        activityListArray = fetchedObjects;
+//        activityListArray = [[activityListArray reverseObjectEnumerator] allObjects];
+    return fetchedObjects;
 }
 
 @end

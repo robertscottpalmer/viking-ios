@@ -40,8 +40,14 @@
 -(NSArray *)getDurationArr;
 -(NSArray *)getTemperatureArr;
 -(NSArray *)getMainViewMessages;
-//-(NSString *)createNewTrip: (NSInteger)activityId : (NSString *) durationId : (NSString *) temperatureId;
+/*Get individual records*/
+-(NSDictionary *)getActivityType:(NSString*)id;
+-(NSDictionary *)getActivity:(NSString*)id;
+-(NSDictionary *)getDuration:(NSString*)id;
+-(NSDictionary *)getTemperature:(NSString*)id;
+/*DML operations*/
 -(NSString *)createNewTrip: (NSString *)tripName :(NSDictionary *)userSelections;
+-(NSArray *)getMyTrips;
 + (id)sharedManager;
 
 @end

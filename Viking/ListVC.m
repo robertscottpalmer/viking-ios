@@ -42,6 +42,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    NSLog(@"And here we are");
 
     totalCount = 21;
     self.actionView.hidden = YES;

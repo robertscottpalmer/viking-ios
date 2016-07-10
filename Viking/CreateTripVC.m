@@ -23,7 +23,6 @@
     NSDictionary *subActDict;
     NSArray *durationArr;
     NSArray *temperatureArr;
-    //NSManagedObjectContext *context;
     VikingDataManager *vikingDataManager;
 }
 
