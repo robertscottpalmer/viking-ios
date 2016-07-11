@@ -30,6 +30,7 @@
 -(void)loadMainActivityButton:(UIImageView *) targetView :(NSString *)activityTypeId;
 /*Sub activity functions*/
 -(void)loadSubActivityIcon:(UIImageView *) targetView :(NSString *)activityId;
+-(void)loadSubActivityHorizontalBackground:(UIImageView *)targetView :(NSString *)activityId;
 /*Odds and ends*/
 -(void)loadDurationIcon:(UIImageView *) targetView :(NSString *)activityId;
 -(void)loadTemperatureIcon:(UIImageView *) targetView :(NSString *)activityId;

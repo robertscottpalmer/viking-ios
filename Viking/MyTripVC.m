@@ -48,38 +48,8 @@
 }
 
 #pragma mark - Core Data
-
-
-//- (NSManagedObjectContext *)managedObjectContext {
-//    NSManagedObjectContext *managedcontext = nil;
-//    id delegate = [[UIApplication sharedApplication] delegate];
-//    if ([delegate performSelector:@selector(managedObjectContext)]) {
-//        managedcontext = [delegate managedObjectContext];
-//    }
-//    return managedcontext;
-//}
-
 -(void)fetchMyActivityList
 {
-//    NSManagedObjectContext *context = [self managedObjectContext];
-//    
-//    if (context == nil) {
-//        NSLog(@"Nil");
-//    }
-//    else {
-//        NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-//        fetchRequest.returnsObjectsAsFaults = NO;
-//        NSEntityDescription *entity = [NSEntityDescription entityForName:@"MyActivityList" inManagedObjectContext:context];
-//        [fetchRequest setEntity:entity];
-//        
-//        NSError *error;
-//        NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
-//        
-//        NSLog(@"array - %@", fetchedObjects);
-//        activityListArray = fetchedObjects;
-//        activityListArray = [[activityListArray reverseObjectEnumerator] allObjects];
-//    }
-    
     activityListArray = [vikingDataManager getMyTrips];
     activityListArray = [[activityListArray reverseObjectEnumerator] allObjects];
 }
@@ -146,9 +116,15 @@
         
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Hey now." message:@"You should call out to the newly built api functions to get the needed values about to be displayed below" delegate:self cancelButtonTitle:@"OK"otherButtonTitles:nil, nil];
         [alert show];
-
-        //cell.subActivityLbl.text = [NSString stringWithFormat:@"%@", [obj valueForKey:@"sub_activity"]];
-        //cell.activityNameLbl.text = [[obj valueForKey:@"activityList_Name"] capitalizedString];
+        
+        NSString *activityId = [obj valueForKey:@"activityId"];
+        NSDictionary *activity = [vikingDataManager getActivity:activityId];
+        NSDictionary *activityType = [vikingDataManager getActivityType:activity[@"type"]];
+        cell.subActivityLbl.text = activity[@"name"];
+        // [NSString stringWithFormat:@"%@", [obj valueForKey:@"sub_activity"]];
+        cell.activityNameLbl.text = [activityType[@"name"] capitalizedString];
+        //[[obj valueForKey:@"activityList_Name"] capitalizedString];
+        [vikingDataManager loadSubActivityHorizontalBackground:cell.bgImage: activityId];
         //cell.bgImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@_%@", [obj valueForKey:@"main_Activity"],[obj valueForKey:@"sub_activity"]]];
         //NSLog(@"image name - %@", [NSString stringWithFormat:@"%@_%@", [obj valueForKey:@"main_Activity"],[obj valueForKey:@"sub_activity"]]);
         return cell;

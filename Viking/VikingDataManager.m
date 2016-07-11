@@ -76,6 +76,11 @@
     [self loadImageViaApi:targetView :@"activity" :activityId : @"buttonIcon"];
 }
 
+-(void)loadSubActivityHorizontalBackground:(UIImageView *)targetView :(NSString *)activityId;
+{
+    [self loadImageViaApi:targetView :@"activity" :activityId : @"horizontalBackground"];
+}
+
 -(void)loadDurationIcon:(UIImageView *) targetView :(NSString *)activityId{
     [self loadImageViaApi:targetView :@"duration" :activityId : @"buttonIcon"];
 }
@@ -135,9 +140,11 @@
 -(NSDictionary *)getSingleApiObject:(NSString*) entityType :(NSString*)id{
     ///entityById.php?entityType=activity&entityId=1
     //http://thevikingapp.local/activities_of_type.php?activityTypeId=3
-    NSString *activityTypeApiCall = [NSString stringWithFormat:@"%@/%@?entityType=%@&entityId=%ld", apiServer, @"entityById.php",entityType,(long)id];
+    NSString *activityTypeApiCall = [NSString stringWithFormat:@"%@/%@?entityType=%@&entityId=%@", apiServer, @"entityById.php",entityType,id];
+    NSLog(@"Calling API : %@",activityTypeApiCall);
     NSDictionary *objectDict = [NSDictionary dictionaryWithXMLData:[NSData dataWithContentsOfURL: [NSURL URLWithString:activityTypeApiCall]]];
-    return objectDict;
+    NSDictionary *requestedObject = objectDict[@"Entity"];
+    return requestedObject;
 }
 
 -(NSDictionary *)getActivityType:(NSString*)id{
