@@ -81,12 +81,12 @@
     [self loadImageViaApi:targetView :@"activity" :activityId : @"horizontalBackground"];
 }
 
--(void)loadDurationIcon:(UIImageView *) targetView :(NSString *)activityId{
-    [self loadImageViaApi:targetView :@"duration" :activityId : @"buttonIcon"];
+-(void)loadDurationIcon:(UIImageView *) targetView :(NSString *)durationId{
+    [self loadImageViaApi:targetView :@"duration" :durationId : @"buttonIcon"];
 }
 
--(void)loadTemperatureIcon:(UIImageView *) targetView :(NSString *)activityId{
-    [self loadImageViaApi:targetView :@"temperature" :activityId : @"buttonIcon"];
+-(void)loadTemperatureIcon:(UIImageView *) targetView :(NSString *)temperatureId{
+    [self loadImageViaApi:targetView :@"temperature" :temperatureId : @"buttonIcon"];
 }
 
 /**From here down are true data management tasks**/
@@ -169,6 +169,7 @@
 //    return managedcontext;
 //}
 
+/*Creates a new trip, persists the data and returns the id of the newly created trip.*/
 -(NSString *)createNewTrip: (NSString *)tripName : (NSDictionary *)userSelections{
     NSManagedObject *newActivity = [NSEntityDescription insertNewObjectForEntityForName:@"Trip" inManagedObjectContext:managedContext];
     NSString *uuid = [[NSUUID UUID] UUIDString];
@@ -214,7 +215,7 @@
 //    [dict setValue:self.tempDict[@"title"] forKey:@"TempTitle"];
 //    [dict setValue:self.activityNameTxt.text forKey:@"activityListname"];
 //    //    [dict setValue:selectedActivity forKey:@"main_Activity"];
-    return @"Woot!!";
+    return uuid;
     
 }
 

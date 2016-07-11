@@ -576,14 +576,13 @@
 
 -(void)saveMyActivity:(NSString *)activityName
 {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Hey now." message:activityName delegate:self cancelButtonTitle:@"OK"otherButtonTitles:nil, nil];
-    [alert show];
-    [vikingDataManager createNewTrip:activityName : self.userSelectionDict];
+    NSString *tripId = [vikingDataManager createNewTrip:activityName : self.userSelectionDict];
     ListVC *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"ListView"];
+    vc.tripId = tripId;
     vc.headerStr = self.tripNameTxt.text;
     //vc.activityDict = dict;
     vc.isFromCreateTrip = YES;
-    vc.myTripObj = nil;
+    //vc.myTripObj = nil;
     //    vc.listArray = equipmentListArr;
     [self.navigationController pushViewController:vc animated:YES];
 }

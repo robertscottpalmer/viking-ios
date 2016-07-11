@@ -21,11 +21,14 @@ typedef enum ScrollDirection {
 
 @interface ListVC : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate, CCHexagonDelegateFlowLayout>
 {
-    int totalCount;
+    //NSString *tripId;
+    //int totalCount;
     NSString *headerStr;
-    NSDictionary *activityDict;
+    //NSDictionary *activityDict;
     int currentIndex;
 }
+
+@property (nonatomic, strong) NSString *tripId; //this should be the only global property after some time.
 
 @property (nonatomic, weak) IBOutlet UIView *actionView;
 @property (nonatomic, weak) IBOutlet UILabel *headerLbl;

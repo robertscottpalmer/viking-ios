@@ -32,8 +32,8 @@
 -(void)loadSubActivityIcon:(UIImageView *) targetView :(NSString *)activityId;
 -(void)loadSubActivityHorizontalBackground:(UIImageView *)targetView :(NSString *)activityId;
 /*Odds and ends*/
--(void)loadDurationIcon:(UIImageView *) targetView :(NSString *)activityId;
--(void)loadTemperatureIcon:(UIImageView *) targetView :(NSString *)activityId;
+-(void)loadDurationIcon:(UIImageView *) targetView :(NSString *)durationId;
+-(void)loadTemperatureIcon:(UIImageView *) targetView :(NSString *)temperatureId;
 
 /*Will return an array of dictionaries in the form ({id:"",name:""},{id:"",name:""})*/
 -(NSArray *)getActivityTypes;

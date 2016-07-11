@@ -12,12 +12,14 @@
 #import <MessageUI/MessageUI.h>
 #import "AppConstant.h"
 #import "XMLDictionary.h"
+#import "VikingDataManager.h"
 
 
 @interface ListVC () <MFMailComposeViewControllerDelegate, UIGestureRecognizerDelegate>
 {
     AppDelegate *appDel;
     NSMutableArray *indexArray;
+    VikingDataManager *vikingDataManager;
     
 }
 
@@ -43,9 +45,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    NSLog(@"And here we are");
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Hey now." message:_tripId delegate:self cancelButtonTitle:@"OK"otherButtonTitles:nil, nil];
+    [alert show];
+    
+    vikingDataManager = [VikingDataManager sharedManager];
 
-    totalCount = 21;
+    //totalCount = 21;
     self.actionView.hidden = YES;
     self.actView.hidden = YES;
     

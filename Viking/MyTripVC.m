@@ -111,16 +111,16 @@
         cell.layoutMargins = UIEdgeInsetsZero;
         cell.preservesSuperviewLayoutMargins = NO;
         
-        cell.activityNameLbl.text = @"I should call out to get name";
+        //cell.activityNameLbl.text = @"I should call out to get name";
         
         
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Hey now." message:@"You should call out to the newly built api functions to get the needed values about to be displayed below" delegate:self cancelButtonTitle:@"OK"otherButtonTitles:nil, nil];
-        [alert show];
+//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Hey now." message:@"You should call out to the newly built api functions to get the needed values about to be displayed below" delegate:self cancelButtonTitle:@"OK"otherButtonTitles:nil, nil];
+//        [alert show];
         
         NSString *tripName = [[obj valueForKey:@"name"] capitalizedString];
         NSString *activityId = [obj valueForKey:@"activityId"];
         NSDictionary *activity = [vikingDataManager getActivity:activityId];
-        NSDictionary *activityType = [vikingDataManager getActivityType:activity[@"type"]];
+        //NSDictionary *activityType = [vikingDataManager getActivityType:activity[@"type"]];
         cell.subActivityLbl.text = activity[@"name"];
         // [NSString stringWithFormat:@"%@", [obj valueForKey:@"sub_activity"]];
         cell.activityNameLbl.text = tripName;//[activityType[@"name"] capitalizedString];
