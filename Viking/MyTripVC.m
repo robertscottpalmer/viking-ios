@@ -117,12 +117,13 @@
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Hey now." message:@"You should call out to the newly built api functions to get the needed values about to be displayed below" delegate:self cancelButtonTitle:@"OK"otherButtonTitles:nil, nil];
         [alert show];
         
+        NSString *tripName = [[obj valueForKey:@"name"] capitalizedString];
         NSString *activityId = [obj valueForKey:@"activityId"];
         NSDictionary *activity = [vikingDataManager getActivity:activityId];
         NSDictionary *activityType = [vikingDataManager getActivityType:activity[@"type"]];
         cell.subActivityLbl.text = activity[@"name"];
         // [NSString stringWithFormat:@"%@", [obj valueForKey:@"sub_activity"]];
-        cell.activityNameLbl.text = [activityType[@"name"] capitalizedString];
+        cell.activityNameLbl.text = tripName;//[activityType[@"name"] capitalizedString];
         //[[obj valueForKey:@"activityList_Name"] capitalizedString];
         [vikingDataManager loadSubActivityHorizontalBackground:cell.bgImage: activityId];
         //cell.bgImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@_%@", [obj valueForKey:@"main_Activity"],[obj valueForKey:@"sub_activity"]]];
