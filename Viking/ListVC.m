@@ -47,9 +47,10 @@
     
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Hey now." message:_tripId delegate:self cancelButtonTitle:@"OK"otherButtonTitles:nil, nil];
     [alert show];
-    
     vikingDataManager = [VikingDataManager sharedManager];
-
+    
+    NSDictionary *trip = [vikingDataManager getTrip:_tripId];
+    
     //totalCount = 21;
     self.actionView.hidden = YES;
     self.actView.hidden = YES;

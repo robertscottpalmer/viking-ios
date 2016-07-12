@@ -49,6 +49,7 @@
 /*DML operations*/
 -(NSString *)createNewTrip: (NSString *)tripName :(NSDictionary *)userSelections;
 -(NSArray *)getMyTrips;
+-(NSDictionary *)getTrip:(NSString*)id;
 + (id)sharedManager;
 
 @end

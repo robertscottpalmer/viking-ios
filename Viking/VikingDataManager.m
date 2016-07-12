@@ -229,9 +229,32 @@
         NSArray *fetchedObjects = [managedContext executeFetchRequest:fetchRequest error:&error];
         
         NSLog(@"array - %@", fetchedObjects);
-//        activityListArray = fetchedObjects;
-//        activityListArray = [[activityListArray reverseObjectEnumerator] allObjects];
     return fetchedObjects;
+}
+
+-(NSDictionary *)getTrip:(NSString*)id{
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    fetchRequest.returnsObjectsAsFaults = NO;
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Trip" inManagedObjectContext:managedContext];
+    [fetchRequest setEntity:entity];
+    
+    //now limit the result set to our id.
+    NSPredicate *predicate;
+    predicate = [NSPredicate predicateWithFormat:@"id=%@", id];
+    [fetchRequest setPredicate:predicate];
+    
+    NSError *error;
+    NSArray *fetchedObjects = [managedContext executeFetchRequest:fetchRequest error:&error];
+    
+    NSLog(@"array - %@", fetchedObjects);
+    NSManagedObject *storedTrip = fetchedObjects[0];
+    NSMutableDictionary *toReturn = [[NSMutableDictionary alloc] init];
+    toReturn[@"id"] = [storedTrip valueForKey:@"id"];
+    toReturn[@"name"] = [storedTrip valueForKey:@"name"];
+    toReturn[@"activityId"] = [storedTrip valueForKey:@"activityId"];
+    toReturn[@"durationId"] = [storedTrip valueForKey:@"durationId"];
+    toReturn[@"temperatureId"] = [storedTrip valueForKey:@"temperatureId"];
+    return toReturn;
 }
 
 @end
