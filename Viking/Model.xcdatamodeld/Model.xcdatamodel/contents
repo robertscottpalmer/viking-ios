@@ -1,40 +1,33 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10174" systemVersion="15F34" minimumToolsVersion="Xcode 4.3">
+    <entity name="Activity" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="ActivityType" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <entity name="Duration" syncable="YES">
-        <attribute name="duration" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="main_activity" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="sub_activity" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
-    <entity name="Gearlist" syncable="YES">
-        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+    <entity name="Gear" syncable="YES">
+        <attribute name="details" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
-    <entity name="MainActivities" syncable="YES">
-        <attribute name="main_activity" optional="YES" attributeType="String" syncable="YES"/>
+    <entity name="GearRecommendation" syncable="YES">
+        <attribute name="activityId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="durationId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="gearId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="temperatureId" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
-    <entity name="MyActivityEquipmentList" syncable="YES">
-        <attribute name="activityList_Name" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="duration" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="equipment" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="image" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="main_Activity" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="sub_activity" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="temperature" optional="YES" attributeType="String" syncable="YES"/>
-    </entity>
-    <entity name="MyActivityList" syncable="YES">
-        <attribute name="activityList_Name" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="duration" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="main_Activity" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="sub_activity" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="temperature" optional="YES" attributeType="String" syncable="YES"/>
-    </entity>
-    <entity name="SubActivities" syncable="YES">
-        <attribute name="main_activity" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="sub_activity" optional="YES" attributeType="String" syncable="YES"/>
-    </entity>
-    <entity name="Temprature" syncable="YES">
-        <attribute name="main_activity" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="sub_activity" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="temp" optional="YES" attributeType="String" syncable="YES"/>
+    <entity name="Temperature" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="Trip" syncable="YES">
         <attribute name="activityId" optional="YES" attributeType="String" syncable="YES"/>
@@ -43,14 +36,19 @@
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="temperatureId" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
+    <entity name="TripGear" syncable="YES">
+        <attribute name="gearRecommendationId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="tripGearStatus" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <elements>
-        <element name="Duration" positionX="-18" positionY="27" width="128" height="88"/>
-        <element name="Gearlist" positionX="-63" positionY="-18" width="128" height="60"/>
-        <element name="MainActivities" positionX="-54" positionY="-9" width="128" height="58"/>
-        <element name="MyActivityEquipmentList" positionX="-18" positionY="54" width="128" height="148"/>
-        <element name="MyActivityList" positionX="-27" positionY="36" width="128" height="118"/>
-        <element name="SubActivities" positionX="-36" positionY="9" width="128" height="73"/>
-        <element name="Temprature" positionX="0" positionY="45" width="128" height="90"/>
+        <element name="Duration" positionX="-18" positionY="27" width="128" height="75"/>
+        <element name="Gear" positionX="-63" positionY="-18" width="128" height="105"/>
+        <element name="Activity" positionX="-54" positionY="-9" width="128" height="75"/>
+        <element name="GearRecommendation" positionX="-18" positionY="54" width="128" height="120"/>
+        <element name="TripGear" positionX="-27" positionY="36" width="128" height="90"/>
+        <element name="ActivityType" positionX="-36" positionY="9" width="128" height="75"/>
+        <element name="Temperature" positionX="0" positionY="45" width="128" height="75"/>
         <element name="Trip" positionX="-18" positionY="81" width="128" height="120"/>
     </elements>
 </model>

@@ -139,7 +139,8 @@
         NSManagedObject *obj = activityListArray[indexPath.row];
         NSLog(@"row - %ld", (long)indexPath.row);
         ListVC *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"ListView"];
-        vc.headerStr = [NSString stringWithFormat:@"%@ %@", [obj valueForKey:@"sub_activity"],[obj valueForKey:@"main_Activity"]];
+        vc.headerStr = [NSString stringWithFormat:@"%@ %@", [obj valueForKey:@"name"],[obj valueForKey:@"name"]];
+//        vc.headerStr = [NSString stringWithFormat:@"%@ %@", [obj valueForKey:@"sub_activity"],[obj valueForKey:@"main_Activity"]];
         vc.activityDict = nil;
         vc.isFromCreateTrip = NO;
         vc.myTripObj = obj;

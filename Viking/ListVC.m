@@ -49,7 +49,7 @@
     [alert show];
     vikingDataManager = [VikingDataManager sharedManager];
     
-    NSDictionary *trip = [vikingDataManager getTrip:_tripId];
+    NSDictionary *trip = [vikingDataManager getFullTripObject:_tripId];
     
     //totalCount = 21;
     self.actionView.hidden = YES;

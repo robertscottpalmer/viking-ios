@@ -107,19 +107,27 @@
 }
 
 -(NSArray *)getDurationArr{
-    NSArray *durations = [NSArray arrayWithObjects:
-                          [NSDictionary dictionaryWithObjectsAndKeys:@"1 Day",@"description",@"Raid",@"name",@"1",@"id",nil],
-                          [NSDictionary dictionaryWithObjectsAndKeys:@"2 Days",@"description",@"Journey",@"name",@"2", @"id", nil],
-                          [NSDictionary dictionaryWithObjectsAndKeys:@"3+ Days",@"description",@"Expedition",@"name",@"3", @"id", nil], nil];
+    NSString *durationApiCall = [NSString stringWithFormat:@"%@/%@", apiServer, @"durations.php"];
+    NSDictionary *allActivityDict = [NSDictionary dictionaryWithXMLData:[NSData dataWithContentsOfURL: [NSURL URLWithString:durationApiCall]]];
+    NSArray *durations = allActivityDict[@"Duration"];
     return durations;
+//    NSArray *durations = [NSArray arrayWithObjects:
+//                          [NSDictionary dictionaryWithObjectsAndKeys:@"1 Day",@"description",@"Raid",@"name",@"1",@"id",nil],
+//                          [NSDictionary dictionaryWithObjectsAndKeys:@"2 Days",@"description",@"Journey",@"name",@"2", @"id", nil],
+//                          [NSDictionary dictionaryWithObjectsAndKeys:@"3+ Days",@"description",@"Expedition",@"name",@"3", @"id", nil], nil];
+//    return durations;
 }
 -(NSArray *)getTemperatureArr{
-    NSArray *temperatures = [NSArray arrayWithObjects:
-                             [NSDictionary dictionaryWithObjectsAndKeys:@"Hot",@"name",@"1",@"id",nil],
-                             [NSDictionary dictionaryWithObjectsAndKeys:@"Warm",@"name",@"2", @"id", nil],
-                             [NSDictionary dictionaryWithObjectsAndKeys:@"Cool",@"name",@"3", @"id", nil],
-                             [NSDictionary dictionaryWithObjectsAndKeys:@"Cold",@"name",@"4", @"id", nil], nil];
+    NSString *temperatureApiCall = [NSString stringWithFormat:@"%@/%@", apiServer, @"temperatures.php"];
+    NSDictionary *allActivityDict = [NSDictionary dictionaryWithXMLData:[NSData dataWithContentsOfURL: [NSURL URLWithString:temperatureApiCall]]];
+    NSArray *temperatures = allActivityDict[@"Temperature"];
     return temperatures;
+//    NSArray *temperatures = [NSArray arrayWithObjects:
+//                             [NSDictionary dictionaryWithObjectsAndKeys:@"Hot",@"name",@"1",@"id",nil],
+//                             [NSDictionary dictionaryWithObjectsAndKeys:@"Warm",@"name",@"2", @"id", nil],
+//                             [NSDictionary dictionaryWithObjectsAndKeys:@"Cool",@"name",@"3", @"id", nil],
+//                             [NSDictionary dictionaryWithObjectsAndKeys:@"Cold",@"name",@"4", @"id", nil], nil];
+//    return temperatures;
 }
 
 -(NSArray *)getMainViewMessages{
@@ -254,6 +262,31 @@
     toReturn[@"activityId"] = [storedTrip valueForKey:@"activityId"];
     toReturn[@"durationId"] = [storedTrip valueForKey:@"durationId"];
     toReturn[@"temperatureId"] = [storedTrip valueForKey:@"temperatureId"];
+    return toReturn;
+}
+
+-(NSDictionary *)getFullTripObject:(NSString*)id{
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    fetchRequest.returnsObjectsAsFaults = NO;
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Trip" inManagedObjectContext:managedContext];
+    [fetchRequest setEntity:entity];
+    
+    //now limit the result set to our id.
+    NSPredicate *predicate;
+    predicate = [NSPredicate predicateWithFormat:@"id=%@", id];
+    [fetchRequest setPredicate:predicate];
+    
+    NSError *error;
+    NSArray *fetchedObjects = [managedContext executeFetchRequest:fetchRequest error:&error];
+    
+    NSLog(@"array - %@", fetchedObjects);
+    NSManagedObject *storedTrip = fetchedObjects[0];
+    NSMutableDictionary *toReturn = [[NSMutableDictionary alloc] init];
+    toReturn[@"id"] = [storedTrip valueForKey:@"id"];
+    toReturn[@"name"] = [storedTrip valueForKey:@"name"];
+    toReturn[@"activity"] = [self getActivity:[storedTrip valueForKey:@"activityId"]];
+    toReturn[@"duration"] = [self getDuration:[storedTrip valueForKey:@"durationId"]];
+    toReturn[@"temperature"] = [self getTemperature:[storedTrip valueForKey:@"temperatureId"]];
     return toReturn;
 }
 

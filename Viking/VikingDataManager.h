@@ -50,6 +50,7 @@
 -(NSString *)createNewTrip: (NSString *)tripName :(NSDictionary *)userSelections;
 -(NSArray *)getMyTrips;
 -(NSDictionary *)getTrip:(NSString*)id;
+-(NSDictionary *)getFullTripObject:(NSString*)id;
 + (id)sharedManager;
 
 @end
