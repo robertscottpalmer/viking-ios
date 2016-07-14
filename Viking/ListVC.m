@@ -44,9 +44,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-//    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Hey now." message:_tripId delegate:self cancelButtonTitle:@"OK"otherButtonTitles:nil, nil];
-//    [alert show];
     vikingDataManager = [VikingDataManager sharedManager];
     
     NSDictionary *trip = [vikingDataManager getFullTripObject:_tripId];
@@ -156,32 +153,18 @@
     self.BtnRight.hidden = isFromCreateTrip;
     self.rightImgView.hidden = isFromCreateTrip;
     self.leftImgView.hidden = isFromCreateTrip;
-//    if(isFromCreateTrip)
-//    {
-//        self.BtnLeft.hidden = YES;
-//        self.BtnRight.hidden = YES;
-//        self.rightImgView.hidden = YES;
-//        self.leftImgView.hidden = YES;
-//    }
-//    else
-//    {
-//        self.BtnLeft.hidden = NO;
-//        self.BtnRight.hidden = NO;
-//        self.rightImgView.hidden = NO;
-//        self.leftImgView.hidden = NO;
-//    }
     [vikingDataManager loadSubActivityHorizontalBackground:self.headerBGView :tripObject[@"activity"][@"id"]];
     self.headerLbl.text = @"Header Label Text";
-    self.activityNameLbl.text = [@"activity name label" capitalizedString];
+    self.activityNameLbl.text = [tripObject[@"name"] capitalizedString];
     [self createSelectionView:tripObject inView:self.collectionListsView];
     [self calculatePercentageAndUpdate:tripObject];
 }
 
 -(void)calculatePercentageAndUpdate:(NSDictionary *)tripObject
 {
-    //float totalItems = [listArray count];
-    //float packedCount = [fetchedObjects count];
-    //NSLog(@"percentage - %f", packedCount/totalItems);
+    float totalItems = [listArray count];
+    float packedCount = 0;//TODO: fix this...//[fetchedObjects count];
+    NSLog(@"percentage - %f", packedCount/totalItems);
     
     LDProgressView *progressView = [[LDProgressView alloc] initWithFrame:CGRectMake(0, self.selectionView.frame.size.height, self.view.frame.size.width, 15)];
     progressView.progress = 0;//packedCount/totalItems;
@@ -338,7 +321,6 @@
     else
         tempImg = [[UIImageView alloc] initWithFrame:CGRectMake(277, 10, 8, 20)];
     [vikingDataManager loadTemperatureIcon:tempImg :trip[@"temperature"][@"id"]];
-    //tempImg.image = tempImage;
     tempImg.contentMode = UIViewContentModeScaleAspectFill;
     [self.selectionView addSubview:tempImg];
     
@@ -1208,6 +1190,7 @@
 
 -(IBAction)leftClicked:(id)sender
 {
+    [vikingDataManager showAlert:@"rightClicked and left clicked should be essentially the same function that passes the current trip id to the data manager + direction and lets the data manager send back the trip id that should be loaded...if the trip id's are identical (i.e. only one trip) warning should be displayed to user"];
     self.BtnRight.userInteractionEnabled = YES;
     if(!(currentIndex == 0))
     {
@@ -1231,6 +1214,7 @@
 
 -(IBAction)rightClicked:(id)sender
 {
+    [vikingDataManager showAlert:@"rightClicked and left clicked should be essentially the same function that passes the current trip id to the data manager + direction and lets the data manager send back the trip id that should be loaded...if the trip id's are identical (i.e. only one trip) warning should be displayed to user"];
     self.BtnLeft.userInteractionEnabled = YES;
     if(currentIndex < totalIndex-1)
     {

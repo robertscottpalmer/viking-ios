@@ -21,6 +21,8 @@
 @property (nonatomic, retain) NSString *apiServer;
 @property (nonatomic, retain) NSManagedObjectContext *managedContext;
 
+-(void)showAlert: (NSString *) message;
+
 -(void)setImage: (UIImageView *) targetView : (UIImage *) sourceImage;
 
 /*Activity Type functions*/

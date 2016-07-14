@@ -29,6 +29,14 @@
     // Should never be called, but just here for clarity really.
 }
 
+-(void)showAlert: (NSString *) message {
+    NSLog(message);
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"DataMangerAlert" message:message delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Ok", nil] ;
+    //alertView.tag = 1001;
+    //alertView.alertViewStyle = UIAlertViewStylePlainTextInput;
+    [alertView show];
+}
+
 -(void)setImage: (UIImageView *) targetView : (UIImage *) sourceImage {
     NSLog(@"trying to overwrite %@ with %@",targetView,sourceImage);
     targetView.image = sourceImage;
@@ -244,19 +252,10 @@
     ///entities you will need to deal with are : GearRecommendation, TripGear
     
     NSDictionary *trip = [self getTrip:tripId];
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    fetchRequest.returnsObjectsAsFaults = NO;
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"GearRecommendation" inManagedObjectContext:managedContext];
-    [fetchRequest setEntity:entity];
-    
-    //now limit the result set to our id.
-    NSPredicate *predicate;
-    predicate = [NSPredicate predicateWithFormat:@"activityId=%@", trip[@"activityId"]];
-    [fetchRequest setPredicate:predicate];
-    
-    NSError *error;
-    NSArray *fetchedObjects = [managedContext executeFetchRequest:fetchRequest error:&error];
-    return fetchedObjects;
+    NSString *gearForTripApiCall = [NSString stringWithFormat:@"%@/%@?activityId=%@&temperatureId=%@&durationId=%@", apiServer, @"gearlist.php",trip[@"activityId"],trip[@"temperatureId"],trip[@"durationId"]];
+    NSDictionary *tripGearDict = [NSDictionary dictionaryWithXMLData:[NSData dataWithContentsOfURL: [NSURL URLWithString:gearForTripApiCall]]];
+    NSArray *gearList = tripGearDict[@"Gear"];
+    return gearList;
 }
 
 -(NSDictionary *)getTrip:(NSString*)id{
