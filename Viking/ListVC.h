@@ -35,7 +35,7 @@ typedef enum ScrollDirection {
 @property (nonatomic, weak) IBOutlet UILabel *activityNameLbl;
 @property (nonatomic, weak) IBOutlet UILabel *mainHeaderLbl;
 @property (nonatomic, strong) NSString *headerStr;
-@property (nonatomic, strong) NSDictionary *activityDict;
+//@property (nonatomic, strong) NSDictionary *activityDict;
 
 @property (nonatomic, strong) IBOutlet UIView *selectionView;
 @property (nonatomic, strong) IBOutlet UIView *headerView;

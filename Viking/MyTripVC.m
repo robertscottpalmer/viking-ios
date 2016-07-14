@@ -141,12 +141,13 @@
         ListVC *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"ListView"];
         vc.headerStr = [NSString stringWithFormat:@"%@ %@", [obj valueForKey:@"name"],[obj valueForKey:@"name"]];
 //        vc.headerStr = [NSString stringWithFormat:@"%@ %@", [obj valueForKey:@"sub_activity"],[obj valueForKey:@"main_Activity"]];
-        vc.activityDict = nil;
+        //vc.activityDict = nil;
         vc.isFromCreateTrip = NO;
         vc.myTripObj = obj;
-        vc.activityListArray = activityListArray;
-        vc.currentIndex = (int)indexPath.row;
-        //    vc.listArray = equipmentListArr;
+        vc.tripId = [activityListArray[(int)indexPath.row] valueForKey:@"id"];
+        //vc.currentIndex = (int)indexPath.row;
+        //vc.activityListArray = activityListArray;
+        //vc.listArray = equipmentListArr;
         [self.navigationController pushViewController:vc animated:YES];
     }
 }

@@ -40,22 +40,23 @@
 
 @implementation ListVC
 
-@synthesize headerStr, activityDict, listArray, isFromCreateTrip, myTripObj, activityListArray, currentIndex, totalIndex;
+@synthesize headerStr, isFromCreateTrip, myTripObj, currentIndex,listArray,activityListArray,totalIndex;//,activityDict,  ;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Hey now." message:_tripId delegate:self cancelButtonTitle:@"OK"otherButtonTitles:nil, nil];
-    [alert show];
+//    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Hey now." message:_tripId delegate:self cancelButtonTitle:@"OK"otherButtonTitles:nil, nil];
+//    [alert show];
     vikingDataManager = [VikingDataManager sharedManager];
     
     NSDictionary *trip = [vikingDataManager getFullTripObject:_tripId];
+    NSLog(@"made it here");
     
     //totalCount = 21;
     self.actionView.hidden = YES;
     self.actView.hidden = YES;
     
-    self.totalIndex = [self.activityListArray count];
+    //self.totalIndex = [self.activityListArray count];
     
     
     self.isOpen = NO;
@@ -133,9 +134,9 @@
     [self.collectionListsView bringSubviewToFront:self.actionView];
 
     
-    listArray = [self fetchEquipmentList:currentIndex];    
+    listArray = [vikingDataManager getGearForTrip:self.tripId];//[self fetchEquipmentList:currentIndex];
     [self.collectionView reloadData];
-    [self setUpheader];
+    [self setUpheader:trip];
     
 //     NSLog(@"content size - %@", NSStringFromCGSize(self.collectionView.contentMode)) ;
         self.scrlView.contentSize = CGSizeMake(self.view.frame.size.width, self.collectionView.contentSize.height + self.headerView.frame.size.height);
@@ -144,95 +145,45 @@
     
 }
 
--(void)setUpheader
+-(void)setUpheader:(NSDictionary *)tripObject
 {
-    if(isFromCreateTrip)
-    {
-        self.BtnLeft.hidden = YES;
-        self.BtnRight.hidden = YES;
-        self.rightImgView.hidden = YES;
-        self.leftImgView.hidden = YES;
-        
-        self.headerBGView.image = [UIImage imageNamed:[NSString stringWithFormat:@"BG_%@_%@", activityDict[@"main_Activity"],activityDict[@"ActivityTitle"]]];
-        
-        self.headerLbl.text = [NSString stringWithFormat:@"%@ %@", activityDict[@"ActivityTitle"], activityDict[@"main_Activity"]];
-        self.activityNameLbl.text = [activityDict[@"activityListname"] capitalizedString];
-        UIImage *activityImage = [UIImage imageNamed:[NSString stringWithFormat:@"icon-%@-%@", activityDict[@"main_Activity"], activityDict[@"ActivityTitle"]]];
-        UIImage *durationImage = [UIImage imageNamed:[NSString stringWithFormat:@"icon_%@", activityDict[@"DurationTitle"]]];
-        UIImage *tempImage = [UIImage imageNamed:[NSString stringWithFormat:@"%@", activityDict[@"TempTitle"]]];
-        
-        NSString *durationStr;
-        if([activityDict[@"DurationTitle"] isEqualToString:@"1 Day"])
-            durationStr = @"Raid";
-        else if ([activityDict[@"DurationTitle"] isEqualToString:@"2 Days"])
-            durationStr = @"Journey";
-        else if ([activityDict[@"DurationTitle"] isEqualToString:@"3+ Days"])
-            durationStr = @"Expedition";
-        
-        [self createSelectionView:activityImage durationImg:durationImage tempImg:tempImage activityName:activityDict[@"ActivityTitle"] durationName:durationStr tempName:activityDict[@"TempTitle"] inView:self.collectionListsView];
+    /*If the trip object is null, load the one that should be there */
+    if (tripObject == nil){
+        tripObject = [vikingDataManager getTrip:self.tripId];
     }
-    else
-    {
-        self.BtnLeft.hidden = NO;
-        self.BtnRight.hidden = NO;
-        self.rightImgView.hidden = NO;
-        self.leftImgView.hidden = NO;
-
-        self.headerBGView.image = [UIImage imageNamed:[NSString stringWithFormat:@"BG_%@_%@", [myTripObj valueForKey:@"main_Activity"],[myTripObj valueForKey:@"sub_activity"]]];
-        
-        self.headerLbl.text = [NSString stringWithFormat:@"%@ %@", [myTripObj valueForKey:@"sub_activity"], [myTripObj valueForKey:@"main_Activity"]];
-        self.activityNameLbl.text = [[myTripObj valueForKey:@"activityList_Name"] capitalizedString];
-        
-        UIImage *activityImage = [UIImage imageNamed:[NSString stringWithFormat:@"icon-%@-%@", [myTripObj valueForKey:@"main_Activity"], [myTripObj valueForKey:@"sub_activity"]]];
-        UIImage *durationImage = [UIImage imageNamed:[NSString stringWithFormat:@"icon_%@", [myTripObj valueForKey:@"duration"]]];
-        UIImage *tempImage = [UIImage imageNamed:[NSString stringWithFormat:@"%@", [myTripObj valueForKey:@"temperature"]]];
-        
-        NSString *durationStr;
-        if([[myTripObj valueForKey:@"duration"] isEqualToString:@"1 Day"])
-            durationStr = @"Raid";
-        else if ([[myTripObj valueForKey:@"duration"] isEqualToString:@"2 Days"])
-            durationStr = @"Journey";
-        else if ([[myTripObj valueForKey:@"duration"] isEqualToString:@"3+ Days"])
-            durationStr = @"Expedition";
-        
-        [self createSelectionView:activityImage durationImg:durationImage tempImg:tempImage activityName:[myTripObj valueForKey:@"sub_activity"] durationName:durationStr  tempName:[myTripObj valueForKey:@"temperature"] inView:self.collectionListsView];
-    }
-    
-    [self calculatePercentageAndUpdate];
+    self.BtnLeft.hidden = isFromCreateTrip;
+    self.BtnRight.hidden = isFromCreateTrip;
+    self.rightImgView.hidden = isFromCreateTrip;
+    self.leftImgView.hidden = isFromCreateTrip;
+//    if(isFromCreateTrip)
+//    {
+//        self.BtnLeft.hidden = YES;
+//        self.BtnRight.hidden = YES;
+//        self.rightImgView.hidden = YES;
+//        self.leftImgView.hidden = YES;
+//    }
+//    else
+//    {
+//        self.BtnLeft.hidden = NO;
+//        self.BtnRight.hidden = NO;
+//        self.rightImgView.hidden = NO;
+//        self.leftImgView.hidden = NO;
+//    }
+    [vikingDataManager loadSubActivityHorizontalBackground:self.headerBGView :tripObject[@"activityId"]];
+    self.headerLbl.text = @"Header Label Text";
+    self.activityNameLbl.text = [@"activity name label" capitalizedString];
+    [self createSelectionView:tripObject inView:self.collectionListsView];
+    [self calculatePercentageAndUpdate:tripObject];
 }
 
--(void)calculatePercentageAndUpdate
+-(void)calculatePercentageAndUpdate:(NSDictionary *)tripObject
 {
-    float totalItems = [listArray count];
-    
-    NSManagedObjectContext *context = [self managedObjectContext];
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    fetchRequest.returnsObjectsAsFaults = NO;
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"MyActivityEquipmentList" inManagedObjectContext:context];
-    [fetchRequest setEntity:entity];
-    NSPredicate *predicate;
-    NSLog(@"Is this where we're failing??");
-    NSLog(@"the object activityDict currently holds : %@",activityDict);
-    if(isFromCreateTrip)
-    {
-        predicate = [NSPredicate predicateWithFormat:@"activityList_Name=%@ AND duration=%@ AND main_Activity=%@ AND sub_activity=%@ AND temperature=%@ AND image=%@", activityDict[@"activityListname"],activityDict[@"DurationTitle"], activityDict[@"main_Activity"], activityDict[@"ActivityTitle"], activityDict[@"TempTitle"],@"hexa_gray"];
-    }
-    else
-    {
-        myTripObj = [self.activityListArray objectAtIndex:currentIndex];
-        
-        predicate = [NSPredicate predicateWithFormat:@"activityList_Name=%@ AND duration=%@ AND main_Activity=%@ AND sub_activity=%@ AND temperature=%@ AND image=%@", [myTripObj valueForKey:@"activityList_Name"],[myTripObj valueForKey:@"duration"], [myTripObj valueForKey:@"main_Activity"], [myTripObj valueForKey:@"sub_activity"], [myTripObj valueForKey:@"temperature"], @"hexa_gray"];
-    }
-    [fetchRequest setPredicate:predicate];
-    
-    NSError *error;
-    NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
-    
-    float packedCount = [fetchedObjects count];
-    NSLog(@"percentage - %f", packedCount/totalItems);
+    //float totalItems = [listArray count];
+    //float packedCount = [fetchedObjects count];
+    //NSLog(@"percentage - %f", packedCount/totalItems);
     
     LDProgressView *progressView = [[LDProgressView alloc] initWithFrame:CGRectMake(0, self.selectionView.frame.size.height, self.view.frame.size.width, 15)];
-    progressView.progress = packedCount/totalItems;
+    progressView.progress = 0;//packedCount/totalItems;
     progressView.borderRadius = @0;
     progressView.animate = @NO;
     progressView.type = LDProgressSolid;
@@ -254,76 +205,8 @@
     return managedcontext;
 }
 
--(NSArray *)fetchEquipmentList:(NSInteger)fromIndex
-{
-    NSManagedObjectContext *context = [self managedObjectContext];
-    
-    if (context == nil) {
-        NSLog(@"Nil");
-        return nil;
-    }
-    else {
-        
-        NSLog(@"dict - %@", activityDict);
-        
-        NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-        fetchRequest.returnsObjectsAsFaults = NO;
-        NSEntityDescription *entity = [NSEntityDescription entityForName:@"MyActivityEquipmentList" inManagedObjectContext:context];
-        [fetchRequest setEntity:entity];
-        NSPredicate *predicate;
-        
-        if(isFromCreateTrip)
-        {
-             predicate = [NSPredicate predicateWithFormat:@"activityList_Name=%@ AND duration=%@ AND main_Activity=%@ AND sub_activity=%@ AND temperature=%@", activityDict[@"activityListname"],activityDict[@"DurationTitle"], activityDict[@"main_Activity"], activityDict[@"ActivityTitle"], activityDict[@"TempTitle"]];
-        }
-        else
-        {
-            myTripObj = [self.activityListArray objectAtIndex:fromIndex];
-            
-            predicate = [NSPredicate predicateWithFormat:@"activityList_Name=%@ AND duration=%@ AND main_Activity=%@ AND sub_activity=%@ AND temperature=%@", [myTripObj valueForKey:@"activityList_Name"],[myTripObj valueForKey:@"duration"], [myTripObj valueForKey:@"main_Activity"], [myTripObj valueForKey:@"sub_activity"], [myTripObj valueForKey:@"temperature"]];
-        }
-        [fetchRequest setPredicate:predicate];
-        
-        
-        NSError *error;
-        NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
-        return fetchedObjects;
-    }
-    
-}
 
--(NSArray *)fetchMyActivityList
-{
-    NSManagedObjectContext *context = [self managedObjectContext];
-    
-    if (context == nil) {
-        NSLog(@"Nil");
-        return nil;
-    }
-    else {
-
-        NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-        fetchRequest.returnsObjectsAsFaults = NO;
-        NSEntityDescription *entity = [NSEntityDescription entityForName:@"MyActivityList" inManagedObjectContext:context];
-        [fetchRequest setEntity:entity];
-        NSPredicate *predicate;
-        
-        if(isFromCreateTrip)
-        {
-            predicate = [NSPredicate predicateWithFormat:@"activityList_Name=%@ AND duration=%@ AND main_Activity=%@ AND sub_activity=%@ AND temperature=%@", activityDict[@"activityListname"],activityDict[@"DurationTitle"], activityDict[@"main_Activity"], activityDict[@"ActivityTitle"], activityDict[@"TempTitle"]];
-        }
-        else
-            predicate = [NSPredicate predicateWithFormat:@"activityList_Name=%@ AND duration=%@ AND main_Activity=%@ AND sub_activity=%@ AND temperature=%@", [myTripObj valueForKey:@"activityList_Name"],[myTripObj valueForKey:@"duration"], [myTripObj valueForKey:@"main_Activity"], [myTripObj valueForKey:@"sub_activity"], [myTripObj valueForKey:@"temperature"]];
-        [fetchRequest setPredicate:predicate];
-        
-        NSError *error;
-        NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
-        return fetchedObjects;
-    }
-}
-
-
--(void)createSelectionView:(UIImage *)activityImage durationImg:(UIImage *)durationImage tempImg:(UIImage *)tempImage activityName:(NSString *)activityStr durationName:(NSString *)durationStr tempName:(NSString *)tempStr inView:(UIView *)view
+-(void)createSelectionView: (NSDictionary *) trip inView:(UIView *)view
 {
     
     if(self.selectionView)
@@ -369,7 +252,8 @@
     else
         activityImg = [[UIImageView alloc] initWithFrame:CGRectMake(14, 10, 20, 20)];
     
-    activityImg.image = activityImage;
+    //activityImg.image = activityImage;
+    [vikingDataManager loadSubActivityIcon:activityImg :trip[@"activityId"]];
     activityImg.contentMode = UIViewContentModeScaleAspectFill;
     [self.selectionView addSubview:activityImg];
     
@@ -395,7 +279,7 @@
         activityLbl = [[UILabel alloc] initWithFrame:CGRectMake(42, 9, 71, 21)];
         activityLbl.font = [UIFont fontWithName:@"ProximaNova-Regular" size:12.0];
     }
-    activityLbl.text = [activityStr uppercaseString];
+    activityLbl.text = [@"placeholder for activity String" uppercaseString];//[activityStr uppercaseString];
     activityLbl.numberOfLines = 0;
     activityLbl.textColor = [UIColor whiteColor];
     activityLbl.textAlignment = NSTextAlignmentCenter;
@@ -411,7 +295,8 @@
         durImg = [[UIImageView alloc] initWithFrame:CGRectMake(114,12,15,15)];
     else
         durImg = [[UIImageView alloc] initWithFrame:CGRectMake(136, 10, 20, 17)];
-    durImg.image = durationImage;
+    [vikingDataManager loadDurationIcon:durImg :trip[@"durationId"]];
+    //durImg.image = durationImage;
     durImg.contentMode = UIViewContentModeScaleAspectFill;
     [self.selectionView addSubview:durImg];
     
@@ -436,7 +321,7 @@
         durationLbl = [[UILabel alloc] initWithFrame:CGRectMake(165, 9, 73, 21)];
         durationLbl.font = [UIFont fontWithName:@"ProximaNova-Regular" size:12.0];
     }
-    durationLbl.text = [durationStr uppercaseString];
+    durationLbl.text = [trip[@"duration"][@"name"] uppercaseString];//[durationStr uppercaseString];
     durationLbl.textAlignment = NSTextAlignmentCenter;
     durationLbl.textColor = [UIColor whiteColor];
     [self.selectionView addSubview:durationLbl];
@@ -451,7 +336,8 @@
         tempImg = [[UIImageView alloc] initWithFrame:CGRectMake(224, 10, 10, 15)];
     else
         tempImg = [[UIImageView alloc] initWithFrame:CGRectMake(277, 10, 8, 20)];
-    tempImg.image = tempImage;
+    [vikingDataManager loadTemperatureIcon:tempImg :trip[@"temperatureId"]];
+    //tempImg.image = tempImage;
     tempImg.contentMode = UIViewContentModeScaleAspectFill;
     [self.selectionView addSubview:tempImg];
     
@@ -476,7 +362,7 @@
         tempLbl.font = [UIFont fontWithName:@"ProximaNova-Regular" size:12.0];
     }
     tempLbl.backgroundColor = [UIColor clearColor];
-    tempLbl.text = [tempStr uppercaseString];
+    tempLbl.text = [trip[@"temperature"][@"name"] uppercaseString];//[tempStr uppercaseString];
     tempLbl.textAlignment = NSTextAlignmentCenter;
     tempLbl.textColor = [UIColor whiteColor];
     
@@ -535,11 +421,12 @@
             NSManagedObject *newActivityList = [NSEntityDescription insertNewObjectForEntityForName:@"MyActivityEquipmentList" inManagedObjectContext:context];
             if(isFromCreateTrip)
             {
-                [newActivityList setValue:activityDict[@"activityListname"] forKey:@"activityList_Name"];
-                [newActivityList setValue:activityDict[@"DurationTitle"] forKey:@"duration"];
-                [newActivityList setValue:activityDict[@"main_Activity"] forKey:@"main_Activity"];
-                [newActivityList setValue:activityDict[@"ActivityTitle"] forKey:@"sub_activity"];
-                [newActivityList setValue:activityDict[@"TempTitle"] forKey:@"temperature"];
+                NSLog(@"This will all fail anyways so...WTFC?!");
+//                [newActivityList setValue:activityDict[@"activityListname"] forKey:@"activityList_Name"];
+//                [newActivityList setValue:activityDict[@"DurationTitle"] forKey:@"duration"];
+//                [newActivityList setValue:activityDict[@"main_Activity"] forKey:@"main_Activity"];
+//                [newActivityList setValue:activityDict[@"ActivityTitle"] forKey:@"sub_activity"];
+//                [newActivityList setValue:activityDict[@"TempTitle"] forKey:@"temperature"];
                 
             }
             else
@@ -562,7 +449,7 @@
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self.collectionView reloadData];
             });
-            listArray = [self fetchEquipmentList:currentIndex];
+            listArray = [vikingDataManager getGearForTrip:self.tripId];
             [self.collectionView reloadData];
         }
     }
@@ -575,7 +462,7 @@
             if([alertTextField.text length]>0)
                 self.activityNameLbl.text = [alertTextField.text capitalizedString];
             
-            NSArray *listArr = [self fetchEquipmentList:currentIndex];
+            NSArray *listArr = [vikingDataManager getGearForTrip:self.tripId];
             
             NSManagedObjectContext *context = [self managedObjectContext];
             for(NSManagedObject *obj in listArr)
@@ -589,7 +476,7 @@
                 }
             }
             
-            NSArray *myListArr = [self fetchMyActivityList];
+            NSArray *myListArr = [vikingDataManager getGearForTrip:self.tripId];//[self fetchMyActivityList];
             
             for(NSManagedObject *obj in myListArr)
             {
@@ -629,10 +516,10 @@
                 }
             }
             [indexArray removeAllObjects];
-            listArray = [self fetchEquipmentList:currentIndex];
+            listArray = [vikingDataManager getGearForTrip:self.tripId];
             [self.collectionView reloadData];
             
-            [self calculatePercentageAndUpdate];
+            [self calculatePercentageAndUpdate:nil];
         }
     }
     else if (alertView.tag == 4001)
@@ -642,7 +529,7 @@
             
             NSManagedObjectContext *context = [self managedObjectContext];
             
-            NSArray *listArr = [self fetchEquipmentList:currentIndex];
+            NSArray *listArr = [vikingDataManager getGearForTrip:self.tripId];
             for(NSManagedObject *obj in listArr)
             {
 //                [context deleteObject:obj];
@@ -656,7 +543,7 @@
             }
             
             [self.collectionView reloadData];
-            [self calculatePercentageAndUpdate];
+            [self calculatePercentageAndUpdate:nil];
             
         self.isReset = YES;
             dispatch_async(dispatch_get_main_queue(), ^{
@@ -670,7 +557,7 @@
         {
             NSManagedObjectContext *context = [self managedObjectContext];
             
-            NSArray *listArr = [self fetchEquipmentList:currentIndex];
+            NSArray *listArr = [vikingDataManager getGearForTrip:self.tripId];
             for(NSManagedObject *obj in listArr)
             {
                 [context deleteObject:obj];
@@ -682,7 +569,7 @@
                 }
             }
             
-            NSArray *myListArr = [self fetchMyActivityList];
+            NSArray *myListArr = [vikingDataManager getGearForTrip:self.tripId];//[self fetchMyActivityList];
             for(NSManagedObject *obj in myListArr)
             {
                 [context deleteObject:obj];
@@ -1142,10 +1029,10 @@
     self.isOpen = NO;
     
     [indexArray removeAllObjects];
-    listArray = [self fetchEquipmentList:currentIndex];
+    listArray = [vikingDataManager getGearForTrip:self.tripId];
     [self.collectionView reloadData];
     
-    [self calculatePercentageAndUpdate];
+    [self calculatePercentageAndUpdate:nil];
 }
 
 -(IBAction)packedClicked:(id)sender
@@ -1169,10 +1056,10 @@
     self.isOpen = NO;
     [indexArray removeAllObjects];
 
-    listArray = [self fetchEquipmentList:currentIndex];
+    listArray = [vikingDataManager getGearForTrip:self.tripId];
     [self.collectionView reloadData];
     
-    [self calculatePercentageAndUpdate];
+    [self calculatePercentageAndUpdate:nil];
 }
 
 -(IBAction)needClicked:(id)sender
@@ -1194,10 +1081,10 @@
     self.actView.hidden = YES;
     self.isOpen = NO;
     [indexArray removeAllObjects];
-    listArray = [self fetchEquipmentList:currentIndex];
+    listArray = [vikingDataManager getGearForTrip:self.tripId];
     [self.collectionView reloadData];
     
-    [self calculatePercentageAndUpdate];
+    [self calculatePercentageAndUpdate:nil];
 }
 
 -(IBAction)deleteClicked:(id)sender
@@ -1225,7 +1112,7 @@
     alertView.tag = 2001;
     alertView.alertViewStyle = UIAlertViewStylePlainTextInput;
     if(isFromCreateTrip)
-        [alertView textFieldAtIndex:0].text = activityDict[@"activityListname"];
+        [alertView textFieldAtIndex:0].text = @"Placeholder for activityListname";
     else
         [alertView textFieldAtIndex:0].text = [myTripObj valueForKey:@"activityList_Name"];
     [alertView show];
@@ -1333,9 +1220,9 @@
         self.actView.hidden = YES;
         [self SwipeDown:self.actView];
         
-        listArray = [self fetchEquipmentList:currentIndex];
+        listArray = [vikingDataManager getGearForTrip:self.tripId];
         [self.collectionView reloadData];
-        [self setUpheader];
+        [self setUpheader:nil];
     }
     NSLog(@"Left :- current index - %d", currentIndex);
 
@@ -1356,9 +1243,9 @@
         [self SwipeDown:self.actView];
         self.actView.hidden = YES;
         
-        listArray = [self fetchEquipmentList:currentIndex];
+        listArray = [vikingDataManager getGearForTrip:self.tripId];
         [self.collectionView reloadData];
-        [self setUpheader];
+        [self setUpheader:nil];
     }
     NSLog(@"Right :- current index - %d", currentIndex);
     

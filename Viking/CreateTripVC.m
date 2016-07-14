@@ -623,7 +623,7 @@
     
     ListVC *vc = [segue destinationViewController];
     vc.headerStr = self.tripNameTxt.text;
-    vc.activityDict = dict;
+    //vc.activityDict = dict;
 }
 
 -(IBAction)sendEmailClicked:(id)sender {

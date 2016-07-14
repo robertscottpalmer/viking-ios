@@ -240,6 +240,25 @@
     return fetchedObjects;
 }
 
+-(NSArray *)getGearForTrip:(NSString *)tripId{
+    ///entities you will need to deal with are : GearRecommendation, TripGear
+    
+    NSDictionary *trip = [self getTrip:tripId];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    fetchRequest.returnsObjectsAsFaults = NO;
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"GearRecommendation" inManagedObjectContext:managedContext];
+    [fetchRequest setEntity:entity];
+    
+    //now limit the result set to our id.
+    NSPredicate *predicate;
+    predicate = [NSPredicate predicateWithFormat:@"activityId=%@", trip[@"activityId"]];
+    [fetchRequest setPredicate:predicate];
+    
+    NSError *error;
+    NSArray *fetchedObjects = [managedContext executeFetchRequest:fetchRequest error:&error];
+    return fetchedObjects;
+}
+
 -(NSDictionary *)getTrip:(NSString*)id{
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     fetchRequest.returnsObjectsAsFaults = NO;
