@@ -66,15 +66,16 @@
     
     appDel = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     
-    self.headerLbl.font = [UIFont fontWithName:@"ProximaNova-Bold" size:21.0];
-    self.activityNameLbl.font = [UIFont fontWithName:@"ProximaNova-Bold" size:21.0];
+    UIFont *bold21 = [UIFont fontWithName:@"ProximaNova-Bold" size:21.0];
+    self.headerLbl.font = bold21;
+    self.activityNameLbl.font = bold21;
     self.mainHeaderLbl.font = [UIFont fontWithName:@"ProximaNova-Light" size:18.0];
     
-    
-    self.BtnAddItem.titleLabel.font = [UIFont fontWithName:@"ProximaNova-Light" size:25.0];
-    self.BtnDeleteList.titleLabel.font = [UIFont fontWithName:@"ProximaNova-Light" size:25.0];
-    self.BtnRenameList.titleLabel.font = [UIFont fontWithName:@"ProximaNova-Light" size:25.0];
-    self.BtnResetList.titleLabel.font = [UIFont fontWithName:@"ProximaNova-Light" size:25.0];
+    UIFont *light25 = [UIFont fontWithName:@"ProximaNova-Light" size:25.0];
+    self.BtnAddItem.titleLabel.font = light25;
+    self.BtnDeleteList.titleLabel.font = light25;
+    self.BtnRenameList.titleLabel.font = light25;
+    self.BtnResetList.titleLabel.font = light25;
    
     self.contentArray = [NSMutableArray new];
     indexArray = [NSMutableArray new];
@@ -169,7 +170,7 @@
 //        self.rightImgView.hidden = NO;
 //        self.leftImgView.hidden = NO;
 //    }
-    [vikingDataManager loadSubActivityHorizontalBackground:self.headerBGView :tripObject[@"activityId"]];
+    [vikingDataManager loadSubActivityHorizontalBackground:self.headerBGView :tripObject[@"activity"][@"id"]];
     self.headerLbl.text = @"Header Label Text";
     self.activityNameLbl.text = [@"activity name label" capitalizedString];
     [self createSelectionView:tripObject inView:self.collectionListsView];
@@ -253,7 +254,7 @@
         activityImg = [[UIImageView alloc] initWithFrame:CGRectMake(14, 10, 20, 20)];
     
     //activityImg.image = activityImage;
-    [vikingDataManager loadSubActivityIcon:activityImg :trip[@"activityId"]];
+    [vikingDataManager loadSubActivityIcon:activityImg :trip[@"activity"][@"id"]];
     activityImg.contentMode = UIViewContentModeScaleAspectFill;
     [self.selectionView addSubview:activityImg];
     
@@ -279,7 +280,7 @@
         activityLbl = [[UILabel alloc] initWithFrame:CGRectMake(42, 9, 71, 21)];
         activityLbl.font = [UIFont fontWithName:@"ProximaNova-Regular" size:12.0];
     }
-    activityLbl.text = [@"placeholder for activity String" uppercaseString];//[activityStr uppercaseString];
+    activityLbl.text = [trip[@"activity"][@"name"] uppercaseString];//[activityStr uppercaseString];
     activityLbl.numberOfLines = 0;
     activityLbl.textColor = [UIColor whiteColor];
     activityLbl.textAlignment = NSTextAlignmentCenter;
@@ -295,7 +296,7 @@
         durImg = [[UIImageView alloc] initWithFrame:CGRectMake(114,12,15,15)];
     else
         durImg = [[UIImageView alloc] initWithFrame:CGRectMake(136, 10, 20, 17)];
-    [vikingDataManager loadDurationIcon:durImg :trip[@"durationId"]];
+    [vikingDataManager loadDurationIcon:durImg :trip[@"duration"][@"id"]];
     //durImg.image = durationImage;
     durImg.contentMode = UIViewContentModeScaleAspectFill;
     [self.selectionView addSubview:durImg];
@@ -336,7 +337,7 @@
         tempImg = [[UIImageView alloc] initWithFrame:CGRectMake(224, 10, 10, 15)];
     else
         tempImg = [[UIImageView alloc] initWithFrame:CGRectMake(277, 10, 8, 20)];
-    [vikingDataManager loadTemperatureIcon:tempImg :trip[@"temperatureId"]];
+    [vikingDataManager loadTemperatureIcon:tempImg :trip[@"temperature"][@"id"]];
     //tempImg.image = tempImage;
     tempImg.contentMode = UIViewContentModeScaleAspectFill;
     [self.selectionView addSubview:tempImg];

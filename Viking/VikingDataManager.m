@@ -40,7 +40,7 @@
     dispatch_async(queue, ^{
         // Perform async operation
         NSString *imagePath = [NSString stringWithFormat:@"%@/media/%@/%@/%@.png", apiServer, entityType, entityId,imageType];
-        //NSLog(@"Before call url for: %@",imagePath);
+        NSLog(@"Before call url for: %@",imagePath);
         //NSLog(@"This is th crux of where a well-designed image serving api could score major points: %@",imagePath);
         UIImage *internetActivityImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:imagePath]]];
         //NSLog(@"after call url");
