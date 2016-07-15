@@ -54,6 +54,7 @@
 -(NSArray *)getGearForTrip:(NSString *)tripId;
 -(NSDictionary *)getTrip:(NSString*)id;
 -(NSDictionary *)getFullTripObject:(NSString*)id;
+-(NSString *)getNeighboringTripId: (NSString*)currentId : (BOOL)goBackwards;
 + (id)sharedManager;
 
 @end

@@ -308,4 +308,17 @@
     return toReturn;
 }
 
+-(NSString *)getNeighboringTripId: (NSString*)currentId : (BOOL)goBackwards{
+    [self showAlert:@"here I am in a poor implementation of going forwards or backwards"];
+    NSArray *trips = [self getMyTrips];
+    int foundAt;
+    for (foundAt = 0; foundAt < [trips count]; foundAt++) {
+        id trip = [trips objectAtIndex:foundAt];
+        if (trip[@"id"] == currentId){
+            break;
+        }
+    }
+    return @"balls";
+}
+
 @end
