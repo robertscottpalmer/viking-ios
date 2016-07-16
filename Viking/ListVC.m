@@ -1191,7 +1191,7 @@
 {
     [vikingDataManager showAlert:@"rightClicked and left clicked should be essentially the same function that passes the current trip id to the data manager + direction and lets the data manager send back the trip id that should be loaded...if the trip id's are identical (i.e. only one trip) warning should be displayed to user"];
     NSString *newIdToLoad = [vikingDataManager getNeighboringTripId:self.tripId :YES];
-    
+    [vikingDataManager showAlert:newIdToLoad];
 //    self.BtnRight.userInteractionEnabled = YES;
 //    if(!(currentIndex == 0))
 //    {
@@ -1217,6 +1217,7 @@
 {
     [vikingDataManager showAlert:@"rightClicked and left clicked should be essentially the same function that passes the current trip id to the data manager + direction and lets the data manager send back the trip id that should be loaded...if the trip id's are identical (i.e. only one trip) warning should be displayed to user"];
     NSString *newIdToLoad = [vikingDataManager getNeighboringTripId:self.tripId :NO];
+    [vikingDataManager showAlert:newIdToLoad];
 //    self.BtnLeft.userInteractionEnabled = YES;
 //    if(currentIndex < totalIndex-1)
 //    {

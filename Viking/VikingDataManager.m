@@ -308,17 +308,30 @@
     return toReturn;
 }
 
--(NSString *)getNeighboringTripId: (NSString*)currentId : (BOOL)goBackwards{
+-(NSString *)getNeighboringTripId: (NSString*)currentId : (BOOL) goBackwards{
     [self showAlert:@"here I am in a poor implementation of going forwards or backwards"];
     NSArray *trips = [self getMyTrips];
     int foundAt;
     for (foundAt = 0; foundAt < [trips count]; foundAt++) {
         id trip = [trips objectAtIndex:foundAt];
-        if (trip[@"id"] == currentId){
+        NSString *tripId = [trip valueForKey:@"id"];
+        if ([tripId isEqualToString:currentId]){
             break;
         }
     }
-    return @"balls";
+    //figure out which object is our target
+    if (goBackwards){
+        if (foundAt == 0){
+            foundAt = (int)([trips count] - 1);
+        }
+    }else{
+        foundAt++;
+        if (foundAt >= [trips count]){
+            foundAt = 0;
+        }
+    }
+    NSManagedObject *targetTrip = [trips objectAtIndex:foundAt];
+    return [targetTrip valueForKey:@"id"];
 }
 
 @end
