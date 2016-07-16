@@ -9,7 +9,6 @@
 #import "MainVC.h"
 #import <QuartzCore/QuartzCore.h>
 #import <MessageUI/MessageUI.h>
-//#import <FacebookSDK/FacebookSDK.h>
 #import "AppConstant.h"
 #import "Reachability.h"
 #import "VikingDataManager.h"
