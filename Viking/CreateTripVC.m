@@ -609,8 +609,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-    
-    NSMutableDictionary *dict = [NSMutableDictionary new];
+//    NSMutableDictionary *dict = [NSMutableDictionary new];
     
 //    [dict setValue:self.activityDict[@"image"] forKey:@"ActivityImage"];
 //    [dict setValue:self.activityDict[@"title"] forKey:@"ActivityTitle"];

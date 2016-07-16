@@ -1187,11 +1187,26 @@
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
+-(void)loadNeighbour:(BOOL) goLeft{
+    NSString *newIdToLoad = [vikingDataManager getNeighboringTripId:self.tripId :goLeft];
+        self.BtnRight.userInteractionEnabled = YES;
+        self.BtnLeft.userInteractionEnabled = YES;
+        self.tripId = newIdToLoad;
+    [self SwipeLeft:self.view];
+    self.isOpen = NO;
+    self.actView.hidden = YES;
+    [self SwipeDown:self.actView];
+    
+    listArray = [vikingDataManager getGearForTrip:self.tripId];
+    [self.collectionView reloadData];
+    [self setUpheader:nil];
+
+}
+
 -(IBAction)leftClicked:(id)sender
 {
     [vikingDataManager showAlert:@"rightClicked and left clicked should be essentially the same function that passes the current trip id to the data manager + direction and lets the data manager send back the trip id that should be loaded...if the trip id's are identical (i.e. only one trip) warning should be displayed to user"];
-    NSString *newIdToLoad = [vikingDataManager getNeighboringTripId:self.tripId :YES];
-    [vikingDataManager showAlert:newIdToLoad];
+    [self loadNeighbour:YES];
 //    self.BtnRight.userInteractionEnabled = YES;
 //    if(!(currentIndex == 0))
 //    {
@@ -1216,8 +1231,7 @@
 -(IBAction)rightClicked:(id)sender
 {
     [vikingDataManager showAlert:@"rightClicked and left clicked should be essentially the same function that passes the current trip id to the data manager + direction and lets the data manager send back the trip id that should be loaded...if the trip id's are identical (i.e. only one trip) warning should be displayed to user"];
-    NSString *newIdToLoad = [vikingDataManager getNeighboringTripId:self.tripId :NO];
-    [vikingDataManager showAlert:newIdToLoad];
+    [self loadNeighbour:NO];
 //    self.BtnLeft.userInteractionEnabled = YES;
 //    if(currentIndex < totalIndex-1)
 //    {

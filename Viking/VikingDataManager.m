@@ -30,7 +30,7 @@
 }
 
 -(void)showAlert: (NSString *) message {
-    NSLog(message);
+    NSLog(@"message = %@",message);
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"DataMangerAlert" message:message delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Ok", nil] ;
     //alertView.tag = 1001;
     //alertView.alertViewStyle = UIAlertViewStylePlainTextInput;
