@@ -33,8 +33,6 @@
 -(void)showAlert: (NSString *) message {
     NSLog(@"message = %@",message);
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"DataMangerAlert" message:message delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Ok", nil] ;
-    //alertView.tag = 1001;
-    //alertView.alertViewStyle = UIAlertViewStylePlainTextInput;
     [alertView show];
 }
 
@@ -120,38 +118,18 @@
     NSDictionary *allActivityDict = [NSDictionary dictionaryWithXMLData:[NSData dataWithContentsOfURL: [NSURL URLWithString:durationApiCall]]];
     NSArray *durations = allActivityDict[@"Duration"];
     return durations;
-//    NSArray *durations = [NSArray arrayWithObjects:
-//                          [NSDictionary dictionaryWithObjectsAndKeys:@"1 Day",@"description",@"Raid",@"name",@"1",@"id",nil],
-//                          [NSDictionary dictionaryWithObjectsAndKeys:@"2 Days",@"description",@"Journey",@"name",@"2", @"id", nil],
-//                          [NSDictionary dictionaryWithObjectsAndKeys:@"3+ Days",@"description",@"Expedition",@"name",@"3", @"id", nil], nil];
-//    return durations;
 }
 -(NSArray *)getTemperatureArr{
     NSString *temperatureApiCall = [NSString stringWithFormat:@"%@/%@", apiServer, @"temperatures.php"];
     NSDictionary *allActivityDict = [NSDictionary dictionaryWithXMLData:[NSData dataWithContentsOfURL: [NSURL URLWithString:temperatureApiCall]]];
     NSArray *temperatures = allActivityDict[@"Temperature"];
     return temperatures;
-//    NSArray *temperatures = [NSArray arrayWithObjects:
-//                             [NSDictionary dictionaryWithObjectsAndKeys:@"Hot",@"name",@"1",@"id",nil],
-//                             [NSDictionary dictionaryWithObjectsAndKeys:@"Warm",@"name",@"2", @"id", nil],
-//                             [NSDictionary dictionaryWithObjectsAndKeys:@"Cool",@"name",@"3", @"id", nil],
-//                             [NSDictionary dictionaryWithObjectsAndKeys:@"Cold",@"name",@"4", @"id", nil], nil];
-//    return temperatures;
 }
 
 -(NSArray *)getMainViewMessages{
     NSString *announcementsApiCall = [NSString stringWithFormat:@"%@/%@", apiServer, @"announcements.php"];
     NSDictionary *announcementDict = [NSDictionary dictionaryWithXMLData:[NSData dataWithContentsOfURL: [NSURL URLWithString:announcementsApiCall]]];
     return announcementDict[@"Announcement"];
-    
-//    NSArray *messages = [NSArray arrayWithObjects:
-//                             [NSDictionary dictionaryWithObject:@"This is a fun message that did not come from facebook!" forKey:@"message"],
-//                             [NSDictionary dictionaryWithObject:@"2This is a fun message that did not come from facebook!" forKey:@"message"],
-//                             [NSDictionary dictionaryWithObject:@"3This is a fun message that did not come from facebook!" forKey:@"4message"],
-//                             [NSDictionary dictionaryWithObject:@"5This is a fun message that did not come from facebook!" forKey:@"message"],
-//                             nil];
-//    NSLog(@"messages are %@",messages);
-//    return messages;
 }
 
 -(NSDictionary *)getSingleApiObject:(NSString*) entityType :(NSString*)id{
@@ -176,15 +154,6 @@
 -(NSDictionary *)getTemperature:(NSString*)id{
     return [self getSingleApiObject:@"temperature" :id];
 }
-
-//- (NSManagedObjectContext *)managedObjectContext {
-//    NSManagedObjectContext *managedcontext = nil;
-//    id delegate = [[UIApplication sharedApplication] delegate];
-//    if ([delegate performSelector:@selector(managedObjectContext)]) {
-//        managedcontext = [delegate managedObjectContext];
-//    }
-//    return managedcontext;
-//}
 
 /*Creates a new trip, persists the data and returns the id of the newly created trip.*/
 -(NSString *)createNewTrip: (NSString *)tripName : (NSDictionary *)userSelections{
@@ -237,13 +206,13 @@
 }
 
 -(NSArray *)getMyTrips{
-        NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-        fetchRequest.returnsObjectsAsFaults = NO;
-        NSEntityDescription *entity = [NSEntityDescription entityForName:@"Trip" inManagedObjectContext:managedContext];
-        [fetchRequest setEntity:entity];
-        
-        NSError *error;
-        NSArray *fetchedObjects = [managedContext executeFetchRequest:fetchRequest error:&error];
+//        NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+//        fetchRequest.returnsObjectsAsFaults = NO;
+//        NSEntityDescription *entity = [NSEntityDescription entityForName:@"Trip" inManagedObjectContext:managedContext];
+//        [fetchRequest setEntity:entity];
+    
+        //NSError *error;
+    NSArray *fetchedObjects = [self fetchManagedObjects:@"Trip" :nil];//[managedContext executeFetchRequest:fetchRequest error:&error];
         
         NSLog(@"array - %@", fetchedObjects);
     return fetchedObjects;
@@ -251,7 +220,6 @@
 
 -(NSArray *)getGearForTrip:(NSString *)tripId{
     ///entities you will need to deal with are : GearRecommendation, TripGear
-    
     NSDictionary *trip = [self getTrip:tripId];
     NSString *gearForTripApiCall = [NSString stringWithFormat:@"%@/%@?activityId=%@&temperatureId=%@&durationId=%@", apiServer, @"gearlist.php",trip[@"activityId"],trip[@"temperatureId"],trip[@"durationId"]];
     NSDictionary *tripGearDict = [NSDictionary dictionaryWithXMLData:[NSData dataWithContentsOfURL: [NSURL URLWithString:gearForTripApiCall]]];
@@ -259,19 +227,31 @@
     return gearList;
 }
 
--(NSDictionary *)getTrip:(NSString*)id{
+-(NSArray *)fetchManagedObjects:(NSString *) entityForName : (NSPredicate *) predicate{
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     fetchRequest.returnsObjectsAsFaults = NO;
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Trip" inManagedObjectContext:managedContext];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:entityForName inManagedObjectContext:managedContext];
     [fetchRequest setEntity:entity];
+    if (predicate != nil){
+        [fetchRequest setPredicate:predicate];
+    }
+    NSError *error;
+    NSArray *fetchedObjects = [managedContext executeFetchRequest:fetchRequest error:&error];
+    return fetchedObjects;
+}
+
+-(NSDictionary *)getTrip:(NSString*)id{
+//    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+//    fetchRequest.returnsObjectsAsFaults = NO;
+//    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Trip" inManagedObjectContext:managedContext];
+//    [fetchRequest setEntity:entity];
     
     //now limit the result set to our id.
     NSPredicate *predicate;
     predicate = [NSPredicate predicateWithFormat:@"id=%@", id];
-    [fetchRequest setPredicate:predicate];
-    
-    NSError *error;
-    NSArray *fetchedObjects = [managedContext executeFetchRequest:fetchRequest error:&error];
+//    [fetchRequest setPredicate:predicate];
+    NSArray *fetchedObjects = [self fetchManagedObjects:@"Trip" :predicate];
+    //[managedContext executeFetchRequest:fetchRequest error:&error];
     
     NSLog(@"array - %@", fetchedObjects);
     NSManagedObject *storedTrip = fetchedObjects[0];
@@ -336,7 +316,17 @@
 }
 
 -(void)markItemState: (NSString*) itemState : (NSString *) itemId : (NSString *) tripId{
+    NSArray *tripGear = [self getGearForTrip:tripId];
+    NSPredicate *predicate;
+    predicate = [NSPredicate predicateWithFormat:@"itemId = %@ AND tripId=%@", itemId,tripId];
+    NSArray *fetchedObjects = [self fetchManagedObjects:@"TripGear" :predicate];
+    
     [self showAlert:[NSString stringWithFormat:@"markingItemState %@, %@, %@",itemState,itemId,tripId]];
+    NSError *error = nil;
+    if (![managedContext save:&error]){
+        [self showAlert:[NSString stringWithFormat:@"Can't Save! %@ %@", error, [error localizedDescription]]];
+        NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
+    }
 }
 -(void)markItemDeleted: (NSString *) itemId : (NSString*) tripId{
     [self markItemState:ITEM_STATE_EXPLICIT_DELETE :itemId :tripId];

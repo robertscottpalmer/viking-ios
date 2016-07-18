@@ -993,7 +993,9 @@
 
 -(IBAction)unpackedClicked:(id)sender
 {
-    [vikingDataManager markItemUnpacked:@"I AM THE ITEMID!!!" :self.tripId];
+    for (NSDictionary *obj in indexArray){
+        [vikingDataManager markItemUnpacked:obj[@"id"] :self.tripId];
+    }
     
 //    NSManagedObjectContext *context = [self managedObjectContext];
 //    
@@ -1021,7 +1023,9 @@
 
 -(IBAction)packedClicked:(id)sender
 {
-    [vikingDataManager markItemPacked:@"I AM THE ITEMID!!!" :self.tripId];
+    for (NSDictionary *obj in indexArray){
+        [vikingDataManager markItemPacked:obj[@"id"] :self.tripId];
+    }
     
 //    NSManagedObjectContext *context = [self managedObjectContext];
 //    
@@ -1050,7 +1054,10 @@
 
 -(IBAction)needClicked:(id)sender
 {
-    [vikingDataManager markItemPacked:@"I AM THE ITEMID!!!" :self.tripId];
+    for (NSDictionary *obj in indexArray){
+        [vikingDataManager markItemNeeded:obj[@"id"] :self.tripId];
+    }
+    
 //    NSManagedObjectContext *context = [self managedObjectContext];
 //    
 //    for(NSManagedObject *obj in indexArray)
