@@ -16,9 +16,19 @@ FOUNDATION_EXPORT NSString *const  USER_SELECTED_TEMPERATURE;
 FOUNDATION_EXPORT NSString *const  USER_SELECTED_ACTIVITY_IMAGE;
 FOUNDATION_EXPORT NSString *const  USER_SELECTED_DURATION_IMAGE;
 FOUNDATION_EXPORT NSString *const  USER_SELECTED_TEMPERATURE_IMAGE;
-
 /*****
  * end user selection keys
+ *****/
+
+/*****
+ * start gear list item states
+ *****/
+FOUNDATION_EXPORT NSString *const  ITEM_STATE_UNPACKED;
+FOUNDATION_EXPORT NSString *const  ITEM_STATE_PACKED;
+FOUNDATION_EXPORT NSString *const  ITEM_STATE_NEEDED;
+FOUNDATION_EXPORT NSString *const  ITEM_STATE_EXPLICIT_DELETE;
+/*****
+ * end gear list item states
  *****/
 
 #define AppDel ((AppDelegate *)[UIApplication sharedApplication].delegate)

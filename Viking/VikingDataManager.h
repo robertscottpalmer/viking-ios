@@ -55,6 +55,10 @@
 -(NSDictionary *)getTrip:(NSString*)id;
 -(NSDictionary *)getFullTripObject:(NSString*)id;
 -(NSString *)getNeighboringTripId: (NSString*)currentId : (BOOL)goBackwards;
+-(void)markItemDeleted : (NSString *) itemId : (NSString *) tripId;
+-(void)markItemUnpacked : (NSString *) itemId : (NSString *) tripId;
+-(void)markItemPacked : (NSString *) itemId : (NSString *) tripId;
+-(void)markItemNeeded : (NSString *) itemId : (NSString *) tripId;
 + (id)sharedManager;
 
 @end

@@ -335,4 +335,22 @@
     return [targetTrip valueForKey:@"id"];
 }
 
+-(void)markItemState: (NSString*) itemState : (NSString *) itemId : (NSString *) tripId{
+    [self showAlert:[NSString stringWithFormat:@"markingItemState %@, %@, %@",itemState,itemId,tripId]];
+}
+-(void)markItemDeleted: (NSString *) itemId : (NSString*) tripId{
+    [self markItemState:ITEM_STATE_EXPLICIT_DELETE :itemId :tripId];
+}
+-(void)markItemUnpacked: (NSString *) itemId : (NSString*) tripId{
+    [self markItemState:ITEM_STATE_UNPACKED :itemId :tripId];
+}
+-(void)markItemPacked: (NSString *) itemId : (NSString*) tripId{
+    [self markItemState:ITEM_STATE_PACKED :itemId :tripId];
+}
+-(void)markItemNeeded: (NSString *) itemId : (NSString*) tripId{
+    [self markItemState:ITEM_STATE_NEEDED :itemId :tripId];
+}
+
+
+
 @end

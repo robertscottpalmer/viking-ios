@@ -5,7 +5,7 @@
 //  Created by macmini08 on 27/01/15.
 //  Copyright (c) 2015 Space O Technology. All rights reserved.
 //
-
+@import HockeySDK;
 #import "AppDelegate.h"
 #import "AppConstant.h"
 #import "Reachability.h"
@@ -26,6 +26,18 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    /**
+     Hockey app
+     **/
+    [[BITHockeyManager sharedHockeyManager] configureWithIdentifier:@"335b79786e57488fafe1b3df542ea177"];
+    // Do some additional configuration if needed here
+    [[BITHockeyManager sharedHockeyManager] startManager];
+    [[BITHockeyManager sharedHockeyManager].authenticator
+     authenticateInstallation];
+    /**
+     end hockey app
+     **/
+    
     // Override point for customization after application launch.
     UIStoryboard *mainStoryboard = nil;
     

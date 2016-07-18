@@ -1189,6 +1189,7 @@
 
 -(void)loadNeighbour:(BOOL) goLeft{
     NSString *newIdToLoad = [vikingDataManager getNeighboringTripId:self.tripId :goLeft];
+    self.tripId = newIdToLoad;
         self.BtnRight.userInteractionEnabled = YES;
         self.BtnLeft.userInteractionEnabled = YES;
         self.tripId = newIdToLoad;
@@ -1200,6 +1201,7 @@
     listArray = [vikingDataManager getGearForTrip:self.tripId];
     [self.collectionView reloadData];
     [self setUpheader:nil];
+    [self viewDidLoad];
 
 }
 
