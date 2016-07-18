@@ -993,18 +993,20 @@
 
 -(IBAction)unpackedClicked:(id)sender
 {
-    NSManagedObjectContext *context = [self managedObjectContext];
+    [vikingDataManager markItemUnpacked:@"I AM THE ITEMID!!!" :self.tripId];
     
-    for(NSManagedObject *obj in indexArray)
-    {
-        [obj setValue:@"hexa_orange" forKey:@"image"];
-        
-        NSError *error = nil;
-        // Save the object to persistent store
-        if (![context save:&error]) {
-            NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
-        }
-    }
+//    NSManagedObjectContext *context = [self managedObjectContext];
+//    
+//    for(NSManagedObject *obj in indexArray)
+//    {
+//        [obj setValue:@"hexa_orange" forKey:@"image"];
+//        
+//        NSError *error = nil;
+//        // Save the object to persistent store
+//        if (![context save:&error]) {
+//            NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
+//        }
+//    }
     
     [self SwipeDown:self.actView];
     self.actView.hidden = YES;
@@ -1019,18 +1021,20 @@
 
 -(IBAction)packedClicked:(id)sender
 {
-    NSManagedObjectContext *context = [self managedObjectContext];
+    [vikingDataManager markItemPacked:@"I AM THE ITEMID!!!" :self.tripId];
     
-    for(NSManagedObject *obj in indexArray)
-    {
-        [obj setValue:@"hexa_gray" forKey:@"image"];
-        
-        NSError *error = nil;
-        // Save the object to persistent store
-        if (![context save:&error]) {
-            NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
-        }
-    }
+//    NSManagedObjectContext *context = [self managedObjectContext];
+//    
+//    for(NSManagedObject *obj in indexArray)
+//    {
+//        [obj setValue:@"hexa_gray" forKey:@"image"];
+//        
+//        NSError *error = nil;
+//        // Save the object to persistent store
+//        if (![context save:&error]) {
+//            NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
+//        }
+//    }
 
     [self SwipeDown:self.actView];
     self.actView.hidden = YES;
@@ -1046,18 +1050,19 @@
 
 -(IBAction)needClicked:(id)sender
 {
-    NSManagedObjectContext *context = [self managedObjectContext];
-    
-    for(NSManagedObject *obj in indexArray)
-    {
-        [obj setValue:@"hexa_olive" forKey:@"image"];
-        
-        NSError *error = nil;
-        // Save the object to persistent store
-        if (![context save:&error]) {
-            NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
-        }
-    }
+    [vikingDataManager markItemPacked:@"I AM THE ITEMID!!!" :self.tripId];
+//    NSManagedObjectContext *context = [self managedObjectContext];
+//    
+//    for(NSManagedObject *obj in indexArray)
+//    {
+//        [obj setValue:@"hexa_olive" forKey:@"image"];
+//        
+//        NSError *error = nil;
+//        // Save the object to persistent store
+//        if (![context save:&error]) {
+//            NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
+//        }
+//    }
     
     [self SwipeDown:self.actView];
     self.actView.hidden = YES;
