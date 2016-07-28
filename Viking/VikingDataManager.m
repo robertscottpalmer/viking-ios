@@ -16,8 +16,8 @@
 
 - (id)init {
     if (self = [super init]) {
-        apiServer = @"http://thevikingapp.local";
-        //apiServer = @"http://thevikingapp.com/api";
+        //apiServer = @"http://thevikingapp.local";
+        apiServer = @"http://thevikingapp.com/api";
         id delegate = [[UIApplication sharedApplication] delegate];
         if ([delegate performSelector:@selector(managedObjectContext)]) {
             managedContext = [delegate managedObjectContext];
