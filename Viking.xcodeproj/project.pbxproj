@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		4E36FDB21D2C823E00392AEA /* AppConstant.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E36FDB11D2C823E00392AEA /* AppConstant.m */; };
 		4E3FBF661D21E60E00E03C61 /* VikingDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E3FBF651D21E60E00E03C61 /* VikingDataManager.m */; };
-		4E610F811D3C56FC0065AFDF /* HockeySDK.embeddedframework in Resources */ = {isa = PBXBuildFile; fileRef = 4E610F801D3C56FC0065AFDF /* HockeySDK.embeddedframework */; };
-		4E610F831D3C581A0065AFDF /* HockeySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E610F821D3C581A0065AFDF /* HockeySDK.framework */; };
 		4E632B5B1D1F68BB00BBE023 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E632B5A1D1F68BB00BBE023 /* ImageIO.framework */; };
 		4ED649151D29F48A0011C73C /* CommonTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED649141D29F48A0011C73C /* CommonTableCell.m */; };
 		57391BB71A774B7E004963F4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 57391BB61A774B7E004963F4 /* main.m */; };
@@ -60,8 +58,6 @@
 		4E36FDB11D2C823E00392AEA /* AppConstant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppConstant.m; sourceTree = "<group>"; };
 		4E3FBF641D21E5D300E03C61 /* VikingDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VikingDataManager.h; sourceTree = "<group>"; };
 		4E3FBF651D21E60E00E03C61 /* VikingDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VikingDataManager.m; sourceTree = "<group>"; };
-		4E610F801D3C56FC0065AFDF /* HockeySDK.embeddedframework */ = {isa = PBXFileReference; lastKnownFileType = folder; name = HockeySDK.embeddedframework; path = "HockeySDK-iOS/HockeySDK.embeddedframework"; sourceTree = "<group>"; };
-		4E610F821D3C581A0065AFDF /* HockeySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HockeySDK.framework; path = "HockeySDK-iOS/HockeySDK.embeddedframework/HockeySDK.framework"; sourceTree = "<group>"; };
 		4E632B5A1D1F68BB00BBE023 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		4ED649131D29F4410011C73C /* CommonTableCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonTableCell.h; sourceTree = "<group>"; };
 		4ED649141D29F48A0011C73C /* CommonTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonTableCell.m; sourceTree = "<group>"; };
@@ -139,7 +135,6 @@
 				4E632B5B1D1F68BB00BBE023 /* ImageIO.framework in Frameworks */,
 				578999BE1ADBC71D00B6CB5D /* UIKit.framework in Frameworks */,
 				574A3E1F1A7D0C08000B3A77 /* MessageUI.framework in Frameworks */,
-				4E610F831D3C581A0065AFDF /* HockeySDK.framework in Frameworks */,
 				57391BE41A7766BD004963F4 /* QuartzCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -150,8 +145,6 @@
 		57391BA81A774B7E004963F4 = {
 			isa = PBXGroup;
 			children = (
-				4E610F821D3C581A0065AFDF /* HockeySDK.framework */,
-				4E610F801D3C56FC0065AFDF /* HockeySDK.embeddedframework */,
 				4E632B5A1D1F68BB00BBE023 /* ImageIO.framework */,
 				578999BD1ADBC71D00B6CB5D /* UIKit.framework */,
 				574A3E1E1A7D0C08000B3A77 /* MessageUI.framework */,
@@ -347,7 +340,6 @@
 				57391BAD1A774B7E004963F4 /* Sources */,
 				57391BAE1A774B7E004963F4 /* Frameworks */,
 				57391BAF1A774B7E004963F4 /* Resources */,
-				4E610F7F1D3C567D0065AFDF /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -411,7 +403,6 @@
 				576D8EA21A8CC04000F8AEBF /* ProximaNova-BoldIt.otf in Resources */,
 				576D8EAA1A8CC04000F8AEBF /* ProximaNova-SemiboldItalic.otf in Resources */,
 				576D8EA61A8CC04000F8AEBF /* ProximaNova-RegItalic.otf in Resources */,
-				4E610F811D3C56FC0065AFDF /* HockeySDK.embeddedframework in Resources */,
 				5762083E1A81DA02000479E9 /* Main_i6.storyboard in Resources */,
 				576D8EA71A8CC04000F8AEBF /* ProximaNova-Regular.otf in Resources */,
 				575AD7BA1A7B88F500C216CF /* ListCell.xib in Resources */,
@@ -419,22 +410,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		4E610F7F1D3C567D0065AFDF /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "FILE=\"${SRCROOT}/HockeySDK-iOS/BuildAgent\"\nif [ -f \"$FILE\" ]; then\n\"$FILE\"\nfi";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		57391BAD1A774B7E004963F4 /* Sources */ = {
@@ -586,11 +561,6 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)",
-					"$(PROJECT_DIR)/HockeySDK-iOS/HockeySDK.embeddedframework",
-				);
 				INFOPLIST_FILE = Viking/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -609,11 +579,6 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)",
-					"$(PROJECT_DIR)/HockeySDK-iOS/HockeySDK.embeddedframework",
-				);
 				INFOPLIST_FILE = Viking/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
