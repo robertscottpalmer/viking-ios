@@ -595,7 +595,8 @@
     }else if (IS_IPHONE_5 || IS_IPHONE_6){
         cell.titleLabel.font = [UIFont fontWithName:@"ProximaNova-Semibold" size:10.0];
     }
-    [vikingDataManager showAlert:@"Commented out below here is the 'logic' which controlled the hex image displayed"];
+    NSLog(@"Commented out below here is the 'logic' which controlled the hex image displayed");
+   // [vikingDataManager showAlert:@"Commented out below here is the 'logic' which controlled the hex image displayed"];
 //    cell.hexImege.image = [UIImage imageNamed:[obj valueForKey:@"image"]];
 //    
 //    if([[obj valueForKey:@"image"] isEqualToString:@"hexa_gray"])
@@ -639,7 +640,8 @@
         
         //cell.hexImege.image = [UIImage imageNamed:[obj valueForKey:@"image"]];
         //cell.titleLabel.text = [[obj valueForKey:@"equipment"] uppercaseString];
-        [vikingDataManager showAlert:@"Here is more copy/pasted 'logic' to control the hexagon color"];
+        NSLog(@"Here is more copy/pasted 'logic' to control the hexagon color");
+        //[vikingDataManager showAlert:@"Here is more copy/pasted 'logic' to control the hexagon color"];
         if([[obj valueForKey:@"image"] isEqualToString:@"hexa_gray"])
         {
             cell.titleLabel.textColor = [UIColor colorWithRed:123.0/255.0 green:137.0/255.0 blue:149.0/255.0 alpha:1.0];

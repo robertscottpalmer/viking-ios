@@ -16,8 +16,8 @@
 
 - (id)init {
     if (self = [super init]) {
-        //apiServer = @"http://thevikingapp.local";
-        apiServer = @"http://thevikingapp.com/api";
+        apiServer = @"http://thevikingapp.local";
+        //apiServer = @"http://thevikingapp.com/api";
         id delegate = [[UIApplication sharedApplication] delegate];
         if ([delegate performSelector:@selector(managedObjectContext)]) {
             managedContext = [delegate managedObjectContext];
@@ -224,6 +224,20 @@
     NSString *gearForTripApiCall = [NSString stringWithFormat:@"%@/%@?activityId=%@&temperatureId=%@&durationId=%@", apiServer, @"gearlist.php",trip[@"activityId"],trip[@"temperatureId"],trip[@"durationId"]];
     NSDictionary *tripGearDict = [NSDictionary dictionaryWithXMLData:[NSData dataWithContentsOfURL: [NSURL URLWithString:gearForTripApiCall]]];
     NSArray *gearList = tripGearDict[@"Gear"];
+    //Loop through gear list and add gear state to the mix
+    
+    for (int gearListIdx = 0; gearListIdx < [gearList count]; gearListIdx++) {
+        id gearRecommendation = [gearList objectAtIndex:gearListIdx];
+        NSString *gearRecommendationId = [gearRecommendation valueForKey:@"id"];
+        
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"gearRecommendationId=%@", gearRecommendationId];
+        NSArray *gearStates = [self fetchManagedObjects:@"TripGear" :predicate];
+        if (gearStates != nil && [gearStates count] > 0){
+            [gearRecommendation setValue:[gearStates valueForKey:@"tripGearStatus"] forKey:@"tripGearStatus"];
+        }else{
+            [gearRecommendation setValue:ITEM_STATE_UNPACKED forKey:@"tripGearStatus"];
+        }
+    }
     return gearList;
 }
 
@@ -316,9 +330,10 @@
 }
 
 -(void)markItemState: (NSString*) itemState : (NSString *) itemId : (NSString *) tripId{
+    [self showAlert:@"Here is where we need to be focused now. we need to define if itemId is the suggestionId or if it is the gearId.  Basically, managing manual joins on query or on save"];
     NSArray *tripGear = [self getGearForTrip:tripId];
     NSPredicate *predicate;
-    predicate = [NSPredicate predicateWithFormat:@"itemId = %@ AND tripId=%@", itemId,tripId];
+    predicate = [NSPredicate predicateWithFormat:@"gearRecommendationId = %@ AND tripId=%@", itemId,tripId];
     NSArray *fetchedObjects = [self fetchManagedObjects:@"TripGear" :predicate];
     
     [self showAlert:[NSString stringWithFormat:@"markingItemState %@, %@, %@",itemState,itemId,tripId]];
