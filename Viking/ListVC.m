@@ -582,12 +582,43 @@
     return [listArray count];
 }
 
+-(void)setItemStateVisualDisplay: (ListCell *) listCell : (NSString *) itemState {
+    NSLog(@"Commented out below here is the 'logic' which controlled the hex image displayed and the font");
+    NSLog(@"The following should be handled by a static map once objective C becomes a less scary place");
+    NSString *imageName = @"hexa_orange";
+    UIColor *uiColor = [UIColor colorWithRed:70.0/255.0 green:82.0/255.0 blue:94.0/255.0 alpha:1.0];
+    if ([ITEM_STATE_UNPACKED isEqualToString:itemState]){
+        imageName = @"hexa_orange";
+    }else if([ITEM_STATE_PACKED isEqualToString:itemState]){
+        imageName = @"hexa_turkis";
+    }else if([ITEM_STATE_NEEDED isEqualToString:itemState]){
+        imageName = @"hexa_olive";
+    }else if([ITEM_STATE_EXPLICIT_DELETE isEqualToString:itemState]){
+        imageName = @"hexa_gray";
+        uiColor = [UIColor colorWithRed:123.0/255.0 green:137.0/255.0 blue:149.0/255.0 alpha:1.0];
+    }
+    listCell.hexImege.image = [UIImage imageNamed:imageName];
+    listCell.titleLabel.textColor = uiColor;
+    //    cell.hexImege.image = [UIImage imageNamed:[obj valueForKey:@"image"]];
+    //
+    //    if([[obj valueForKey:@"image"] isEqualToString:@"hexa_gray"])
+    //    {
+    //        cell.titleLabel.textColor = [UIColor colorWithRed:123.0/255.0 green:137.0/255.0 blue:149.0/255.0 alpha:1.0];
+    //    }
+    //    else
+    //    {
+    //        cell.titleLabel.textColor = [UIColor colorWithRed:70.0/255.0 green:82.0/255.0 blue:94.0/255.0 alpha:1.0];
+    //    }
+    
+}
+
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     ListCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:RootCell_ID forIndexPath:indexPath];
     NSDictionary *gear = listArray[indexPath.row];
     
     cell.titleLabel.text = [gear[@"name"] uppercaseString];
+    [self setItemStateVisualDisplay : cell : gear [@"tripGearStatus"]];
     cell.titleLabel.font = [UIFont fontWithName:@"ProximaNova-Semibold" size:10.0];
     
     if(IS_IPHONE_6P){
@@ -595,20 +626,6 @@
     }else if (IS_IPHONE_5 || IS_IPHONE_6){
         cell.titleLabel.font = [UIFont fontWithName:@"ProximaNova-Semibold" size:10.0];
     }
-    NSLog(@"Commented out below here is the 'logic' which controlled the hex image displayed");
-   // [vikingDataManager showAlert:@"Commented out below here is the 'logic' which controlled the hex image displayed"];
-//    cell.hexImege.image = [UIImage imageNamed:[obj valueForKey:@"image"]];
-//    
-//    if([[obj valueForKey:@"image"] isEqualToString:@"hexa_gray"])
-//    {
-//        cell.titleLabel.textColor = [UIColor colorWithRed:123.0/255.0 green:137.0/255.0 blue:149.0/255.0 alpha:1.0];
-//    }
-//    else
-//    {
-//        cell.titleLabel.textColor = [UIColor colorWithRed:70.0/255.0 green:82.0/255.0 blue:94.0/255.0 alpha:1.0];
-//    }
-    
-    
     return cell;
 }
 
@@ -641,7 +658,6 @@
         //cell.hexImege.image = [UIImage imageNamed:[obj valueForKey:@"image"]];
         //cell.titleLabel.text = [[obj valueForKey:@"equipment"] uppercaseString];
         NSLog(@"Here is more copy/pasted 'logic' to control the hexagon color");
-        //[vikingDataManager showAlert:@"Here is more copy/pasted 'logic' to control the hexagon color"];
         if([[obj valueForKey:@"image"] isEqualToString:@"hexa_gray"])
         {
             cell.titleLabel.textColor = [UIColor colorWithRed:123.0/255.0 green:137.0/255.0 blue:149.0/255.0 alpha:1.0];
@@ -1202,11 +1218,12 @@
 }
 
 -(void)loadNeighbour:(BOOL) goLeft{
+    NSLog(@"rightClicked and left clicked should be essentially the same function that passes the current trip id to the data manager + direction and lets the data manager send back the trip id that should be loaded...if the trip id's are identical (i.e. only one trip) warning should be displayed to user");
     NSString *newIdToLoad = [vikingDataManager getNeighboringTripId:self.tripId :goLeft];
     self.tripId = newIdToLoad;
-        self.BtnRight.userInteractionEnabled = YES;
-        self.BtnLeft.userInteractionEnabled = YES;
-        self.tripId = newIdToLoad;
+    self.BtnRight.userInteractionEnabled = YES;
+    self.BtnLeft.userInteractionEnabled = YES;
+    self.tripId = newIdToLoad;
     [self SwipeLeft:self.view];
     self.isOpen = NO;
     self.actView.hidden = YES;
@@ -1221,52 +1238,12 @@
 
 -(IBAction)leftClicked:(id)sender
 {
-    [vikingDataManager showAlert:@"rightClicked and left clicked should be essentially the same function that passes the current trip id to the data manager + direction and lets the data manager send back the trip id that should be loaded...if the trip id's are identical (i.e. only one trip) warning should be displayed to user"];
     [self loadNeighbour:YES];
-//    self.BtnRight.userInteractionEnabled = YES;
-//    if(!(currentIndex == 0))
-//    {
-//        currentIndex = currentIndex-1;
-//        if(currentIndex == 0)
-//        {
-//            self.BtnLeft.userInteractionEnabled = NO;
-//        }
-//        [self SwipeLeft:self.view];
-//        self.isOpen = NO;
-//        self.actView.hidden = YES;
-//        [self SwipeDown:self.actView];
-//        
-//        listArray = [vikingDataManager getGearForTrip:self.tripId];
-//        [self.collectionView reloadData];
-//        [self setUpheader:nil];
-//    }
-//    NSLog(@"Left :- current index - %d", currentIndex);
-
 }
 
 -(IBAction)rightClicked:(id)sender
 {
-    [vikingDataManager showAlert:@"rightClicked and left clicked should be essentially the same function that passes the current trip id to the data manager + direction and lets the data manager send back the trip id that should be loaded...if the trip id's are identical (i.e. only one trip) warning should be displayed to user"];
     [self loadNeighbour:NO];
-//    self.BtnLeft.userInteractionEnabled = YES;
-//    if(currentIndex < totalIndex-1)
-//    {
-//        currentIndex = currentIndex+1;
-//        if(currentIndex == totalIndex-1)
-//        {
-//            self.BtnRight.userInteractionEnabled = NO;
-//        }            
-//        [self SwipeRight:self.view];
-//        self.isOpen = NO;
-//        [self SwipeDown:self.actView];
-//        self.actView.hidden = YES;
-//        
-//        listArray = [vikingDataManager getGearForTrip:self.tripId];
-//        [self.collectionView reloadData];
-//        [self setUpheader:nil];
-//    }
-//    NSLog(@"Right :- current index - %d", currentIndex);
-    
 }
 
 -(void)SwipeRight:(UIView *)view{

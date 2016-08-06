@@ -25,10 +25,10 @@ NSString *const  USER_SELECTED_TEMPERATURE_IMAGE = @"USER_SELECTED_TEMPERATURE_I
 /*****
  * start gear list item states
  *****/
-NSString *const  ITEM_STATE_UNPACKED  = @"ITEM_STATE_UNPACKED";
-NSString *const  ITEM_STATE_PACKED  = @"ITEM_STATE_PACKED";
-NSString *const  ITEM_STATE_NEEDED  = @"ITEM_STATE_NEEDED";
-NSString *const  ITEM_STATE_EXPLICIT_DELETE = @"ITEM_STATE_EXPLICIT_DELETE";
+NSString *const  ITEM_STATE_UNPACKED  = @"ITEM_STATE_UNPACKED"; //hexa orange
+NSString *const  ITEM_STATE_PACKED  = @"ITEM_STATE_PACKED"; //hexa_turkis
+NSString *const  ITEM_STATE_NEEDED  = @"ITEM_STATE_NEEDED"; //hexa_olive
+NSString *const  ITEM_STATE_EXPLICIT_DELETE = @"ITEM_STATE_EXPLICIT_DELETE"; //hexa_gray
 /*****
  * end gear list item states
  *****/

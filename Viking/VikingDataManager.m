@@ -16,8 +16,8 @@
 
 - (id)init {
     if (self = [super init]) {
-        apiServer = @"http://thevikingapp.local";
-        //apiServer = @"http://thevikingapp.com/api";
+        //apiServer = @"http://thevikingapp.local";
+        apiServer = @"http://thevikingapp.com/api";
         id delegate = [[UIApplication sharedApplication] delegate];
         if ([delegate performSelector:@selector(managedObjectContext)]) {
             managedContext = [delegate managedObjectContext];
@@ -206,15 +206,7 @@
 }
 
 -(NSArray *)getMyTrips{
-//        NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-//        fetchRequest.returnsObjectsAsFaults = NO;
-//        NSEntityDescription *entity = [NSEntityDescription entityForName:@"Trip" inManagedObjectContext:managedContext];
-//        [fetchRequest setEntity:entity];
-    
-        //NSError *error;
-    NSArray *fetchedObjects = [self fetchManagedObjects:@"Trip" :nil];//[managedContext executeFetchRequest:fetchRequest error:&error];
-        
-        NSLog(@"array - %@", fetchedObjects);
+    NSArray *fetchedObjects = [self fetchManagedObjects:@"Trip" :nil];
     return fetchedObjects;
 }
 
@@ -255,19 +247,10 @@
 }
 
 -(NSDictionary *)getTrip:(NSString*)id{
-//    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-//    fetchRequest.returnsObjectsAsFaults = NO;
-//    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Trip" inManagedObjectContext:managedContext];
-//    [fetchRequest setEntity:entity];
-    
     //now limit the result set to our id.
     NSPredicate *predicate;
     predicate = [NSPredicate predicateWithFormat:@"id=%@", id];
-//    [fetchRequest setPredicate:predicate];
     NSArray *fetchedObjects = [self fetchManagedObjects:@"Trip" :predicate];
-    //[managedContext executeFetchRequest:fetchRequest error:&error];
-    
-    NSLog(@"array - %@", fetchedObjects);
     NSManagedObject *storedTrip = fetchedObjects[0];
     NSMutableDictionary *toReturn = [[NSMutableDictionary alloc] init];
     toReturn[@"id"] = [storedTrip valueForKey:@"id"];
@@ -304,7 +287,7 @@
 }
 
 -(NSString *)getNeighboringTripId: (NSString*)currentId : (BOOL) goBackwards{
-    [self showAlert:@"here I am in a poor implementation of going forwards or backwards"];
+    NSLog(@"here I am in a poor implementation of going forwards or backwards");
     NSArray *trips = [self getMyTrips];
     int foundAt;
     for (foundAt = 0; foundAt < [trips count]; foundAt++) {
@@ -329,11 +312,12 @@
     return [targetTrip valueForKey:@"id"];
 }
 
+//It should be noted here that the "itemId" is actually assumed to be the id of the gearRecommendaton
 -(void)markItemState: (NSString*) itemState : (NSString *) itemId : (NSString *) tripId{
     [self showAlert:@"Here is where we need to be focused now. we need to define if itemId is the suggestionId or if it is the gearId.  Basically, managing manual joins on query or on save"];
     NSArray *tripGear = [self getGearForTrip:tripId];
     NSPredicate *predicate;
-    predicate = [NSPredicate predicateWithFormat:@"gearRecommendationId = %@ AND tripId=%@", itemId,tripId];
+    predicate = [NSPredicate predicateWithFormat:@"gearRecommendationId = %@", itemId];
     NSArray *fetchedObjects = [self fetchManagedObjects:@"TripGear" :predicate];
     
     [self showAlert:[NSString stringWithFormat:@"markingItemState %@, %@, %@",itemState,itemId,tripId]];
