@@ -147,7 +147,7 @@
     UIImageView *activityImg;
     UIImageView *durImg;
     UIImageView *tempImg;
-    UILabel *activityLbl;
+    UILabel *activityLbl;lo
     UILabel *durationLbl;
     UILabel *tempLbl;
     UILabel *deviderLbl;

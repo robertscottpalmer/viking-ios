@@ -597,6 +597,7 @@
         imageName = @"hexa_gray";
         uiColor = [UIColor colorWithRed:123.0/255.0 green:137.0/255.0 blue:149.0/255.0 alpha:1.0];
     }
+    NSLog(@"We have the following image name %@ and the itemState was %@",imageName,itemState);
     listCell.hexImege.image = [UIImage imageNamed:imageName];
     listCell.titleLabel.textColor = uiColor;
     //    cell.hexImege.image = [UIImage imageNamed:[obj valueForKey:@"image"]];
@@ -618,7 +619,7 @@
     NSDictionary *gear = listArray[indexPath.row];
     
     cell.titleLabel.text = [gear[@"name"] uppercaseString];
-    [self setItemStateVisualDisplay : cell : gear [@"tripGearStatus"]];
+    [self setItemStateVisualDisplay : cell : gear[@"tripGearStatus"]];
     cell.titleLabel.font = [UIFont fontWithName:@"ProximaNova-Semibold" size:10.0];
     
     if(IS_IPHONE_6P){

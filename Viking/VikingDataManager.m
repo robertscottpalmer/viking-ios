@@ -225,7 +225,7 @@
         NSPredicate *predicate = [NSPredicate predicateWithFormat:@"gearRecommendationId=%@", gearRecommendationId];
         NSArray *gearStates = [self fetchManagedObjects:@"TripGear" :predicate];
         if (gearStates != nil && [gearStates count] > 0){
-            [gearRecommendation setValue:[gearStates valueForKey:@"tripGearStatus"] forKey:@"tripGearStatus"];
+            [gearRecommendation setValue:[gearStates[0] valueForKey:@"tripGearStatus"] forKey:@"tripGearStatus"];
         }else{
             [gearRecommendation setValue:ITEM_STATE_UNPACKED forKey:@"tripGearStatus"];
         }
@@ -313,14 +313,24 @@
 }
 
 //It should be noted here that the "itemId" is actually assumed to be the id of the gearRecommendaton
--(void)markItemState: (NSString*) itemState : (NSString *) itemId : (NSString *) tripId{
-    [self showAlert:@"Here is where we need to be focused now. we need to define if itemId is the suggestionId or if it is the gearId.  Basically, managing manual joins on query or on save"];
-    NSArray *tripGear = [self getGearForTrip:tripId];
+-(void)markItemState: (NSString*) itemState : (NSString *) gearRecommendationId : (NSString *) tripId{
+//    [self showAlert:@"Here is where we need to be focused now. we need to define if itemId is the suggestionId or if it is the gearId.  Basically, managing manual joins on query or on save"];
+//    NSArray *tripGear = [self getGearForTrip:tripId];
     NSPredicate *predicate;
-    predicate = [NSPredicate predicateWithFormat:@"gearRecommendationId = %@", itemId];
+    predicate = [NSPredicate predicateWithFormat:@"gearRecommendationId = %@", gearRecommendationId];
     NSArray *fetchedObjects = [self fetchManagedObjects:@"TripGear" :predicate];
-    
-    [self showAlert:[NSString stringWithFormat:@"markingItemState %@, %@, %@",itemState,itemId,tripId]];
+    NSManagedObject *listStatus = nil;
+    if ([fetchedObjects count] == 0){
+        [self showAlert:[NSString stringWithFormat:@"Need to create the persistent object %@, %@, %@",itemState,gearRecommendationId,tripId]];
+        listStatus = [NSEntityDescription insertNewObjectForEntityForName:@"TripGear" inManagedObjectContext:managedContext];
+        NSString *uuid = [[NSUUID UUID] UUIDString];
+        [listStatus setValue:uuid forKey:@"id"];
+        [listStatus setValue:gearRecommendationId forKey:@"gearRecommendationId"];
+    }else{
+        listStatus = fetchedObjects[0];
+    }
+    [listStatus setValue:itemState forKey:@"tripGearStatus"];
+    [self showAlert:[NSString stringWithFormat:@"markingItemState %@, %@, %@",itemState,gearRecommendationId,tripId]];
     NSError *error = nil;
     if (![managedContext save:&error]){
         [self showAlert:[NSString stringWithFormat:@"Can't Save! %@ %@", error, [error localizedDescription]]];
