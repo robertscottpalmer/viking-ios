@@ -345,7 +345,8 @@
         
         NSDictionary *currDuration = durationArr[indexPath.row];
         cell.durationLbl.text = [NSString stringWithFormat:@"%@ - %@",currDuration[@"name"],currDuration[@"description"]];
-        cell.durationImg.image = [UIImage imageNamed:[NSString stringWithFormat:@"icon_%@", currDuration[@"description"]]];
+        //cell.durationImg.image = [UIImage imageNamed:[NSString stringWithFormat:@"icon_%@", currDuration[@"description"]]];
+        [vikingDataManager loadDurationIcon:cell.durationImg :currDuration[@"id"]];
         return cell;
     }
     else
@@ -356,9 +357,10 @@
         cell.layoutMargins = UIEdgeInsetsZero;
         cell.preservesSuperviewLayoutMargins = NO;
         
-        cell.tempLbl.text = temperatureArr[indexPath.row][@"name"];
-        cell.tempImg.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@", temperatureArr[indexPath.row][@"name"]]];
-        
+        NSDictionary *currTemp = temperatureArr[indexPath.row];
+        cell.tempLbl.text = currTemp[@"name"];
+        [vikingDataManager loadTemperatureIcon:cell.tempImg :currTemp[@"id"]];
+        //cell.tempImg.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@", temperatureArr[indexPath.row][@"name"]]];
         return cell;
     }
 }

@@ -26,7 +26,7 @@
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic) BOOL isOpen;
 @property (nonatomic) BOOL isReset;
-@property (nonatomic) BOOL isDeleted;
+//@property (nonatomic) BOOL isDeleted;
 @property (nonatomic) BOOL isLeftMoved;
 @property (nonatomic) BOOL isRightMoved;
 @property (nonatomic) BOOL isScrollUp;
@@ -58,7 +58,7 @@
     
     self.isOpen = NO;
     self.isReset = NO;
-    self.isDeleted = NO;
+//    self.isDeleted = NO;
     self.isScrollUp = NO;
     
     appDel = (AppDelegate *)[[UIApplication sharedApplication] delegate];
@@ -120,23 +120,19 @@
     
     // Register cell and views
     [_collectionView registerNib:[ListCell cellNib] forCellWithReuseIdentifier:RootCell_ID];
-//    [self.collectionListsView addSubview:_collectionView];
     [self.scrlView addSubview:_collectionView];
     
     
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.collectionView reloadData];
-//        [self.collectionView.collectionViewLayout invalidateLayout];
     });
     
     [self.collectionListsView bringSubviewToFront:self.actionView];
 
     
-    listArray = [vikingDataManager getGearForTrip:self.tripId];//[self fetchEquipmentList:currentIndex];
+    listArray = [vikingDataManager getGearForTrip:self.tripId];
     [self.collectionView reloadData];
     [self setUpheader:trip];
-    
-//     NSLog(@"content size - %@", NSStringFromCGSize(self.collectionView.contentMode)) ;
         self.scrlView.contentSize = CGSizeMake(self.view.frame.size.width, self.collectionView.contentSize.height + self.headerView.frame.size.height);
     
      self.scrlView.contentSize = CGSizeMake(self.view.frame.size.width, 1000);
@@ -478,26 +474,14 @@
     {
         if(buttonIndex == 1)
         {
-            self.isDeleted = YES;
+            for (NSDictionary *obj in indexArray){
+                [vikingDataManager markItemDeleted:obj[@"id"] :self.tripId];
+            }
+            //self.isDeleted = YES;
             
             [self SwipeDown:self.actView];
             self.actView.hidden = YES;
             self.isOpen = NO;
-
-            NSLog(@"arr count before- %lu", (unsigned long)[self.listArray count]);
-            
-            NSManagedObjectContext *context = [self managedObjectContext];
-            
-            for(NSManagedObject *obj in indexArray)
-            {
-                [context deleteObject:obj];
-                
-                NSError *error = nil;
-                // Save the object to persistent store
-                if (![context save:&error]) {
-                    NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
-                }
-            }
             [indexArray removeAllObjects];
             listArray = [vikingDataManager getGearForTrip:self.tripId];
             [self.collectionView reloadData];
@@ -583,8 +567,8 @@
 }
 
 -(void)setItemStateVisualDisplay: (ListCell *) listCell : (NSString *) itemState {
-    NSLog(@"Commented out below here is the 'logic' which controlled the hex image displayed and the font");
-    NSLog(@"The following should be handled by a static map once objective C becomes a less scary place");
+//    NSLog(@"Commented out below here is the 'logic' which controlled the hex image displayed and the font");
+//    NSLog(@"The following should be handled by a static map once objective C becomes a less scary place");
     NSString *imageName = @"hexa_orange";
     UIColor *uiColor = [UIColor colorWithRed:70.0/255.0 green:82.0/255.0 blue:94.0/255.0 alpha:1.0];
     if ([ITEM_STATE_UNPACKED isEqualToString:itemState]){
@@ -597,20 +581,9 @@
         imageName = @"hexa_gray";
         uiColor = [UIColor colorWithRed:123.0/255.0 green:137.0/255.0 blue:149.0/255.0 alpha:1.0];
     }
-    NSLog(@"We have the following image name %@ and the itemState was %@",imageName,itemState);
+//    NSLog(@"We have the following image name %@ and the itemState was %@",imageName,itemState);
     listCell.hexImege.image = [UIImage imageNamed:imageName];
     listCell.titleLabel.textColor = uiColor;
-    //    cell.hexImege.image = [UIImage imageNamed:[obj valueForKey:@"image"]];
-    //
-    //    if([[obj valueForKey:@"image"] isEqualToString:@"hexa_gray"])
-    //    {
-    //        cell.titleLabel.textColor = [UIColor colorWithRed:123.0/255.0 green:137.0/255.0 blue:149.0/255.0 alpha:1.0];
-    //    }
-    //    else
-    //    {
-    //        cell.titleLabel.textColor = [UIColor colorWithRed:70.0/255.0 green:82.0/255.0 blue:94.0/255.0 alpha:1.0];
-    //    }
-    
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -691,7 +664,7 @@
     
 
     self.isReset = NO;
-    self.isDeleted = NO;
+//    self.isDeleted = NO;
     self.selectedIndexPath = indexPath;
 
     NSLog(@"selected index - %ld", (long)indexPath.row);
@@ -718,12 +691,7 @@
         
         CGRect collectionlistViewFrame = self.collectionListsView.frame;
         collectionlistViewFrame.size.height = self.scrlView.contentSize.height;
-//        _collectionListsView.frame = collectionlistViewFrame;
-//        self.collectionListsView.frame = CGRectMake(0, 318, 414, 1484);
-//        self.collectionListsView.backgroundColor = [UIColor greenColor];
-//        self.view.frame = collectionlistViewFrame;
 
-        
         CGRect collRect = self.collectionView.frame;
         collRect.size.height = self.scrlView.contentSize.height;
         self.collectionView.frame = collRect;
@@ -1016,19 +984,6 @@
         [vikingDataManager markItemUnpacked:obj[@"id"] :self.tripId];
     }
     
-//    NSManagedObjectContext *context = [self managedObjectContext];
-//    
-//    for(NSManagedObject *obj in indexArray)
-//    {
-//        [obj setValue:@"hexa_orange" forKey:@"image"];
-//        
-//        NSError *error = nil;
-//        // Save the object to persistent store
-//        if (![context save:&error]) {
-//            NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
-//        }
-//    }
-    
     [self SwipeDown:self.actView];
     self.actView.hidden = YES;
     self.isOpen = NO;
@@ -1045,19 +1000,6 @@
     for (NSDictionary *obj in indexArray){
         [vikingDataManager markItemPacked:obj[@"id"] :self.tripId];
     }
-    
-//    NSManagedObjectContext *context = [self managedObjectContext];
-//    
-//    for(NSManagedObject *obj in indexArray)
-//    {
-//        [obj setValue:@"hexa_gray" forKey:@"image"];
-//        
-//        NSError *error = nil;
-//        // Save the object to persistent store
-//        if (![context save:&error]) {
-//            NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
-//        }
-//    }
 
     [self SwipeDown:self.actView];
     self.actView.hidden = YES;
@@ -1076,19 +1018,6 @@
     for (NSDictionary *obj in indexArray){
         [vikingDataManager markItemNeeded:obj[@"id"] :self.tripId];
     }
-    
-//    NSManagedObjectContext *context = [self managedObjectContext];
-//    
-//    for(NSManagedObject *obj in indexArray)
-//    {
-//        [obj setValue:@"hexa_olive" forKey:@"image"];
-//        
-//        NSError *error = nil;
-//        // Save the object to persistent store
-//        if (![context save:&error]) {
-//            NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
-//        }
-//    }
     
     [self SwipeDown:self.actView];
     self.actView.hidden = YES;

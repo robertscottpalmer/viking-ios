@@ -37,7 +37,7 @@
 }
 
 -(void)setImage: (UIImageView *) targetView : (UIImage *) sourceImage {
-    NSLog(@"trying to overwrite %@ with %@",targetView,sourceImage);
+    //NSLog(@"trying to overwrite %@ with %@",targetView,sourceImage);
     targetView.image = sourceImage;
 }
 
@@ -47,7 +47,7 @@
     dispatch_async(queue, ^{
         // Perform async operation
         NSString *imagePath = [NSString stringWithFormat:@"%@/media/%@/%@/%@.png", apiServer, entityType, entityId,imageType];
-        NSLog(@"Before call url for: %@",imagePath);
+        //NSLog(@"Before call url for: %@",imagePath);
         //NSLog(@"This is th crux of where a well-designed image serving api could score major points: %@",imagePath);
         UIImage *internetActivityImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:imagePath]]];
         //NSLog(@"after call url");
@@ -170,37 +170,6 @@
     if (![managedContext save:&error]) {
                 NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
     }
-//
-//    
-//    for(NSDictionary *equipmentDict in list)
-//    {
-//        NSManagedObject *newActivityList = [NSEntityDescription insertNewObjectForEntityForName:@"MyActivityEquipmentList" inManagedObjectContext:context];
-//        [newActivityList setValue:activityName forKey:@"activityList_Name"];
-//        [newActivityList setValue:self.durationDict[@"title"] forKey:@"duration"];
-//        //        [newActivityList setValue:selectedActivity forKey:@"main_Activity"];
-//        [newActivityList setValue:self.activityDict[@"title"] forKey:@"sub_activity"];
-//        [newActivityList setValue:self.tempDict[@"title"] forKey:@"temperature"];
-//        [newActivityList setValue:equipmentDict[@"name"] forKey:@"equipment"];
-//        [newActivityList setValue:@"hexa_orange" forKey:@"image"];
-//        
-//        NSError *error1 = nil;
-//        // Save the object to persistent store
-//        if (![context save:&error1]) {
-//            NSLog(@"Can't Save! %@ %@", error1, [error1 localizedDescription]);
-//        }
-//    }
-//    
-//    //    [self fetchdata];
-//    NSMutableDictionary *dict = [NSMutableDictionary new];
-//    
-//    [dict setValue:self.activityDict[@"image"] forKey:@"ActivityImage"];
-//    [dict setValue:self.activityDict[@"title"] forKey:@"ActivityTitle"];
-//    [dict setValue:self.durationDict[@"image"] forKey:@"DurationImage"];
-//    [dict setValue:self.durationDict[@"title"] forKey:@"DurationTitle"];
-//    [dict setValue:self.tempDict[@"image"] forKey:@"TempImage"];
-//    [dict setValue:self.tempDict[@"title"] forKey:@"TempTitle"];
-//    [dict setValue:self.activityNameTxt.text forKey:@"activityListname"];
-//    //    [dict setValue:selectedActivity forKey:@"main_Activity"];
     return uuid;
     
 }
@@ -321,7 +290,7 @@
     NSArray *fetchedObjects = [self fetchManagedObjects:@"TripGear" :predicate];
     NSManagedObject *listStatus = nil;
     if ([fetchedObjects count] == 0){
-        [self showAlert:[NSString stringWithFormat:@"Need to create the persistent object %@, %@, %@",itemState,gearRecommendationId,tripId]];
+//        [self showAlert:[NSString stringWithFormat:@"Need to create the persistent object %@, %@, %@",itemState,gearRecommendationId,tripId]];
         listStatus = [NSEntityDescription insertNewObjectForEntityForName:@"TripGear" inManagedObjectContext:managedContext];
         NSString *uuid = [[NSUUID UUID] UUIDString];
         [listStatus setValue:uuid forKey:@"id"];
@@ -330,10 +299,10 @@
         listStatus = fetchedObjects[0];
     }
     [listStatus setValue:itemState forKey:@"tripGearStatus"];
-    [self showAlert:[NSString stringWithFormat:@"markingItemState %@, %@, %@",itemState,gearRecommendationId,tripId]];
+    //[self showAlert:[NSString stringWithFormat:@"markingItemState %@, %@, %@",itemState,gearRecommendationId,tripId]];
     NSError *error = nil;
     if (![managedContext save:&error]){
-        [self showAlert:[NSString stringWithFormat:@"Can't Save! %@ %@", error, [error localizedDescription]]];
+        //[self showAlert:[NSString stringWithFormat:@"Can't Save! %@ %@", error, [error localizedDescription]]];
         NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
     }
 }

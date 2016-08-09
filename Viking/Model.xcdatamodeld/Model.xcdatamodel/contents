@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10174" systemVersion="15F34" minimumToolsVersion="Xcode 4.3">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10174" systemVersion="15G31" minimumToolsVersion="Xcode 4.3">
     <entity name="Activity" syncable="YES">
         <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
@@ -42,13 +42,13 @@
         <attribute name="tripGearStatus" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
+        <element name="Activity" positionX="-54" positionY="-9" width="128" height="75"/>
+        <element name="ActivityType" positionX="-36" positionY="9" width="128" height="75"/>
         <element name="Duration" positionX="-18" positionY="27" width="128" height="75"/>
         <element name="Gear" positionX="-63" positionY="-18" width="128" height="105"/>
-        <element name="Activity" positionX="-54" positionY="-9" width="128" height="75"/>
         <element name="GearRecommendation" positionX="-18" positionY="54" width="128" height="120"/>
-        <element name="TripGear" positionX="-27" positionY="36" width="128" height="90"/>
-        <element name="ActivityType" positionX="-36" positionY="9" width="128" height="75"/>
         <element name="Temperature" positionX="0" positionY="45" width="128" height="75"/>
         <element name="Trip" positionX="-18" positionY="81" width="128" height="120"/>
+        <element name="TripGear" positionX="-27" positionY="36" width="128" height="90"/>
     </elements>
 </model>
