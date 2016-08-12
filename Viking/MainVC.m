@@ -353,31 +353,32 @@
 
 -(void) labelTapped:(UITapGestureRecognizer *)gestureRecognizer
 {
-    BOOL installed = [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"fb://"]];
-    
-    NSString *idStr = postsArray[self.pageControl.currentPage][@"id"];
-    NSArray *arr = [idStr componentsSeparatedByString:@"_"];
-    NSString * firstString;
-    NSString * secondString;
-    if (arr)
-    {
-        firstString = [arr objectAtIndex:0];
-        secondString = [arr objectAtIndex:1];
-        NSLog(@"First String %@",firstString);
-        NSLog(@"Second String %@",secondString);
-    }
-    if(installed)
-    {
-        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"fb://profile/%@", idStr]];
-        [[UIApplication sharedApplication] openURL:url];
-    }
-    else
-    {
-        NSLog(@"%@",[NSString stringWithFormat:@"%@/posts/%@", strAppURL, secondString]);
-        NSURL *fbURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/posts/%@", strAppURL, secondString]];
-        NSLog(@"fburl - %@", fbURL);
-        [[UIApplication sharedApplication] openURL:fbURL];
-    }
+    [vikingDataManager showAlert:@"Not really certain what the desired functionality would be in this instance. Should we open a browser and bring them to viking site?"];
+//    BOOL installed = [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"fb://"]];
+//    
+//    NSString *idStr = postsArray[self.pageControl.currentPage][@"id"];
+//    NSArray *arr = [idStr componentsSeparatedByString:@"_"];
+//    NSString * firstString;
+//    NSString * secondString;
+//    if (arr)
+//    {
+//        firstString = [arr objectAtIndex:0];
+//        secondString = [arr objectAtIndex:1];
+//        NSLog(@"First String %@",firstString);
+//        NSLog(@"Second String %@",secondString);
+//    }
+//    if(installed)
+//    {
+//        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"fb://profile/%@", idStr]];
+//        [[UIApplication sharedApplication] openURL:url];
+//    }
+//    else
+//    {
+//        NSLog(@"%@",[NSString stringWithFormat:@"%@/posts/%@", strAppURL, secondString]);
+//        NSURL *fbURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/posts/%@", strAppURL, secondString]];
+//        NSLog(@"fburl - %@", fbURL);
+//        [[UIApplication sharedApplication] openURL:fbURL];
+//    }
 }
 
 
