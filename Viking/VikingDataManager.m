@@ -295,7 +295,8 @@
         }
     }
     //TODO: there should be no need to explicitly convert every argument to a CGFloat, get efficient.
-    CGFloat retVal = ((CGFloat)packedCount)/((CGFloat)currentIdx - (CGFloat)explicitlyExcludedCount) ;
+    NSLog(@"packed %d, currentIdx %d, explicitlyExcluded %d",packedCount,currentIdx,explicitlyExcludedCount);
+    CGFloat retVal = ((CGFloat)packedCount)/(CGFloat)(currentIdx - explicitlyExcludedCount) ;
     return retVal;
 }
 
