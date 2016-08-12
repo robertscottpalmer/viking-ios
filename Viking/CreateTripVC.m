@@ -24,6 +24,7 @@
     NSArray *durationArr;
     NSArray *temperatureArr;
     VikingDataManager *vikingDataManager;
+    UIFont *bold15,*light18,*regular12,*regular15;
 }
 
 @property (nonatomic, strong) NSMutableDictionary *userSelectionDict;
@@ -36,15 +37,21 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    bold15 = [UIFont fontWithName:@"ProximaNova-Bold" size:15.0];
+    light18 = [UIFont fontWithName:@"ProximaNova-Light" size:18.0];
+    regular12 = [UIFont fontWithName:@"ProximaNova-Regular" size:12.0];
+    regular15 = [UIFont fontWithName:@"ProximaNova-Regular" size:15.0];
+    
     vikingDataManager = [VikingDataManager sharedManager];
     
     [AppDelegate hideGlobalHUD];
     
-    self.mainHeaderLbl.font = [UIFont fontWithName:@"ProximaNova-Light" size:18.0];
-    self.activityHeaderLbl.font = [UIFont fontWithName:@"ProximaNova-Bold" size:15.0];
-    self.durationHeaderLbl.font = [UIFont fontWithName:@"ProximaNova-Bold" size:15.0];
-    self.tempHeaderLbl.font = [UIFont fontWithName:@"ProximaNova-Bold" size:15.0];
-    self.createHeaderLbl.font = [UIFont fontWithName:@"ProximaNova-Bold" size:15.0];
+    self.mainHeaderLbl.font = light18;
+    self.activityHeaderLbl.font = bold15;
+    self.durationHeaderLbl.font = bold15;
+    self.tempHeaderLbl.font = bold15;
+    self.createHeaderLbl.font = bold15;
     
     [vikingDataManager loadMainActivityIcon:self.headerBGIcon :selectedActivityTypeId];
     
@@ -171,23 +178,23 @@
     if(IS_IPHONE_5)
     {
         activityLbl = [[UILabel alloc] initWithFrame:CGRectMake(36, 9, 71, 21)];
-        activityLbl.font = [UIFont fontWithName:@"ProximaNova-Regular" size:12.0];
+        activityLbl.font = regular12;
     }
     else if(IS_IPHONE_6P)
     {
         activityLbl = [[UILabel alloc] initWithFrame:CGRectMake(40, 12, 90, 40)];
-        activityLbl.font = [UIFont fontWithName:@"ProximaNova-Regular" size:15.0];
+        activityLbl.font = regular15;
         activityLbl.backgroundColor = [UIColor clearColor];
         
     }else if (IS_IPHONE_4_OR_LESS){  //Vikita
         activityLbl = [[UILabel alloc] initWithFrame:CGRectMake(30, 9, 71, 21)];
-        activityLbl.font = [UIFont fontWithName:@"ProximaNova-Regular" size:12.0];
+        activityLbl.font = regular12;
        
     }
     else
     {
         activityLbl = [[UILabel alloc] initWithFrame:CGRectMake(42, 9, 71, 21)];
-        activityLbl.font = [UIFont fontWithName:@"ProximaNova-Regular" size:12.0];
+        activityLbl.font = regular12;
     }
     activityLbl.text = [userSelections[USER_SELECTED_ACTIVITY][@"name"] uppercaseString];
     activityLbl.numberOfLines = 0;
@@ -212,21 +219,21 @@
     if(IS_IPHONE_5)
     {
         durationLbl = [[UILabel alloc] initWithFrame:CGRectMake(149, 9, 73, 21)];
-        durationLbl.font = [UIFont fontWithName:@"ProximaNova-Regular" size:12.0];
+        durationLbl.font = regular12;
     }
     else if(IS_IPHONE_6P)
     {
         durationLbl = [[UILabel alloc] initWithFrame:CGRectMake(175, 12, 90, 40)];
-        durationLbl.font = [UIFont fontWithName:@"ProximaNova-Regular" size:15.0];
+        durationLbl.font = regular15;
         durationLbl.backgroundColor = [UIColor clearColor];
     }else if (IS_IPHONE_4_OR_LESS){ //Vikita
         durationLbl = [[UILabel alloc] initWithFrame:CGRectMake(136, 9, 71, 21)];
-        durationLbl.font = [UIFont fontWithName:@"ProximaNova-Regular" size:12.0];
+        durationLbl.font = regular12;
     }
     else
     {
         durationLbl = [[UILabel alloc] initWithFrame:CGRectMake(165, 9, 73, 21)];
-        durationLbl.font = [UIFont fontWithName:@"ProximaNova-Regular" size:12.0];
+        durationLbl.font = regular12;
     }
     durationLbl.text = [userSelections[USER_SELECTED_DURATION][@"name"] uppercaseString];
     durationLbl.textAlignment = NSTextAlignmentCenter;
@@ -252,20 +259,21 @@
     if(IS_IPHONE_5)
     {
         tempLbl = [[UILabel alloc] initWithFrame:CGRectMake(271, 9, 41, 21)];
-        tempLbl.font = [UIFont fontWithName:@"ProximaNova-Regular" size:12.0];
+        tempLbl.font = regular12;
     }
     else if(IS_IPHONE_6P)
     {
         tempLbl = [[UILabel alloc] initWithFrame:CGRectMake(315, 12, 90, 40)];
-        tempLbl.font = [UIFont fontWithName:@"ProximaNova-Regular" size:15.0];
+        tempLbl.font = regular15;
         tempLbl.backgroundColor = [UIColor redColor];
     }else if (IS_IPHONE_4_OR_LESS){//Vikita
         tempLbl = [[UILabel alloc] initWithFrame:CGRectMake(242, 9, 71, 21)];
-        tempLbl.font = [UIFont fontWithName:@"ProximaNova-Regular" size:12.0];}
+        tempLbl.font = regular12;
+    }
     else
     {
         tempLbl = [[UILabel alloc] initWithFrame:CGRectMake(308, 9, 41, 21)];
-        tempLbl.font = [UIFont fontWithName:@"ProximaNova-Regular" size:12.0];
+        tempLbl.font = regular12;
     }
     tempLbl.backgroundColor = [UIColor clearColor];
     tempLbl.text = [userSelections[USER_SELECTED_TEMPERATURE][@"name"] uppercaseString];
@@ -325,7 +333,7 @@
     {
         ActivityTableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ActivityCell" forIndexPath:indexPath];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        cell.activityLbl.font = [UIFont fontWithName:@"ProximaNova-Light" size:18.0];
+        cell.activityLbl.font = light18;
         cell.layoutMargins = UIEdgeInsetsZero;
         cell.preservesSuperviewLayoutMargins = NO;
         
@@ -339,7 +347,7 @@
     {
         DurationTableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DurationCell" forIndexPath:indexPath];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        cell.durationLbl.font = [UIFont fontWithName:@"ProximaNova-Light" size:18.0];
+        cell.durationLbl.font = light18;
         cell.layoutMargins = UIEdgeInsetsZero;
         cell.preservesSuperviewLayoutMargins = NO;
         
@@ -353,14 +361,13 @@
     {
         TempTableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TempCell" forIndexPath:indexPath];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        cell.tempLbl.font = [UIFont fontWithName:@"ProximaNova-Light" size:18.0];
+        cell.tempLbl.font = light18;
         cell.layoutMargins = UIEdgeInsetsZero;
         cell.preservesSuperviewLayoutMargins = NO;
         
         NSDictionary *currTemp = temperatureArr[indexPath.row];
         cell.tempLbl.text = currTemp[@"name"];
         [vikingDataManager loadTemperatureIcon:cell.tempImg :currTemp[@"id"]];
-        //cell.tempImg.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@", temperatureArr[indexPath.row][@"name"]]];
         return cell;
     }
 }
@@ -562,16 +569,6 @@
                 durArr = durationDict[@"temperature"];
             }
         }
-        
-//        NSArray *equipmentListArr;
-//        for(NSDictionary *tempDict in durArr)
-//        {
-//            if([tempDict[@"name"] isEqualToString:dict[@"TempTitle"]])
-//            {
-//                equipmentListArr = tempDict[@"list"][@"equipment"];
-//            }
-//            
-//        }
         [self saveMyActivity:self.tripNameTxt.text];
     }
 }

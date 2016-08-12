@@ -17,6 +17,8 @@
 {
     NSArray *activityListArray;
     VikingDataManager *vikingDataManager;
+    UIFont *proximaNovaLight18,*proximaNovaBlack18;
+    
 }
 
 @end
@@ -25,8 +27,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    proximaNovaLight18 = [UIFont fontWithName:@"ProximaNova-Light" size:18.0];
+    proximaNovaBlack18 = [UIFont fontWithName:@"ProximaNova-Black" size:18.0];
     vikingDataManager = [VikingDataManager sharedManager];
-    self.mainHeaderLbl.font = [UIFont fontWithName:@"ProximaNova-Light" size:18.0];
+    self.mainHeaderLbl.font = proximaNovaLight18;//[UIFont fontWithName:@"ProximaNova-Light" size:18.0];
     self.headerLbl.font = [UIFont fontWithName:@"ProximaNova-Light" size:15.0];
     // Do any additional setup after loading the view.
     
@@ -96,7 +100,7 @@
         cell.textLabel.text = @"No trips found.";
         cell.textLabel.textAlignment = NSTextAlignmentCenter;
         cell.textLabel.textColor = [UIColor whiteColor];
-        cell.textLabel.font = [UIFont fontWithName:@"ProximaNova-Black" size:18.0];
+        cell.textLabel.font = proximaNovaBlack18;//[UIFont fontWithName:@"ProximaNova-Black" size:18.0];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }

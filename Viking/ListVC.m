@@ -20,7 +20,7 @@
     AppDelegate *appDel;
     NSMutableArray *indexArray;
     VikingDataManager *vikingDataManager;
-    
+    UIFont *regular12,*regular13,*regular15,*semibold10;
 }
 
 @property (nonatomic, strong) UICollectionView *collectionView;
@@ -44,6 +44,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    regular12 = [UIFont fontWithName:@"ProximaNova-Regular" size:12.0];
+    regular13 = [UIFont fontWithName:@"ProximaNova-Regular" size:13.0];
+    regular15 = [UIFont fontWithName:@"ProximaNova-Regular" size:15.0];
+    semibold10 = [UIFont fontWithName:@"ProximaNova-Semibold" size:10.0];
     vikingDataManager = [VikingDataManager sharedManager];
     
     NSDictionary *trip = [vikingDataManager getFullTripObject:_tripId];
@@ -237,23 +241,23 @@
     if(IS_IPHONE_5)
     {
         activityLbl = [[UILabel alloc] initWithFrame:CGRectMake(36, 9, 71, 21)];
-        activityLbl.font = [UIFont fontWithName:@"ProximaNova-Regular" size:12.0];
+        activityLbl.font = regular12;
     }
     else if(IS_IPHONE_6P)
     {
         activityLbl = [[UILabel alloc] initWithFrame:CGRectMake(40, 12, 90, 40)];
-        activityLbl.font = [UIFont fontWithName:@"ProximaNova-Regular" size:15.0];
+        activityLbl.font = regular15;
         activityLbl.backgroundColor = [UIColor clearColor];
         
     }else if (IS_IPHONE_4_OR_LESS){  //Vikita
         activityLbl = [[UILabel alloc] initWithFrame:CGRectMake(30, 9, 71, 21)];
-        activityLbl.font = [UIFont fontWithName:@"ProximaNova-Regular" size:12.0];
+        activityLbl.font = regular12;
         
     }
     else
     {
         activityLbl = [[UILabel alloc] initWithFrame:CGRectMake(42, 9, 71, 21)];
-        activityLbl.font = [UIFont fontWithName:@"ProximaNova-Regular" size:12.0];
+        activityLbl.font = regular12;
     }
     activityLbl.text = [trip[@"activity"][@"name"] uppercaseString];//[activityStr uppercaseString];
     activityLbl.numberOfLines = 0;
@@ -281,21 +285,21 @@
     if(IS_IPHONE_5)
     {
         durationLbl = [[UILabel alloc] initWithFrame:CGRectMake(149, 9, 73, 21)];
-        durationLbl.font = [UIFont fontWithName:@"ProximaNova-Regular" size:12.0];
+        durationLbl.font = regular12;
     }
     else if(IS_IPHONE_6P)
     {
         durationLbl = [[UILabel alloc] initWithFrame:CGRectMake(175, 12, 90, 40)];
-        durationLbl.font = [UIFont fontWithName:@"ProximaNova-Regular" size:15.0];
+        durationLbl.font = regular15;
         durationLbl.backgroundColor = [UIColor clearColor];
     }else if (IS_IPHONE_4_OR_LESS){ //Vikita
         durationLbl = [[UILabel alloc] initWithFrame:CGRectMake(136, 9, 71, 21)];
-        durationLbl.font = [UIFont fontWithName:@"ProximaNova-Regular" size:12.0];
+        durationLbl.font = regular12;
     }
     else
     {
         durationLbl = [[UILabel alloc] initWithFrame:CGRectMake(165, 9, 73, 21)];
-        durationLbl.font = [UIFont fontWithName:@"ProximaNova-Regular" size:12.0];
+        durationLbl.font = regular12;
     }
     durationLbl.text = [trip[@"duration"][@"name"] uppercaseString];//[durationStr uppercaseString];
     durationLbl.textAlignment = NSTextAlignmentCenter;
@@ -321,20 +325,20 @@
     if(IS_IPHONE_5)
     {
         tempLbl = [[UILabel alloc] initWithFrame:CGRectMake(271, 9, 41, 21)];
-        tempLbl.font = [UIFont fontWithName:@"ProximaNova-Regular" size:12.0];
+        tempLbl.font = regular12;
     }
     else if(IS_IPHONE_6P)
     {
         tempLbl = [[UILabel alloc] initWithFrame:CGRectMake(315, 12, 90, 40)];
-        tempLbl.font = [UIFont fontWithName:@"ProximaNova-Regular" size:15.0];
+        tempLbl.font = regular15;
         tempLbl.backgroundColor = [UIColor redColor];
     }else if (IS_IPHONE_4_OR_LESS){//Vikita
         tempLbl = [[UILabel alloc] initWithFrame:CGRectMake(242, 9, 71, 21)];
-        tempLbl.font = [UIFont fontWithName:@"ProximaNova-Regular" size:12.0];}
+        tempLbl.font = regular12;}
     else
     {
         tempLbl = [[UILabel alloc] initWithFrame:CGRectMake(308, 9, 41, 21)];
-        tempLbl.font = [UIFont fontWithName:@"ProximaNova-Regular" size:12.0];
+        tempLbl.font = regular12;
     }
     tempLbl.backgroundColor = [UIColor clearColor];
     tempLbl.text = [trip[@"temperature"][@"name"] uppercaseString];//[tempStr uppercaseString];
@@ -589,12 +593,12 @@
     
     cell.titleLabel.text = [gear[@"name"] uppercaseString];
     [self setItemStateVisualDisplay : cell : gear[@"tripGearStatus"]];
-    cell.titleLabel.font = [UIFont fontWithName:@"ProximaNova-Semibold" size:10.0];
+    cell.titleLabel.font = semibold10;;
     
     if(IS_IPHONE_6P){
         cell.titleLabel.font = [UIFont fontWithName:@"ProximaNova-Semibold" size:13.0];
     }else if (IS_IPHONE_5 || IS_IPHONE_6){
-        cell.titleLabel.font = [UIFont fontWithName:@"ProximaNova-Semibold" size:10.0];
+        cell.titleLabel.font = semibold10;
     }
     return cell;
 }
@@ -833,7 +837,7 @@
     lblUnPacked.text = @"Unpacked";
     lblUnPacked.textAlignment = NSTextAlignmentCenter;
     lblUnPacked.textColor = [UIColor whiteColor];
-    lblUnPacked.font = [UIFont fontWithName:@"ProximaNova-Regular" size:13.0];
+    lblUnPacked.font = regular13;
     [self.actView addSubview:lblUnPacked];
     
     if(IS_IPHONE_5)
@@ -847,7 +851,7 @@
     lblPacked.text = @"Packed";
     lblPacked.textAlignment = NSTextAlignmentCenter;
     lblPacked.textColor = [UIColor whiteColor];
-    lblPacked.font = [UIFont fontWithName:@"ProximaNova-Regular" size:13.0];
+    lblPacked.font = regular13;
     [self.actView addSubview:lblPacked];
     
     
@@ -862,7 +866,7 @@
     lblNeed.text = @"Need";
     lblNeed.textColor = [UIColor whiteColor];
     lblNeed.textAlignment = NSTextAlignmentCenter;
-    lblNeed.font = [UIFont fontWithName:@"ProximaNova-Regular" size:13.0];
+    lblNeed.font = regular13;
     [self.actView addSubview:lblNeed];
     
     if(IS_IPHONE_5)
@@ -876,7 +880,7 @@
     lblDelete.text = @"Delete";
     lblDelete.textColor = [UIColor whiteColor];
     lblDelete.textAlignment = NSTextAlignmentCenter;
-    lblDelete.font = [UIFont fontWithName:@"ProximaNova-Regular" size:13.0];
+    lblDelete.font = regular13;
     [self.actView addSubview:lblDelete];
     
     

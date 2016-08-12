@@ -22,6 +22,7 @@
     Reachability *internetReachability;
     UITapGestureRecognizer *tapGR;
     VikingDataManager *vikingDataManager;
+    UIFont *proximaLight15;
 }
 @end
 
@@ -36,24 +37,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    proximaLight15 = [UIFont fontWithName:@"ProximaNova-Light" size:15.0];
     vikingDataManager = [VikingDataManager sharedManager];
     
-    self.bottomLbl.font = [UIFont fontWithName:@"ProximaNova-Light" size:15.0];
+    self.bottomLbl.font = proximaLight15;//[UIFont fontWithName:@"ProximaNova-Light" size:15.0];
     self.betaLbl.font = [UIFont fontWithName:@"ProximaNova-Bold" size:16.0];
     
     tapGR = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(labelTapped:)];
     [self.scrollView addGestureRecognizer: tapGR];
-    
-    
-//    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"codebeautify" ofType:@"json"];
-//    NSData* data = [NSData dataWithContentsOfFile:filePath];
-//    NSError* error = nil;
-//    NSDictionary *result = [NSJSONSerialization JSONObjectWithData:data
-//                                                           options:kNilOptions error:&error];
-    
-    //NSArray *equip = result[@"GearList"][@"MainActivity"][@"SubActivity"][@"equipment_list"];
-    
-    //    NSLog(@"list - %@", equip);
     
     self.fbIndication.hidden = YES;
     
@@ -287,7 +278,7 @@
         postLabel.numberOfLines = 0.0;
         postLabel.tag = page;
         postLabel.textColor = [UIColor whiteColor];
-        postLabel.font = [UIFont fontWithName:@"ProximaNova-Light" size:15.0];
+        postLabel.font = proximaLight15;//[UIFont fontWithName:@"ProximaNova-Light" size:15.0];
         postLabel.text = [NSString stringWithFormat:@"@TheVikingApp \n %@", postsArray[page][@"announcement_txt"]];
         postLabel.backgroundColor = [UIColor clearColor];
         //        [postLabel addGestureRecognizer:tapGR];
