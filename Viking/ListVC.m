@@ -40,15 +40,13 @@
 
 @implementation ListVC
 
-@synthesize headerStr, isFromCreateTrip, myTripObj, currentIndex,listArray,activityListArray,totalIndex;//,activityDict,  ;
+@synthesize headerStr, isFromCreateTrip, myTripObj, currentIndex,listArray,activityListArray;//,totalIndex;//,activityDict,  ;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     vikingDataManager = [VikingDataManager sharedManager];
     
     NSDictionary *trip = [vikingDataManager getFullTripObject:_tripId];
-    NSLog(@"made it here");
-    
     //totalCount = 21;
     self.actionView.hidden = YES;
     self.actView.hidden = YES;
@@ -158,12 +156,10 @@
 
 -(void)calculatePercentageAndUpdate:(NSDictionary *)tripObject
 {
-    float totalItems = [listArray count];
-    float packedCount = 0;//TODO: fix this...//[fetchedObjects count];
-    NSLog(@"percentage - %f", packedCount/totalItems);
+    float percentagePacked = [vikingDataManager getPercentagePacked:self.tripId];
     
     LDProgressView *progressView = [[LDProgressView alloc] initWithFrame:CGRectMake(0, self.selectionView.frame.size.height, self.view.frame.size.width, 15)];
-    progressView.progress = 0;//packedCount/totalItems;
+    progressView.progress = percentagePacked;
     progressView.borderRadius = @0;
     progressView.animate = @NO;
     progressView.type = LDProgressSolid;

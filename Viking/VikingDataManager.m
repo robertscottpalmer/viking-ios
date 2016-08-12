@@ -215,10 +215,10 @@
     return fetchedObjects;
 }
 
--(NSDictionary *)getTrip:(NSString*)id{
+-(NSDictionary *)getTrip:(NSString*)tripId{
     //now limit the result set to our id.
     NSPredicate *predicate;
-    predicate = [NSPredicate predicateWithFormat:@"id=%@", id];
+    predicate = [NSPredicate predicateWithFormat:@"id=%@", tripId];
     NSArray *fetchedObjects = [self fetchManagedObjects:@"Trip" :predicate];
     NSManagedObject *storedTrip = fetchedObjects[0];
     NSMutableDictionary *toReturn = [[NSMutableDictionary alloc] init];
@@ -230,7 +230,7 @@
     return toReturn;
 }
 
--(NSDictionary *)getFullTripObject:(NSString*)id{
+-(NSDictionary *)getFullTripObject:(NSString*)tripId{
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     fetchRequest.returnsObjectsAsFaults = NO;
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Trip" inManagedObjectContext:managedContext];
@@ -238,7 +238,7 @@
     
     //now limit the result set to our id.
     NSPredicate *predicate;
-    predicate = [NSPredicate predicateWithFormat:@"id=%@", id];
+    predicate = [NSPredicate predicateWithFormat:@"id=%@", tripId];
     [fetchRequest setPredicate:predicate];
     
     NSError *error;
@@ -281,16 +281,31 @@
     return [targetTrip valueForKey:@"id"];
 }
 
+-(CGFloat)getPercentagePacked:(NSString*)tripId{
+    NSArray *allGear = [self getGearForTrip:tripId];
+    int currentIdx = 0;
+    int packedCount = 0;
+    int explicitlyExcludedCount = 0;
+    for (currentIdx = 0; currentIdx < [allGear count]; currentIdx++) {
+        id gearStatus = [allGear objectAtIndex:currentIdx];
+        if ([[gearStatus valueForKey:@"tripGearStatus"] isEqualToString:ITEM_STATE_PACKED]){
+            packedCount++;
+        }else if ([[gearStatus valueForKey:@"tripGearStatus"] isEqualToString:ITEM_STATE_EXPLICIT_DELETE]){
+            explicitlyExcludedCount++;
+        }
+    }
+    //TODO: there should be no need to explicitly convert every argument to a CGFloat, get efficient.
+    CGFloat retVal = ((CGFloat)packedCount)/((CGFloat)currentIdx - (CGFloat)explicitlyExcludedCount) ;
+    return retVal;
+}
+
 //It should be noted here that the "itemId" is actually assumed to be the id of the gearRecommendaton
 -(void)markItemState: (NSString*) itemState : (NSString *) gearRecommendationId : (NSString *) tripId{
-//    [self showAlert:@"Here is where we need to be focused now. we need to define if itemId is the suggestionId or if it is the gearId.  Basically, managing manual joins on query or on save"];
-//    NSArray *tripGear = [self getGearForTrip:tripId];
     NSPredicate *predicate;
     predicate = [NSPredicate predicateWithFormat:@"gearRecommendationId = %@", gearRecommendationId];
     NSArray *fetchedObjects = [self fetchManagedObjects:@"TripGear" :predicate];
     NSManagedObject *listStatus = nil;
     if ([fetchedObjects count] == 0){
-//        [self showAlert:[NSString stringWithFormat:@"Need to create the persistent object %@, %@, %@",itemState,gearRecommendationId,tripId]];
         listStatus = [NSEntityDescription insertNewObjectForEntityForName:@"TripGear" inManagedObjectContext:managedContext];
         NSString *uuid = [[NSUUID UUID] UUIDString];
         [listStatus setValue:uuid forKey:@"id"];
@@ -299,7 +314,6 @@
         listStatus = fetchedObjects[0];
     }
     [listStatus setValue:itemState forKey:@"tripGearStatus"];
-    //[self showAlert:[NSString stringWithFormat:@"markingItemState %@, %@, %@",itemState,gearRecommendationId,tripId]];
     NSError *error = nil;
     if (![managedContext save:&error]){
         //[self showAlert:[NSString stringWithFormat:@"Can't Save! %@ %@", error, [error localizedDescription]]];

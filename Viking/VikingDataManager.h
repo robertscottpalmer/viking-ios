@@ -52,8 +52,9 @@
 -(NSString *)createNewTrip: (NSString *)tripName :(NSDictionary *)userSelections;
 -(NSArray *)getMyTrips;
 -(NSArray *)getGearForTrip:(NSString *)tripId;
--(NSDictionary *)getTrip:(NSString*)id;
--(NSDictionary *)getFullTripObject:(NSString*)id;
+-(NSDictionary *)getTrip:(NSString*)tripId;
+-(NSDictionary *)getFullTripObject:(NSString*)tripId;
+-(CGFloat)getPercentagePacked:(NSString*)tripId;
 -(NSString *)getNeighboringTripId: (NSString*)currentId : (BOOL)goBackwards;
 -(void)markItemDeleted : (NSString *) itemId : (NSString *) tripId;
 -(void)markItemUnpacked : (NSString *) itemId : (NSString *) tripId;
