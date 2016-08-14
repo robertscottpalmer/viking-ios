@@ -85,7 +85,7 @@
 		574A3E1E1A7D0C08000B3A77 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		574D38B21ABC4D9D00FBF8EC /* MyActivityListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyActivityListCell.h; sourceTree = "<group>"; };
 		574D38B31ABC4D9D00FBF8EC /* MyActivityListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyActivityListCell.m; sourceTree = "<group>"; };
-		574EC60E1AB29C560095B40A /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		574EC60E1AB29C560095B40A /* Model.xcdatamodel */ = {isa = PBXFileReference; explicitFileType = wrapper.xcdatamodeld; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		5751873A1ADB97A8005A1507 /* ListCell_6.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListCell_6.xib; sourceTree = "<group>"; };
 		5752A0C01ABA8BB6003DA3D6 /* XMLDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLDictionary.h; sourceTree = "<group>"; };
 		5752A0C11ABA8BB6003DA3D6 /* XMLDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLDictionary.m; sourceTree = "<group>"; };

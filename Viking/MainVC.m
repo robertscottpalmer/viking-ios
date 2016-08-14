@@ -344,7 +344,12 @@
 
 -(void) labelTapped:(UITapGestureRecognizer *)gestureRecognizer
 {
-    [vikingDataManager showAlert:@"Not really certain what the desired functionality would be in this instance. Should we open a browser and bring them to viking site?"];
+    BOOL installed = [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"http://google.com"]];
+    if (installed){
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://google.com"]];
+    }else{
+        [vikingDataManager showAlert:@"There is not an application on your phone that we can use to display this content"];
+    }
 //    BOOL installed = [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"fb://"]];
 //    
 //    NSString *idStr = postsArray[self.pageControl.currentPage][@"id"];
