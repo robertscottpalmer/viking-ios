@@ -344,37 +344,13 @@
 
 -(void) labelTapped:(UITapGestureRecognizer *)gestureRecognizer
 {
-    BOOL installed = [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"http://google.com"]];
+    NSURL *neededURL = [NSURL URLWithString:[vikingDataManager getUrlToOpen:postsArray[self.pageControl.currentPage]]];
+    BOOL installed = [[UIApplication sharedApplication] canOpenURL:neededURL];
     if (installed){
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://google.com"]];
+        [[UIApplication sharedApplication] openURL:neededURL];
     }else{
         [vikingDataManager showAlert:@"There is not an application on your phone that we can use to display this content"];
     }
-//    BOOL installed = [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"fb://"]];
-//    
-//    NSString *idStr = postsArray[self.pageControl.currentPage][@"id"];
-//    NSArray *arr = [idStr componentsSeparatedByString:@"_"];
-//    NSString * firstString;
-//    NSString * secondString;
-//    if (arr)
-//    {
-//        firstString = [arr objectAtIndex:0];
-//        secondString = [arr objectAtIndex:1];
-//        NSLog(@"First String %@",firstString);
-//        NSLog(@"Second String %@",secondString);
-//    }
-//    if(installed)
-//    {
-//        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"fb://profile/%@", idStr]];
-//        [[UIApplication sharedApplication] openURL:url];
-//    }
-//    else
-//    {
-//        NSLog(@"%@",[NSString stringWithFormat:@"%@/posts/%@", strAppURL, secondString]);
-//        NSURL *fbURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/posts/%@", strAppURL, secondString]];
-//        NSLog(@"fburl - %@", fbURL);
-//        [[UIApplication sharedApplication] openURL:fbURL];
-//    }
 }
 
 

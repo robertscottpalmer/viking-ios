@@ -30,6 +30,14 @@
     // Should never be called, but just here for clarity really.
 }
 
+-(NSString *)getUrlToOpen:(NSDictionary *) postRecord{
+    if(postRecord[@"target_url"] != nil && [postRecord[@"target_url"] length] > 0){
+        return postRecord[@"target_url"];
+    }else{
+        return [NSString stringWithFormat:@"%@/public_announcements.php#announcement_%@",apiServer,postRecord[@"id"]];
+    }
+}
+
 -(void)showAlert: (NSString *) message {
     NSLog(@"message = %@",message);
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"DataMangerAlert" message:message delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Ok", nil] ;
@@ -47,10 +55,8 @@
     dispatch_async(queue, ^{
         // Perform async operation
         NSString *imagePath = [NSString stringWithFormat:@"%@/media/%@/%@/%@.png", apiServer, entityType, entityId,imageType];
-        //NSLog(@"Before call url for: %@",imagePath);
-        //NSLog(@"This is th crux of where a well-designed image serving api could score major points: %@",imagePath);
-        UIImage *internetActivityImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:imagePath]]];
-        //NSLog(@"after call url");
+//        UIImage *internetActivityImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:imagePath]]];
+        UIImage *internetActivityImage = [UIImage imageWithData:[self attemptCacheRetrieve:[NSURL URLWithString:imagePath]]];
         dispatch_sync(dispatch_get_main_queue(), ^{
             // Update UI
             if (internetActivityImage != nil){
@@ -332,6 +338,34 @@
 }
 -(void)markItemNeeded: (NSString *) itemId : (NSString*) tripId{
     [self markItemState:ITEM_STATE_NEEDED :itemId :tripId];
+}
+
+
+-(NSData *)attemptCacheRetrieve: (NSURL *) urlToCheck{
+    NSLog(@"checking %@",urlToCheck);
+    NSDate *now = [NSDate date];
+    NSPredicate *predicate;
+    predicate = [NSPredicate predicateWithFormat:@"urlOfData=%@", urlToCheck];
+    NSArray *fetchedObjects = [self fetchManagedObjects:@"CachedData" :predicate];
+    NSManagedObject *cachedData = nil;
+    NSData *freshData = nil;
+    [self showAlert:@"here is where we are attempting caching of data + new data models ++++"];
+    @try{
+        cachedData = fetchedObjects[0];
+        freshData = [cachedData valueForKey:@"data"];
+    }@catch(NSException *nre){
+        freshData = [NSData dataWithContentsOfURL:urlToCheck];
+    }
+    
+    if (cachedData == nil){
+        
+    }else if([cachedData valueForKey:@"lastRetrieved"] != nil){
+        NSTimeInterval secondsBetween = [[cachedData valueForKey:@"lastRetrieved"] timeIntervalSinceDate:now];
+        int numberOfDays = secondsBetween / 86400;
+        NSLog(@"There are %d days in between the two dates.", numberOfDays);
+    }
+    NSLog(@"NOte that we are always hitting the internets...Framework for caching is here.  just need to force it.");
+    return freshData;
 }
 
 

@@ -49,6 +49,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4E26E5071D613A8A006172F4 /* Model_1.0.0.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model_1.0.0.xcdatamodel; sourceTree = "<group>"; };
 		4E36FDB11D2C823E00392AEA /* AppConstant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppConstant.m; sourceTree = "<group>"; };
 		4E3FBF641D21E5D300E03C61 /* VikingDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VikingDataManager.h; sourceTree = "<group>"; };
 		4E3FBF651D21E60E00E03C61 /* VikingDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VikingDataManager.m; sourceTree = "<group>"; };
@@ -85,7 +86,7 @@
 		574A3E1E1A7D0C08000B3A77 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		574D38B21ABC4D9D00FBF8EC /* MyActivityListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyActivityListCell.h; sourceTree = "<group>"; };
 		574D38B31ABC4D9D00FBF8EC /* MyActivityListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyActivityListCell.m; sourceTree = "<group>"; };
-		574EC60E1AB29C560095B40A /* Model.xcdatamodel */ = {isa = PBXFileReference; explicitFileType = wrapper.xcdatamodeld; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		574EC60E1AB29C560095B40A /* Model.xcdatamodel */ = {isa = PBXFileReference; explicitFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		5751873A1ADB97A8005A1507 /* ListCell_6.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListCell_6.xib; sourceTree = "<group>"; };
 		5752A0C01ABA8BB6003DA3D6 /* XMLDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLDictionary.h; sourceTree = "<group>"; };
 		5752A0C11ABA8BB6003DA3D6 /* XMLDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLDictionary.m; sourceTree = "<group>"; };
@@ -594,6 +595,7 @@
 		574EC60D1AB29C560095B40A /* Model.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				4E26E5071D613A8A006172F4 /* Model_1.0.0.xcdatamodel */,
 				574EC60E1AB29C560095B40A /* Model.xcdatamodel */,
 			);
 			currentVersion = 574EC60E1AB29C560095B40A /* Model.xcdatamodel */;
