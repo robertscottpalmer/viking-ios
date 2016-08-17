@@ -342,29 +342,27 @@
 
 
 -(NSData *)attemptCacheRetrieve: (NSURL *) urlToCheck{
-    NSLog(@"checking %@",urlToCheck);
-    NSDate *now = [NSDate date];
-    NSPredicate *predicate;
-    predicate = [NSPredicate predicateWithFormat:@"urlOfData=%@", urlToCheck];
-    NSArray *fetchedObjects = [self fetchManagedObjects:@"CachedData" :predicate];
-    NSManagedObject *cachedData = nil;
-    NSData *freshData = nil;
-    NSLog(@"here is where we are attempting caching of data + new data models ++++");
-    @try{
-        cachedData = fetchedObjects[0];
-        freshData = [cachedData valueForKey:@"data"];
-    }@catch(NSException *nre){
-        freshData = [NSData dataWithContentsOfURL:urlToCheck];
+    NSString *base64EncodedUrl = [[urlToCheck dataRepresentation] base64EncodedStringWithOptions:0];
+    NSString *tmpCachePath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory,
+                                                          NSUserDomainMask,
+                                                          YES) lastObject];
+    NSString *cacheFileName = [NSString stringWithFormat:@"%@/%@",tmpCachePath,base64EncodedUrl];
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    if ([fileManager fileExistsAtPath:cacheFileName]){
+        NSLog(@"The file exists, no need to hit the internet");
+        NSDictionary *fileAttributes = [fileManager attributesOfItemAtPath:cacheFileName error:nil];
+        NSDate *cachedDate = fileAttributes[@"NSFileCreationDate"];
+        BOOL today = [[NSCalendar currentCalendar] isDateInToday:cachedDate];
+        if (today){
+            return [fileManager contentsAtPath:cacheFileName];
+        }
     }
-    
-    if (cachedData == nil){
-        
-    }else if([cachedData valueForKey:@"lastRetrieved"] != nil){
-        NSTimeInterval secondsBetween = [[cachedData valueForKey:@"lastRetrieved"] timeIntervalSinceDate:now];
-        int numberOfDays = secondsBetween / 86400;
-        NSLog(@"There are %d days in between the two dates.", numberOfDays);
+    //nothing was cached within the last day, so we will check the internet.
+    NSData *freshData = [NSData dataWithContentsOfURL:urlToCheck];
+    if (freshData != nil){
+            //TODO: do this as a background thread.
+            [freshData writeToFile:cacheFileName atomically:true];
     }
-    NSLog(@"NOte that we are always hitting the internets...Framework for caching is here.  just need to force it.");
     return freshData;
 }
 
