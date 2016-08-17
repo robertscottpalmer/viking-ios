@@ -349,7 +349,7 @@
     NSArray *fetchedObjects = [self fetchManagedObjects:@"CachedData" :predicate];
     NSManagedObject *cachedData = nil;
     NSData *freshData = nil;
-    [self showAlert:@"here is where we are attempting caching of data + new data models ++++"];
+    NSLog(@"here is where we are attempting caching of data + new data models ++++");
     @try{
         cachedData = fetchedObjects[0];
         freshData = [cachedData valueForKey:@"data"];
