@@ -116,44 +116,47 @@
 
 -(NSArray *)getActivityTypes{
     NSString *activityTypeApiCall = [NSString stringWithFormat:@"%@/%@", apiServer, @"main_activities.php"];
-    NSDictionary *allActivityDict = [NSDictionary dictionaryWithXMLData:[NSData dataWithContentsOfURL: [NSURL URLWithString:activityTypeApiCall]]];
+    NSData *potentiallyCachedData = [self attemptCacheRetrieve:[NSURL URLWithString:activityTypeApiCall]];
+    NSDictionary *allActivityDict = [NSDictionary dictionaryWithXMLData:potentiallyCachedData];
     NSArray *activityTypes = allActivityDict[@"ActivityType"];
     return activityTypes;
 }
 
 -(NSArray *)getActivitiesOfType:(NSInteger)activityTypeId{
-    //http://thevikingapp.local/activities_of_type.php?activityTypeId=3
     NSString *activityTypeApiCall = [NSString stringWithFormat:@"%@/%@?activityTypeId=%ld", apiServer, @"activities_of_type.php",(long)activityTypeId];
-    NSDictionary *allActivityDict = [NSDictionary dictionaryWithXMLData:[NSData dataWithContentsOfURL: [NSURL URLWithString:activityTypeApiCall]]];
+    NSData *potentiallyCachedData = [self attemptCacheRetrieve:[NSURL URLWithString:activityTypeApiCall]];
+    NSDictionary *allActivityDict = [NSDictionary dictionaryWithXMLData:potentiallyCachedData];
     NSArray *activities = allActivityDict[@"Activity"];
     return activities;
 }
 
 -(NSArray *)getDurationArr{
     NSString *durationApiCall = [NSString stringWithFormat:@"%@/%@", apiServer, @"durations.php"];
-    NSDictionary *allActivityDict = [NSDictionary dictionaryWithXMLData:[NSData dataWithContentsOfURL: [NSURL URLWithString:durationApiCall]]];
-    NSArray *durations = allActivityDict[@"Duration"];
+    NSData *potentiallyCachedData = [self attemptCacheRetrieve:[NSURL URLWithString:durationApiCall]];
+    NSDictionary *allDurationDict = [NSDictionary dictionaryWithXMLData:potentiallyCachedData];
+    NSArray *durations = allDurationDict[@"Duration"];
     return durations;
 }
 -(NSArray *)getTemperatureArr{
     NSString *temperatureApiCall = [NSString stringWithFormat:@"%@/%@", apiServer, @"temperatures.php"];
-    NSDictionary *allActivityDict = [NSDictionary dictionaryWithXMLData:[NSData dataWithContentsOfURL: [NSURL URLWithString:temperatureApiCall]]];
-    NSArray *temperatures = allActivityDict[@"Temperature"];
+    NSData *potentiallyCachedData = [self attemptCacheRetrieve:[NSURL URLWithString:temperatureApiCall]];
+    NSDictionary *allTemperatureDict = [NSDictionary dictionaryWithXMLData:potentiallyCachedData];
+    NSArray *temperatures = allTemperatureDict[@"Temperature"];
     return temperatures;
 }
 
 -(NSArray *)getMainViewMessages{
     NSString *announcementsApiCall = [NSString stringWithFormat:@"%@/%@", apiServer, @"announcements.php"];
-    NSDictionary *announcementDict = [NSDictionary dictionaryWithXMLData:[NSData dataWithContentsOfURL: [NSURL URLWithString:announcementsApiCall]]];
+    NSData *potentiallyCachedData = [self attemptCacheRetrieve:[NSURL URLWithString:announcementsApiCall]];
+    NSDictionary *announcementDict = [NSDictionary dictionaryWithXMLData:potentiallyCachedData];
     return announcementDict[@"Announcement"];
 }
 
 -(NSDictionary *)getSingleApiObject:(NSString*) entityType :(NSString*)id{
-    ///entityById.php?entityType=activity&entityId=1
-    //http://thevikingapp.local/activities_of_type.php?activityTypeId=3
     NSString *activityTypeApiCall = [NSString stringWithFormat:@"%@/%@?entityType=%@&entityId=%@", apiServer, @"entityById.php",entityType,id];
     NSLog(@"Calling API : %@",activityTypeApiCall);
-    NSDictionary *objectDict = [NSDictionary dictionaryWithXMLData:[NSData dataWithContentsOfURL: [NSURL URLWithString:activityTypeApiCall]]];
+    NSData *potentiallyCachedData = [self attemptCacheRetrieve:[NSURL URLWithString:activityTypeApiCall]];
+    NSDictionary *objectDict = [NSDictionary dictionaryWithXMLData:potentiallyCachedData];
     NSDictionary *requestedObject = objectDict[@"Entity"];
     return requestedObject;
 }
