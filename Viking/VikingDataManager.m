@@ -66,6 +66,7 @@
     dispatch_async(queue, ^{
         // Perform async operation
         NSString *imagePath = [NSString stringWithFormat:@"%@/media/%@/%@/%@.png", apiServer, entityType, entityId,imageType];
+        NSLog(@"trying to retrieve %@",imagePath);
         UIImage *internetActivityImage = [UIImage imageWithData:[self attemptCacheRetrieve:[NSURL URLWithString:imagePath]]];
         dispatch_sync(dispatch_get_main_queue(), ^{
             // Update UI

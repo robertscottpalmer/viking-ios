@@ -135,7 +135,7 @@
     listArray = [vikingDataManager getGearForTrip:self.tripId];
     [self.collectionView reloadData];
     [self setUpheader:trip];
-        self.scrlView.contentSize = CGSizeMake(self.view.frame.size.width, self.collectionView.contentSize.height + self.headerView.frame.size.height);
+    self.scrlView.contentSize = CGSizeMake(self.view.frame.size.width, self.collectionView.contentSize.height + self.headerView.frame.size.height);
     
      self.scrlView.contentSize = CGSizeMake(self.view.frame.size.width, 1000);
     
@@ -151,11 +151,13 @@
     self.BtnRight.hidden = isFromCreateTrip;
     self.rightImgView.hidden = isFromCreateTrip;
     self.leftImgView.hidden = isFromCreateTrip;
-    [vikingDataManager loadSubActivityHorizontalBackground:self.headerBGView :tripObject[@"activity"][@"id"]];
-    self.headerLbl.text = @"Header Label Text";
-    self.activityNameLbl.text = [tripObject[@"name"] capitalizedString];
-    [self createSelectionView:tripObject inView:self.collectionListsView];
-    [self calculatePercentageAndUpdate:tripObject];
+    if (tripObject[@"activity"][@"id"] != nil){
+        [vikingDataManager loadSubActivityHorizontalBackground:self.headerBGView :tripObject[@"activity"][@"id"]];
+        self.headerLbl.text = @"Header Label Text";
+        self.activityNameLbl.text = [tripObject[@"name"] capitalizedString];
+        [self createSelectionView:tripObject inView:self.collectionListsView];
+        [self calculatePercentageAndUpdate:tripObject];
+    }
 }
 
 -(void)calculatePercentageAndUpdate:(NSDictionary *)tripObject
