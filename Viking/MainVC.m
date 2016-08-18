@@ -3,7 +3,6 @@
 //  Viking
 
 #import "MainVC.h"
-#import <QuartzCore/QuartzCore.h>
 #import <MessageUI/MessageUI.h>
 #import "AppConstant.h"
 #import "Reachability.h"

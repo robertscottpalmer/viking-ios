@@ -18,7 +18,6 @@
 		57391BDC1A775B78004963F4 /* ActivityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 57391BDB1A775B78004963F4 /* ActivityCell.m */; };
 		57391BDF1A775D36004963F4 /* NewTripVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 57391BDE1A775D36004963F4 /* NewTripVC.m */; };
 		57391BE21A775D4C004963F4 /* MainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 57391BE11A775D4C004963F4 /* MainVC.m */; };
-		57391BE41A7766BD004963F4 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57391BE31A7766BD004963F4 /* QuartzCore.framework */; };
 		57391BE71A7794C1004963F4 /* CreateTripVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 57391BE61A7794C1004963F4 /* CreateTripVC.m */; };
 		573CBAC11AD2AAA5009B8630 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 573CBAC01AD2AAA5009B8630 /* MBProgressHUD.m */; };
 		573EDF891AD63DEE00732F35 /* ListCell_6P.xib in Resources */ = {isa = PBXBuildFile; fileRef = 573EDF881AD63DEE00732F35 /* ListCell_6P.xib */; };
@@ -71,7 +70,6 @@
 		57391BDE1A775D36004963F4 /* NewTripVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewTripVC.m; sourceTree = "<group>"; };
 		57391BE01A775D4C004963F4 /* MainVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainVC.h; sourceTree = "<group>"; };
 		57391BE11A775D4C004963F4 /* MainVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainVC.m; sourceTree = "<group>"; };
-		57391BE31A7766BD004963F4 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		57391BE51A7794C1004963F4 /* CreateTripVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateTripVC.h; sourceTree = "<group>"; };
 		57391BE61A7794C1004963F4 /* CreateTripVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateTripVC.m; sourceTree = "<group>"; };
 		573CBABF1AD2AAA5009B8630 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
@@ -124,7 +122,6 @@
 				4E632B5B1D1F68BB00BBE023 /* ImageIO.framework in Frameworks */,
 				578999BE1ADBC71D00B6CB5D /* UIKit.framework in Frameworks */,
 				574A3E1F1A7D0C08000B3A77 /* MessageUI.framework in Frameworks */,
-				57391BE41A7766BD004963F4 /* QuartzCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,7 +134,6 @@
 				4E632B5A1D1F68BB00BBE023 /* ImageIO.framework */,
 				578999BD1ADBC71D00B6CB5D /* UIKit.framework */,
 				574A3E1E1A7D0C08000B3A77 /* MessageUI.framework */,
-				57391BE31A7766BD004963F4 /* QuartzCore.framework */,
 				57391BB31A774B7E004963F4 /* Viking */,
 				57391BCD1A774B7E004963F4 /* VikingTests */,
 				57391BB21A774B7E004963F4 /* Products */,
