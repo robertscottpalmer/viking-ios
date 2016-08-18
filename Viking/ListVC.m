@@ -614,23 +614,20 @@
     
     if(![indexArray containsObject:listArray[indexPath.row]])
     {
-//        [indexArray addObject:indexPath];
         [indexArray addObject:listArray[indexPath.row]];
         self.actView.hidden = NO;
         CGRect actionViewRect;
-        if(IS_IPHONE_6P)
+        if(IS_IPHONE_6P){
             actionViewRect = CGRectMake(0, self.view.frame.size.height - 101, self.view.frame.size.width, 101);
-        else
+        }else{
             actionViewRect = CGRectMake(0, self.view.frame.size.height - 70, self.view.frame.size.width, 70);
+        }
         [self createActionView:actionViewRect];
     }
     else
     {
         [indexArray removeObject:listArray[indexPath.row]];
         NSManagedObject *obj = listArray[indexPath.row];
-        
-        //cell.hexImege.image = [UIImage imageNamed:[obj valueForKey:@"image"]];
-        //cell.titleLabel.text = [[obj valueForKey:@"equipment"] uppercaseString];
         NSLog(@"Here is more copy/pasted 'logic' to control the hexagon color");
         if([[obj valueForKey:@"image"] isEqualToString:@"hexa_gray"])
         {
@@ -648,27 +645,18 @@
         {
             self.actView.hidden = NO;
             CGRect actionViewRect;
-            if(IS_IPHONE_6P)
+            if(IS_IPHONE_6P){
                 actionViewRect = CGRectMake(0, self.view.frame.size.height - 101, self.view.frame.size.width, 101);
-            else
+            }
+            else{
                 actionViewRect = CGRectMake(0, self.view.frame.size.height - 70, self.view.frame.size.width, 70);
+            }
 
             [self createActionView:actionViewRect];
         }
     }
-    
-    
-    
-//    CGRect actionViewRect = CGRectMake(0, self.view.frame.size.height - 70, self.view.frame.size.width, 70);
-//    [self createActionView:actionViewRect];
-    
-
     self.isReset = NO;
-//    self.isDeleted = NO;
     self.selectedIndexPath = indexPath;
-
-    NSLog(@"selected index - %ld", (long)indexPath.row);
-    NSLog(@"selected indexes - %@", indexArray);
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
@@ -678,16 +666,16 @@
     {
 //               self.scrlView.contentOffset = CGPointMake(self.view.frame.origin.x, -yVelocity);
         
-        NSLog(@"Up");
+//        NSLog(@"Up");
         self.isScrollUp = YES;
         
         self.collectionView.scrollEnabled = YES;
         self.actView.hidden = YES;
         
-        NSLog(@"content size - %@", NSStringFromCGSize(self.collectionView.contentSize));
+//        NSLog(@"content size - %@", NSStringFromCGSize(self.collectionView.contentSize));
         self.scrlView.contentSize = CGSizeMake(self.view.frame.size.width, self.collectionView.contentSize.height + self.headerView.frame.size.height+70);
         
-        NSLog(@"self.scrlView content size - %@", NSStringFromCGSize(self.scrlView.contentSize));
+//        NSLog(@"self.scrlView content size - %@", NSStringFromCGSize(self.scrlView.contentSize));
         
         CGRect collectionlistViewFrame = self.collectionListsView.frame;
         collectionlistViewFrame.size.height = self.scrlView.contentSize.height;
@@ -697,13 +685,13 @@
         self.collectionView.frame = collRect;
         self.collectionView.backgroundColor = [UIColor clearColor];
         
-        NSLog(@"coll view size - %@", NSStringFromCGRect(self.collectionView.frame));
-        NSLog(@"coll list view size - %@", NSStringFromCGRect(self.collectionListsView.frame));
+//        NSLog(@"coll view size - %@", NSStringFromCGRect(self.collectionView.frame));
+//        NSLog(@"coll list view size - %@", NSStringFromCGRect(self.collectionListsView.frame));
     }
     else
     {
         self.isScrollUp = NO;
-        NSLog(@"Down");
+//        NSLog(@"Down");
     }
 
 }

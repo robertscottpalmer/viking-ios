@@ -193,22 +193,22 @@
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 }
 
-#pragma mark - GlobalProgressHUD
-#pragma mark
-
-+(MBProgressHUD *)showGlobalProgressHudwithTitle:(NSString *)title
-{
-    UIWindow *window = [[[UIApplication sharedApplication] windows] lastObject];
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:window animated:YES];
-    hud.labelText = title;
-    return hud;
-}
-
-+(void)hideGlobalHUD
-{
-    UIWindow *window = [[[UIApplication sharedApplication] windows] lastObject];
-    [MBProgressHUD hideHUDForView:window animated:YES];
-}
+//#pragma mark - GlobalProgressHUD
+//#pragma mark
+//
+//+(MBProgressHUD *)showGlobalProgressHudwithTitle:(NSString *)title
+//{
+//    UIWindow *window = [[[UIApplication sharedApplication] windows] lastObject];
+//    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:window animated:YES];
+//    hud.labelText = title;
+//    return hud;
+//}
+//
+//+(void)hideGlobalHUD
+//{
+//    UIWindow *window = [[[UIApplication sharedApplication] windows] lastObject];
+//    [MBProgressHUD hideHUDForView:window animated:YES];
+//}
 
 
 @end

@@ -5,7 +5,6 @@
 //
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
-#import "MBProgressHUD.h"
 #import "AppConstant.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
@@ -19,8 +18,8 @@
 
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
-+(MBProgressHUD *)showGlobalProgressHudwithTitle:(NSString *)title;
-+(void)hideGlobalHUD;
+//+(MBProgressHUD *)showGlobalProgressHudwithTitle:(NSString *)title;
+//+(void)hideGlobalHUD;
 
 
 

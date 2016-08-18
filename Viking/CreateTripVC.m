@@ -45,7 +45,7 @@
     
     vikingDataManager = [VikingDataManager sharedManager];
     
-    [AppDelegate hideGlobalHUD];
+    //[AppDelegate hideGlobalHUD];
     
     self.mainHeaderLbl.font = light18;
     self.activityHeaderLbl.font = bold15;
@@ -81,7 +81,7 @@
     
     [self setHeaderBackground];
     
-    [AppDelegate hideGlobalHUD];
+    //[AppDelegate hideGlobalHUD];
 }
 
 -(void)setHeaderBackground

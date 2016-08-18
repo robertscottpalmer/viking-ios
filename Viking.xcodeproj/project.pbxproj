@@ -19,7 +19,6 @@
 		57391BDF1A775D36004963F4 /* NewTripVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 57391BDE1A775D36004963F4 /* NewTripVC.m */; };
 		57391BE21A775D4C004963F4 /* MainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 57391BE11A775D4C004963F4 /* MainVC.m */; };
 		57391BE71A7794C1004963F4 /* CreateTripVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 57391BE61A7794C1004963F4 /* CreateTripVC.m */; };
-		573CBAC11AD2AAA5009B8630 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 573CBAC01AD2AAA5009B8630 /* MBProgressHUD.m */; };
 		573EDF891AD63DEE00732F35 /* ListCell_6P.xib in Resources */ = {isa = PBXBuildFile; fileRef = 573EDF881AD63DEE00732F35 /* ListCell_6P.xib */; };
 		574A3E171A7CA0AD000B3A77 /* LDProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 574A3E141A7CA0AD000B3A77 /* LDProgressView.m */; };
 		574A3E181A7CA0AD000B3A77 /* UIColor+RGBValues.m in Sources */ = {isa = PBXBuildFile; fileRef = 574A3E161A7CA0AD000B3A77 /* UIColor+RGBValues.m */; };
@@ -72,8 +71,6 @@
 		57391BE11A775D4C004963F4 /* MainVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainVC.m; sourceTree = "<group>"; };
 		57391BE51A7794C1004963F4 /* CreateTripVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateTripVC.h; sourceTree = "<group>"; };
 		57391BE61A7794C1004963F4 /* CreateTripVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateTripVC.m; sourceTree = "<group>"; };
-		573CBABF1AD2AAA5009B8630 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
-		573CBAC01AD2AAA5009B8630 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		573EDF881AD63DEE00732F35 /* ListCell_6P.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListCell_6P.xib; sourceTree = "<group>"; };
 		574A3E131A7CA0AD000B3A77 /* LDProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDProgressView.h; sourceTree = "<group>"; };
 		574A3E141A7CA0AD000B3A77 /* LDProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDProgressView.m; sourceTree = "<group>"; };
@@ -202,15 +199,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		573CBABE1AD2AA3A009B8630 /* MBProgressHUD */ = {
-			isa = PBXGroup;
-			children = (
-				573CBABF1AD2AAA5009B8630 /* MBProgressHUD.h */,
-				573CBAC01AD2AAA5009B8630 /* MBProgressHUD.m */,
-			);
-			name = MBProgressHUD;
-			sourceTree = "<group>";
-		};
 		574A3E121A7CA09C000B3A77 /* Progress View */ = {
 			isa = PBXGroup;
 			children = (
@@ -291,7 +279,6 @@
 		575AD7A61A7B84A300C216CF /* APIs */ = {
 			isa = PBXGroup;
 			children = (
-				573CBABE1AD2AA3A009B8630 /* MBProgressHUD */,
 				5752B04D1ABFD76F0070D2EE /* Reachability */,
 				5752A0BF1ABA8BA3003DA3D6 /* XML Parser */,
 				574A3E121A7CA09C000B3A77 /* Progress View */,
@@ -404,7 +391,6 @@
 				57391BE21A775D4C004963F4 /* MainVC.m in Sources */,
 				575AD79A1A7B43AE00C216CF /* DurationTableCell.m in Sources */,
 				57391BB71A774B7E004963F4 /* main.m in Sources */,
-				573CBAC11AD2AAA5009B8630 /* MBProgressHUD.m in Sources */,
 				574EC60F1AB29C560095B40A /* Model.xcdatamodeld in Sources */,
 				5752B0531ABFD7EA0070D2EE /* Reachability.m in Sources */,
 				57391BE71A7794C1004963F4 /* CreateTripVC.m in Sources */,

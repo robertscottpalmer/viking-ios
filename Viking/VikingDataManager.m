@@ -317,7 +317,6 @@
         }
     }
     //TODO: there should be no need to explicitly convert every argument to a CGFloat, get efficient.
-    NSLog(@"packed %d, currentIdx %d, explicitlyExcluded %d",packedCount,currentIdx,explicitlyExcludedCount);
     CGFloat retVal = ((CGFloat)packedCount)/(CGFloat)(currentIdx - explicitlyExcludedCount) ;
     return retVal;
 }
@@ -364,12 +363,12 @@
                                                           YES) lastObject];
     NSString *cacheFileName = [NSString stringWithFormat:@"%@/%@",tmpCachePath,base64EncodedUrl];
     NSFileManager *fileManager = [NSFileManager defaultManager];
-    NSLog(@"Checking internet connectivity");
+    //NSLog(@"Checking internet connectivity");
     BOOL hazInternets = [self hazInternetConnection];
-    NSLog(@"Done Checking internet connectivity");
+    //NSLog(@"Done Checking internet connectivity");
     NSData *freshData = nil;
     if ([fileManager fileExistsAtPath:cacheFileName]){
-        NSLog(@"The file exists, no need to hit the internet");
+        //NSLog(@"The file exists, no need to hit the internet");
         NSDictionary *fileAttributes = [fileManager attributesOfItemAtPath:cacheFileName error:nil];
         NSDate *cachedDate = fileAttributes[@"NSFileCreationDate"];
         BOOL today = [[NSCalendar currentCalendar] isDateInToday:cachedDate];
