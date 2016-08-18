@@ -45,61 +45,16 @@
     
     tapGR = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(labelTapped:)];
     [self.scrollView addGestureRecognizer: tapGR];
-    
-    self.fbIndication.hidden = YES;
-    
-    self.facebookPostView.hidden = YES;
-    internetReachability = [Reachability reachabilityForInternetConnection];
-    NetworkStatus internetStatus = [internetReachability currentReachabilityStatus];
-    switch (internetStatus)
-    {
-        case NotReachable:
-        {
-            NSLog(@"The internet is down.");
-            //            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"" message:@"No internet available." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-            //            [alert show];
-            break;
-        }
-        case ReachableViaWiFi:
-        {
-            [self facebookPostCall];
-            break;
-        }
-        case ReachableViaWWAN:
-        {
-            [self facebookPostCall];
-            break;
-        }
-    }
-    
-    
-    //    UIVisualEffect *blurEffect;
-    //    blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
-    //
-    //    UIVisualEffectView *visualEffectView;
-    //    visualEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
-    //
-    //    visualEffectView.layer.cornerRadius = 65.0f;
-    //    visualEffectView.layer.masksToBounds = YES;
-    //
-    //    visualEffectView.frame = self.tripNewImage.frame;
-    //    [self.view addSubview:visualEffectView];
-    //
-    //    [self.view bringSubviewToFront:self.tripNewImage];
+    [self facebookPostCall];
 }
 
 -(void)facebookPostCall
 {
-    
+    self.fbIndication.hidden = YES;
+    self.facebookPostView.hidden = YES;
     self.facebookPostView.hidden = NO;
-//    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://graph.facebook.com/oauth/access_token?client_id=%@&client_secret=%@&grant_type=client_credentials",FB_APP_ID, FB_SECRET_KEY]]];
-    
-    // Create url connection and fire request
-    //NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:request delegate:self];
     [self getFacebookPosts];
     // Do any additional setup after loading the view.
-    
-    
 }
 
 -(IBAction)featuredListClicked:(id)sender
