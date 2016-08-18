@@ -10,12 +10,14 @@
 #import <UIKit/UIKit.h>
 #import "XMLDictionary.h"
 #import "AppConstant.h"
+#import "Reachability.h"
 @import CoreData;
 
 #ifndef ImageManager_h
 #define ImageManager_h
 
 @interface VikingDataManager : NSObject {
+    Reachability *internetReachability;
 }
 
 @property (nonatomic, retain) NSString *apiServer;

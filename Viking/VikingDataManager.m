@@ -1,4 +1,6 @@
 #import "VikingDataManager.h"
+
+
 @implementation VikingDataManager
 
 @synthesize apiServer,managedContext;
@@ -25,6 +27,15 @@
     }
     return self;
 }
+
+// Checks if we have an internet connection or not
+- (BOOL)hazInternetConnection
+{
+    internetReachability = [Reachability reachabilityWithHostName:apiServer];
+    NetworkStatus internetStatus = [internetReachability currentReachabilityStatus];
+    return internetStatus != NotReachable;
+}
+
 
 - (void)dealloc {
     // Should never be called, but just here for clarity really.
@@ -55,7 +66,6 @@
     dispatch_async(queue, ^{
         // Perform async operation
         NSString *imagePath = [NSString stringWithFormat:@"%@/media/%@/%@/%@.png", apiServer, entityType, entityId,imageType];
-//        UIImage *internetActivityImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:imagePath]]];
         UIImage *internetActivityImage = [UIImage imageWithData:[self attemptCacheRetrieve:[NSURL URLWithString:imagePath]]];
         dispatch_sync(dispatch_get_main_queue(), ^{
             // Update UI
@@ -348,17 +358,20 @@
                                                           YES) lastObject];
     NSString *cacheFileName = [NSString stringWithFormat:@"%@/%@",tmpCachePath,base64EncodedUrl];
     NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSLog(@"Checking internet connectivity");
+    BOOL hazInternets = [self hazInternetConnection];
+    NSLog(@"Done Checking internet connectivity");
     if ([fileManager fileExistsAtPath:cacheFileName]){
         NSLog(@"The file exists, no need to hit the internet");
         NSDictionary *fileAttributes = [fileManager attributesOfItemAtPath:cacheFileName error:nil];
         NSDate *cachedDate = fileAttributes[@"NSFileCreationDate"];
         BOOL today = [[NSCalendar currentCalendar] isDateInToday:cachedDate];
-        if (today){
+        if (today || !hazInternets){
             return [fileManager contentsAtPath:cacheFileName];
         }
     }
-    //nothing was cached within the last day, so we will check the internet.
-    NSData *freshData = [NSData dataWithContentsOfURL:urlToCheck];
+    //nothing was cached within the last day, so we will check the internet (if possible).
+    NSData *freshData = hazInternets ? [NSData dataWithContentsOfURL:urlToCheck] : nil;
     if (freshData != nil){
             //TODO: do this as a background thread.
             [freshData writeToFile:cacheFileName atomically:true];

@@ -11,7 +11,7 @@
 
 @interface AppDelegate ()
 {
-    Reachability *internetReachability;
+    //Reachability *internetReachability;
 }
 
 @end
@@ -61,28 +61,6 @@
         
     }
     
-    internetReachability = [Reachability reachabilityForInternetConnection];
-    NetworkStatus internetStatus = [internetReachability currentReachabilityStatus];
-    switch (internetStatus)
-    {
-        case NotReachable:
-        {
-            NSLog(@"The internet is down.");
-//            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"" message:@"No internet available." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-//            [alert show];
-            break;
-        }
-        case ReachableViaWiFi:
-        {
-            [self checkForFile];
-            break;
-        }
-        case ReachableViaWWAN:
-        {
-            [self checkForFile];
-            break;
-        }
-    }
     self.window.rootViewController = [mainStoryboard instantiateInitialViewController];
     
     [self.window makeKeyAndVisible];
