@@ -114,49 +114,52 @@
 
 /**From here down are true data management tasks**/
 
+-(NSDictionary *)getPotentiallyCachedDictionary:(NSString *) apiCall{
+    NSData *potentiallyCachedData = [self attemptCacheRetrieve:[NSURL URLWithString:apiCall]];
+    return [NSDictionary dictionaryWithXMLData:potentiallyCachedData];
+}
+
 -(NSArray *)getActivityTypes{
     NSString *activityTypeApiCall = [NSString stringWithFormat:@"%@/%@", apiServer, @"main_activities.php"];
-    NSData *potentiallyCachedData = [self attemptCacheRetrieve:[NSURL URLWithString:activityTypeApiCall]];
-    NSDictionary *allActivityDict = [NSDictionary dictionaryWithXMLData:potentiallyCachedData];
+    NSDictionary *allActivityDict = [self getPotentiallyCachedDictionary:activityTypeApiCall];
     NSArray *activityTypes = allActivityDict[@"ActivityType"];
     return activityTypes;
 }
 
 -(NSArray *)getActivitiesOfType:(NSInteger)activityTypeId{
     NSString *activityTypeApiCall = [NSString stringWithFormat:@"%@/%@?activityTypeId=%ld", apiServer, @"activities_of_type.php",(long)activityTypeId];
-    NSData *potentiallyCachedData = [self attemptCacheRetrieve:[NSURL URLWithString:activityTypeApiCall]];
-    NSDictionary *allActivityDict = [NSDictionary dictionaryWithXMLData:potentiallyCachedData];
+    NSDictionary *allActivityDict = [self getPotentiallyCachedDictionary:activityTypeApiCall];
     NSArray *activities = allActivityDict[@"Activity"];
     return activities;
 }
 
 -(NSArray *)getDurationArr{
     NSString *durationApiCall = [NSString stringWithFormat:@"%@/%@", apiServer, @"durations.php"];
-    NSData *potentiallyCachedData = [self attemptCacheRetrieve:[NSURL URLWithString:durationApiCall]];
-    NSDictionary *allDurationDict = [NSDictionary dictionaryWithXMLData:potentiallyCachedData];
+    //NSData *potentiallyCachedData = [self attemptCacheRetrieve:[NSURL URLWithString:durationApiCall]];
+    NSDictionary *allDurationDict = [self getPotentiallyCachedDictionary:durationApiCall];
     NSArray *durations = allDurationDict[@"Duration"];
     return durations;
 }
 -(NSArray *)getTemperatureArr{
     NSString *temperatureApiCall = [NSString stringWithFormat:@"%@/%@", apiServer, @"temperatures.php"];
-    NSData *potentiallyCachedData = [self attemptCacheRetrieve:[NSURL URLWithString:temperatureApiCall]];
-    NSDictionary *allTemperatureDict = [NSDictionary dictionaryWithXMLData:potentiallyCachedData];
+    //NSData *potentiallyCachedData = [self attemptCacheRetrieve:[NSURL URLWithString:temperatureApiCall]];
+    NSDictionary *allTemperatureDict = [self getPotentiallyCachedDictionary:temperatureApiCall];
     NSArray *temperatures = allTemperatureDict[@"Temperature"];
     return temperatures;
 }
 
 -(NSArray *)getMainViewMessages{
     NSString *announcementsApiCall = [NSString stringWithFormat:@"%@/%@", apiServer, @"announcements.php"];
-    NSData *potentiallyCachedData = [self attemptCacheRetrieve:[NSURL URLWithString:announcementsApiCall]];
-    NSDictionary *announcementDict = [NSDictionary dictionaryWithXMLData:potentiallyCachedData];
+   // NSData *potentiallyCachedData = [self attemptCacheRetrieve:[NSURL URLWithString:announcementsApiCall]];
+    NSDictionary *announcementDict = [self getPotentiallyCachedDictionary:announcementsApiCall];//[NSDictionary dictionaryWithXMLData:potentiallyCachedData];
     return announcementDict[@"Announcement"];
 }
 
 -(NSDictionary *)getSingleApiObject:(NSString*) entityType :(NSString*)id{
-    NSString *activityTypeApiCall = [NSString stringWithFormat:@"%@/%@?entityType=%@&entityId=%@", apiServer, @"entityById.php",entityType,id];
-    NSLog(@"Calling API : %@",activityTypeApiCall);
-    NSData *potentiallyCachedData = [self attemptCacheRetrieve:[NSURL URLWithString:activityTypeApiCall]];
-    NSDictionary *objectDict = [NSDictionary dictionaryWithXMLData:potentiallyCachedData];
+    NSString *singleEntityApiCall = [NSString stringWithFormat:@"%@/%@?entityType=%@&entityId=%@", apiServer, @"entityById.php",entityType,id];
+    //NSLog(@"Calling API : %@",activityTypeApiCall);
+    //NSData *potentiallyCachedData = [self attemptCacheRetrieve:[NSURL URLWithString:activityTypeApiCall]];
+    NSDictionary *objectDict = [self getPotentiallyCachedDictionary:singleEntityApiCall];
     NSDictionary *requestedObject = objectDict[@"Entity"];
     return requestedObject;
 }
@@ -364,17 +367,20 @@
     NSLog(@"Checking internet connectivity");
     BOOL hazInternets = [self hazInternetConnection];
     NSLog(@"Done Checking internet connectivity");
+    NSData *freshData = nil;
     if ([fileManager fileExistsAtPath:cacheFileName]){
         NSLog(@"The file exists, no need to hit the internet");
         NSDictionary *fileAttributes = [fileManager attributesOfItemAtPath:cacheFileName error:nil];
         NSDate *cachedDate = fileAttributes[@"NSFileCreationDate"];
         BOOL today = [[NSCalendar currentCalendar] isDateInToday:cachedDate];
-        if (today || !hazInternets){
+        if (today){
             return [fileManager contentsAtPath:cacheFileName];
+        }else if (hazInternets){
+            freshData = [fileManager contentsAtPath:cacheFileName];
         }
     }
     //nothing was cached within the last day, so we will check the internet (if possible).
-    NSData *freshData = hazInternets ? [NSData dataWithContentsOfURL:urlToCheck] : nil;
+    freshData = hazInternets ? [NSData dataWithContentsOfURL:urlToCheck] : freshData;
     if (freshData != nil){
             //TODO: do this as a background thread.
             [freshData writeToFile:cacheFileName atomically:true];
