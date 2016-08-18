@@ -1,10 +1,6 @@
 //
 //  MainVC.m
 //  Viking
-//
-//  Created by macmini08 on 27/01/15.
-//  Copyright (c) 2015 Space O Technology. All rights reserved.
-//
 
 #import "MainVC.h"
 #import <QuartzCore/QuartzCore.h>
@@ -15,11 +11,8 @@
 
 @interface MainVC ()<MFMailComposeViewControllerDelegate>
 {
-    NSMutableData *_responseData;
+    
     NSMutableArray *postsArray;
-    NSString *strAppID;
-    NSString *strAppURL;
-    Reachability *internetReachability;
     UITapGestureRecognizer *tapGR;
     VikingDataManager *vikingDataManager;
     UIFont *proximaLight15;
@@ -62,53 +55,6 @@
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"This feature not available yet. Check back soon." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
     [alert show];
 }
-
-
-#pragma mark NSURLConnection Delegate Methods
-
-- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
-    // A response has been received, this is where we initialize the instance var you created
-    // so that we can append data to it in the didReceiveData method
-    // Furthermore, this method is called each time there is a redirect so reinitializing it
-    // also serves to clear it
-    _responseData = [[NSMutableData alloc] init];
-}
-
-- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
-    // Append the new data to the instance variable you declared
-    [_responseData appendData:data];
-    NSString *responseStr = [[NSString alloc] initWithData:_responseData encoding:NSUTF8StringEncoding];
-    NSLog(@"resposne - %@", responseStr);
-    
-    NSString *access_token;
-    NSRange access_token_range = [responseStr rangeOfString:@"access_token="];
-    if (access_token_range.length > 0) {
-        int from_index = (int)access_token_range.location + (int)access_token_range.length;
-        access_token = [responseStr substringFromIndex:from_index];
-        
-        NSLog(@"access_token:  %@", access_token);
-    }
-    [self getFacebookPosts];
-}
-
-- (NSCachedURLResponse *)connection:(NSURLConnection *)connection
-                  willCacheResponse:(NSCachedURLResponse*)cachedResponse {
-    // Return nil to indicate not necessary to store a cached response for this connection
-    return nil;
-}
-
-- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
-    // The request is complete and data has been received
-    // You can parse the stuff in your instance variable now
-    
-}
-
-- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
-    // The request has failed for some reason!
-    // Check the error var
-}
-
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -179,12 +125,6 @@
 {
     self.fbIndication.hidden = NO;
     [self.fbIndication startAnimating];
-    
-//    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
-//                            @"dummy", @"access_token",
-//                            nil
-//                            ];
-    ;
     NSArray *somePosts = [vikingDataManager getMainViewMessages];
     postsArray = [[NSMutableArray alloc] init];
     [postsArray addObjectsFromArray:somePosts];
@@ -308,16 +248,5 @@
     }
 }
 
-
-
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
 
 @end
