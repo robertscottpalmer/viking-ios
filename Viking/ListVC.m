@@ -390,170 +390,64 @@
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-    
+    if(buttonIndex == 1) //user wishes to proceed.
+    {
     if(alertView.tag == 1001)
     {
-        if(buttonIndex == 1)
-        {
             UITextField * alertTextField = [alertView textFieldAtIndex:0];
+        [vikingDataManager addCustomItemToTripList:self.tripId :alertTextField.text];
             NSLog(@"alerttextfiled - %@",alertTextField.text);
             
-            NSManagedObjectContext *context = [self managedObjectContext];
-            NSManagedObject *newActivityList = [NSEntityDescription insertNewObjectForEntityForName:@"MyActivityEquipmentList" inManagedObjectContext:context];
-            if(isFromCreateTrip)
-            {
-                NSLog(@"This will all fail anyways so...WTFC?!");
-//                [newActivityList setValue:activityDict[@"activityListname"] forKey:@"activityList_Name"];
-//                [newActivityList setValue:activityDict[@"DurationTitle"] forKey:@"duration"];
-//                [newActivityList setValue:activityDict[@"main_Activity"] forKey:@"main_Activity"];
-//                [newActivityList setValue:activityDict[@"ActivityTitle"] forKey:@"sub_activity"];
-//                [newActivityList setValue:activityDict[@"TempTitle"] forKey:@"temperature"];
-                
-            }
-            else
-            {
-                [newActivityList setValue:[myTripObj valueForKey:@"activityList_Name"] forKey:@"activityList_Name"];
-                [newActivityList setValue:[myTripObj valueForKey:@"duration"] forKey:@"duration"];
-                [newActivityList setValue:[myTripObj valueForKey:@"main_Activity"] forKey:@"main_Activity"];
-                [newActivityList setValue:[myTripObj valueForKey:@"sub_activity"] forKey:@"sub_activity"];
-                [newActivityList setValue:[myTripObj valueForKey:@"temperature"] forKey:@"temperature"];
-            }
-            [newActivityList setValue:alertTextField.text forKey:@"equipment"];
-            [newActivityList setValue:@"hexa_orange" forKey:@"image"];
-            
-            NSError *error1 = nil;
-            if (![context save:&error1]) {
-                NSLog(@"Can't Save! %@ %@", error1, [error1 localizedDescription]);
-            }
-            
-            
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self.collectionView reloadData];
-            });
+//            [newActivityList setValue:alertTextField.text forKey:@"equipment"];
+//            [newActivityList setValue:@"hexa_orange" forKey:@"image"];
+        
+//            dispatch_async(dispatch_get_main_queue(), ^{
+//                [self.collectionView reloadData];
+//            });
             listArray = [vikingDataManager getGearForTrip:self.tripId];
             [self.collectionView reloadData];
-        }
     }
     else if (alertView.tag == 2001)
     {
-        if(buttonIndex == 1)
-        {
             UITextField * alertTextField = [alertView textFieldAtIndex:0];
-//            alertTextField.text = @"ABC";
-            if([alertTextField.text length]>0)
+            if([alertTextField.text length]>0){
                 self.activityNameLbl.text = [alertTextField.text capitalizedString];
-            
-            NSArray *listArr = [vikingDataManager getGearForTrip:self.tripId];
-            
-            NSManagedObjectContext *context = [self managedObjectContext];
-            for(NSManagedObject *obj in listArr)
-            {
-                [obj setValue:alertTextField.text forKey:@"activityList_Name"];
-                
-                NSError *error1 = nil;
-                // Save the object to persistent store
-                if (![context save:&error1]) {
-                    NSLog(@"Can't Save! %@ %@", error1, [error1 localizedDescription]);
-                }
+                [vikingDataManager renameTrip:self.tripId :alertTextField.text];
             }
-            
-            NSArray *myListArr = [vikingDataManager getGearForTrip:self.tripId];//[self fetchMyActivityList];
-            
-            for(NSManagedObject *obj in myListArr)
-            {
-                [obj setValue:alertTextField.text forKey:@"activityList_Name"];
-                
-                NSError *error1 = nil;
-                // Save the object to persistent store
-                if (![context save:&error1]) {
-                    NSLog(@"Can't Save! %@ %@", error1, [error1 localizedDescription]);
-                }
-            }
-
-        }
     }
     else if(alertView.tag == 3001)
     {
-        if(buttonIndex == 1)
-        {
             for (NSDictionary *obj in indexArray){
                 [vikingDataManager markItemDeleted:obj[@"id"] :self.tripId];
             }
-            //self.isDeleted = YES;
-            
             [self SwipeDown:self.actView];
             self.actView.hidden = YES;
             self.isOpen = NO;
             [indexArray removeAllObjects];
             listArray = [vikingDataManager getGearForTrip:self.tripId];
             [self.collectionView reloadData];
-            
             [self calculatePercentageAndUpdate:nil];
-        }
     }
     else if (alertView.tag == 4001)
     {
-        if(buttonIndex ==1)
-        {
-            
-            NSManagedObjectContext *context = [self managedObjectContext];
-            
-            NSArray *listArr = [vikingDataManager getGearForTrip:self.tripId];
-            for(NSManagedObject *obj in listArr)
-            {
-//                [context deleteObject:obj];
-                [obj setValue:@"hexa_orange" forKey:@"image"];
-                
-                NSError *error = nil;
-                // Save the object to persistent store
-                if (![context save:&error]) {
-                    NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
-                }
-            }
-            
+            [vikingDataManager resetListForTrip:self.tripId];
             [self.collectionView reloadData];
             [self calculatePercentageAndUpdate:nil];
-            
-        self.isReset = YES;
+            self.isReset = YES;
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self.collectionView reloadData];
             });
-        }
     }
     else if(alertView.tag == 5001)
     {
-        if(buttonIndex ==1)
-        {
-            NSManagedObjectContext *context = [self managedObjectContext];
-            
-            NSArray *listArr = [vikingDataManager getGearForTrip:self.tripId];
-            for(NSManagedObject *obj in listArr)
-            {
-                [context deleteObject:obj];
-                
-                NSError *error = nil;
-                // Save the object to persistent store
-                if (![context save:&error]) {
-                    NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
-                }
-            }
-            
-            NSArray *myListArr = [vikingDataManager getGearForTrip:self.tripId];//[self fetchMyActivityList];
-            for(NSManagedObject *obj in myListArr)
-            {
-                [context deleteObject:obj];
-                
-                NSError *error = nil;
-                // Save the object to persistent store
-                if (![context save:&error]) {
-                    NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
-                }
-            }
-            if(isFromCreateTrip)
+            [vikingDataManager deleteListForTrip:self.tripId];
+            if(isFromCreateTrip){
                 [self.navigationController popToRootViewControllerAnimated:YES];
-            else
+            }
+            else{
                 [self.navigationController popViewControllerAnimated:YES];
-        }
+            }
+    }
     }
 }
 

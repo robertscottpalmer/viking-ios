@@ -197,6 +197,22 @@
     
 }
 
+-(void)resetListForTrip: (NSString *)tripId{
+    [self showAlert:[NSString stringWithFormat:@"Resetting all of the items to an unpacked state for trip id = %@",tripId]];
+}
+
+-(void)deleteListForTrip: (NSString *)tripId{
+    [self showAlert:[NSString stringWithFormat:@"Deleting trip with trip id = %@",tripId]];
+}
+
+-(void)renameTrip: (NSString *)tripId :(NSString *)newTripName{
+    [self showAlert:[NSString stringWithFormat:@"Renaming trip with trip id = %@ to name = %@",tripId,newTripName]];
+}
+
+-(void)addCustomItemToTripList: (NSString *)tripId :(NSString *)customItemName{
+    [self showAlert:[NSString stringWithFormat:@"Need to add a custom item to trip id = %@ with custom item name = %@",tripId,customItemName]];
+}
+
 -(NSArray *)getMyTrips{
     NSArray *fetchedObjects = [self fetchManagedObjects:@"Trip" :nil];
     return fetchedObjects;

@@ -54,6 +54,10 @@
 -(NSDictionary *)getTemperature:(NSString*)id;
 /*DML operations*/
 -(NSString *)createNewTrip: (NSString *)tripName :(NSDictionary *)userSelections;
+-(void)resetListForTrip: (NSString *)tripId;
+-(void)deleteListForTrip: (NSString *)tripId;
+-(void)renameTrip: (NSString *)tripId :(NSString *)newTripName;
+-(void)addCustomItemToTripList: (NSString *)tripId :(NSString *)customItemName;
 -(NSArray *)getMyTrips;
 -(NSArray *)getGearForTrip:(NSString *)tripId;
 -(NSDictionary *)getTrip:(NSString*)tripId;
