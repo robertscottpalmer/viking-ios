@@ -68,7 +68,7 @@
         NSString *imagePath = [NSString stringWithFormat:@"%@/media/%@/%@/%@.png", apiServer, entityType, entityId,imageType];
         //NSLog(@"trying to retrieve %@",imagePath);
         UIImage *internetActivityImage = [UIImage imageWithData:[self attemptCacheRetrieve:[NSURL URLWithString:imagePath]]];
-        dispatch_sync(dispatch_get_main_queue(), ^{
+        dispatch_async(dispatch_get_main_queue(), ^{
             // Update UI
             if (internetActivityImage != nil){
                 targetView.image = internetActivityImage;
@@ -216,7 +216,6 @@
         [managedContext deleteObject:tripObj];
         [self saveContext];
     }
-    [self showAlert:[NSString stringWithFormat:@"VERY MUCH A WORK IN PROGRESS !"]];
 }
 
 -(void)renameTrip: (NSString *)tripId :(NSString *)newTripName{
@@ -225,7 +224,6 @@
         [tripObj setValue:newTripName forKey:@"name"];
         [self saveContext];
     }
-    [self showAlert:[NSString stringWithFormat:@"VERY MUCH A WORK IN PROGRESS ! Renaming trip with trip id = %@ to name = %@",tripId,newTripName]];
 }
 
 -(void)addCustomItemToTripList: (NSString *)tripId :(NSString *)customItemName{
