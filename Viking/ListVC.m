@@ -25,8 +25,7 @@
 
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic) BOOL isOpen;
-@property (nonatomic) BOOL isReset;
-//@property (nonatomic) BOOL isDeleted;
+//@property (nonatomic) BOOL isReset;
 @property (nonatomic) BOOL isLeftMoved;
 @property (nonatomic) BOOL isRightMoved;
 @property (nonatomic) BOOL isScrollUp;
@@ -40,7 +39,7 @@
 
 @implementation ListVC
 
-@synthesize headerStr, isFromCreateTrip, myTripObj, currentIndex,listArray,activityListArray;//,totalIndex;//,activityDict,  ;
+@synthesize headerStr, isFromCreateTrip, currentIndex,listArray,activityListArray;//myTripObj,,totalIndex;//,activityDict,  ;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -51,16 +50,12 @@
     vikingDataManager = [VikingDataManager sharedManager];
     
     NSDictionary *trip = [vikingDataManager getFullTripObject:_tripId];
-    //totalCount = 21;
     self.actionView.hidden = YES;
     self.actView.hidden = YES;
     
-    //self.totalIndex = [self.activityListArray count];
-    
     
     self.isOpen = NO;
-    self.isReset = NO;
-//    self.isDeleted = NO;
+    //self.isReset = NO;
     self.isScrollUp = NO;
     
     appDel = (AppDelegate *)[[UIApplication sharedApplication] delegate];
@@ -430,13 +425,13 @@
     }
     else if (alertView.tag == 4001)
     {
-            [vikingDataManager resetListForTrip:self.tripId];
-            [self.collectionView reloadData];
-            [self calculatePercentageAndUpdate:nil];
-            self.isReset = YES;
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self.collectionView reloadData];
-            });
+        [vikingDataManager resetListForTrip:self.tripId];
+        //self.isReset = YES;
+//            dispatch_async(dispatch_get_main_queue(), ^{
+//                [self.collectionView reloadData];
+//            });
+        [self.collectionView reloadData];
+        [self calculatePercentageAndUpdate:nil];
     }
     else if(alertView.tag == 5001)
     {
@@ -551,7 +546,7 @@
             [self createActionView:actionViewRect];
         }
     }
-    self.isReset = NO;
+    //self.isReset = NO;
     self.selectedIndexPath = indexPath;
 }
 
@@ -560,19 +555,11 @@
     CGFloat yVelocity = [scrollView.panGestureRecognizer velocityInView:scrollView].y;
     if (yVelocity < 0)
     {
-//               self.scrlView.contentOffset = CGPointMake(self.view.frame.origin.x, -yVelocity);
-        
-//        NSLog(@"Up");
         self.isScrollUp = YES;
         
         self.collectionView.scrollEnabled = YES;
         self.actView.hidden = YES;
-        
-//        NSLog(@"content size - %@", NSStringFromCGSize(self.collectionView.contentSize));
         self.scrlView.contentSize = CGSizeMake(self.view.frame.size.width, self.collectionView.contentSize.height + self.headerView.frame.size.height+70);
-        
-//        NSLog(@"self.scrlView content size - %@", NSStringFromCGSize(self.scrlView.contentSize));
-        
         CGRect collectionlistViewFrame = self.collectionListsView.frame;
         collectionlistViewFrame.size.height = self.scrlView.contentSize.height;
 
@@ -580,9 +567,6 @@
         collRect.size.height = self.scrlView.contentSize.height;
         self.collectionView.frame = collRect;
         self.collectionView.backgroundColor = [UIColor clearColor];
-        
-//        NSLog(@"coll view size - %@", NSStringFromCGRect(self.collectionView.frame));
-//        NSLog(@"coll list view size - %@", NSStringFromCGRect(self.collectionListsView.frame));
     }
     else
     {
@@ -938,9 +922,9 @@
     alertView.tag = 2001;
     alertView.alertViewStyle = UIAlertViewStylePlainTextInput;
     if(isFromCreateTrip)
-        [alertView textFieldAtIndex:0].text = @"Placeholder for activityListname";
+        [alertView textFieldAtIndex:0].text = @"New Trip Name";
     else
-        [alertView textFieldAtIndex:0].text = [myTripObj valueForKey:@"activityList_Name"];
+        [alertView textFieldAtIndex:0].text = @"New Trip Name";
     [alertView show];
 }
 

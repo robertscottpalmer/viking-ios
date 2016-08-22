@@ -66,7 +66,7 @@
     dispatch_async(queue, ^{
         // Perform async operation
         NSString *imagePath = [NSString stringWithFormat:@"%@/media/%@/%@/%@.png", apiServer, entityType, entityId,imageType];
-        NSLog(@"trying to retrieve %@",imagePath);
+        //NSLog(@"trying to retrieve %@",imagePath);
         UIImage *internetActivityImage = [UIImage imageWithData:[self attemptCacheRetrieve:[NSURL URLWithString:imagePath]]];
         dispatch_sync(dispatch_get_main_queue(), ^{
             // Update UI
@@ -114,6 +114,14 @@
 }
 
 /**From here down are true data management tasks**/
+
+-(void)saveContext{
+    NSError *error = nil;
+    if (![managedContext save:&error]){
+        //[self showAlert:[NSString stringWithFormat:@"Can't Save! %@ %@", error, [error localizedDescription]]];
+        NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
+    }
+}
 
 -(NSDictionary *)getPotentiallyCachedDictionary:(NSString *) apiCall{
     NSData *potentiallyCachedData = [self attemptCacheRetrieve:[NSURL URLWithString:apiCall]];
@@ -187,30 +195,41 @@
     [newActivity setValue:userSelections[USER_SELECTED_ACTIVITY][@"id"] forKey:@"activityId"];
     [newActivity setValue:userSelections[USER_SELECTED_DURATION][@"id"] forKey:@"durationId"];
     [newActivity setValue:userSelections[USER_SELECTED_TEMPERATURE][@"id"] forKey:@"temperatureId"];
-    
-    NSError *error = nil;
-    // Save the object to persistent store
-    if (![managedContext save:&error]) {
-                NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
-    }
+    [self saveContext];
     return uuid;
     
 }
 
 -(void)resetListForTrip: (NSString *)tripId{
-    [self showAlert:[NSString stringWithFormat:@"Resetting all of the items to an unpacked state for trip id = %@",tripId]];
+    [self showAlert:[NSString stringWithFormat:@"Only partially implemented refreshing view is not working!"]];
+    NSArray *gearList = [self getGearForTrip:tripId];
+    for (int gearListIdx = 0; gearListIdx < [gearList count]; gearListIdx++) {
+        NSDictionary *gear = gearList[gearListIdx];
+        [self markItemUnpacked:gear[@"id"]:tripId];
+    }
+    [self saveContext];
 }
 
 -(void)deleteListForTrip: (NSString *)tripId{
-    [self showAlert:[NSString stringWithFormat:@"Deleting trip with trip id = %@",tripId]];
+    NSManagedObject *tripObj = [self getManagedTripObject:tripId];
+    if (tripObj != nil){
+        [managedContext deleteObject:tripObj];
+        [self saveContext];
+    }
+    [self showAlert:[NSString stringWithFormat:@"VERY MUCH A WORK IN PROGRESS !"]];
 }
 
 -(void)renameTrip: (NSString *)tripId :(NSString *)newTripName{
-    [self showAlert:[NSString stringWithFormat:@"Renaming trip with trip id = %@ to name = %@",tripId,newTripName]];
+    NSManagedObject *tripObj = [self getManagedTripObject:tripId];
+    if (tripObj != nil){
+        [tripObj setValue:newTripName forKey:@"name"];
+        [self saveContext];
+    }
+    [self showAlert:[NSString stringWithFormat:@"VERY MUCH A WORK IN PROGRESS ! Renaming trip with trip id = %@ to name = %@",tripId,newTripName]];
 }
 
 -(void)addCustomItemToTripList: (NSString *)tripId :(NSString *)customItemName{
-    [self showAlert:[NSString stringWithFormat:@"Need to add a custom item to trip id = %@ with custom item name = %@",tripId,customItemName]];
+    [self showAlert:[NSString stringWithFormat:@"NOT YET IMPLEMENTED ! Need to add a custom item to trip id = %@ with custom item name = %@",tripId,customItemName]];
 }
 
 -(NSArray *)getMyTrips{
@@ -253,13 +272,17 @@
     NSArray *fetchedObjects = [managedContext executeFetchRequest:fetchRequest error:&error];
     return fetchedObjects;
 }
-
--(NSDictionary *)getTrip:(NSString*)tripId{
-    //now limit the result set to our id.
+     
+-(NSManagedObject *)getManagedTripObject:(NSString*)tripId{
     NSPredicate *predicate;
     predicate = [NSPredicate predicateWithFormat:@"id=%@", tripId];
     NSArray *fetchedObjects = [self fetchManagedObjects:@"Trip" :predicate];
-    NSManagedObject *storedTrip = fetchedObjects[0];
+    return fetchedObjects[0];
+}
+
+-(NSDictionary *)getTrip:(NSString*)tripId{
+    //now limit the result set to our id.
+    NSManagedObject *storedTrip = [self getManagedTripObject:tripId];
     NSMutableDictionary *toReturn = [[NSMutableDictionary alloc] init];
     toReturn[@"id"] = [storedTrip valueForKey:@"id"];
     toReturn[@"name"] = [storedTrip valueForKey:@"name"];
@@ -338,6 +361,8 @@
     return retVal;
 }
 
+
+
 //It should be noted here that the "itemId" is actually assumed to be the id of the gearRecommendaton
 -(void)markItemState: (NSString*) itemState : (NSString *) gearRecommendationId : (NSString *) tripId{
     NSPredicate *predicate;
@@ -353,12 +378,8 @@
         listStatus = fetchedObjects[0];
     }
     [listStatus setValue:itemState forKey:@"tripGearStatus"];
-    NSError *error = nil;
-    if (![managedContext save:&error]){
-        //[self showAlert:[NSString stringWithFormat:@"Can't Save! %@ %@", error, [error localizedDescription]]];
-        NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
+    [self saveContext];
     }
-}
 -(void)markItemDeleted: (NSString *) itemId : (NSString*) tripId{
     [self markItemState:ITEM_STATE_EXPLICIT_DELETE :itemId :tripId];
 }
@@ -397,9 +418,12 @@
     }
     //nothing was cached within the last day, so we will check the internet (if possible).
     freshData = hazInternets ? [NSData dataWithContentsOfURL:urlToCheck] : freshData;
+    //[freshData writeToFile:cacheFileName atomically:true];
     if (freshData != nil){
-            //TODO: do this as a background thread.
-            [freshData writeToFile:cacheFileName atomically:true];
+        //store the data to cache in background so as to not hold up ui rendering
+        dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+           [freshData writeToFile:cacheFileName atomically:true];
+        });
     }
     return freshData;
 }
