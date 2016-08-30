@@ -425,10 +425,21 @@
     //...
     // Pack in the user credentials
     [request setValue:[NSString stringWithFormat:@"%@",authValue] forHTTPHeaderField:@"Authorization"];
-
-    
     //[urlToCheck set];
-    freshData = hazInternets ? [NSData dataWithContentsOfURL:urlToCheck] : freshData;
+    
+    [request setHTTPMethod: @"GET"];
+    
+    //send the request and use the response
+    NSError *requestError = nil;
+    NSURLResponse *urlResponse = nil;
+    if (hazInternets){
+        freshData =
+        [NSURLConnection sendSynchronousRequest:request
+                          returningResponse:&urlResponse error:&requestError];
+    }
+    
+    
+    //freshData = hazInternets ? [NSData dataWithContentsOfURL:urlToCheck] : freshData;
     //[freshData writeToFile:cacheFileName atomically:true];
     if (freshData != nil){
         //store the data to cache in background so as to not hold up ui rendering
