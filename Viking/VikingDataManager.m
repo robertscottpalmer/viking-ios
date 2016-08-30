@@ -201,7 +201,7 @@
 }
 
 -(void)resetListForTrip: (NSString *)tripId{
-    [self showAlert:[NSString stringWithFormat:@"Only partially implemented refreshing view is not working!"]];
+    //[self showAlert:[NSString stringWithFormat:@"Only partially implemented refreshing view is not working!"]];
     NSArray *gearList = [self getGearForTrip:tripId];
     for (int gearListIdx = 0; gearListIdx < [gearList count]; gearListIdx++) {
         NSDictionary *gear = gearList[gearListIdx];
@@ -239,7 +239,7 @@
     ///entities you will need to deal with are : GearRecommendation, TripGear
     NSDictionary *trip = [self getTrip:tripId];
     NSString *gearForTripApiCall = [NSString stringWithFormat:@"%@/%@?activityId=%@&temperatureId=%@&durationId=%@", apiServer, @"gearlist.php",trip[@"activityId"],trip[@"temperatureId"],trip[@"durationId"]];
-    NSDictionary *tripGearDict = [NSDictionary dictionaryWithXMLData:[NSData dataWithContentsOfURL: [NSURL URLWithString:gearForTripApiCall]]];
+    NSDictionary *tripGearDict = [self getPotentiallyCachedDictionary:gearForTripApiCall];//[NSDictionary dictionaryWithXMLData:[NSData dataWithContentsOfURL: [NSURL URLWithString:gearForTripApiCall]]];
     NSArray *gearList = tripGearDict[@"Gear"];
     //Loop through gear list and add gear state to the mix
     
@@ -415,6 +415,19 @@
         }
     }
     //nothing was cached within the last day, so we will check the internet (if possible).
+    NSString *authStr = [NSString stringWithFormat:@"%@:%@", @"vikingapplication", @"wg<kQ2j2{,Qw"];
+    NSData *authData = [authStr dataUsingEncoding:NSASCIIStringEncoding];
+    NSString *authValue = [NSString stringWithFormat:@"Basic %@", [authData base64Encoding]];
+    
+    //Set up Request:
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc]init];
+    [request setURL:urlToCheck];
+    //...
+    // Pack in the user credentials
+    [request setValue:[NSString stringWithFormat:@"%@",authValue] forHTTPHeaderField:@"Authorization"];
+
+    
+    //[urlToCheck set];
     freshData = hazInternets ? [NSData dataWithContentsOfURL:urlToCheck] : freshData;
     //[freshData writeToFile:cacheFileName atomically:true];
     if (freshData != nil){

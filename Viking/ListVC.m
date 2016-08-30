@@ -25,7 +25,7 @@
 
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic) BOOL isOpen;
-//@property (nonatomic) BOOL isReset;
+@property (nonatomic) BOOL isReset;
 @property (nonatomic) BOOL isLeftMoved;
 @property (nonatomic) BOOL isRightMoved;
 @property (nonatomic) BOOL isScrollUp;
@@ -426,10 +426,11 @@
     else if (alertView.tag == 4001)
     {
         [vikingDataManager resetListForTrip:self.tripId];
-        //self.isReset = YES;
+self.isReset = YES;
 //            dispatch_async(dispatch_get_main_queue(), ^{
 //                [self.collectionView reloadData];
 //            });
+        listArray = [vikingDataManager getGearForTrip:self.tripId];
         [self.collectionView reloadData];
         [self calculatePercentageAndUpdate:nil];
     }
@@ -932,7 +933,6 @@
 {
     [self SwipeDown:self.menuView];
     self.menuView.hidden = YES;
-    
     UIAlertView *resetAlert = [[UIAlertView alloc] initWithTitle:@"" message:@"Reset all items in this list?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Confirm", nil];
     resetAlert.tag = 4001;
     [resetAlert show];
@@ -1016,7 +1016,7 @@
 }
 
 -(void)loadNeighbour:(BOOL) goLeft{
-    NSLog(@"rightClicked and left clicked should be essentially the same function that passes the current trip id to the data manager + direction and lets the data manager send back the trip id that should be loaded...if the trip id's are identical (i.e. only one trip) warning should be displayed to user");
+//    NSLog(@"rightClicked and left clicked should be essentially the same function that passes the current trip id to the data manager + direction and lets the data manager send back the trip id that should be loaded...if the trip id's are identical (i.e. only one trip) warning should be displayed to user");
     NSString *newIdToLoad = [vikingDataManager getNeighboringTripId:self.tripId :goLeft];
     self.tripId = newIdToLoad;
     self.BtnRight.userInteractionEnabled = YES;
