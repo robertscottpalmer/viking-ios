@@ -400,7 +400,7 @@
     NSString *cacheFileName = [NSString stringWithFormat:@"%@/%@",tmpCachePath,base64EncodedUrl];
     NSFileManager *fileManager = [NSFileManager defaultManager];
     //NSLog(@"Checking internet connectivity");
-    BOOL hazInternets = [self hazInternetConnection];
+    BOOL hazInternets = true;//[self hazInternetConnection];
     //NSLog(@"Done Checking internet connectivity");
     NSData *freshData = nil;
     if ([fileManager fileExistsAtPath:cacheFileName]){
@@ -425,8 +425,6 @@
     //...
     // Pack in the user credentials
     [request setValue:[NSString stringWithFormat:@"%@",authValue] forHTTPHeaderField:@"Authorization"];
-    //[urlToCheck set];
-    
     [request setHTTPMethod: @"GET"];
     
     //send the request and use the response
@@ -438,10 +436,13 @@
                           returningResponse:&urlResponse error:&requestError];
     }
     
-    
     //freshData = hazInternets ? [NSData dataWithContentsOfURL:urlToCheck] : freshData;
-    //[freshData writeToFile:cacheFileName atomically:true];
-    if (freshData != nil){
+    
+    if (requestError != nil){
+        NSLog(@"There were issues encountered while trying to use the internet. Viking data may not be up to date.");
+    }
+    
+    if (requestError == nil && freshData != nil){
         //store the data to cache in background so as to not hold up ui rendering
         dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
            [freshData writeToFile:cacheFileName atomically:true];
