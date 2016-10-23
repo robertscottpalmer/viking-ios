@@ -239,10 +239,13 @@
     ///entities you will need to deal with are : GearRecommendation, TripGear
     NSDictionary *trip = [self getTrip:tripId];
     NSString *gearForTripApiCall = [NSString stringWithFormat:@"%@/%@?activityId=%@&temperatureId=%@&durationId=%@", apiServer, @"gearlist.php",trip[@"activityId"],trip[@"temperatureId"],trip[@"durationId"]];
-    NSDictionary *tripGearDict = [self getPotentiallyCachedDictionary:gearForTripApiCall];//[NSDictionary dictionaryWithXMLData:[NSData dataWithContentsOfURL: [NSURL URLWithString:gearForTripApiCall]]];
+    NSDictionary *tripGearDict = [self getPotentiallyCachedDictionary:gearForTripApiCall];
     NSArray *gearList = tripGearDict[@"Gear"];
     //Loop through gear list and add gear state to the mix
     
+    NSLog(@"gear list count %lu",(unsigned long)[gearList count]);
+    //NSLog(@"Is of type: %@", [gearList className]);
+    //TODO: there is a bug where single item lists just become a single object  maps
     for (int gearListIdx = 0; gearListIdx < [gearList count]; gearListIdx++) {
         id gearRecommendation = [gearList objectAtIndex:gearListIdx];
         NSString *gearRecommendationId = [gearRecommendation valueForKey:@"id"];
