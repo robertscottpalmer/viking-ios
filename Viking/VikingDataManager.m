@@ -19,7 +19,9 @@
 - (id)init {
     if (self = [super init]) {
         //apiServer = @"http://thevikingapp.local";
-        apiServer = @"http://thevikingapp.com/api";
+        //apiServer = @"http://thevikingapp.com/api";
+        //apiServer = @"http://ec2-54-187-220-226.us-west-2.compute.amazonaws.com/api/";
+        apiServer = @"http://api.thevikingapp.net/api/";
         id delegate = [[UIApplication sharedApplication] delegate];
         if ([delegate performSelector:@selector(managedObjectContext)]) {
             managedContext = [delegate managedObjectContext];
@@ -425,6 +427,7 @@
     //Set up Request:
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc]init];
     [request setURL:urlToCheck];
+    NSLog(@"The url we are trying to hit is %@",urlToCheck);
     //...
     // Pack in the user credentials
     [request setValue:[NSString stringWithFormat:@"%@",authValue] forHTTPHeaderField:@"Authorization"];
